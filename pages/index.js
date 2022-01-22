@@ -38,6 +38,7 @@ export default function Home() {
             </Head>
             <Navbar />
             <main>
+                {console.log("this")}
                 <div id="home" ref={ref}>
                     <div className="left">
                         <h1>
