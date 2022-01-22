@@ -8,7 +8,7 @@
     width: 100%;
     background-color: #fbfbfb;
     color: $black;
-    padding: 2em 0;
+    padding: 3em 0;
     .left {
         position: relative;
         left: 0;
@@ -22,6 +22,7 @@
         }
         p {
             font-weight: 500;
+            margin-top: 1em;
         }
         .tiles {
             position: relative;

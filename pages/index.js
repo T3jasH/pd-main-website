@@ -1,11 +1,31 @@
 import Head from "next/head"
 import rightImage from "../assets/rightImage.png"
+import { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import Navbar from "../components/Navbar"
 import Link from "next/link"
 import About from "../components/About"
+import WhyPD from "../components/WhyPD"
+import Vision from "../components/Vision"
+import Reviews from "../components/Reviews"
 
 export default function Home() {
+    const { ref, inView } = useInView({
+        rootMargin: "-50% 0%",
+    })
+
+    useEffect(() => {
+        const nav = document.querySelector("nav")
+        if (inView) {
+            if (nav) {
+                nav.setAttribute(
+                    "style",
+                    "--bgColor: #1b1b1b; --textColor: #fff;"
+                )
+            }
+        }
+    }, [inView])
     return (
         <div>
             <Head>
@@ -18,7 +38,7 @@ export default function Home() {
             </Head>
             <Navbar />
             <main>
-                <div id="home">
+                <div id="home" ref={ref}>
                     <div className="left">
                         <h1>
                             Tech like <span className="blue">never</span> before
@@ -52,6 +72,9 @@ export default function Home() {
                     </div>
                 </div>
                 <About />
+                <WhyPD />
+                <Vision />
+                <Reviews />
             </main>
         </div>
     )
