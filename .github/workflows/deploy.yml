@@ -17,6 +17,7 @@ jobs:
                   port: 22
                   script_stop: true
                   script: |
+                      cd pd-main-website/ 
                       docker pull tejashegde/messaging_app_client:latest
                       docker-compose up -d 
                       exit
