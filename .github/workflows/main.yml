@@ -36,6 +36,6 @@ jobs:
                   script_stop: true
                   script: |
                       cd pd-main-website/ 
-                      docker pull tejashegde/messaging_app_client:latest
+                      docker pull tejashegde/pd_main_website:latest
                       docker-compose up -d 
                       exit
