@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+
+#about-us {
+    $black: #0a0a0a;
+    $blue: #4a88da;
+    $gray: #605757;
+    position: relative;
+    width: 100%;
+    background-color: #fbfbfb;
+    color: $black;
+    padding: 2em 0;
+    .left {
+        position: relative;
+        left: 0;
+        top: 0;
+        padding: 0em 2em 2em 3em;
+        width: calc(50% - 5em);
+        h1 {
+            font-size: 3.25em;
+            font-weight: 400;
+            font-family: "Nunito", sans-serif;
+        }
+        p {
+            font-weight: 500;
+        }
+        .tiles {
+            position: relative;
+            top: 2em;
+            height: 10em;
+            width: 45%;
+        }
+    }
+    .right {
+        position: absolute;
+        right: 0;
+        top: 2em;
+        width: 50%;
+        .rightImage {
+            width: 90%;
+            height: 80vh;
+        }
+    }
+    footer {
+        width: 100%;
+        position: relative;
+        margin-top: 1.5em;
+        .line {
+            width: 33%;
+            height: 0.5em;
+            position: relative;
+        }
+        .blue-line {
+            background-color: $blue;
+            left: 60%;
+        }
+        .gray-line {
+            margin-top: 1.5em;
+            background-color: $gray;
+            left: 35%;
+        }
+    }
+}

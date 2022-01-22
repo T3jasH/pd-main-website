@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import "./navbar.scss";
+@import "./home.scss";
+@import "./about.scss";
+
+:root {
+    $font-size: 20px;
+    $black: #0a0a0a;
+    font-size: $font-size;
+    color: #fff;
+    font-family: "Quicksand", sans-serif;
+    background: linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}

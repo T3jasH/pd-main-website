@@ -1,0 +1,9 @@
+version: "3.3"
+
+services:
+    client:
+        image: tejashegde/pd_main_website:latest
+        ports:
+            - 80:3000
+        container_name: pdMainWebsite
+        restart: unless-stopped
