@@ -1,0 +1,75 @@
+#vision {
+    position: relative;
+    top: 0;
+    background-color: #fbfbfb;
+    z-index: 2;
+    .vision-img {
+        position: relative;
+        width: 100%;
+        h1 {
+            font-size: 3.5em;
+            font-weight: 400;
+            position: absolute;
+            top: 4em;
+            left: 1em;
+            margin: 0;
+            max-width: 60%;
+        }
+    }
+    .vision-table {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 1.5em 0;
+        position: relative;
+        color: var(--black);
+        overflow-x: hidden;
+        overflow-y: hidden;
+        z-index: 2;
+        .vision-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75em;
+            width: 20%;
+            z-index: 3;
+            h2 {
+                position: relative;
+                font-weight: 600;
+                font-size: 2em;
+                padding-bottom: 1.2rem;
+            }
+            h2::after {
+                position: absolute;
+                content: "";
+                bottom: 0;
+                left: 0;
+                height: 0.25rem;
+                width: 100%;
+                background-color: var(--black);
+            }
+            p {
+                text-align: center;
+                margin-top: 0.75em;
+                margin-bottom: 1em;
+            }
+        }
+        .quadrant {
+            width: 20em;
+            height: 20em;
+            background-color: #73b0f4;
+            border-radius: 50%;
+            position: absolute;
+            z-index: 2;
+        }
+        #q1 {
+            left: -10em;
+            bottom: -10em;
+        }
+        #q2 {
+            top: -10em;
+            right: -10em;
+        }
+    }
+}

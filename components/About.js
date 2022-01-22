@@ -18,13 +18,6 @@ const About = () => {
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
                 )
             }
-        } else {
-            if (nav) {
-                nav.setAttribute(
-                    "style",
-                    "--bgColor: #1b1b1b; --textColor: #fff;"
-                )
-            }
         }
     }, [inView])
 

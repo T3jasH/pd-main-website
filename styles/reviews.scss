@@ -1,0 +1,70 @@
+#reviews {
+    padding: 3em 0 3em 4em;
+    width: calc(100% - 4em);
+    position: relative;
+    background-color: #73b0f4;
+    h2 {
+        font-weight: 400;
+        font-size: 2em;
+        max-width: 60%;
+        position: relative;
+        .underline {
+            position: relative;
+        }
+        .underline::after {
+            content: "";
+            position: absolute;
+            height: 0.1em;
+            width: 100%;
+            bottom: -0.2em;
+            left: 0;
+            background-color: #fff;
+        }
+    }
+    .review {
+        display: flex;
+        justify-content: space-between;
+        padding: 6em 4em 4em 4em;
+        width: calc(80% - 8em);
+        .text {
+            width: 70%;
+            font-weight: 600;
+            line-height: 1.5em;
+            font-size: 1.2rem;
+        }
+        .reviewer {
+            display: flex;
+            flex-direction: column;
+            height: 7.5em;
+            justify-content: space-between;
+            .profile {
+                height: 5em;
+                width: 5em;
+                box-shadow: 0.25em 0.25em 0.15em 0.15em rgba(0, 0, 0, 0.1),
+                    -0.25em -0.25em 0.15em 0.15em rgba(0, 0, 0, 0.1);
+                border-radius: 50%;
+                img {
+                    border-radius: 50%;
+                }
+            }
+            p {
+                font-weight: bold;
+            }
+        }
+        .controls {
+            width: 15%;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            .arrow {
+                height: 2em;
+                width: 45%;
+                img {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
