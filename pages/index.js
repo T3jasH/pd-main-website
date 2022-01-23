@@ -9,6 +9,8 @@ import About from "../components/About"
 import WhyPD from "../components/WhyPD"
 import Vision from "../components/Vision"
 import Reviews from "../components/Reviews"
+import Clients from "../components/Clients"
+import Contact from "../components/Contact"
 
 export default function Home() {
     const { ref, inView } = useInView({
@@ -38,7 +40,6 @@ export default function Home() {
             </Head>
             <Navbar />
             <main>
-                {console.log("this")}
                 <div id="home" ref={ref}>
                     <div className="left">
                         <h1>
@@ -76,6 +77,8 @@ export default function Home() {
                 <WhyPD />
                 <Vision />
                 <Reviews />
+                <Clients />
+                <Contact />
             </main>
         </div>
     )

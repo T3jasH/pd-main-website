@@ -11,10 +11,18 @@ const Navbar = () => {
             <Link href="#why-pd" aria-label={"Why PD?"}>
                 Why PD?
             </Link>
-            <Link href="#vision">Vision</Link>
-            <Link href="#reviews">Reviews</Link>
-            <Link href="#clients">Clients</Link>
-            <Link href="#contact">Contact Us</Link>
+            <Link href="#vision" aria-label={"Vision"}>
+                Vision
+            </Link>
+            <Link href="#reviews" aria-label={"Reviews"}>
+                Reviews
+            </Link>
+            <Link href="#clients" aria-label={"Clients"}>
+                Clients
+            </Link>
+            <Link href="#contact" aria-label={"Contact"}>
+                Contact Us
+            </Link>
             <div className="logo">
                 <Image alt="PD Logo" src={logo} />
             </div>
