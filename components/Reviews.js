@@ -39,14 +39,14 @@ export default function Reviews() {
             if (nav) {
                 nav.setAttribute(
                     "style",
-                    "--bgColor: #73b0f4; --textColor: #fff;"
+                    "--bgColor: #447AB6; --textColor: #000; --borderColor: #fbfbfb; --focusTextColor: #447ab6;"
                 )
             }
         } else {
             if (nav) {
                 nav.setAttribute(
                     "style",
-                    "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
+                    "--bgColor: #f4f4f4; --textColor: #0a0a0a; --borderColor: #4a88da; --focusTextColor: #1b1b1b;"
                 )
             }
         }
@@ -72,35 +72,34 @@ export default function Reviews() {
                     </div>
                     <p>{reviews[currentIndex].name}</p>
                 </div>
-                <div className="controls">
-                    {/* <div className="arrow">
-                        <Image
-                            alt={"previous review"}
-                            layout="fill"
-                            objectFit="fill"
-                            src={previous}
-                            onClick={(e) => {
-                                setCurrentIndex(
-                                    (prev) => (prev + 1) % reviews.length
-                                )
-                            }}
-                        />
-                    </div>
-                    <div className="arrow">
-                        <Image
-                            alt={"next review"}
-                            layout="fill"
-                            objectFit="fill"
-                            onClick={(e) => {
-                                setCurrentIndex(
-                                    (prev) =>
-                                        (prev - 1 + reviews.length) %
-                                        reviews.length
-                                )
-                            }}
-                            src={next}
-                        />
-                    </div> */}
+            </div>
+            <div className="controls">
+                <div className="arrow">
+                    <Image
+                        alt={"previous review"}
+                        layout="fill"
+                        objectFit="fill"
+                        src={previous}
+                        onClick={(e) => {
+                            setCurrentIndex(
+                                (prev) => (prev + 1) % reviews.length
+                            )
+                        }}
+                    />
+                </div>
+                <div className="arrow">
+                    <Image
+                        alt={"next review"}
+                        layout="fill"
+                        objectFit="fill"
+                        onClick={(e) => {
+                            setCurrentIndex(
+                                (prev) =>
+                                    (prev - 1 + reviews.length) % reviews.length
+                            )
+                        }}
+                        src={next}
+                    />
                 </div>
             </div>
         </div>

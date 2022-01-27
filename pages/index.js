@@ -9,6 +9,9 @@ import About from "../components/About"
 import WhyPD from "../components/WhyPD"
 import Vision from "../components/Vision"
 import Reviews from "../components/Reviews"
+import Clients from "../components/Clients"
+import Contact from "../components/Contact"
+import CommonFooter from "../components/CommonFooter"
 
 export default function Home() {
     const { ref, inView } = useInView({
@@ -29,7 +32,7 @@ export default function Home() {
     return (
         <div>
             <Head>
-                <title>Prodevans</title>
+                <title>Prodevans - Tech Like Never Before</title>
                 <meta
                     name="description"
                     content="Prodevans is a leading technology solution provider specialising in end to end DevOps offerings that streamline and automate IT delivery."
@@ -75,7 +78,10 @@ export default function Home() {
                 <WhyPD />
                 <Vision />
                 <Reviews />
+                <Clients />
+                <Contact />
             </main>
+            <CommonFooter />
         </div>
     )
 }

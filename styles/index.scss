@@ -5,6 +5,11 @@
 @import "./whyPD.scss";
 @import "./vision.scss";
 @import "./reviews.scss";
+@import "./clients.scss";
+@import "./contact.scss";
+@import "./commonFooter.scss";
+@import "./company/about.scss";
+@import "./company/careers.scss";
 
 :root {
     $font-size: 20px;
@@ -48,6 +53,24 @@ h3 {
 
 p {
     margin: 0;
+}
+
+.nav-info {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+    justify-content: flex-start;
+    p {
+        font-weight: 500;
+    }
+    .arrow {
+        width: 1.5em;
+    }
+    h1 {
+        font-weight: 600;
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width: 1400px) {

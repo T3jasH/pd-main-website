@@ -6,7 +6,7 @@
     .vision-img {
         position: relative;
         width: 100%;
-        h1 {
+        h2 {
             font-size: 3.5em;
             font-weight: 400;
             position: absolute;
@@ -53,12 +53,13 @@
                 text-align: center;
                 margin-top: 0.75em;
                 margin-bottom: 1em;
+                font-weight: 500;
             }
         }
         .quadrant {
             width: 20em;
             height: 20em;
-            background-color: #73b0f4;
+            background-color: #447ab6;
             border-radius: 50%;
             position: absolute;
             z-index: 2;

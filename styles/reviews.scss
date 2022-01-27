@@ -1,8 +1,8 @@
 #reviews {
-    padding: 3em 0 3em 4em;
+    padding: 5em 0 3em 4em;
     width: calc(100% - 4em);
     position: relative;
-    background-color: #73b0f4;
+    background: linear-gradient(116.18deg, #447ab6 0%, #9933a3 99.08%);
     h2 {
         font-weight: 400;
         font-size: 2em;
@@ -26,6 +26,7 @@
         justify-content: space-between;
         padding: 6em 4em 4em 4em;
         width: calc(80% - 8em);
+        height: 18rem;
         .text {
             width: 70%;
             font-weight: 600;
@@ -51,19 +52,19 @@
                 font-weight: bold;
             }
         }
-        .controls {
-            width: 15%;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            .arrow {
-                height: 2em;
-                width: 45%;
-                img {
-                    cursor: pointer;
-                }
+    }
+    .controls {
+        width: 15%;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        .arrow {
+            position: relative;
+            height: 2em;
+            width: 45%;
+            img {
+                cursor: pointer;
             }
         }
     }
