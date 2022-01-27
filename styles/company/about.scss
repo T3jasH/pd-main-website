@@ -1,0 +1,115 @@
+.about-company {
+    padding: 1em 2em 3em 2em;
+    position: relative;
+    .squares {
+        position: absolute;
+        width: 10rem;
+        height: 7rem;
+    }
+    .squares-top-right {
+        top: 2em;
+        right: 2em;
+    }
+    main {
+        display: flex;
+        gap: 2em;
+        padding: 2em 0;
+        .left {
+            position: relative;
+            left: -2em;
+            background-color: #4a87d9;
+            flex: 1;
+            height: 65vh;
+            .squares-bottom-right {
+                bottom: -4em;
+                right: -6em;
+            }
+            .gray {
+                background-color: #c4c4c4;
+                position: absolute;
+                width: 80%;
+                height: 55%;
+                top: 50%;
+                left: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+        .right {
+            position: relative;
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            p {
+                font-weight: 600;
+                font-size: 1.15rem;
+                line-height: 1.6rem;
+                max-width: 80%;
+            }
+        }
+    }
+}
+.management {
+    position: relative;
+    background: #fbfbfb;
+    color: #000;
+    padding: 5em 0em 2em 0em;
+    h2 {
+        text-align: center;
+        font-weight: 500;
+    }
+    .profile-list {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 2em 0;
+        .profile {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            padding: 1em 0;
+            &:nth-child(even) {
+                background-color: #f5f5f5;
+            }
+            .left {
+                display: flex;
+                flex: 0.5;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1em;
+                .profile-img {
+                    width: 8rem;
+                }
+                h3 {
+                    font-weight: 600;
+                    font-size: 1.75rem;
+                }
+                p {
+                    font-weight: 500;
+                    color: #4a87d9;
+                    text-align: center;
+                    max-width: 70%;
+                }
+            }
+            .right {
+                position: relative;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5em;
+                .socials {
+                    display: flex;
+                    gap: 0.5em;
+                    div {
+                        width: 2rem;
+                        height: 2rem;
+                        &:nth-child(3) {
+                            background-color: #4a87d9;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

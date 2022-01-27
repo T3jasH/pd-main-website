@@ -39,14 +39,14 @@ export default function Reviews() {
             if (nav) {
                 nav.setAttribute(
                     "style",
-                    "--bgColor: #447AB6; --textColor: #000; --borderColor: #000;"
+                    "--bgColor: #447AB6; --textColor: #000; --borderColor: #fbfbfb; --focusTextColor: #447ab6;"
                 )
             }
         } else {
             if (nav) {
                 nav.setAttribute(
                     "style",
-                    "--bgColor: #f4f4f4; --textColor: #0a0a0a; --borderColor: #4a88da;"
+                    "--bgColor: #f4f4f4; --textColor: #0a0a0a; --borderColor: #4a88da; --focusTextColor: #1b1b1b;"
                 )
             }
         }

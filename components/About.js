@@ -24,10 +24,10 @@ const About = () => {
     return (
         <div id="about-us" ref={ref}>
             <div className="left">
-                <h1>
+                <h2>
                     We are what your <span className="underline">brand</span> is
                     missing.
-                </h1>
+                </h2>
                 <p>
                     Prodevans is an ISO 9001 | 27001 | 20000 Accredited
                     Certified,a leading technology solution provider

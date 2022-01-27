@@ -2,7 +2,7 @@ default() {
     start
 }
 design(){
-      xdg-open $1
+      xdg-open "https://www.figma.com/file/TMvViBcFAuz5AROUzLCFKt/prodevans-main-site?node-id=0%3A1"
 }
 start(){
     npm run dev
