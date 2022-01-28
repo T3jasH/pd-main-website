@@ -1,0 +1,77 @@
+.case-study {
+    position: relative;
+    padding: 2em;
+    color: #020202;
+    background-color: #fbfbfb;
+    .container {
+        position: relative;
+        padding: 2em 3em;
+        .banner {
+            position: relative;
+            padding: 2.5em;
+            background: linear-gradient(
+                89.95deg,
+                #4778b6 0.05%,
+                #9933a3 98.99%
+            );
+            border-radius: 0.5em;
+            h2 {
+                font-weight: 400;
+                color: #fbfbfb;
+                text-align: center;
+            }
+        }
+        .goal {
+            display: flex;
+            background-color: #f7f6f6;
+            padding: 1em;
+            .left {
+                flex: 0.3;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .goal-img {
+                    width: 12rem;
+                    height: 12rem;
+                }
+            }
+            .right {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 1em;
+                p {
+                    font-weight: 500;
+                    line-height: 1.5em;
+                }
+            }
+        }
+        .objective {
+            margin-top: 2rem;
+            padding: 1em;
+            display: flex;
+            gap: 2em;
+            .left {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 1em;
+                p {
+                    font-weight: 500;
+                    line-height: 1.5em;
+                }
+            }
+            .right {
+                flex: 0.3;
+                .objective-img {
+                    width: 15rem;
+                    height: 15rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,183 @@
+.openshift {
+    position: relative;
+    background-color: #fbfbfb;
+    color: #020202;
+    padding: 2em;
+    h1,
+    h2,
+    h3 {
+        font-family: "Montserrat", sans-serif;
+    }
+    .banner {
+        margin: 2em;
+        position: relative;
+        padding: 2.5em;
+        background: linear-gradient(89.95deg, #4778b6 0.05%, #9933a3 98.99%);
+        border-radius: 0.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1.5rem;
+        color: #fbfbfb;
+        h2 {
+            font-weight: 600;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        h3 {
+            text-align: center;
+            font-weight: 400;
+            line-height: 2rem;
+        }
+    }
+    .description {
+        margin: 2em;
+        position: relative;
+        display: flex;
+        gap: 3em;
+        align-items: flex-start;
+        text-align: center;
+        .left {
+            border: 0.1rem solid black;
+            border-radius: 0.5em;
+            flex: 0.3;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 3em;
+            padding: 3em 0;
+            .h2 {
+                font-weight: 700;
+            }
+            .coloured {
+                color: #4f72b5;
+            }
+        }
+        .right {
+            flex: 0.8;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            text-align: center;
+            .right-img {
+                width: 22rem;
+                height: 15rem;
+            }
+            p {
+                line-height: 1.5em;
+            }
+        }
+        &:nth-child(4) {
+            padding: 2em 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2em;
+            h2 {
+                font-weight: 500;
+            }
+            p {
+                max-width: 80%;
+            }
+            .red {
+                color: #e80000;
+            }
+        }
+        &:nth-child(5) {
+            gap: 2em;
+            background-color: #f7f6f6;
+            padding: 1em 0;
+            .left {
+                border: none;
+                flex: 1;
+                gap: 2em;
+                padding: 0;
+            }
+            .right {
+                flex: 1;
+                gap: 2em;
+            }
+            h2 {
+                font-weight: 500;
+            }
+        }
+        &:nth-child(6) {
+            align-items: flex-end;
+            .left {
+                flex: 1;
+                border: none;
+                align-items: flex-start;
+                text-align: left;
+                gap: 1em;
+                padding-bottom: 0;
+                h2 {
+                    font-weight: 500;
+                }
+                ol {
+                    color: #913ba5;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    font-size: 1.5rem;
+                    line-height: 2rem;
+                }
+            }
+            .right {
+                flex: 0.35;
+                .right-img {
+                    width: 16.3rem;
+                    height: 16.3rem;
+                }
+            }
+        }
+    }
+}
+.openshift-footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2em;
+    padding: 4em 2em 2em 3em;
+    color: #ececec;
+    background: linear-gradient(103.93deg, #4a76b6 0.2%, #9934a3 89.5%);
+    z-index: 2;
+    h2 {
+        font-weight: 600;
+    }
+    p {
+        font-weight: 500;
+        line-height: 1.5rem;
+    }
+    h2,
+    p {
+        min-width: 60%;
+        max-width: 80%;
+    }
+    h2,
+    p,
+    a {
+        position: relative;
+        z-index: 2;
+    }
+    a {
+        border: 0.1rem solid #ececec;
+        padding: 0.5em 2rem;
+        &:hover {
+            transform: scaleX(1.1) scaleY(1.1);
+        }
+    }
+    .footer-img {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1;
+    }
+}

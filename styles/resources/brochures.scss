@@ -1,0 +1,38 @@
+.brochures {
+    position: relative;
+    padding: 2em;
+    color: #020202;
+    background-color: #fbfbfb;
+    .list {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2em;
+        flex-wrap: wrap;
+        padding: 2em 0;
+        .brochure {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5em;
+            width: 45%;
+            h2 {
+                font-weight: 600;
+                font-size: 1.6rem;
+                line-height: 2em;
+            }
+            .brochure-img {
+                width: 9em;
+                height: 12.5em;
+            }
+            &:nth-child(2),
+            &:nth-child(3),
+            &:nth-child(5),
+            &:nth-child(6) {
+                background-color: #f7f6f6;
+            }
+        }
+    }
+}

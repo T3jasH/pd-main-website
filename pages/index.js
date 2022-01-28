@@ -1,6 +1,6 @@
 import Head from "next/head"
 import rightImage from "../assets/rightImage.png"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import Navbar from "../components/Navbar"
@@ -17,6 +17,7 @@ export default function Home() {
     const { ref, inView } = useInView({
         rootMargin: "-50% 0%",
     })
+    const navRef = useRef(null)
 
     useEffect(() => {
         const nav = document.querySelector("nav")
