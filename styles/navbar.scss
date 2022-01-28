@@ -6,6 +6,7 @@ nav {
     --focusTextColor: #1b1b1b;
     display: flex;
     justify-content: flex-end;
+    align-items: flex-start;
     gap: 2.5em;
     padding: 0.5em 1em 0 1em;
     position: sticky;
@@ -30,14 +31,14 @@ nav {
         position: relative;
         .dropdown {
             position: absolute;
-            padding: 0.5em 0;
             top: 2em;
-            left: -0.25em;
+            left: -6%;
             height: 0;
-            width: 110%;
+            width: 112%;
             display: none;
             background-color: var(--borderColor);
             color: var(--focusTextColor);
+            border-radius: 0.5em;
         }
         .dropdown-open {
             position: absolute;
@@ -45,16 +46,19 @@ nav {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 0.35em;
+            flex-wrap: wrap;
             height: max-content;
             animation: drop 300ms ease-out;
+            a {
+                padding: 0.35em 0.6em;
+            }
         }
     }
     a,
     p {
         color: inherit;
         padding: 0.5em 0.75em;
-        height: 1em;
+        text-align: center;
     }
     p:focus,
     .active {

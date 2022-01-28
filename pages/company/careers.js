@@ -1,14 +1,14 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useEffect } from "react"
+import React, { useRef } from "react"
 import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
 import arrow from "../../assets/arrowBlack.svg"
+import useNavTheme from "../../hooks/useNavTheme"
 
 export default function Careers() {
-    useEffect(() => {
-        document.querySelector("#company").classList.add("active")
-    }, [])
+    const navRef = useRef(null)
+    useNavTheme("#company", "--bgColor: #f4f4f4; --textColor: #0a0a0a;", navRef)
     return (
         <React.Fragment>
             <Head>
@@ -19,7 +19,7 @@ export default function Careers() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar />
+            <Navbar ref={navRef} />
             <div className="company-careers">
                 <div className="nav-info">
                     <p>Company</p>
