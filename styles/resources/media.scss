@@ -1,0 +1,40 @@
+.media {
+    position: relative;
+    padding: 2em;
+    h2 {
+        margin-top: 2.5rem;
+    }
+    .articles {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        overflow-x: auto;
+        padding: 2em;
+        gap: 2em;
+        .article {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            align-items: center;
+            justify-content: center;
+            .article-img {
+                width: 30em;
+                height: 20em;
+                background-color: #c4c4c4;
+            }
+            h3 {
+                color: #4b76b6;
+                font-size: 2rem;
+            }
+            p {
+                font-weight: 600;
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+            h3,
+            p {
+                text-align: center;
+            }
+        }
+    }
+}
