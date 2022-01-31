@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./about.scss";
@@ -13,6 +13,8 @@
 @import "./resources/case-study.scss";
 @import "./resources/brochures.scss";
 @import "./resources/openshift-captains.scss";
+@import "./resources/media.scss";
+@import "./industries.scss";
 
 :root {
     $font-size: 20px;

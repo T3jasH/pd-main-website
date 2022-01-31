@@ -5,6 +5,7 @@ design(){
       xdg-open "https://www.figma.com/file/TMvViBcFAuz5AROUzLCFKt/prodevans-main-site?node-id=0%3A1"
 }
 start(){
+    docker start wizardly_mestorf
     npm run dev
 }
 push(){

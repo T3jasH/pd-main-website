@@ -41,7 +41,7 @@ export default function Brochures() {
     ]
     const navRef = useRef(null)
     useNavTheme(
-        ".resources",
+        "#resources",
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )

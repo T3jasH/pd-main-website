@@ -14,7 +14,7 @@ import { useInView } from "react-intersection-observer"
 export default function OpenShift() {
     const navRef = useRef(null)
     useNavTheme(
-        ".resources",
+        "#resources",
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
