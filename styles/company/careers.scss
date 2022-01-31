@@ -3,6 +3,7 @@
     background-color: #fbfbfb;
     color: #020202;
     padding: 2em;
+    z-index: 1;
     .slogan {
         padding: 2em 0;
         text-align: center;
@@ -19,9 +20,13 @@
         flex-direction: column;
         gap: 1.5em;
         margin-bottom: 2em;
-        div {
+        max-height: 6rem;
+        z-index: 3;
+        & > div {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
+            overflow-y: visible;
             input[type="text"] {
                 border-radius: 0.25em;
                 border: 0.5px solid #060606;
@@ -53,6 +58,25 @@
                     &:focus {
                         border: 2px solid black;
                     }
+                    width: 15%;
+                }
+                .dropdown {
+                    width: 25%;
+                    .custom__control {
+                        border-radius: 0.25em;
+                        border: 0.5px solid #060606;
+                        padding: 0.25em 0.5em;
+                        background-color: inherit;
+                        .custom__value-container {
+                            padding: 0;
+                        }
+                        .custom__menu {
+                            z-index: 3;
+                        }
+                        &:focus {
+                            border: 0.5px solid #4987d8;
+                        }
+                    }
                 }
             }
             input[type="text"]:focus {
@@ -61,6 +85,7 @@
         }
     }
     .jobs-list {
+        z-index: 1;
         position: relative;
         padding: 1em 2em;
         max-height: 70vh;

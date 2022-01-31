@@ -40,7 +40,7 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar />
+            <Navbar ref={navRef} />
             <main>
                 <div id="home" ref={ref}>
                     <div className="left">

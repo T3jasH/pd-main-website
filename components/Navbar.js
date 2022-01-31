@@ -6,6 +6,7 @@ import React, { useRef } from "react"
 const Navbar = (props, navRef) => {
     const company = useRef(null)
     const resources = useRef(null)
+    const industries = useRef(null)
     const openDropDown = (ref) => {
         const dropDown = ref.current.querySelector(".dropdown")
         dropDown.classList.add("dropdown-open")
@@ -25,8 +26,9 @@ const Navbar = (props, navRef) => {
             <Link href="/#about-us" aria-label="About Us">
                 About Us
             </Link>
-            <p
+            <span
                 id="company"
+                className="nav-item"
                 aria-label="Company"
                 ref={company}
                 onMouseEnter={() => openDropDown(company)}
@@ -41,18 +43,37 @@ const Navbar = (props, navRef) => {
                         Careers
                     </Link>
                 </div>
-            </p>
-            <Link href="/services" aria-label="Services">
+            </span>
+            <span
+                id="industries"
+                className="nav-item"
+                aria-label="Industries"
+                ref={industries}
+                onMouseEnter={() => openDropDown(industries)}
+                onMouseLeave={() => closeDropDown(industries)}
+            >
+                Industries{" "}
+                <div className="dropdown">
+                    <Link href="/industries/education" aria-label="Education">
+                        Education
+                    </Link>
+                    <Link href="/industries/telecom" aria-label="Telecom">
+                        Telecom
+                    </Link>
+                    <Link href="/industries/insurance" aria-label="Insurance">
+                        Insurance
+                    </Link>
+                </div>
+            </span>
+            <Link id="industries" href="/industries" aria-label="Industries">
                 Services
             </Link>
-            <Link href="/industries" aria-label="Industries">
-                Industries
-            </Link>
-            <Link href="/products" aria-label="Products">
+            <Link className="products" href="/products" aria-label="Products">
                 Products
             </Link>
-            <p
-                className="resources"
+            <span
+                id="resources"
+                className="nav-item"
                 aria-label="Resources"
                 ref={resources}
                 onMouseEnter={() => openDropDown(resources)}
@@ -76,11 +97,11 @@ const Navbar = (props, navRef) => {
                         Openshift Captains
                     </Link>
                 </div>
-            </p>
-            <Link href="/events" aria-label="Events" id="events">
+            </span>
+            <Link href="/events" aria-label="Events" className={"events"}>
                 Events
             </Link>
-            <Link href="/#contact" aria-label="Contact Us">
+            <Link href="/#contact" aria-label="Contact Us" className="contact">
                 Contact
             </Link>
         </nav>

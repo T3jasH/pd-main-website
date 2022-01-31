@@ -21,16 +21,16 @@ export default function About() {
             src: "",
             secTitle: "Business News This Week Magazine",
         },
-        {
-            title: "Automation may take our jobs - But AI will create them",
-            src: "",
-            secTitle: "Startup City Magazine",
-        },
+        // {
+        //     title: "Automation may take our jobs - But AI will create them",
+        //     src: "",
+        //     secTitle: "Startup City Magazine",
+        // },
     ]
     const navRef = useRef(null)
     useEffect(() => {
         if (navRef.current) {
-            navRef.current.querySelector("#company").classList.add("active")
+            navRef.current.querySelector("#resources").classList.add("active")
         }
     }, [navRef])
 
