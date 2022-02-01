@@ -11,10 +11,7 @@ import Select from "react-select"
 
 export async function getStaticProps(context) {
     try {
-        const url =
-            process.env.NODE_ENV === "production"
-                ? `https://${process.env.WEBSITE_ADDR}/api/jobs`
-                : "http://localhost:3000/api/jobs"
+        const url = "http://localhost:3000/api/jobs"
         const resp = await fetch(url)
 
         const { data: jobs } = await resp.json()
