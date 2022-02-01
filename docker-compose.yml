@@ -8,7 +8,7 @@ services:
         container_name: pdMainWebsite
         restart: unless-stopped
     db:
-        image: mongo:4.4.12-nanoserver
+        image: mongo
         container_name: pdMainWebsiteDb
         ports:
             - 27017:27017
