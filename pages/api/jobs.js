@@ -101,7 +101,7 @@ const updateJob = async (req, res) => {
 }
 
 export default async function jobHandler(req, res) {
-    return new Promise(async (resolve) => {
+    return new Promise((resolve) => {
         try {
             connectToDb()
         } catch (err) {
