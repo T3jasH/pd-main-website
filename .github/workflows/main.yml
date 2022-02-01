@@ -46,6 +46,7 @@ jobs:
                   script_stop: true
                   script: |
                       cd pd-main-website/ 
-                      docker pull tejashegde/pd_main_website:latest 
+                      docker pull tejashegde/pd_main_website:latest
+                      git pull origin main 
                       docker-compose up -d 
                       exit
