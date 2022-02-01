@@ -6,11 +6,11 @@
     .vision-img {
         position: relative;
         width: 100%;
-        h1 {
-            font-size: 3.5em;
+        h2 {
+            font-size: 3.5rem;
             font-weight: 400;
             position: absolute;
-            top: 4em;
+            top: 35%;
             left: 1em;
             margin: 0;
             max-width: 60%;
@@ -19,7 +19,7 @@
     .vision-table {
         display: flex;
         justify-content: space-around;
-        align-items: center;
+        align-items: flex-start;
         padding: 1.5em 0;
         position: relative;
         color: var(--black);
@@ -53,12 +53,13 @@
                 text-align: center;
                 margin-top: 0.75em;
                 margin-bottom: 1em;
+                font-weight: 500;
             }
         }
         .quadrant {
             width: 20em;
             height: 20em;
-            background-color: #73b0f4;
+            background-color: #447ab6;
             border-radius: 50%;
             position: absolute;
             z-index: 2;
@@ -70,6 +71,39 @@
         #q2 {
             top: -10em;
             right: -10em;
+        }
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    #vision {
+        .vision-img {
+            h2 {
+                max-width: 80%;
+                top: 30%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    #vision {
+        .vision-img {
+            h2 {
+                font-size: 3rem;
+                top: 25%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    #vision {
+        .vision-img {
+            h2 {
+                max-width: 100%;
+                top: 12.5%;
+            }
         }
     }
 }

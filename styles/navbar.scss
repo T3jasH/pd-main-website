@@ -2,9 +2,13 @@ nav {
     --bgColor: #1b1b1b;
     --textColor: #fff;
     --blue: #4a88da;
+    --borderColor: #4a88da;
+    --focusTextColor: #1b1b1b;
+    --boxShadow: 0px 1.1em 1.8em -0.7em rgba(0, 0, 0, 0.18);
     display: flex;
     justify-content: flex-end;
-    gap: 3.5em;
+    align-items: flex-start;
+    gap: 2.5em;
     padding: 0.5em 1em 0 1em;
     position: sticky;
     background-color: var(--bgColor);
@@ -15,7 +19,7 @@ nav {
     width: calc(98.75% - 1em);
     height: 3em;
     transition: all 1s;
-    box-shadow: 0px 1.1em 1.8em -0.7em rgba(0, 0, 0, 0.18);
+    box-shadow: var(--boxShadow);
     .logo {
         position: absolute;
         left: 1em;
@@ -23,37 +27,84 @@ nav {
         width: 8em;
         height: 3em;
     }
-    a {
+    span {
+        cursor: pointer;
+        position: relative;
+        display: block;
+        .dropdown {
+            position: absolute;
+            top: 2em;
+            left: -6%;
+            height: 0;
+            width: 112%;
+            display: none;
+            background-color: var(--borderColor);
+            color: var(--focusTextColor);
+            border-radius: 0.5em;
+        }
+        .dropdown-open {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            height: max-content;
+            animation: drop 300ms ease-out;
+            a {
+                padding: 0.35em 0.6em;
+            }
+        }
+    }
+    a,
+    span {
         color: inherit;
         padding: 0.5em 0.75em;
-        height: 1em;
+        text-align: center;
     }
-    a:focus {
-        font-weight: bold;
-        border: 1px solid var(--blue);
+    span:focus,
+    .active {
+        font-weight: 500;
+        border: 1px solid var(--borderColor);
+        background: var(--borderColor);
+        border-radius: 1em;
+        color: var(--focusTextColor);
+    }
+}
+
+@keyframes drop {
+    0% {
+        transform: scaleY(0);
+    }
+    80% {
+        transform: scaleY(1.2);
+    }
+
+    100% {
+        transform: scaleY(1);
     }
 }
 
 @media screen and (max-width: 1200px) {
-    nav {
+    .nav {
         gap: 2.5em;
     }
 }
 
 @media screen and (max-width: 980px) {
-    nav {
+    .nav {
         gap: 1.5em;
     }
 }
 
 @media screen and (max-width: 880px) {
-    nav {
+    .nav {
         gap: 0.75em;
     }
 }
 
 @media screen and (max-width: 780px) {
-    nav {
+    .nav {
         gap: 0.25em;
     }
 }

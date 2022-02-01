@@ -11,7 +11,7 @@ export default function Vision() {
                     objectFit="contain"
                     src={vision}
                 />
-                <h1>Delivering cutting-edge tech solutions for your team.</h1>
+                <h2>Delivering cutting-edge tech solutions for your team.</h2>
             </div>
             <div className="vision-table">
                 <div className="vision-card">
@@ -32,8 +32,6 @@ export default function Vision() {
                         to be the organisation they can trust
                     </p>
                 </div>
-                <div className="quadrant" id="q1" />
-                <div className="quadrant" id="q2" />
             </div>
         </div>
     )

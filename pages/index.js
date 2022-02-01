@@ -1,6 +1,6 @@
 import Head from "next/head"
 import rightImage from "../assets/rightImage.png"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import Navbar from "../components/Navbar"
@@ -9,11 +9,15 @@ import About from "../components/About"
 import WhyPD from "../components/WhyPD"
 import Vision from "../components/Vision"
 import Reviews from "../components/Reviews"
+import Clients from "../components/Clients"
+import Contact from "../components/Contact"
+import CommonFooter from "../components/CommonFooter"
 
 export default function Home() {
     const { ref, inView } = useInView({
         rootMargin: "-50% 0%",
     })
+    const navRef = useRef(null)
 
     useEffect(() => {
         const nav = document.querySelector("nav")
@@ -29,14 +33,14 @@ export default function Home() {
     return (
         <div>
             <Head>
-                <title>Prodevans</title>
+                <title>Prodevans - Tech Like Never Before</title>
                 <meta
                     name="description"
                     content="Prodevans is a leading technology solution provider specialising in end to end DevOps offerings that streamline and automate IT delivery."
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar />
+            <Navbar ref={navRef} />
             <main>
                 <div id="home" ref={ref}>
                     <div className="left">
@@ -75,7 +79,10 @@ export default function Home() {
                 <WhyPD />
                 <Vision />
                 <Reviews />
+                <Clients />
+                <Contact />
             </main>
+            <CommonFooter />
         </div>
     )
 }

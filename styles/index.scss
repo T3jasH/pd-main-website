@@ -1,10 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./about.scss";
 @import "./whyPD.scss";
 @import "./vision.scss";
 @import "./reviews.scss";
+@import "./clients.scss";
+@import "./contact.scss";
+@import "./commonFooter.scss";
+@import "./company/about.scss";
+@import "./company/careers.scss";
+@import "./resources/case-study.scss";
+@import "./resources/brochures.scss";
+@import "./resources/openshift-captains.scss";
+@import "./resources/media.scss";
+@import "./industries.scss";
 
 :root {
     $font-size: 20px;
@@ -48,6 +58,24 @@ h3 {
 
 p {
     margin: 0;
+}
+
+.nav-info {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    gap: 1.5em;
+    align-items: center;
+    justify-content: flex-start;
+    p {
+        font-weight: 500;
+    }
+    .arrow {
+        width: 1.5em;
+    }
+    h1 {
+        font-weight: 600;
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width: 1400px) {
