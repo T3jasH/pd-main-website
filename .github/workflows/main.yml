@@ -17,7 +17,17 @@ jobs:
               run: |
                   docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
               name: Docker login
-            - run: |
+            - env:
+                  MONGO_URI: ${{ secrets.MONGO_URI }}
+                  PD_USERNAME: ${{ secrets.PD_USERNAME }}
+                  PASSWORD: ${{ secrets.PASSWORD }}
+                  WEBSITE_ADDR: ${{ secrets.WEBSITE_ADDR }}
+              run: |
+                  touch .env.local 
+                  echo "MONGO_URI=$MONGO_URI" >> .env.local
+                  echo "PD_USERNAME=$PD_USERNAME" >> .env.local
+                  echo "PASSWORD=$PASSWORD" >> .env.local
+                  echo "WEBSITE_ADDR=$WEBSITE_ADDR" >> .env.local
                   docker build -f dockerfile . -t tejashegde/pd_main_website
                   docker push tejashegde/pd_main_website
               name: Docker build and push
