@@ -107,34 +107,6 @@ const updateJob = async (req, res) => {
 }
 
 export default async function jobHandler(req, res) {
-<<<<<<< Updated upstream
-    return new Promise((resolve) => {
-        try {
-            connectToDb()
-        } catch (err) {
-            console.log(err)
-            return internalServerError(res, err)
-        }
-        const { method } = req
-        switch (method) {
-            case "GET":
-                return getAllJobs(req, res)
-            case "POST":
-                return isAuthenticated(req, res, createJob)
-            case "DELETE":
-                return isAuthenticated(req, res, deleteJob)
-            case "PATCH":
-                return isAuthenticated(req, res, updateJob)
-            default:
-                res.status(405).json({
-                    data: "Method not allowed",
-                    success: false,
-                })
-        }
-        closeConnection()
-        return resolve()
-    })
-=======
     try {
         await connectToDb()
     } catch (err) {
@@ -158,5 +130,4 @@ export default async function jobHandler(req, res) {
             })
     }
     closeConnection()
->>>>>>> Stashed changes
 }
