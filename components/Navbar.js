@@ -104,6 +104,9 @@ const Navbar = (props, navRef) => {
             <Link href="/#contact" aria-label="Contact Us" className="contact">
                 Contact
             </Link>
+            <div className="loading">
+                <div className="blue-dash" />
+            </div>
         </nav>
     )
 }

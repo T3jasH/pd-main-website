@@ -41,9 +41,9 @@
             justify-content: flex-start;
             align-items: center;
             p {
-                font-weight: 600;
-                font-size: 1.15rem;
-                line-height: 1.6rem;
+                font-weight: 400;
+                font-size: 1rem;
+                line-height: 1.5rem;
                 max-width: 80%;
             }
         }
@@ -98,18 +98,70 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.5em;
+                padding-right: 2.5em;
                 .socials {
                     display: flex;
-                    gap: 0.5em;
+                    gap: 1em;
                     div {
+                        border-radius: 0.55rem;
                         width: 2rem;
                         height: 2rem;
                         &:nth-child(3) {
-                            background-color: #4a87d9;
+                            background-color: #03a9f4;
+                            border-radius: 0.75rem;
+                            width: 1.7rem;
+                            height: 1.8rem;
+                            padding: 0.1rem 0.15rem;
                         }
                     }
                 }
             }
         }
+    }
+}
+.about-company-footer {
+    position: relative;
+    padding: 3.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    text-align: center;
+    h2 {
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(#447ab6 100%, #2a4b70 100%);
+        width: max-content;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    p {
+        max-width: 75%;
+    }
+    a {
+        border: 1px solid #4987d8;
+        border-radius: 0.25em;
+        padding: 0.5em 1em;
+        background-color: #4987d8;
+        position: relative;
+        margin: 2.5rem 0;
+        &:focus {
+            border: 1px solid #fff;
+        }
+    }
+    .squares {
+        position: absolute;
+        width: 9.5rem;
+        height: 7.5rem;
+    }
+    .top-right {
+        top: 2.5rem;
+        right: 1.5rem;
+    }
+    .bottom-left {
+        bottom: 2.5rem;
+        left: 1.5rem;
     }
 }

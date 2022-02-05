@@ -17,13 +17,16 @@ const isEmpty = (item) => {
 }
 
 const createJob = async (req, res) => {
-    const { title, description, location, type, company } = req.body
+    const { title, description, location, type, company, link } = JSON.parse(
+        req.body
+    )
     if (
         isEmpty(title) ||
         isEmpty(description) ||
         isEmpty(location) ||
         isEmpty(type) ||
-        isEmpty(company)
+        isEmpty(company) ||
+        isEmpty(link)
     ) {
         return res.status(422).json({
             data: "Title, description, location, company and type, are all required fields",
@@ -37,6 +40,7 @@ const createJob = async (req, res) => {
             location,
             type,
             company,
+            link,
         })
         await job.save()
         res.status(201).json({ data: job, success: true })
@@ -68,7 +72,9 @@ const deleteJob = async (req, res) => {
 }
 
 const updateJob = async (req, res) => {
-    const { title, description, location, type, company } = req.body
+    const { title, description, location, type, company } = JSON.stringify(
+        req.body
+    )
     const { id } = req.query
     if (id.length !== 24) {
         return res.status(422).json({
@@ -101,6 +107,7 @@ const updateJob = async (req, res) => {
 }
 
 export default async function jobHandler(req, res) {
+<<<<<<< Updated upstream
     return new Promise((resolve) => {
         try {
             connectToDb()
@@ -127,4 +134,29 @@ export default async function jobHandler(req, res) {
         closeConnection()
         return resolve()
     })
+=======
+    try {
+        await connectToDb()
+    } catch (err) {
+        console.log(err)
+        return internalServerError(res, err)
+    }
+    const { method } = req
+    switch (method) {
+        case "GET":
+            return getAllJobs(req, res)
+        case "POST":
+            return isAuthenticated(req, res, createJob)
+        case "DELETE":
+            return isAuthenticated(req, res, deleteJob)
+        case "PATCH":
+            return isAuthenticated(req, res, updateJob)
+        default:
+            res.status(405).json({
+                data: "Method not allowed",
+                success: false,
+            })
+    }
+    closeConnection()
+>>>>>>> Stashed changes
 }

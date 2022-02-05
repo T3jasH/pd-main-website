@@ -1,6 +1,6 @@
 #reviews {
-    padding: 5em 0 3em 4em;
-    width: calc(100% - 4em);
+    padding: 5em 4em 3em 4em;
+    width: calc(100% - 8em);
     position: relative;
     background: linear-gradient(116.18deg, #447ab6 0%, #9933a3 99.08%);
     h2 {
@@ -23,13 +23,14 @@
     }
     .review {
         display: flex;
-        justify-content: space-between;
-        padding: 6em 4em 4em 4em;
-        width: calc(80% - 8em);
-        height: 18rem;
+        align-items: center;
+        gap: 10em;
+        padding: 4em;
+        width: calc(100% - 8em);
+        height: 18em;
         .text {
             width: 70%;
-            font-weight: 600;
+            font-weight: 300;
             line-height: 1.5em;
             font-size: 1.2rem;
         }
@@ -37,7 +38,10 @@
             display: flex;
             flex-direction: column;
             height: 7.5em;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            gap: 2em;
+            width: 25%;
             .profile {
                 height: 5em;
                 width: 5em;
@@ -49,22 +53,50 @@
                 }
             }
             p {
-                font-weight: bold;
+                font-weight: 500;
             }
         }
     }
     .controls {
-        width: 15%;
+        width: 20%;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
+        justify-content: space-between;
         .arrow {
             position: relative;
             height: 2em;
             width: 45%;
             img {
                 cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #reviews {
+        .review {
+            width: calc(100% - 4em);
+            .text {
+                width: 90%;
+                line-height: 1.25em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    #reviews {
+        h2 {
+            max-width: 80%;
+        }
+        .review {
+            height: 24rem;
+            padding: 3em 4em;
+            .text {
+                width: 100%;
             }
         }
     }

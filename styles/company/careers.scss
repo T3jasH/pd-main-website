@@ -97,6 +97,10 @@
         display: flex;
         flex-direction: column;
         background-color: #fbfbfb;
+        .error-message {
+            color: red;
+            margin: 1em auto;
+        }
         .job {
             display: flex;
             border-bottom: 1px solid black;
@@ -132,7 +136,8 @@
                                 font-weight: 500;
                             }
                         }
-                        a {
+                        a,
+                        button {
                             color: #fbfbfb;
                             padding: 0.5em 1em;
                             background-color: #4987d8;
@@ -147,6 +152,22 @@
                             color: #4987d8;
                         }
                     }
+                }
+                input[type="text"],
+                textarea {
+                    font-family: inherit;
+                    font-size: 1rem;
+                    border: none;
+                    background-color: inherit;
+                    &:focus {
+                        outline: none;
+                        border-bottom: 1px solid #454545;
+                    }
+                }
+                textarea {
+                    resize: none;
+                    width: 70%;
+                    height: 3rem;
                 }
             }
         }

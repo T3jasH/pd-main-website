@@ -6,8 +6,8 @@ import Navbar from "../../components/Navbar"
 import arrow from "../../assets/arrowBlack.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import pd from "../../assets/pdLogoBlue.svg"
-import Link from "next/link"
 import Select from "react-select"
+import getTime from "../../clientUtils/getTime"
 
 export async function getStaticProps(context) {
     try {
@@ -83,31 +83,6 @@ export default function Careers({ jobs }) {
         setLocations(updatedLocations)
         setJobTypes(updatedJobTypes)
     }, [jobs])
-    const getTime = (date) => {
-        const now = new Date().getTime()
-        let diff = (now - date) / 1000 // In seconds
-        if (diff < 10 * 60) {
-            return "10 mins"
-        }
-        diff = diff / 60 // In mins
-        if (diff < 60) {
-            return `${Math.floor(diff)} mins`
-        }
-        diff = diff / 60 // In Hours
-        if (diff < 24) {
-            return `${Math.floor(diff)} hours`
-        }
-        diff = diff / 24 // In days
-        if (diff < 7) {
-            return `${Math.floor(diff)} days`
-        }
-        diff = diff / 7 // weeks
-        if (diff < 52) {
-            return `${Math.floor(diff)} weeks`
-        }
-        diff = diff / 52 // years
-        return `${Math.floor(diff)} years`
-    }
     return (
         <React.Fragment>
             <Head>
@@ -254,11 +229,13 @@ export default function Careers({ jobs }) {
                                             <h3>{job.title}</h3>
                                             <p>{job.company}</p>
                                         </div>
-                                        <Link
-                                            href={`/company/jobs?id=${job._id}`}
+                                        <a
+                                            target={"_blank"}
+                                            href={job.link}
+                                            rel={"noreferrer"}
                                         >
                                             Apply
-                                        </Link>
+                                        </a>
                                     </div>
                                     <div>
                                         <p>{job.type}</p>
