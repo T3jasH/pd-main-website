@@ -1,0 +1,35 @@
+.login {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem;
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        padding: 2em;
+        border: 1px solid #ededed;
+        border-radius: 0.75rem;
+        h2 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            background-color: inherit;
+            border-radius: 0.25em;
+            padding: 0.5em 0.75em;
+            font-size: 1rem;
+            font-family: "Quicksand", sans-serif;
+            color: #fff;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+        }
+        p {
+            width: max-content;
+        }
+    }
+}

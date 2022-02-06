@@ -1,11 +1,15 @@
 import mongoose from "mongoose"
 
 export default async function connectToDb() {
-    if (!process.env.MONGO_URI) {
-        throw new Error("connection unsuccessful")
+    const uri =
+        process.env.NODE_ENV === "production"
+            ? process.env.MONGO_URI
+            : process.env.DEV_MONGO_URI
+    if (!uri) {
+        throw new Error("Env not intialized")
     }
     try {
-        const conn = await mongoose.connect(process.env.MONGO_URI, {
+        return await mongoose.connect(uri, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         })

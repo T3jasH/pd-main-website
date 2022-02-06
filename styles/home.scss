@@ -9,7 +9,7 @@ main {
         width: 100%;
         height: max-content;
         z-index: 2;
-        padding: 2em 0 2em 0;
+        padding: 1.5em 0 2em 0;
         display: flex;
         .left {
             position: relative;
@@ -53,7 +53,7 @@ main {
                 padding: 0.5em 1em;
                 background-color: inherit;
                 position: relative;
-                top: 1.5em;
+                top: 2.5em;
             }
             a:active {
                 color: $black;

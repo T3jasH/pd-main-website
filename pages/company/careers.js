@@ -6,15 +6,12 @@ import Navbar from "../../components/Navbar"
 import arrow from "../../assets/arrowBlack.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import pd from "../../assets/pdLogoBlue.svg"
-import Link from "next/link"
 import Select from "react-select"
+import getTime from "../../clientUtils/getTime"
 
 export async function getStaticProps(context) {
     try {
-        const url =
-            process.env.NODE_ENV === "production"
-                ? `https://${process.env.WEBSITE_ADDR}/api/jobs`
-                : "http://localhost:3000/api/jobs"
+        const url = "http://localhost:3000/api/jobs"
         const resp = await fetch(url)
 
         const { data: jobs } = await resp.json()
@@ -86,31 +83,6 @@ export default function Careers({ jobs }) {
         setLocations(updatedLocations)
         setJobTypes(updatedJobTypes)
     }, [jobs])
-    const getTime = (date) => {
-        const now = new Date().getTime()
-        let diff = (now - date) / 1000 // In seconds
-        if (diff < 10 * 60) {
-            return "10 mins"
-        }
-        diff = diff / 60 // In mins
-        if (diff < 60) {
-            return `${Math.floor(diff)} mins`
-        }
-        diff = diff / 60 // In Hours
-        if (diff < 24) {
-            return `${Math.floor(diff)} hours`
-        }
-        diff = diff / 24 // In days
-        if (diff < 7) {
-            return `${Math.floor(diff)} days`
-        }
-        diff = diff / 7 // weeks
-        if (diff < 52) {
-            return `${Math.floor(diff)} weeks`
-        }
-        diff = diff / 52 // years
-        return `${Math.floor(diff)} years`
-    }
     return (
         <React.Fragment>
             <Head>
@@ -188,42 +160,30 @@ export default function Careers({ jobs }) {
                     </div>
                 </form>
                 <div className="jobs-list">
-                    {jobs
-                        .filter((job) =>
-                            selectedLocation
-                                ? job.location === selectedLocation.value
-                                : true
-                        )
-                        .filter((job) =>
-                            selectedJobType
-                                ? job.type === selectedJobType.value
-                                : true
-                        )
-                        .filter((job) =>
-                            selectedCompany
-                                ? job.company === selectedCompany.value
-                                : true
-                        )
-                        .filter((job) =>
-                            keyword.length
-                                ? job.title.split(" ").findIndex((word) => {
-                                      console.log(
-                                          "TITLE " +
-                                              word +
-                                              " " +
-                                              keyword +
-                                              " " +
-                                              word.includes(keyword)
-                                      )
-                                      return word
-                                          .toLowerCase()
-                                          .includes(keyword)
-                                  }) !== -1 ||
-                                  job.description
-                                      .split(" ")
-                                      .findIndex((word) => {
+                    {jobs.length === 0 ? (
+                        <h3> No jobs found</h3>
+                    ) : (
+                        jobs
+                            .filter((job) =>
+                                selectedLocation
+                                    ? job.location === selectedLocation.value
+                                    : true
+                            )
+                            .filter((job) =>
+                                selectedJobType
+                                    ? job.type === selectedJobType.value
+                                    : true
+                            )
+                            .filter((job) =>
+                                selectedCompany
+                                    ? job.company === selectedCompany.value
+                                    : true
+                            )
+                            .filter((job) =>
+                                keyword.length
+                                    ? job.title.split(" ").findIndex((word) => {
                                           console.log(
-                                              "DESCR " +
+                                              "TITLE " +
                                                   word +
                                                   " " +
                                                   keyword +
@@ -233,53 +193,71 @@ export default function Careers({ jobs }) {
                                           return word
                                               .toLowerCase()
                                               .includes(keyword)
-                                      }) !== -1
-                                : true
-                        )
-                        .map((job) => (
-                            <div key={job._id} className="job">
-                                <div className="left">
-                                    {
-                                        // Might need other logos too here
-                                    }
-                                    <div className="job-img">
-                                        <Image
-                                            alt={"Prodevans"}
-                                            layout="responsive"
-                                            objectFit="fill"
-                                            src={pd}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="right">
-                                    <div>
-                                        <div>
-                                            <h3>{job.title}</h3>
-                                            <p>{job.company}</p>
+                                      }) !== -1 ||
+                                      job.description
+                                          .split(" ")
+                                          .findIndex((word) => {
+                                              console.log(
+                                                  "DESCR " +
+                                                      word +
+                                                      " " +
+                                                      keyword +
+                                                      " " +
+                                                      word.includes(keyword)
+                                              )
+                                              return word
+                                                  .toLowerCase()
+                                                  .includes(keyword)
+                                          }) !== -1
+                                    : true
+                            )
+                            .map((job) => (
+                                <div key={job._id} className="job">
+                                    <div className="left">
+                                        {
+                                            // Might need other logos too here
+                                        }
+                                        <div className="job-img">
+                                            <Image
+                                                alt={"Prodevans"}
+                                                layout="responsive"
+                                                objectFit="fill"
+                                                src={pd}
+                                            />
                                         </div>
-                                        <Link
-                                            href={`/company/jobs?id=${job._id}`}
-                                        >
-                                            Apply
-                                        </Link>
                                     </div>
-                                    <div>
-                                        <p>{job.type}</p>
-                                        <p>{job.location}</p>
-                                        <p>
-                                            {`Posted ${getTime(
-                                                new Date(
-                                                    job.createdAt
-                                                ).getTime()
-                                            )} ago`}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p>{job.description}</p>
+                                    <div className="right">
+                                        <div>
+                                            <div>
+                                                <h3>{job.title}</h3>
+                                                <p>{job.company}</p>
+                                            </div>
+                                            <a
+                                                target={"_blank"}
+                                                href={job.link}
+                                                rel={"noreferrer"}
+                                            >
+                                                Apply
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <p>{job.type}</p>
+                                            <p>{job.location}</p>
+                                            <p>
+                                                {`Posted ${getTime(
+                                                    new Date(
+                                                        job.createdAt
+                                                    ).getTime()
+                                                )} ago`}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>{job.description}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))
+                    )}
                 </div>
             </div>
             <CommonFooter />

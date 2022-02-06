@@ -1,15 +1,22 @@
 import React, { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import Navbar from "../../components/Navbar"
+import CommonFooter from "../../components/CommonFooter"
 import arrow from "../../assets/arrowWhite.svg"
 import Image from "next/image"
 import Head from "next/head"
 import squares from "../../assets/squares.png"
 import deepak from "../../assets/deepakMishra.png"
 import arvind from "../../assets/arvindKumarSinha.png"
+import dilip from "../../assets/dilipHublikar.png"
+import gagan from "../../assets/gaganPattanayak.jpg"
+import santha from "../../assets/santhaKumar.png"
+import sushma from "../../assets/sushmaShriram.png"
 import twt from "../../assets/twitter.svg"
 import fb from "../../assets/fb.svg"
 import gPlus from "../../assets/gPlus.svg"
+import blueSquares from "../../assets/blueSquares.png"
+import Link from "next/link"
 
 export default function About() {
     const { ref, inView } = useInView({
@@ -35,6 +42,46 @@ export default function About() {
             fb: "",
             gPlus: "",
             src: arvind,
+        },
+        {
+            name: "S Santha Kumar",
+            designation: "Chief Financial Officer (CFO)",
+            content:
+                "Santha leads our company in his vital role of managing finance and accounting; ensuring our company’s profitability; handling financial audits, payroll, budgets, taxation, payables, cash flow, financial corporate services, international subsidiaries, and the overall health of our financial statements, reporting where he keeps vigilant of our revenue and cost, and areas of financial opportunities to invest. He also leads our company in legal matters, including preparing and negotiating customer contracts and Master Service Agreements; managing internal compliance and audit certifications; advising on corporate governance and strategic initiatives; advising on matters of risk management; and facilitating the Executive Committee's work with Prodevans's Board.",
+            twt: "",
+            gPlus: "",
+            fb: "",
+            src: santha,
+        },
+        {
+            name: "Gagan Pattanayak ",
+            designation: "Chief Revenue Officer (CRO)",
+            content:
+                "Gagan helps us hone our planning to enable a multi-channel Go to Market sales strategy. He does this by managing our sales and revenue operations with a focus on front line sales (direct and indirect). He also oversees our sales support teams (Pre-sales, Design teams) with the goal of bringing revenue opportunities to closure. In addition to this, he is responsible for all commercial contracts.",
+            twt: "",
+            gPlus: "",
+            fb: "",
+            src: gagan,
+        },
+        {
+            name: "Dilip Hublikar",
+            designation: "Head of Sales and Business Development",
+            content:
+                "Dilip is an Engineer & MBA with 14 years of rich experience in Sales, Alliance and Relationship Mgmt. Certified Software Asset Manager and optimization expert in s/w and cloud services offerings with proven track of helping global customers on ROI and lower TCO in their IT spends over years across OEM and Technologies. Specialist in creating and managing multi vendor eco system with 360 degree management of software and solution Lifecycle.",
+            twt: "",
+            gPlus: "",
+            fb: "",
+            src: dilip,
+        },
+        {
+            name: "Sushma Shriram",
+            designation: "HR Manager and Business Development",
+            content:
+                "Sushma, a Post Graduate in Financial Management with 10 years of industry experience, takes care of day to day operations and fulfills talent acquisition. In addition to her current role as HR Manager, Sushma Shriram will be stepping into managing the Systems and Infrastructure team to enable faster time to resolution and implementing proactive measures to better administer our customers' environments.",
+            twt: "",
+            gPlus: "",
+            fb: "",
+            src: sushma,
         },
     ]
     useEffect(() => {
@@ -161,6 +208,32 @@ export default function About() {
                     ))}
                 </div>
             </div>
+            <div className="about-company-footer">
+                <h2>Manage any project with Prodevans</h2>
+                <p>
+                    We combine the practice of managing and analysing projects
+                    to its fullest potential, and to maximise it&#39;s
+                    effectiveness in order to stay on top of everything.
+                </p>
+                <Link href={"/#contact-us"}>Start free trial</Link>
+                <div className="squares top-right">
+                    <Image
+                        alt="squares graphic"
+                        layout="responsive"
+                        objectFit="fill"
+                        src={blueSquares}
+                    />
+                </div>
+                <div className="squares bottom-left">
+                    <Image
+                        alt="squares graphic"
+                        layout="responsive"
+                        objectFit="fill"
+                        src={blueSquares}
+                    />
+                </div>
+            </div>
+            <CommonFooter />
         </React.Fragment>
     )
 }

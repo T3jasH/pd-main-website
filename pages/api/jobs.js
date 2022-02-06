@@ -17,13 +17,16 @@ const isEmpty = (item) => {
 }
 
 const createJob = async (req, res) => {
-    const { title, description, location, type, company } = req.body
+    const { title, description, location, type, company, link } = JSON.parse(
+        req.body
+    )
     if (
         isEmpty(title) ||
         isEmpty(description) ||
         isEmpty(location) ||
         isEmpty(type) ||
-        isEmpty(company)
+        isEmpty(company) ||
+        isEmpty(link)
     ) {
         return res.status(422).json({
             data: "Title, description, location, company and type, are all required fields",
@@ -37,6 +40,7 @@ const createJob = async (req, res) => {
             location,
             type,
             company,
+            link,
         })
         await job.save()
         res.status(201).json({ data: job, success: true })
@@ -68,7 +72,9 @@ const deleteJob = async (req, res) => {
 }
 
 const updateJob = async (req, res) => {
-    const { title, description, location, type, company } = req.body
+    const { title, description, location, type, company, link } = JSON.parse(
+        req.body
+    )
     const { id } = req.query
     if (id.length !== 24) {
         return res.status(422).json({
@@ -85,11 +91,12 @@ const updateJob = async (req, res) => {
         }
         // If entity is not empty, apply update. Otherwise just use previous value
         const updatedJob = await Job.findByIdAndUpdate(id, {
-            title: title ? title : job.title,
-            company: company ? company : job.company,
-            description: description ? description : job.description,
-            location: location ? location : job.location,
-            type: type ? type : job.type,
+            title,
+            company,
+            description,
+            location,
+            type,
+            link,
         })
         res.status(200).json({
             data: "Job updated successfully",
@@ -101,30 +108,27 @@ const updateJob = async (req, res) => {
 }
 
 export default async function jobHandler(req, res) {
-    return new Promise(async (resolve) => {
-        try {
-            connectToDb()
-        } catch (err) {
-            console.log(err)
-            return internalServerError(res, err)
-        }
-        const { method } = req
-        switch (method) {
-            case "GET":
-                return getAllJobs(req, res)
-            case "POST":
-                return isAuthenticated(req, res, createJob)
-            case "DELETE":
-                return isAuthenticated(req, res, deleteJob)
-            case "PATCH":
-                return isAuthenticated(req, res, updateJob)
-            default:
-                res.status(405).json({
-                    data: "Method not allowed",
-                    success: false,
-                })
-        }
-        closeConnection()
-        return resolve()
-    })
+    try {
+        await connectToDb()
+    } catch (err) {
+        console.log(err)
+        return internalServerError(res, err)
+    }
+    const { method } = req
+    switch (method) {
+        case "GET":
+            return getAllJobs(req, res)
+        case "POST":
+            return isAuthenticated(req, res, createJob)
+        case "DELETE":
+            return isAuthenticated(req, res, deleteJob)
+        case "PUT":
+            return isAuthenticated(req, res, updateJob)
+        default:
+            res.status(405).json({
+                data: "Method not allowed",
+                success: false,
+            })
+    }
+    closeConnection()
 }

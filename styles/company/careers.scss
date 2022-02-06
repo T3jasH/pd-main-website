@@ -97,6 +97,17 @@
         display: flex;
         flex-direction: column;
         background-color: #fbfbfb;
+        & > h3 {
+            font-family: "Monserrat", sans-serif;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 1em;
+            font-weight: 400;
+        }
+        .error-message {
+            color: red;
+            margin: 1em auto;
+        }
         .job {
             display: flex;
             border-bottom: 1px solid black;
@@ -116,6 +127,14 @@
                 gap: 2em;
                 div {
                     display: flex;
+                    button {
+                        color: #fbfbfb;
+                        padding: 0.5em 1em;
+                        background-color: #4987d8;
+                        &:focus {
+                            border: 1px solid black;
+                        }
+                    }
                     &:first-child {
                         justify-content: space-between;
                         align-items: flex-start;
@@ -147,6 +166,25 @@
                             color: #4987d8;
                         }
                     }
+                    &:nth-child(4) {
+                        justify-content: space-between;
+                    }
+                }
+                input[type="text"],
+                textarea {
+                    font-family: inherit;
+                    font-size: 1rem;
+                    border: none;
+                    background-color: inherit;
+                    &:focus {
+                        outline: none;
+                        border-bottom: 1px solid #454545;
+                    }
+                }
+                textarea {
+                    resize: none;
+                    width: 70%;
+                    height: 3rem;
                 }
             }
         }

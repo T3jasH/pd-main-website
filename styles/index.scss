@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Nunito:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 @import "./navbar.scss";
 @import "./home.scss";
 @import "./about.scss";
@@ -15,14 +15,15 @@
 @import "./resources/openshift-captains.scss";
 @import "./resources/media.scss";
 @import "./industries.scss";
+@import "./admin.scss";
 
 :root {
-    $font-size: 20px;
     --black: #0a0a0a;
     --blue: #4a88da;
-    font-size: $font-size;
+    font-size: 18.5px;
     color: #fff;
-    font-family: "Quicksand", sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
     background: linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%);
 }
 
@@ -39,6 +40,10 @@ a {
     text-decoration: none;
     outline: none;
     color: #fff;
+}
+
+button {
+    cursor: pointer;
 }
 
 h1 {
@@ -80,30 +85,42 @@ p {
 
 @media screen and (max-width: 1400px) {
     :root {
-        $font-size: 18px;
+        font-size: 17px;
     }
 }
 
 @media screen and (max-width: 1200px) {
     :root {
-        $font-size: 16px;
+        font-size: 15.5px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    :root {
+        font-size: 15px;
     }
 }
 
 @media screen and (max-width: 980px) {
     :root {
-        $font-size: 14.5px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    :root {
+        font-size: 13px;
     }
 }
 
 @media screen and (max-width: 780px) {
     :root {
-        $font-size: 13px;
+        font-size: 12px;
     }
 }
 
 @media screen and (max-width: 520px) {
     :root {
-        $font-size: 11px;
+        font-size: 10.5px;
     }
 }

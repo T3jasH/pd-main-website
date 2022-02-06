@@ -25,6 +25,10 @@ const JobSchema = new mongoose.Schema({
         type: String,
         required: [true, "Company cannot be empty"],
     },
+    link: {
+        type: String,
+        required: [true, "Job application link cannot be empty"],
+    },
 })
 
 export default mongoose.models.Job || mongoose.model("Job", JobSchema)
