@@ -160,42 +160,30 @@ export default function Careers({ jobs }) {
                     </div>
                 </form>
                 <div className="jobs-list">
-                    {jobs
-                        .filter((job) =>
-                            selectedLocation
-                                ? job.location === selectedLocation.value
-                                : true
-                        )
-                        .filter((job) =>
-                            selectedJobType
-                                ? job.type === selectedJobType.value
-                                : true
-                        )
-                        .filter((job) =>
-                            selectedCompany
-                                ? job.company === selectedCompany.value
-                                : true
-                        )
-                        .filter((job) =>
-                            keyword.length
-                                ? job.title.split(" ").findIndex((word) => {
-                                      console.log(
-                                          "TITLE " +
-                                              word +
-                                              " " +
-                                              keyword +
-                                              " " +
-                                              word.includes(keyword)
-                                      )
-                                      return word
-                                          .toLowerCase()
-                                          .includes(keyword)
-                                  }) !== -1 ||
-                                  job.description
-                                      .split(" ")
-                                      .findIndex((word) => {
+                    {jobs.length === 0 ? (
+                        <h3> No jobs found</h3>
+                    ) : (
+                        jobs
+                            .filter((job) =>
+                                selectedLocation
+                                    ? job.location === selectedLocation.value
+                                    : true
+                            )
+                            .filter((job) =>
+                                selectedJobType
+                                    ? job.type === selectedJobType.value
+                                    : true
+                            )
+                            .filter((job) =>
+                                selectedCompany
+                                    ? job.company === selectedCompany.value
+                                    : true
+                            )
+                            .filter((job) =>
+                                keyword.length
+                                    ? job.title.split(" ").findIndex((word) => {
                                           console.log(
-                                              "DESCR " +
+                                              "TITLE " +
                                                   word +
                                                   " " +
                                                   keyword +
@@ -205,55 +193,71 @@ export default function Careers({ jobs }) {
                                           return word
                                               .toLowerCase()
                                               .includes(keyword)
-                                      }) !== -1
-                                : true
-                        )
-                        .map((job) => (
-                            <div key={job._id} className="job">
-                                <div className="left">
-                                    {
-                                        // Might need other logos too here
-                                    }
-                                    <div className="job-img">
-                                        <Image
-                                            alt={"Prodevans"}
-                                            layout="responsive"
-                                            objectFit="fill"
-                                            src={pd}
-                                        />
-                                    </div>
-                                </div>
-                                <div className="right">
-                                    <div>
-                                        <div>
-                                            <h3>{job.title}</h3>
-                                            <p>{job.company}</p>
+                                      }) !== -1 ||
+                                      job.description
+                                          .split(" ")
+                                          .findIndex((word) => {
+                                              console.log(
+                                                  "DESCR " +
+                                                      word +
+                                                      " " +
+                                                      keyword +
+                                                      " " +
+                                                      word.includes(keyword)
+                                              )
+                                              return word
+                                                  .toLowerCase()
+                                                  .includes(keyword)
+                                          }) !== -1
+                                    : true
+                            )
+                            .map((job) => (
+                                <div key={job._id} className="job">
+                                    <div className="left">
+                                        {
+                                            // Might need other logos too here
+                                        }
+                                        <div className="job-img">
+                                            <Image
+                                                alt={"Prodevans"}
+                                                layout="responsive"
+                                                objectFit="fill"
+                                                src={pd}
+                                            />
                                         </div>
-                                        <a
-                                            target={"_blank"}
-                                            href={job.link}
-                                            rel={"noreferrer"}
-                                        >
-                                            Apply
-                                        </a>
                                     </div>
-                                    <div>
-                                        <p>{job.type}</p>
-                                        <p>{job.location}</p>
-                                        <p>
-                                            {`Posted ${getTime(
-                                                new Date(
-                                                    job.createdAt
-                                                ).getTime()
-                                            )} ago`}
-                                        </p>
-                                    </div>
-                                    <div>
-                                        <p>{job.description}</p>
+                                    <div className="right">
+                                        <div>
+                                            <div>
+                                                <h3>{job.title}</h3>
+                                                <p>{job.company}</p>
+                                            </div>
+                                            <a
+                                                target={"_blank"}
+                                                href={job.link}
+                                                rel={"noreferrer"}
+                                            >
+                                                Apply
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <p>{job.type}</p>
+                                            <p>{job.location}</p>
+                                            <p>
+                                                {`Posted ${getTime(
+                                                    new Date(
+                                                        job.createdAt
+                                                    ).getTime()
+                                                )} ago`}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>{job.description}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))
+                    )}
                 </div>
             </div>
             <CommonFooter />

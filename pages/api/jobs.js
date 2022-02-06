@@ -72,7 +72,7 @@ const deleteJob = async (req, res) => {
 }
 
 const updateJob = async (req, res) => {
-    const { title, description, location, type, company } = JSON.stringify(
+    const { title, description, location, type, company, link } = JSON.parse(
         req.body
     )
     const { id } = req.query
@@ -91,11 +91,12 @@ const updateJob = async (req, res) => {
         }
         // If entity is not empty, apply update. Otherwise just use previous value
         const updatedJob = await Job.findByIdAndUpdate(id, {
-            title: title ? title : job.title,
-            company: company ? company : job.company,
-            description: description ? description : job.description,
-            location: location ? location : job.location,
-            type: type ? type : job.type,
+            title,
+            company,
+            description,
+            location,
+            type,
+            link,
         })
         res.status(200).json({
             data: "Job updated successfully",
@@ -121,7 +122,7 @@ export default async function jobHandler(req, res) {
             return isAuthenticated(req, res, createJob)
         case "DELETE":
             return isAuthenticated(req, res, deleteJob)
-        case "PATCH":
+        case "PUT":
             return isAuthenticated(req, res, updateJob)
         default:
             res.status(405).json({

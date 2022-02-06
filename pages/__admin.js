@@ -91,6 +91,37 @@ export default function Admin({ isAuth, jobs }) {
             setErrorMessage(err.message)
         }
     }
+
+    const deleteJob = async (id) => {
+        try {
+            const resp = await fetch(`/api/jobs?id=${id}`, {
+                method: "DELETE",
+                credentials: "include",
+            })
+            if (!resp.ok) {
+                console.log(await resp.json())
+                return
+            }
+            setJobList((prevList) => prevList.filter((job) => job._id !== id))
+        } catch (err) {
+            console.log(err.message)
+        }
+    }
+
+    const updateJob = async (id) => {
+        try {
+            const resp = await fetch(`/api/jobs?id=${id}`, {
+                method: "PUT",
+                body: JSON.stringify(jobList.find((job) => job._id === id)),
+            })
+            if (!resp.ok) {
+                console.log(await resp.json())
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     return (
         <React.Fragment>
             <Head>
@@ -257,7 +288,13 @@ export default function Admin({ isAuth, jobs }) {
                                                     }
                                                 />
                                             </div>
-                                            <button>Save</button>
+                                            <button
+                                                onClick={() =>
+                                                    updateJob(job._id)
+                                                }
+                                            >
+                                                Save
+                                            </button>
                                         </div>
                                         <div>
                                             <input
@@ -373,6 +410,16 @@ export default function Admin({ isAuth, jobs }) {
                                                     )
                                                 }
                                             />
+                                            <button
+                                                style={{
+                                                    backgroundColor: "#d62c20",
+                                                }}
+                                                onClick={() =>
+                                                    deleteJob(job._id)
+                                                }
+                                            >
+                                                Delete
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
