@@ -4,7 +4,7 @@ import internalServerError from "../../errors/internalServerError"
 import isAuthenticated from "../../middlewares/isAuthenticated"
 import Job from "../../models/job"
 
-const getAllJobs = async (req, res) => {
+export const getAllJobs = async (req, res) => {
     const jobs = await Job.find({})
     res.status(200).json({ data: jobs, success: true })
 }

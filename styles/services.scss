@@ -1,0 +1,246 @@
+.cloud {
+    position: relative;
+    padding: 2em;
+    color: #020202;
+    background-color: #fbfbfb;
+    h2 {
+        font-weight: 400;
+        color: #4987d8;
+        font-size: 1.5rem;
+        margin-top: 1em;
+        font-family: "Montserrat", sans-serif;
+    }
+    .container {
+        padding: 1.5em 0;
+        display: flex;
+        gap: 2em;
+        justify-content: center;
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            flex: 0.6;
+        }
+        .cloud-img {
+            position: relative;
+
+            flex: 0.4;
+        }
+    }
+    h3 {
+        color: #4987d8;
+        line-height: 1.5em;
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: "Montserrat", sans-serif;
+        text-align: center;
+    }
+    .cloud-management {
+        .container {
+            position: relative;
+            padding: 1.5em 0.75em;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            & > div {
+                text-align: center;
+                padding: 1em 2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35%;
+            }
+            .gradient-1 {
+                background: linear-gradient(
+                    91.5deg,
+                    rgba(196, 196, 196, 0.2) 8.53%,
+                    rgba(196, 196, 196, 0) 97.64%
+                );
+            }
+            .gradient-2 {
+                background: linear-gradient(
+                    269.05deg,
+                    rgba(196, 196, 196, 0.2) 14.03%,
+                    rgba(196, 196, 196, 0) 88.72%
+                );
+            }
+        }
+    }
+    .service-features {
+        padding: 2em;
+        h3 {
+            margin-top: 0em;
+        }
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 4em;
+            .container-item {
+                padding: 1em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 0.75em;
+                text-align: center;
+                width: 24rem;
+                height: 16rem;
+                box-shadow: 16px 13px 13px -10px rgba(0, 0, 0, 0.1);
+                border-radius: 1.1rem;
+                .graphic {
+                    width: 4.5rem;
+                    height: 4.75rem;
+                }
+                h3 {
+                    font-size: 1.2rem;
+                    color: #000;
+                }
+            }
+        }
+    }
+    .monitoring-container-1 {
+        padding: 2em 0;
+        h3 {
+            font-size: 1.5rem;
+            color: #000;
+        }
+        .inner {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2em;
+            flex-wrap: wrap;
+            position: relative;
+            padding: 1em 0;
+            .item {
+                display: flex;
+                flex-direction: column;
+                gap: 1em;
+                border-radius: 0.25rem;
+                background-color: #4987d8;
+                height: 14rem;
+                padding: 1em;
+                width: 40%;
+                color: #fbfbfb;
+                h3 {
+                    font-weight: 500;
+                    font-size: 1.2rem;
+                    color: #fbfbfb;
+                    text-align: start;
+                }
+            }
+            .monitoring-item {
+                background-color: inherit;
+                height: 5rem;
+                h3 {
+                    color: #4987d8;
+                    font-weight: 400;
+                }
+                p {
+                    color: #000;
+                }
+            }
+        }
+        .monitoring-inner {
+            gap: 3em;
+        }
+    }
+}
+
+.modernization {
+    position: relative;
+    padding: 2em;
+    .modernization-container {
+        padding: 1.5em 0;
+        display: flex;
+        gap: 2em;
+        justify-content: center;
+        .text {
+            h2 {
+                font-weight: 400;
+                color: #4987d8;
+                font-size: 1.5rem;
+                margin-top: 1em;
+                font-family: "Montserrat", sans-serif;
+            }
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+            flex: 0.65;
+        }
+        .modernization-img {
+            position: relative;
+            flex: 0.35;
+        }
+    }
+    .transformation-services {
+        padding-bottom: 3em;
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-family: "Montserrat", sans-serif;
+            color: #4987d8;
+            text-align: center;
+            margin: 1.5em 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            .container-item {
+                border: 1px solid #828282;
+                border-radius: 0.4rem;
+                padding: 1em;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                h3 {
+                    color: #fbfbfb;
+                }
+            }
+        }
+    }
+    .container-adoption {
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-family: "Montserrat", sans-serif;
+            color: #4987d8;
+            margin: 1em 0;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            height: 10em;
+            flex-wrap: wrap;
+            list-style: none;
+            word-break: break-all;
+            li::before {
+                content: "\2022"; // bullet
+                color: #4987d8;
+                font-weight: bold;
+                font-size: 1.2rem;
+                display: inline-flex;
+                width: 1em;
+                position: relative;
+                top: 0.1em;
+            }
+        }
+        .list {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            height: 10em;
+            flex-wrap: wrap;
+            p {
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+        }
+    }
+}

@@ -8,10 +8,7 @@ import getTime from "../clientUtils/getTime"
 export async function getServerSideProps(ctx) {
     const cookie = ctx.req.headers.cookie || "auth-token="
     const token = cookie.replace("auth-token=", "")
-    const url =
-        process.env.NODE_ENV === "production"
-            ? `https://${process.env.WEBSITE_ADDR}/api/auth`
-            : "http://localhost:3000/api/auth"
+    const url = "http://localhost:3000/api/auth"
     try {
         const authResponse = await fetch(url, {
             method: "GET",
@@ -22,10 +19,7 @@ export async function getServerSideProps(ctx) {
         if (!authResponse.ok) {
             throw new Error("You are not logged in")
         }
-        const jobUrl =
-            process.env.NODE_ENV === "production"
-                ? `https://${process.env.WEBSITE_ADDR}/api/jobs`
-                : "http://localhost:3000/api/jobs"
+        const jobUrl = "http://localhost:3000/api/jobs"
         const jobResponse = await fetch(jobUrl)
         if (!jobResponse.ok) {
             return {
