@@ -7,6 +7,7 @@ const Navbar = (props, navRef) => {
     const company = useRef(null)
     const resources = useRef(null)
     const industries = useRef(null)
+    const services = useRef(null)
     const openDropDown = (ref) => {
         const dropDown = ref.current.querySelector(".dropdown")
         dropDown.classList.add("dropdown-open")
@@ -65,9 +66,32 @@ const Navbar = (props, navRef) => {
                     </Link>
                 </div>
             </span>
-            <Link id="industries" href="/industries" aria-label="Industries">
+            <span
+                id="services"
+                aria-label="Services"
+                ref={services}
+                onMouseEnter={() => openDropDown(services)}
+                onMouseLeave={() => closeDropDown(services)}
+            >
                 Services
-            </Link>
+                <div className="dropdown">
+                    <Link href="/services/cloud" aria-label="Cloud">
+                        Cloud Services
+                    </Link>
+                    <Link
+                        href="/services/modernization"
+                        aria-label="Application Modernization"
+                    >
+                        Application Modernization
+                    </Link>
+                    <Link
+                        href="/services/monitoring"
+                        aria-label="360 Degrees Monitoring"
+                    >
+                        360 Degrees Monitoring
+                    </Link>
+                </div>
+            </span>
             <Link className="products" href="/products" aria-label="Products">
                 Products
             </Link>
