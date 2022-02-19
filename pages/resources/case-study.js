@@ -3,10 +3,11 @@ import Image from "next/image"
 import React, { useRef } from "react"
 import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowBlack.svg"
 import goal from "../../assets/goal.svg"
 import objective from "../../assets/objective.svg"
 import useNavTheme from "../../hooks/useNavTheme"
+import NavPath from "../../components/NavPath"
+import styles from "../../styles/resources/case-study.module.scss"
 
 export default function CaseStudy() {
     const navRef = useRef(null)
@@ -26,29 +27,22 @@ export default function CaseStudy() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="case-study">
-                <div className="nav-info">
-                    <p>Resources</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>Case Study</h1>
-                </div>
-                <div className="container">
-                    <div className="banner">
+            <div className={styles["case-study"]}>
+                <NavPath
+                    theme={"light"}
+                    main={"Resources"}
+                    subPath={"Case Study"}
+                />
+                <div className={styles.container}>
+                    <div className={styles.banner}>
                         <h2>
                             Bank deployment of Docker based, SCI app on Open
                             shift in India
                         </h2>
                     </div>
-                    <div className="goal">
-                        <div className="left">
-                            <div className="goal-img">
+                    <div className={styles.goal}>
+                        <div className={styles.left}>
+                            <div className={styles["goal-img"]}>
                                 <Image
                                     alt="goal graphic"
                                     layout="responsive"
@@ -57,7 +51,7 @@ export default function CaseStudy() {
                                 />
                             </div>
                         </div>
-                        <div className="right">
+                        <div className={styles.right}>
                             <h3>Goal</h3>
                             <p>
                                 New deployment of Openshift Container Platform
@@ -77,8 +71,8 @@ export default function CaseStudy() {
                             </p>
                         </div>
                     </div>
-                    <div className="objective">
-                        <div className="left">
+                    <div className={styles.objective}>
+                        <div className={styles.left}>
                             <h3>Objective</h3>
                             <p>
                                 The intention is to develop capability as a
@@ -95,8 +89,8 @@ export default function CaseStudy() {
                                 features and implement them quickly
                             </p>
                         </div>
-                        <div className="right">
-                            <div className="objective-img">
+                        <div className={styles.right}>
+                            <div className={styles["objective-img"]}>
                                 <Image
                                     alt="Objective graphic"
                                     layout="responsive"

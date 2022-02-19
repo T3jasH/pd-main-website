@@ -1,12 +1,15 @@
 import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
+import useNavTheme from "../../hooks/useNavTheme"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowWhite.svg"
+import NavPath from "../../components/NavPath"
 import modernization from "../../assets/modernization.png"
+import styles from "../../styles/services.module.scss"
 
 export default function Modernization() {
     const navRef = useRef(null)
+    useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
     const cards = [
         {
             title: "Accelerated Application Delivery",
@@ -47,21 +50,14 @@ export default function Modernization() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="modernization">
-                <div className="nav-info">
-                    <p>Services</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>Application Modernization</h1>
-                </div>
-                <div className="modernization-container">
-                    <div className="text">
+            <div className={styles.modernization}>
+                <NavPath
+                    main={"Services"}
+                    subPath={"Application Modernization"}
+                    theme={"dark"}
+                />
+                <div className={styles["modernization-container"]}>
+                    <div className={styles.text}>
                         <h2>Make The Right Choice!</h2>
                         <p>
                             To reduce costs and improve the RoI, Organizations
@@ -89,7 +85,7 @@ export default function Modernization() {
                             equipped so that you can call this journey your own.{" "}
                         </p>
                     </div>
-                    <div className="modernization-img">
+                    <div className={styles["modernization-img"]}>
                         <Image
                             alt="Application Modernization"
                             layout="responsive"
@@ -98,18 +94,21 @@ export default function Modernization() {
                         />
                     </div>
                 </div>
-                <div className="transformation-services">
+                <div className={styles["transformation-services"]}>
                     <h3>Prodevans Application Transformation Services</h3>
-                    <div className="container">
+                    <div className={styles.container}>
                         {cards.map((card) => (
-                            <div className="container-item" key={card.title}>
+                            <div
+                                className={styles["container-item"]}
+                                key={card.title}
+                            >
                                 <h3>{card.title}</h3>
                                 <p>{card.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className="container-adoption">
+                <div className={styles["container-adoption"]}>
                     <h3>Prodevans Container Adoption Program</h3>
                     <ul>
                         {containerAdoptionPoints.map((point, index) => (

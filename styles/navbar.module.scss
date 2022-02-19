@@ -1,4 +1,4 @@
-nav {
+.nav {
     --bgColor: #1b1b1b;
     --textColor: #fff;
     --blue: #4a88da;
@@ -64,10 +64,11 @@ nav {
         color: inherit;
         padding: 0.5em 0.75em;
         text-align: center;
+        font-weight: 400;
     }
     & > a:focus,
     span:focus,
-    .active {
+    & > .active {
         font-weight: 500;
         border: 1px solid var(--borderColor);
         background: var(--borderColor);
@@ -118,25 +119,25 @@ nav {
 }
 
 @media screen and (max-width: 1400px) {
-    nav {
+    .nav {
         gap: 1.5em;
     }
 }
 
 @media screen and (max-width: 1300px) {
-    nav {
+    .nav {
         gap: 1em;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    nav {
+    .nav {
         gap: 0.5em;
     }
 }
 
 @media screen and (max-width: 900px) {
-    nav {
+    .nav {
         gap: 0.25em;
         padding: 0.5em 0.5em 0 0.5em;
         width: calc(100% - 1em);
@@ -144,7 +145,7 @@ nav {
 }
 
 @media screen and (max-width: 720px) {
-    nav {
+    .nav {
         font-size: 0.9rem;
     }
 }

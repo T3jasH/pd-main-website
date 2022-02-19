@@ -3,11 +3,12 @@ import Image from "next/image"
 import React, { useEffect, useRef, useState } from "react"
 import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowBlack.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import pd from "../../assets/pdLogoBlue.svg"
 import Select from "react-select"
 import getTime from "../../clientUtils/getTime"
+import styles from "../../styles/company/careers.module.scss"
+import NavPath from "../../components/NavPath"
 
 export async function getStaticProps(context) {
     try {
@@ -94,23 +95,12 @@ export default function Careers({ jobs }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="company-careers">
-                <div className="nav-info">
-                    <p>Company</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>About the Company</h1>
-                </div>
-                <div className="slogan">
+            <div className={styles["company-careers"]}>
+                <NavPath main={"Company"} subPath={"Careers"} theme="light" />
+                <div className={styles.slogan}>
                     <h2>Build your future with Prodevans. Join us now!</h2>
                 </div>
-                <form className="jobs-filter">
+                <form className={styles["jobs-filter"]}>
                     <div>
                         <input
                             type="text"
@@ -123,8 +113,8 @@ export default function Careers({ jobs }) {
                     </div>
                     <div>
                         <Select
-                            className="dropdown"
-                            classNamePrefix={"custom"}
+                            className={styles.dropdown}
+                            classNamePrefix={"lol"}
                             isDisabled={false}
                             isClearable={true}
                             isSearchable={true}
@@ -136,8 +126,7 @@ export default function Careers({ jobs }) {
                             }}
                         />
                         <Select
-                            className="dropdown"
-                            classNamePrefix={"custom"}
+                            className={styles.dropdown}
                             isDisabled={false}
                             isClearable={true}
                             isSearchable={true}
@@ -147,8 +136,7 @@ export default function Careers({ jobs }) {
                             onChange={(e) => setSelectedJobType(e)}
                         />
                         <Select
-                            className="dropdown"
-                            classNamePrefix={"custom"}
+                            className={styles.dropdown}
                             isDisabled={false}
                             isClearable={true}
                             isSearchable={true}
@@ -159,7 +147,7 @@ export default function Careers({ jobs }) {
                         />
                     </div>
                 </form>
-                <div className="jobs-list">
+                <div className={styles["jobs-list"]}>
                     {jobs.length === 0 ? (
                         <h3> No jobs found</h3>
                     ) : (
@@ -212,12 +200,12 @@ export default function Careers({ jobs }) {
                                     : true
                             )
                             .map((job) => (
-                                <div key={job._id} className="job">
-                                    <div className="left">
+                                <div key={job._id} className={styles.job}>
+                                    <div className={styles.left}>
                                         {
                                             // Might need other logos too here
                                         }
-                                        <div className="job-img">
+                                        <div className={styles["job-img"]}>
                                             <Image
                                                 alt={"Prodevans"}
                                                 layout="responsive"
@@ -226,7 +214,7 @@ export default function Careers({ jobs }) {
                                             />
                                         </div>
                                     </div>
-                                    <div className="right">
+                                    <div className={styles.right}>
                                         <div>
                                             <div>
                                                 <h3>{job.title}</h3>

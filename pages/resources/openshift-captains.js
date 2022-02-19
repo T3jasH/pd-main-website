@@ -3,13 +3,14 @@ import Image from "next/image"
 import React, { useEffect, useRef } from "react"
 import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowBlack.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import openshift from "../../assets/openshift.png"
 import openshiftFtBg from "../../assets/openshiftFooterBg.png"
 import openshift2 from "../../assets/openshift2.png"
 import Link from "next/link"
 import { useInView } from "react-intersection-observer"
+import NavPath from "../../components/NavPath"
+import styles from "../../styles/resources/openshift-captains.module.scss"
 
 export default function OpenShift() {
     const navRef = useRef(null)
@@ -45,20 +46,13 @@ export default function OpenShift() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="openshift">
-                <div className="nav-info">
-                    <p>Resources</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>OpenShift</h1>
-                </div>
-                <div className="banner">
+            <div className={styles.openshift}>
+                <NavPath
+                    subPath={"OpenShift"}
+                    main={"Resources"}
+                    theme="light"
+                />
+                <div className={styles.banner}>
                     <h2>Who is an OpenShift Captain?</h2>
                     <h3>
                         Captain are the strongest advocates of openshift; they
@@ -67,13 +61,13 @@ export default function OpenShift() {
                         by sharing their knowledge
                     </h3>
                 </div>
-                <div className="description">
-                    <div className="left">
+                <div className={styles.description}>
+                    <div className={styles.left}>
                         <h2 className="coloured">What</h2>
                         <h2>Why</h2>
                         <h2>How</h2>
                     </div>
-                    <div className="right">
+                    <div className={styles.right}>
                         <h2>What do they do?</h2>
                         <div className="right-img">
                             <Image
@@ -90,12 +84,12 @@ export default function OpenShift() {
                             contributions from participants. They will provide
                             guidance & mentorship when needed. They will share
                             calendars, upcoming events, announcements, features
-                            – everything you would expect a strong proponent to
+                            - everything you would expect a strong proponent to
                             do.
                         </p>
                     </div>
                 </div>
-                <div className="description">
+                <div className={styles.description}>
                     <h2>What do Captains get?</h2>
                     <p>
                         They stand to gain a lot In return for their efforts.
@@ -104,20 +98,20 @@ export default function OpenShift() {
                         gain exposure through speaking opportunities. Other
                         benefits include:
                     </p>
-                    <p className="red">
+                    <p className={styles.red}>
                         Paid trip to Red Hat Tech Expo in APAC (2019 Tech Expo
                         was held in Seoul)
                     </p>
-                    <p className="red">
+                    <p className={styles.red}>
                         A Lenovo Tablet absolutely free (worth INR 10k)
                     </p>
-                    <p className="red">
+                    <p className={styles.red}>
                         One OpenShift training seat – worth INR 56K – absolutely
                         free
                     </p>
                 </div>
-                <div className="description">
-                    <div className="left">
+                <div className={styles.description}>
+                    <div className={styles.left}>
                         <h2>How to know what other Captains are up to?</h2>
                         <p>
                             The gitHub repo provides all the material that the
@@ -127,7 +121,7 @@ export default function OpenShift() {
                             pages
                         </p>
                     </div>
-                    <div className="right">
+                    <div className={styles.right}>
                         <h2>Who delivers the training?</h2>
                         <p>
                             Prodevans delivers training through Certified Red
@@ -135,8 +129,8 @@ export default function OpenShift() {
                         </p>
                     </div>
                 </div>
-                <div className="description">
-                    <div className="left">
+                <div className={styles.description}>
+                    <div className={styles.left}>
                         <h2>Anything specific the Captain has to deliver?</h2>
                         <ol>
                             <li>One workshop opportunity in your company</li>
@@ -145,8 +139,8 @@ export default function OpenShift() {
                             <li>Schedule 4 follow up workshops in a year</li>
                         </ol>
                     </div>
-                    <div className="right">
-                        <div className="right-img">
+                    <div className={styles.right}>
+                        <div className={styles["right-img"]}>
                             <Image
                                 alt={"Graphic"}
                                 layout="responsive"
@@ -157,7 +151,7 @@ export default function OpenShift() {
                     </div>
                 </div>
             </div>
-            <div className="openshift-footer" ref={footerRef}>
+            <div className={styles["openshift-footer"]} ref={footerRef}>
                 <h2>What does Openshift look for when selecting captains?</h2>
                 <p>
                     First & foremost, they should be passionate about technology
@@ -165,12 +159,12 @@ export default function OpenShift() {
                     working on OpenShift in some capacity. They should strive to
                     keep themselves up to date on the latest offerings of
                     OpenShift. One specific activity that all are required to do
-                    is Open iVentura Project – iVentura uses OpenDataHub is a
+                    is Open iVentura Project - iVentura uses OpenDataHub is a
                     framework for building AI/ML functions with OpenShift. By
                     the way iVentura has plenty of use cases.
                 </p>
                 <Link href="https://www.iventura.ai/">Iventura</Link>
-                <div className="footer-img">
+                <div className={styles["footer-img"]}>
                     <Image
                         alt={"Footer Background"}
                         layout="responsive"

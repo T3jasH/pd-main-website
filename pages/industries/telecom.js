@@ -2,18 +2,18 @@ import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowWhite.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import telecom from "../../assets/telecom.png"
 import telecom2 from "../../assets/telecom2.png"
+import arrow from "../../assets/arrowWhite.svg"
+import styles from "../../styles/industries.module.scss"
 
 export default function Telecom() {
     const navRef = useRef(null)
     useNavTheme(
         "#industries",
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none",
-        navRef,
-        false
+        navRef
     )
     return (
         <React.Fragment>
@@ -26,17 +26,17 @@ export default function Telecom() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="industries">
-                <div className="industries-img">
+            <div className={styles.industries}>
+                <div className={styles["industries-img"]}>
                     <Image
                         alt="Telecom"
                         layout="fill"
                         objectFit="fill"
                         src={telecom}
                     />
-                    <div className="nav-info">
+                    <div className={`nav-info ${styles["nav-info"]}`}>
                         <p>Industries</p>
-                        <div className="arrow">
+                        <div className={`arrow ${styles.arrow}`}>
                             <Image
                                 alt="arrow"
                                 layout="responsive"
@@ -44,7 +44,7 @@ export default function Telecom() {
                                 src={arrow}
                             />
                         </div>
-                        <h1>Telecom</h1>
+                        <h1>Education</h1>
                     </div>
                     <h2>
                         Bringing the next wave of digital transformation to
@@ -59,17 +59,19 @@ export default function Telecom() {
                         technologies.
                     </p>
                 </div>
-                <div className="edu-container tele-container">
-                    <div className="left">
+                <div
+                    className={`${styles["edu-container"]} ${styles["tele-container"]}`}
+                >
+                    <div className={styles.left}>
                         <h3>THINGS WE DO</h3>
-                        <p className="blue">AI And Data Intelligence</p>
+                        <p className={styles.blue}>AI And Data Intelligence</p>
                         <p>Digital Innovation</p>
                         <p>Business Services</p>
                         <p>Technology Services</p>
                     </div>
-                    <div className="right">
+                    <div className={styles.right}>
                         <h3>AI And Data Intelligence</h3>
-                        <div className="tele-img">
+                        <div className={styles["tele-img"]}>
                             <Image
                                 alt="graphic"
                                 layout="responsive"

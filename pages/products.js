@@ -4,9 +4,12 @@ import React, { useRef, useState } from "react"
 import Navbar from "../components/Navbar"
 import product from "../assets/product.png"
 import productHover from "../assets/productHover.png"
+import useNavTheme from "../hooks/useNavTheme"
+import styles from "../styles/products.module.scss"
 
 export default function Products() {
     const navRef = useRef(null)
+    useNavTheme("#products", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
     const [products, setProducts] = useState([
         {
             title: "PDCloudEX",
@@ -33,11 +36,11 @@ export default function Products() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="products">
+            <div className={styles.products}>
                 {products.map((product) => (
-                    <div className="product" key={product.title}>
+                    <div className={styles.product} key={product.title}>
                         <div
-                            className="product-img"
+                            className={styles["product-img"]}
                             onMouseEnter={() =>
                                 setProducts((prev) =>
                                     prev.map((prod) => {

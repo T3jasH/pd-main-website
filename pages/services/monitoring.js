@@ -2,9 +2,10 @@ import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowBlack.svg"
+import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
 import cloud from "../../assets/cloud.png"
+import styles from "../../styles/services.module.scss"
 
 export default function Cloud() {
     const navRef = useRef(null)
@@ -85,22 +86,15 @@ export default function Cloud() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="cloud">
-                <div className="nav-info">
-                    <p>Services</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>360 Degrees Monitoring</h1>
-                </div>
+            <div className={styles.cloud}>
+                <NavPath
+                    subPath={"360 Degrees Monitoring"}
+                    main={"Services"}
+                    theme={"light"}
+                />
                 <h2>Meeting All Your Monitoring Needs!</h2>
-                <div className="container">
-                    <div className="text">
+                <div className={styles.container}>
+                    <div className={styles.text}>
                         <p>
                             Our wide ranging experience in cloud computing
                             technology enables us to craft all-inclusive cloud
@@ -129,7 +123,7 @@ export default function Cloud() {
                             business evolves.
                         </p>
                     </div>
-                    <div className="cloud-img">
+                    <div className={styles["cloud-img"]}>
                         <Image
                             alt="Cloud"
                             layout="responsive"
@@ -138,23 +132,25 @@ export default function Cloud() {
                         />
                     </div>
                 </div>
-                <div className="monitoring-container-1">
+                <div className={styles["monitoring-container-1"]}>
                     <h3>What We Do</h3>
-                    <div className="inner">
+                    <div className={styles.inner}>
                         {whatWeDo.map((item) => (
-                            <div className="item" key={item.title}>
+                            <div className={styles.item} key={item.title}>
                                 <h3>{item.title}</h3>
                                 <p>{item.description}</p>
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className="monitoring-container-1">
+                <div className={styles["monitoring-container-1"]}>
                     <h3>Why Use Prodevans Monitoring Tool?</h3>
-                    <div className="inner monitoring-inner">
+                    <div
+                        className={`${styles.inner} ${styles["monitoring-inner"]}`}
+                    >
                         {monitoringTool.map((item) => (
                             <div
-                                className="item monitoring-item"
+                                className={`${styles.item} ${styles["monitoring-item"]}`}
                                 key={item.title}
                             >
                                 <h3>{item.title}</h3>

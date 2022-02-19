@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import Navbar from "../components/Navbar"
 import pd from "../assets/pdLogoBlue.svg"
 import getTime from "../clientUtils/getTime"
+import styles from "../styles/company/careers.module.scss"
 
 export async function getServerSideProps(ctx) {
     const cookie = ctx.req.headers.cookie || "auth-token="
@@ -127,13 +128,15 @@ export default function Admin({ isAuth, jobs }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <div className="company-careers">
+            <div className={styles["company-careers"]}>
                 {isAuth ? (
                     <>
-                        <div className="jobs-list">
-                            <p className="error-message">{errorMessage}</p>
-                            <div className="job">
-                                <div className="right">
+                        <div className={styles["jobs-list"]}>
+                            <p className={styles["error-message"]}>
+                                {errorMessage}
+                            </p>
+                            <div className={styles.job}>
+                                <div className={styles.right}>
                                     <div>
                                         <div>
                                             <input
@@ -216,9 +219,9 @@ export default function Admin({ isAuth, jobs }) {
                                 </div>
                             </div>
                             {jobList.map((job) => (
-                                <div key={job._id} className="job">
-                                    <div className="left">
-                                        <div className="job-img">
+                                <div key={job._id} className={styles.job}>
+                                    <div className={styles.left}>
+                                        <div className={styles["job-img"]}>
                                             <Image
                                                 alt={"Prodevans"}
                                                 layout="responsive"
@@ -227,7 +230,7 @@ export default function Admin({ isAuth, jobs }) {
                                             />
                                         </div>
                                     </div>
-                                    <div className="right">
+                                    <div className={styles.right}>
                                         <div>
                                             <div>
                                                 <input

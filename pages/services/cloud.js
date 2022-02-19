@@ -2,13 +2,14 @@ import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowBlack.svg"
+import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
 import cloud from "../../assets/cloud.png"
 import cloudImplementation from "../../assets/cloudImplementation.svg"
 import cloudManaged from "../../assets/cloudManaged.svg"
 import cloudAdvisory from "../../assets/cloudAdvisory.svg"
 import cloudEnablement from "../../assets/cloudEnablement.svg"
+import styles from "../../styles/services.module.scss"
 
 export default function Cloud() {
     const navRef = useRef(null)
@@ -50,22 +51,11 @@ export default function Cloud() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="cloud">
-                <div className="nav-info">
-                    <p>Services</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>Cloud</h1>
-                </div>
+            <div className={styles.cloud}>
+                <NavPath theme={"light"} main={"Services"} subPath={"Cloud"} />
                 <h2>Cloud Computing Solutions Provider</h2>
-                <div className="container">
-                    <div className="text">
+                <div className={styles.container}>
+                    <div className={styles.text}>
                         <p>
                             Our wide ranging experience in cloud computing
                             technology enables us to craft all-inclusive cloud
@@ -94,7 +84,7 @@ export default function Cloud() {
                             business evolves.
                         </p>
                     </div>
-                    <div className="cloud-img">
+                    <div className={styles["cloud-img"]}>
                         <Image
                             alt="Cloud"
                             layout="responsive"
@@ -103,29 +93,32 @@ export default function Cloud() {
                         />
                     </div>
                 </div>
-                <div className="cloud-management">
+                <div className={styles["cloud-management"]}>
                     <h3>Our Cloud Portfolio Management includes</h3>
-                    <div className="container">
-                        <div className="gradient-1">
+                    <div className={styles.container}>
+                        <div className={styles["gradient-1"]}>
                             Delivering Self-Service IT
                         </div>
-                        <div className="gradient-1">
+                        <div className={styles["gradient-1"]}>
                             Abstracting Multiple Clouds
                         </div>
-                        <div className="gradient-2">
+                        <div className={styles["gradient-2"]}>
                             Providing Governance and Controls
                         </div>
-                        <div className="gradient-2">
+                        <div className={styles["gradient-2"]}>
                             Automating Lifecycle Management
                         </div>
                     </div>
                 </div>
-                <div className="service-features">
+                <div className={styles["service-features"]}>
                     <h3>Features Of Our Services</h3>
-                    <div className="container">
+                    <div className={styles.container}>
                         {serviceFeatures.map((feature) => (
-                            <div className="container-item" key={feature.title}>
-                                <div className="graphic">
+                            <div
+                                className={styles["container-item"]}
+                                key={feature.title}
+                            >
+                                <div className={styles.graphic}>
                                     <Image
                                         alt={feature.title}
                                         layout="responsive"

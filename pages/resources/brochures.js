@@ -3,7 +3,6 @@ import Image from "next/image"
 import React, { useRef } from "react"
 import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowBlack.svg"
 import pdCorp from "../../assets/prodevansCorporate.png"
 import pdOpen from "../../assets/prodevansOpenshift.png"
 import pdManaged from "../../assets/prodevansManaged.png"
@@ -11,6 +10,8 @@ import pdCloud from "../../assets/pdCloudEx.png"
 import pdProfile from "../../assets/prodevansProfile.png"
 import iVentura from "../../assets/iVenturaProfile.png"
 import useNavTheme from "../../hooks/useNavTheme"
+import NavPath from "../../components/NavPath"
+import styles from "../../styles/resources/brochures.module.scss"
 
 export default function Brochures() {
     const brochures = [
@@ -56,24 +57,17 @@ export default function Brochures() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="brochures">
-                <div className="nav-info">
-                    <p>Resources</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>Brochures</h1>
-                </div>
-                <div className="list">
+            <div className={styles.brochures}>
+                <NavPath
+                    theme={"light"}
+                    main={"Resources"}
+                    subPath={"Brochures"}
+                />
+                <div className={styles.list}>
                     {brochures.map((brochure) => (
-                        <div className="brochure" key={brochure.name}>
+                        <div className={styles.brochure} key={brochure.name}>
                             <h2>{brochure.name}</h2>
-                            <div className="brochure-img">
+                            <div className={styles["brochure-img"]}>
                                 <Image
                                     alt={brochure.name}
                                     layout="responsive"

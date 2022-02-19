@@ -1,5 +1,6 @@
 import { Fragment, useEffect } from "react"
 import { useInView } from "react-intersection-observer"
+import style from "../styles/contact.module.scss"
 
 export default function Contact() {
     const { ref, inView } = useInView({
@@ -29,8 +30,8 @@ export default function Contact() {
     }
 
     return (
-        <div id="contact" ref={ref}>
-            <div className="left">
+        <div id={"contact"} className={style.contact} ref={ref}>
+            <div className={style.left}>
                 <h2>Get in touch.</h2>
                 <p>You have an idea in mind? Let us help you execute it.</p>
                 <p>
@@ -39,9 +40,9 @@ export default function Contact() {
                     challenges.
                 </p>
             </div>
-            <div className="right">
+            <div className={style.right}>
                 <form onSubmit={submit}>
-                    <div className="form-row">
+                    <div className={style["form-row"]}>
                         <input
                             type="text"
                             placeholder="First Name"
@@ -53,7 +54,7 @@ export default function Contact() {
                             aria-label={"Last Name"}
                         />
                     </div>
-                    <div className="form-row">
+                    <div className={style["form-row"]}>
                         <input
                             type="text"
                             placeholder="Email"
@@ -65,7 +66,7 @@ export default function Contact() {
                             aria-label={"Phone"}
                         />
                     </div>
-                    <div className="form-row">
+                    <div className={style["form-row"]}>
                         <input
                             type="text"
                             placeholder="Company"
@@ -77,10 +78,10 @@ export default function Contact() {
                             aria-label={"Subject"}
                         />
                     </div>
-                    <div className="form-row">
+                    <div className={style["form-row"]}>
                         <textarea aria-label="Message" placeholder="Message" />
                     </div>
-                    <div className="form-row">
+                    <div className={style["form-row"]}>
                         <input type="submit" value="Send" />
                     </div>
                 </form>

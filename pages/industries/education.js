@@ -2,18 +2,18 @@ import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowWhite.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import education from "../../assets/education.png"
 import education2 from "../../assets/education2.png"
+import arrow from "../../assets/arrowWhite.svg"
+import styles from "../../styles/industries.module.scss"
 
 export default function Education() {
     const navRef = useRef(null)
     useNavTheme(
-        "#industries",
+        "#industries-btn",
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none",
-        navRef,
-        false
+        navRef
     )
     return (
         <React.Fragment>
@@ -26,17 +26,17 @@ export default function Education() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="industries">
-                <div className="industries-img">
+            <div className={styles.industries}>
+                <div className={styles["industries-img"]}>
                     <Image
                         alt="Education"
                         layout="fill"
                         objectFit="fill"
                         src={education}
                     />
-                    <div className="nav-info">
+                    <div className={`nav-info ${styles["nav-info"]}`}>
                         <p>Industries</p>
-                        <div className="arrow">
+                        <div className={`arrow ${styles.arrow}`}>
                             <Image
                                 alt="arrow"
                                 layout="responsive"
@@ -56,8 +56,8 @@ export default function Education() {
                         down on demand.
                     </p>
                 </div>
-                <div className="edu-container">
-                    <div className="left">
+                <div className={styles["edu-container"]}>
+                    <div className={styles.left}>
                         <h3>What can you expect by using PDCloudEx™?</h3>
                         <ul>
                             <li>
@@ -88,7 +88,7 @@ export default function Education() {
                             </li>
                         </ul>
                     </div>
-                    <div className="right">
+                    <div className={styles.right}>
                         <Image
                             alt="graphic"
                             layout="responsive"

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react"
 import Head from "next/head"
 import Navbar from "../../components/Navbar"
-import arrow from "../../assets/arrowWhite.svg"
 import Image from "next/image"
+import NavPath from "../../components/NavPath"
+import styles from "../../styles/resources/media.module.scss"
 
-export default function About() {
+export default function Media() {
     const articles = [
         {
             title: "Interview with Deepak Mishra | Founder and CEO Prodevans Technologies",
@@ -45,30 +46,23 @@ export default function About() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="media">
-                <div className="nav-info">
-                    <p>Resources</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>Media</h1>
-                </div>
+            <div className={styles.media}>
+                <NavPath theme={"dark"} main={"Resources"} subPath={"Media"} />
                 <h2>Published Articles</h2>
-                <div className="articles">
+                <div className={styles.articles}>
                     {articles.map((article) => (
-                        <div key={article.title} className="article">
-                            <div className="article-img">
-                                {
-                                    //IMG
-                                }
+                        <div key={article.title} className={styles.article}>
+                            <div className={styles.left}>
+                                <div className={styles["article-img"]}>
+                                    {
+                                        //IMG
+                                    }
+                                </div>
                             </div>
-                            <h3>{article.title}</h3>
-                            <p>{article.secTitle}</p>
+                            <div className={styles.right}>
+                                <h3>{article.title}</h3>
+                                <p>{article.secTitle}</p>
+                            </div>
                         </div>
                     ))}
                 </div>

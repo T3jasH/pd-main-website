@@ -3,6 +3,7 @@ import aboutRightImage from "../assets/aboutRightImage.png"
 import tiles from "../assets/tiles.png"
 import { useInView } from "react-intersection-observer"
 import { Fragment, useEffect } from "react"
+import style from "../styles/about.module.scss"
 
 const About = () => {
     const { ref, inView } = useInView({
@@ -23,12 +24,13 @@ const About = () => {
 
     return (
         <Fragment>
-            <div id="about-us" ref={ref}>
-                <div className="container">
-                    <div className="left">
+            <div id={`about-us`} className={style["about-us"]} ref={ref}>
+                <div className={style.container}>
+                    <div className={style.left}>
                         <h2>
                             We are what your{" "}
-                            <span className="underline">brand</span> is missing.
+                            <span className={style.underline}>brand</span> is
+                            missing.
                         </h2>
                         <p>
                             Prodevans is an ISO 9001 | 27001 | 20000 Accredited
@@ -42,7 +44,7 @@ const About = () => {
                             experience by deploying the right Cloud-based tools
                             and resources.
                         </p>
-                        <div className="tiles">
+                        <div className={style.tiles}>
                             <Image
                                 alt="tiles graphic"
                                 layout="fill"
@@ -51,8 +53,8 @@ const About = () => {
                             />
                         </div>
                     </div>
-                    <div className="right">
-                        <div className="rightImage">
+                    <div className={style.right}>
+                        <div className={style.rightImage}>
                             <Image
                                 alt="graphic"
                                 layout="fill"
@@ -62,9 +64,13 @@ const About = () => {
                         </div>
                     </div>
                 </div>
-                <div className="about-us-footer">
-                    <div className="line blue-line"></div>
-                    <div className="line gray-line"></div>
+                <div className={style["about-us-footer"]}>
+                    <div
+                        className={`${style["blue-line"]} ${style.line}`}
+                    ></div>
+                    <div
+                        className={`${style["gray-line"]} ${style.line}`}
+                    ></div>
                 </div>
             </div>
         </Fragment>

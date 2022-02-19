@@ -7,6 +7,7 @@ import review3 from "../assets/review3.jpg"
 import review4 from "../assets/review4.png"
 import previous from "../assets/previous.svg"
 import next from "../assets/next.svg"
+import style from "../styles/reviews.module.scss"
 
 export default function Reviews() {
     const reviewImages = [review1, review2, review3, review4]
@@ -53,16 +54,16 @@ export default function Reviews() {
     }, [inView])
 
     return (
-        <div id="reviews" ref={ref}>
+        <div id={style.reviews} ref={ref}>
             <h2>
                 Hear first hand from our{" "}
                 <span className="underline">customers</span>, what they thought
                 about our services.
             </h2>
-            <div className="review">
-                <p className="text">{reviews[currentIndex].text}</p>
-                <div className="reviewer">
-                    <div className="profile">
+            <div className={style.review}>
+                <p className={style.text}>{reviews[currentIndex].text}</p>
+                <div className={style.reviewer}>
+                    <div className={style.profile}>
                         <Image
                             alt={reviews[currentIndex].name}
                             layout="responsive"
@@ -73,8 +74,8 @@ export default function Reviews() {
                     <p>{reviews[currentIndex].name}</p>
                 </div>
             </div>
-            <div className="controls">
-                <div className="arrow">
+            <div className={style.controls}>
+                <div className={style.arrow}>
                     <Image
                         alt={"previous review"}
                         layout="fill"
@@ -87,7 +88,7 @@ export default function Reviews() {
                         }}
                     />
                 </div>
-                <div className="arrow">
+                <div className={style.arrow}>
                     <Image
                         alt={"next review"}
                         layout="fill"

@@ -1,3 +1,4 @@
+@import "../mixins/drodpdown.scss";
 .company-careers {
     position: relative;
     background-color: #fbfbfb;
@@ -31,8 +32,8 @@
                 border-radius: 0.25em;
                 border: 0.5px solid #060606;
                 padding: 0.5em 1em;
-                font-family: "Quicksand", sans-serif;
-                color: #060606;
+                font-family: "Open Sans", sans-serif;
+                font-weight: 400;
                 font-size: 1rem;
                 background-color: inherit;
                 outline: none;
@@ -61,22 +62,7 @@
                     width: 15%;
                 }
                 .dropdown {
-                    width: 25%;
-                    .custom__control {
-                        border-radius: 0.25em;
-                        border: 0.5px solid #060606;
-                        padding: 0.25em 0.5em;
-                        background-color: inherit;
-                        .custom__value-container {
-                            padding: 0;
-                        }
-                        .custom__menu {
-                            z-index: 3;
-                        }
-                        &:focus {
-                            border: 0.5px solid #4987d8;
-                        }
-                    }
+                    @include my-dropdown(#060606, #060606);
                 }
             }
             input[type="text"]:focus {
