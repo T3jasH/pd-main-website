@@ -1,0 +1,9 @@
+@import "./mixins/drodpdown.scss";
+.events {
+    padding: 2em;
+    position: relative;
+    .dropdown {
+        @include my-dropdown(#fbfbfb, #fbfbfb);
+        width: 30%;
+    }
+}

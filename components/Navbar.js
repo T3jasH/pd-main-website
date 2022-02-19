@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import logo from "../assets/prodevansLogo.svg"
 import React, { useRef } from "react"
+import style from "../styles/navbar.module.scss"
 
 const Navbar = (props, navRef) => {
     const company = useRef(null)
@@ -9,16 +10,16 @@ const Navbar = (props, navRef) => {
     const industries = useRef(null)
     const services = useRef(null)
     const openDropDown = (ref) => {
-        const dropDown = ref.current.querySelector(".dropdown")
-        dropDown.classList.add("dropdown-open")
+        const dropDown = ref.current.querySelector(`.${style.dropdown}`)
+        dropDown.classList.add(`${style["dropdown-open"]}`)
     }
     const closeDropDown = (ref) => {
-        const dropDown = ref.current.querySelector(".dropdown")
-        dropDown.classList.remove("dropdown-open")
+        const dropDown = ref.current.querySelector(`.${style.dropdown}`)
+        dropDown.classList.remove(`${style["dropdown-open"]}`)
     }
     return (
-        <nav ref={navRef}>
-            <div className="logo">
+        <nav ref={navRef} className={style.nav}>
+            <div className={style.logo}>
                 <Image alt="PD Logo" src={logo} />
             </div>
             <Link href="/" aria-label="Home">
@@ -28,15 +29,15 @@ const Navbar = (props, navRef) => {
                 About Us
             </Link>
             <span
-                id="company"
-                className="nav-item"
+                id={"company"}
+                className={style["nav-item"]}
                 aria-label="Company"
                 ref={company}
                 onMouseEnter={() => openDropDown(company)}
                 onMouseLeave={() => closeDropDown(company)}
             >
                 Company
-                <div className="dropdown">
+                <div className={style.dropdown}>
                     <Link href="/company/about" aria-label="About the company">
                         About
                     </Link>
@@ -46,15 +47,15 @@ const Navbar = (props, navRef) => {
                 </div>
             </span>
             <span
-                id="industries"
-                className="nav-item"
+                id={"industries-btn"}
+                className={style["nav-item"]}
                 aria-label="Industries"
                 ref={industries}
                 onMouseEnter={() => openDropDown(industries)}
                 onMouseLeave={() => closeDropDown(industries)}
             >
                 Industries{" "}
-                <div className="dropdown">
+                <div className={style.dropdown}>
                     <Link href="/industries/education" aria-label="Education">
                         Education
                     </Link>
@@ -67,14 +68,14 @@ const Navbar = (props, navRef) => {
                 </div>
             </span>
             <span
-                id="services"
+                id={"services"}
                 aria-label="Services"
                 ref={services}
                 onMouseEnter={() => openDropDown(services)}
                 onMouseLeave={() => closeDropDown(services)}
             >
                 Services
-                <div className="dropdown">
+                <div className={style.dropdown}>
                     <Link href="/services/cloud" aria-label="Cloud">
                         Cloud Services
                     </Link>
@@ -92,19 +93,19 @@ const Navbar = (props, navRef) => {
                     </Link>
                 </div>
             </span>
-            <Link className="products" href="/products" aria-label="Products">
+            <Link id={"products"} href="/products" aria-label="Products">
                 Products
             </Link>
             <span
-                id="resources"
-                className="nav-item"
+                id={"resources"}
+                className={style["nav-item"]}
                 aria-label="Resources"
                 ref={resources}
                 onMouseEnter={() => openDropDown(resources)}
                 onMouseLeave={() => closeDropDown(resources)}
             >
                 Resources
-                <div className="dropdown">
+                <div className={style.dropdown}>
                     <Link href="/resources/case-study" aria-label="Case study">
                         Case Study
                     </Link>
@@ -122,14 +123,18 @@ const Navbar = (props, navRef) => {
                     </Link>
                 </div>
             </span>
-            <Link href="/events" aria-label="Events" className={"events"}>
+            <Link href="/events" aria-label="Events" id="events-btn">
                 Events
             </Link>
-            <Link href="/#contact" aria-label="Contact Us" className="contact">
+            <Link
+                href="/#contact"
+                aria-label="Contact Us"
+                className={style.contact}
+            >
                 Contact
             </Link>
-            <div className="loading">
-                <div className="blue-dash" />
+            <div className={style.loading}>
+                <div className={style["blue-dash"]} />
             </div>
         </nav>
     )

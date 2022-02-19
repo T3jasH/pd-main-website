@@ -12,6 +12,7 @@ import Reviews from "../components/Reviews"
 import Clients from "../components/Clients"
 import Contact from "../components/Contact"
 import CommonFooter from "../components/CommonFooter"
+import style from "../styles/home.module.scss"
 
 export default function Home() {
     const { ref, inView } = useInView({
@@ -41,11 +42,12 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <main>
-                <div id="home" ref={ref}>
-                    <div className="left">
+            <main className={style.main}>
+                <div id={style.home} ref={ref}>
+                    <div className={style.left}>
                         <h1>
-                            Tech like <span className="blue">never</span> before
+                            Tech like <span className={style.blue}>never</span>{" "}
+                            before
                         </h1>
                         <h2>A cloud and Devops partner</h2>
                         <h2>Fullstack Devops and automation experts</h2>
@@ -53,7 +55,7 @@ export default function Home() {
                             Real world expertise in optimising applications for
                             cloud
                         </h2>
-                        <div className="stats">
+                        <div className={style.stats}>
                             <div>
                                 <h2>256</h2> <h3>Projects Done</h3>
                             </div>
@@ -66,7 +68,7 @@ export default function Home() {
                         </div>
                         <Link href="#about-us">Know More</Link>
                     </div>
-                    <div className="rightImage">
+                    <div className={style.rightImage}>
                         <Image
                             alt=""
                             src={rightImage}

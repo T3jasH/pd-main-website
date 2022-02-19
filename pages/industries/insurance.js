@@ -6,14 +6,14 @@ import arrow from "../../assets/arrowWhite.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import insurance from "../../assets/insurance.png"
 import insurance2 from "../../assets/insurance2.png"
+import styles from "../../styles/industries.module.scss"
 
 export default function Telecom() {
     const navRef = useRef(null)
     useNavTheme(
         "#industries",
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none",
-        navRef,
-        false
+        navRef
     )
     return (
         <React.Fragment>
@@ -28,17 +28,17 @@ export default function Telecom() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <div className="industries">
-                <div className="industries-img">
+            <div className={styles.industries}>
+                <div className={styles["industries-img"]}>
                     <Image
                         alt="Insurance"
                         layout="fill"
                         objectFit="fill"
                         src={insurance}
                     />
-                    <div className="nav-info">
+                    <div className={`nav-info ${styles["nav-info"]}`}>
                         <p>Industries</p>
-                        <div className="arrow">
+                        <div className={`arrow ${styles.arrow}`}>
                             <Image
                                 alt="arrow"
                                 layout="responsive"
@@ -60,16 +60,18 @@ export default function Telecom() {
                         traditional business processes.
                     </p>
                 </div>
-                <div className="edu-container tele-container">
-                    <div className="left">
+                <div
+                    className={`${styles["edu-container"]} ${styles["tele-container"]}`}
+                >
+                    <div className={styles.left}>
                         <h3>THINGS WE DO</h3>
-                        <p className="blue">Digital Transformation</p>
+                        <p className={styles.blue}>Digital Transformation</p>
                         <p>ML for Insurance</p>
                         <p>Storage And Security For Insurance</p>
                     </div>
-                    <div className="right">
+                    <div className={styles.right}>
                         <h3>Digital Transformation</h3>
-                        <div className="tele-img">
+                        <div className={styles["tele-img"]}>
                             <Image
                                 alt="graphic"
                                 layout="responsive"

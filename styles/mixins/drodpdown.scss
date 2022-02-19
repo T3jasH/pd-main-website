@@ -1,0 +1,30 @@
+@mixin my-dropdown($border-color, $font-color) {
+    width: 25%;
+    [class$="-control"] {
+        color: $font-color;
+        border-radius: 0.25em;
+        border: 0.5px solid $border-color;
+        padding: 0.25em 0.5em;
+        background-color: inherit;
+        [class$="value-container"],
+        [class$="ValueContainer"] {
+            padding: 0;
+            color: red;
+            [class$="__input"] {
+                font-family: "Open Sans", sans-serif;
+                font-weight: 400;
+            }
+        }
+        [class$="-menu"] {
+            z-index: 3;
+        }
+        &:focus {
+            border: 0.5px solid #4987d8;
+        }
+    }
+    [class$="-menu"] {
+        background-color: inherit;
+        border: 0.5px solid $border-color;
+        color: $font-color;
+    }
+}

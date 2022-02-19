@@ -5,6 +5,7 @@ import bespokeSolutions from "../assets/bespokeSolutions.svg"
 import digitalTransfomation from "../assets/digitalTransfomation.svg"
 import { useInView } from "react-intersection-observer"
 import { useEffect } from "react"
+import style from "../styles/whyPD.module.scss"
 
 export default function WhyPD() {
     const { ref, inView } = useInView({
@@ -23,13 +24,13 @@ export default function WhyPD() {
         }
     }, [inView])
     return (
-        <div id="why-pd" ref={ref}>
-            <div className="blue-bg">
+        <div id={style["why-pd"]} ref={ref}>
+            <div className={style["blue-bg"]}>
                 <h2>Why should you choose Prodevans?</h2>
             </div>
-            <div className="cards-table">
-                <div className="card">
-                    <div className="graphic">
+            <div className={style["cards-table"]}>
+                <div className={style.card}>
+                    <div className={style.graphic}>
                         <Image
                             alt="Red Hat"
                             layout="fill"
@@ -43,8 +44,8 @@ export default function WhyPD() {
                         Complete Red Hat Suite of Products
                     </p>
                 </div>
-                <div className="card">
-                    <div className="graphic">
+                <div className={style.card}>
+                    <div className={style.graphic}>
                         <Image
                             alt="Hands on field experience"
                             layout="fill"
@@ -58,8 +59,8 @@ export default function WhyPD() {
                         Solutions across India & ASEAN
                     </p>
                 </div>
-                <div className="card">
-                    <div className="graphic">
+                <div className={style.card}>
+                    <div className={style.graphic}>
                         <Image
                             alt="Bespoke solutions"
                             layout="fill"
@@ -74,8 +75,8 @@ export default function WhyPD() {
                         Exide Life
                     </p>
                 </div>
-                <div className="card">
-                    <div className="graphic">
+                <div className={style.card}>
+                    <div className={style.graphic}>
                         <Image
                             alt="Digital transformation"
                             layout="fill"

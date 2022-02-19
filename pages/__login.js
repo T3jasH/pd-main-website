@@ -2,6 +2,7 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import React, { useState } from "react"
 import Navbar from "../components/Navbar"
+import styles from "../styles/admin.module.scss"
 
 export default function Login() {
     const [username, setUsername] = useState("")
@@ -42,7 +43,7 @@ export default function Login() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <main className="login">
+            <main className={styles.login}>
                 <form onSubmit={submit}>
                     <h2>Admin Login</h2>
                     <input

@@ -2,7 +2,6 @@ import React, { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import Navbar from "../../components/Navbar"
 import CommonFooter from "../../components/CommonFooter"
-import arrow from "../../assets/arrowWhite.svg"
 import Image from "next/image"
 import Head from "next/head"
 import squares from "../../assets/squares.png"
@@ -17,6 +16,8 @@ import fb from "../../assets/fb.svg"
 import gPlus from "../../assets/gPlus.svg"
 import blueSquares from "../../assets/blueSquares.png"
 import Link from "next/link"
+import styles from "../../styles/company/about.module.scss"
+import NavPath from "../../components/NavPath"
 
 export default function About() {
     const { ref, inView } = useInView({
@@ -85,10 +86,10 @@ export default function About() {
         },
     ]
     useEffect(() => {
-        document.querySelector("#company").classList.add("active")
+        //document.querySelector("#company").classList.add(styles.active)
     }, [])
     useEffect(() => {
-        const nav = document.querySelector("nav")
+        const nav = document.querySelector(`.${styles.nav}`)
         if (inView) {
             if (nav) {
                 nav.setAttribute(
@@ -111,20 +112,15 @@ export default function About() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
-            <div className="about-company">
-                <div className="nav-info">
-                    <p>Company</p>
-                    <div className="arrow">
-                        <Image
-                            alt="arrow"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={arrow}
-                        />
-                    </div>
-                    <h1>About the Company</h1>
-                </div>
-                <div className="squares squares-top-right">
+            <div className={styles["about-company"]}>
+                <NavPath
+                    theme="dark"
+                    main="Company"
+                    subPath="About The Company"
+                />
+                <div
+                    className={`${styles.squares} ${styles["squares-top-right"]}`}
+                >
                     <Image
                         alt="squares graphic"
                         layout="responsive"
@@ -133,8 +129,10 @@ export default function About() {
                     />
                 </div>
                 <main>
-                    <div className="left">
-                        <div className="squares squares-bottom-right">
+                    <div className={styles.left}>
+                        <div
+                            className={`${styles.squares} ${styles["squares-bottom-right"]}`}
+                        >
                             <Image
                                 alt="squares graphic"
                                 layout="responsive"
@@ -142,9 +140,9 @@ export default function About() {
                                 src={squares}
                             />
                         </div>
-                        <div className="gray"></div>
+                        <div className={styles.gray}></div>
                     </div>
-                    <div className="right">
+                    <div className={styles.right}>
                         <p>
                             Prodevans will help transform IT Organizations with
                             On-demand, Scalable, Reliable Infra based on the
@@ -158,13 +156,13 @@ export default function About() {
                     </div>
                 </main>
             </div>
-            <div className="management" ref={ref}>
+            <div className={styles.management} ref={ref}>
                 <h2>Management Profiles</h2>
-                <div className="profile-list">
+                <div className={styles["profile-list"]}>
                     {profiles.map((profile) => (
-                        <div key={profile.name} className="profile">
-                            <div className="left">
-                                <div className="profile-img">
+                        <div key={profile.name} className={styles.profile}>
+                            <div className={styles.left}>
+                                <div className={styles["profile-img"]}>
                                     <Image
                                         alt={profile.name}
                                         layout="responsive"
@@ -175,9 +173,9 @@ export default function About() {
                                 <h3>{profile.name}</h3>
                                 <p>{profile.designation}</p>
                             </div>
-                            <div className="right">
+                            <div className={styles.right}>
                                 <p>{profile.content}</p>
-                                <div className="socials">
+                                <div className={styles.socials}>
                                     <div>
                                         <Image
                                             alt={"Twitter"}
@@ -208,7 +206,7 @@ export default function About() {
                     ))}
                 </div>
             </div>
-            <div className="about-company-footer">
+            <div className={styles["about-company-footer"]}>
                 <h2>Manage any project with Prodevans</h2>
                 <p>
                     We combine the practice of managing and analysing projects
@@ -216,7 +214,7 @@ export default function About() {
                     effectiveness in order to stay on top of everything.
                 </p>
                 <Link href={"/#contact-us"}>Start free trial</Link>
-                <div className="squares top-right">
+                <div className={`${styles.squares} ${styles["top-right"]}`}>
                     <Image
                         alt="squares graphic"
                         layout="responsive"
@@ -224,7 +222,7 @@ export default function About() {
                         src={blueSquares}
                     />
                 </div>
-                <div className="squares bottom-left">
+                <div className={`${styles.squares} ${styles["bottom-left"]}`}>
                     <Image
                         alt="squares graphic"
                         layout="responsive"

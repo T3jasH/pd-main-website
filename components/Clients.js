@@ -16,14 +16,15 @@ import alchemy from "../assets/alchemy.png"
 import flipkart from "../assets/flipkart.png"
 import redhat from "../assets/redhat.svg"
 import clientsGraphic from "../assets/clientsGraphic.png"
+import style from "../styles/clients.module.scss"
 
 export default function Clients() {
     return (
-        <div id="clients">
+        <div id={style.clients}>
             <h3>Our Clients</h3>
-            <div className="clients-list">
+            <div className={style["clients-list"]}>
                 <section>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Nvidia"
                             layout="responsive"
@@ -31,7 +32,7 @@ export default function Clients() {
                             src={nvidia}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Hitachi"
                             layout="responsive"
@@ -39,7 +40,7 @@ export default function Clients() {
                             src={hitachi}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Redhat"
                             layout="responsive"
@@ -47,7 +48,7 @@ export default function Clients() {
                             src={redhat}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Flipkart"
                             layout="responsive"
@@ -55,7 +56,7 @@ export default function Clients() {
                             src={flipkart}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Danske Bank"
                             layout="responsive"
@@ -63,7 +64,7 @@ export default function Clients() {
                             src={danskeBank}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Exide Life Insurance"
                             layout="responsive"
@@ -71,7 +72,7 @@ export default function Clients() {
                             src={exide}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Lifestyle"
                             layout="responsive"
@@ -79,7 +80,7 @@ export default function Clients() {
                             src={lifestyle}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Alchemy"
                             layout="responsive"
@@ -89,7 +90,7 @@ export default function Clients() {
                     </div>
                 </section>
                 <section>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Zee"
                             layout="responsive"
@@ -97,7 +98,7 @@ export default function Clients() {
                             src={zee}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Alphaserve"
                             layout="responsive"
@@ -105,7 +106,7 @@ export default function Clients() {
                             src={alphaserve}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Manipal Global"
                             layout="responsive"
@@ -113,7 +114,7 @@ export default function Clients() {
                             src={manipalGlobal}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Mphasis"
                             layout="responsive"
@@ -121,7 +122,7 @@ export default function Clients() {
                             src={mphasis}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Pristine"
                             layout="responsive"
@@ -129,7 +130,7 @@ export default function Clients() {
                             src={pristine}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Marvel"
                             layout="responsive"
@@ -137,7 +138,7 @@ export default function Clients() {
                             src={marvel}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="BackOffice"
                             layout="responsive"
@@ -145,7 +146,7 @@ export default function Clients() {
                             src={backoffice}
                         />
                     </div>
-                    <div className="client">
+                    <div className={style.client}>
                         <Image
                             alt="Crayon"
                             layout="responsive"
@@ -155,7 +156,7 @@ export default function Clients() {
                     </div>
                 </section>
             </div>
-            <div className="clients-graphic">
+            <div className={style["clients-graphic"]}>
                 <Image
                     alt="Graphic"
                     layout="responsive"
