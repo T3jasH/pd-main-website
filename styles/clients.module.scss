@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3em 0;
+    padding: 3em 0 4.5em 0;
     h3 {
         font-weight: 700;
         font-family: "Montserrat", sans-serif;
@@ -30,8 +30,17 @@
             }
         }
     }
-    .clients-graphic {
+    .purple-bg {
+        margin-top: 2em;
         width: 100%;
-        height: 29em;
+        height: 20em;
+        padding-top: 1.5em;
+        background-color: #5969b2;
+        position: relative;
+        .clients-graphic {
+            height: 22em;
+            width: 80%;
+            margin: 0 auto;
+        }
     }
 }

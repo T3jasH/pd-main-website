@@ -45,7 +45,12 @@ export default function Careers({ jobs }) {
 
     const [keyword, setKeyword] = useState("")
 
-    useNavTheme("#company", "--bgColor: #f4f4f4; --textColor: #0a0a0a;", navRef)
+    useNavTheme(
+        "#company-btn",
+        "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
+        navRef,
+        "company-careers-btn"
+    )
 
     useEffect(() => {
         const updatedCompanies = []

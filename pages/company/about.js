@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import Navbar from "../../components/Navbar"
 import CommonFooter from "../../components/CommonFooter"
@@ -17,9 +17,12 @@ import gPlus from "../../assets/gPlus.svg"
 import blueSquares from "../../assets/blueSquares.png"
 import Link from "next/link"
 import styles from "../../styles/company/about.module.scss"
+import navstyles from "../../styles/navbar.module.scss"
 import NavPath from "../../components/NavPath"
+import useNavTheme from "../../hooks/useNavTheme"
 
 export default function About() {
+    const navRef = useRef(null)
     const { ref, inView } = useInView({
         rootMargin: "-45% 0%",
     })
@@ -85,11 +88,13 @@ export default function About() {
             src: sushma,
         },
     ]
+    useNavTheme(
+        "#company-btn",
+        "--bgColor: #1b1b1b; --textColor: #fff;",
+        navRef
+    )
     useEffect(() => {
-        //document.querySelector("#company").classList.add(styles.active)
-    }, [])
-    useEffect(() => {
-        const nav = document.querySelector(`.${styles.nav}`)
+        const nav = document.querySelector(`.${navstyles.nav}`)
         if (inView) {
             if (nav) {
                 nav.setAttribute(
@@ -111,7 +116,7 @@ export default function About() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar />
+            <Navbar ref={navRef} />
             <div className={styles["about-company"]}>
                 <NavPath
                     theme="dark"

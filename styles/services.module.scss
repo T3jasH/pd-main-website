@@ -1,3 +1,26 @@
+@import "./mixins/flex.scss";
+
+.list {
+    position: relative;
+    @include flex-row(flex-start, center, 1.5em);
+    flex-wrap: wrap;
+    position: relative;
+    p {
+        width: 45%;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 0.75rem;
+            height: 0.75rem;
+            background-color: #76a4e1;
+            border-radius: 50%;
+            top: 0.45em;
+            left: -1.25em;
+        }
+    }
+}
+
 .cloud {
     position: relative;
     padding: 2em;
@@ -15,6 +38,7 @@
         display: flex;
         gap: 2em;
         justify-content: center;
+        align-items: center;
         .text {
             display: flex;
             flex-direction: column;
@@ -147,11 +171,75 @@
             gap: 3em;
         }
     }
+    .automation-points {
+        h3 {
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-family: "Montserrat", sans-serif;
+            color: #4987d8;
+            margin: 1em 0;
+        }
+        .list {
+            padding-left: 1.5rem;
+        }
+    }
+    .ansible-automation {
+        @include flex-row(center, center, 1em);
+        padding-bottom: 2em;
+        .left {
+            flex: 0.75;
+            @include flex-column(center, flex-start, 1em);
+            h3 {
+                text-align: left;
+                font-size: 1.2rem;
+                font-weight: 400;
+                font-family: "Montserrat", sans-serif;
+                color: #4987d8;
+            }
+        }
+        .right {
+            flex: 0.25;
+            .automation-img {
+                width: 24em;
+                height: 12em;
+            }
+        }
+    }
+}
+
+.devops {
+    color: #fbfbfb;
+    background: linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%);
+    .container {
+        align-items: flex-start;
+        .text {
+            flex: 0.7;
+        }
+        .cloud-img {
+            flex: 0.3;
+            .devops-img {
+                width: 20em;
+                height: 20em;
+            }
+        }
+    }
+    .monitoring-container-1 {
+        h3 {
+            color: #4987d8;
+        }
+        .inner {
+            .item {
+                height: 11.5rem;
+            }
+        }
+    }
 }
 
 .modernization {
     position: relative;
     padding: 2em;
+    background: linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%);
     .modernization-container {
         padding: 1.5em 0;
         display: flex;
@@ -173,6 +261,9 @@
         .modernization-img {
             position: relative;
             flex: 0.35;
+        }
+        .access-management-img {
+            flex: 0.28;
         }
     }
     .transformation-services {
@@ -198,6 +289,7 @@
                 text-align: center;
                 justify-content: center;
                 align-items: center;
+
                 h3 {
                     color: #fbfbfb;
                 }
@@ -240,6 +332,70 @@
             p {
                 word-break: break-all;
                 word-wrap: break-word;
+            }
+        }
+    }
+    .access-management-container {
+        padding-bottom: 2em;
+        @include flex-row(center, center, 1em);
+        .left {
+            @include flex-column(center, center, 2em);
+            flex: 0.3;
+            h3 {
+                font-size: 1.35rem;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 400;
+                color: #4987d8;
+            }
+            .box {
+                border: 1px solid #fbfbfb;
+                border-radius: 0.5em;
+                padding: 2.5em;
+                @include flex-column(center, center, 2em);
+                .coloured {
+                    color: #4987d8;
+                }
+                p {
+                    font-weight: "Montserrat", sans-serif;
+                    font-weight: 400;
+                }
+            }
+        }
+        .right {
+            @include flex-column(center, center, 2em);
+            text-align: center;
+            flex: 0.7;
+            padding-top: 2rem;
+            .access-management-img {
+                width: 10rem;
+                height: 9rem;
+            }
+        }
+    }
+}
+
+.infrastructure {
+    background: #fbfbfb;
+    color: #000;
+    & > h2 {
+        font-weight: 400;
+        color: #4987d8;
+        font-size: 1.5rem;
+        margin-top: 1em;
+        font-family: "Montserrat", sans-serif;
+    }
+    .transformation-services {
+        .container {
+            margin-top: 1.5rem;
+            .container-item {
+                justify-content: flex-start;
+                width: 30%;
+                h3 {
+                    color: #000;
+                }
+                p {
+                    margin: auto 0;
+                }
             }
         }
     }

@@ -110,11 +110,11 @@ export default function Modernization() {
                 </div>
                 <div className={styles["container-adoption"]}>
                     <h3>Prodevans Container Adoption Program</h3>
-                    <ul>
+                    <div className={styles.list}>
                         {containerAdoptionPoints.map((point, index) => (
-                            <li key={index}>{point}</li>
+                            <p key={index}>{point}</p>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             </div>
         </React.Fragment>

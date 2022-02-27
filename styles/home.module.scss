@@ -9,7 +9,7 @@
         width: 100%;
         height: max-content;
         z-index: 2;
-        padding: 1.5em 0 2em 0;
+        padding: 1.5em 0 3.5em 0;
         display: flex;
         .left {
             position: relative;
@@ -63,8 +63,9 @@
         }
         .rightImage {
             position: relative;
-            height: 80vh;
-            width: 45%;
+            height: 37.5em;
+            width: 50%;
+            margin: 0 auto;
             z-index: 2;
         }
     }

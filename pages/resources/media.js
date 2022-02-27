@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar"
 import Image from "next/image"
 import NavPath from "../../components/NavPath"
 import styles from "../../styles/resources/media.module.scss"
+import useNavTheme from "../../hooks/useNavTheme"
 
 export default function Media() {
     const articles = [
@@ -22,18 +23,14 @@ export default function Media() {
             src: "",
             secTitle: "Business News This Week Magazine",
         },
-        // {
-        //     title: "Automation may take our jobs - But AI will create them",
-        //     src: "",
-        //     secTitle: "Startup City Magazine",
-        // },
+        {
+            title: "Automation may take our jobs - But AI will create them",
+            src: "",
+            secTitle: "Startup City Magazine",
+        },
     ]
     const navRef = useRef(null)
-    useEffect(() => {
-        if (navRef.current) {
-            navRef.current.querySelector("#resources").classList.add("active")
-        }
-    }, [navRef])
+    useNavTheme("#resources", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
 
     return (
         <React.Fragment>

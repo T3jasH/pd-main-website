@@ -24,12 +24,13 @@
         & > h2 {
             top: 10rem;
             font-family: "Montserrat", sans-serif;
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 2.2rem;
         }
         & > p {
             top: 12rem;
-            font-weight: 500;
-            font-size: 1.5rem;
+            font-weight: 400;
+            font-size: 1rem;
         }
     }
     .edu-container {
@@ -106,6 +107,27 @@
             p {
                 text-align: center;
             }
+        }
+    }
+    .healthcare-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 1em;
+        color: #010101;
+        padding: 2em;
+        h2 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 1.75rem;
+        }
+        .healthcare-img {
+            margin-top: 1.5rem;
+            position: relative;
+            width: 21.5rem;
+            height: 15rem;
         }
     }
 }

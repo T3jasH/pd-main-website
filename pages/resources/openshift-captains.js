@@ -63,13 +63,13 @@ export default function OpenShift() {
                 </div>
                 <div className={styles.description}>
                     <div className={styles.left}>
-                        <h2 className="coloured">What</h2>
+                        <h2 className={styles.coloured}>What</h2>
                         <h2>Why</h2>
                         <h2>How</h2>
                     </div>
                     <div className={styles.right}>
                         <h2>What do they do?</h2>
-                        <div className="right-img">
+                        <div className={styles["right-img"]}>
                             <Image
                                 alt={"Graphic"}
                                 layout="responsive"
@@ -106,7 +106,7 @@ export default function OpenShift() {
                         A Lenovo Tablet absolutely free (worth INR 10k)
                     </p>
                     <p className={styles.red}>
-                        One OpenShift training seat – worth INR 56K – absolutely
+                        One OpenShift training seat - worth INR 56K - absolutely
                         free
                     </p>
                 </div>

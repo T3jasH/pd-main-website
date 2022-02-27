@@ -156,13 +156,15 @@ export default function Clients() {
                     </div>
                 </section>
             </div>
-            <div className={style["clients-graphic"]}>
-                <Image
-                    alt="Graphic"
-                    layout="responsive"
-                    objectFit="fill"
-                    src={clientsGraphic}
-                />
+            <div className={style["purple-bg"]}>
+                <div className={style["clients-graphic"]}>
+                    <Image
+                        alt="Graphic"
+                        layout="responsive"
+                        objectFit="fill"
+                        src={clientsGraphic}
+                    />
+                </div>
             </div>
         </div>
     )
