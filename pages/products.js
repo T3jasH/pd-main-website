@@ -9,7 +9,11 @@ import styles from "../styles/products.module.scss"
 
 export default function Products() {
     const navRef = useRef(null)
-    useNavTheme("#products", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
+    useNavTheme(
+        "#products-btn",
+        "--bgColor: #1b1b1b; --textColor: #fff;",
+        navRef
+    )
     const [products, setProducts] = useState([
         {
             title: "PDCloudEX",

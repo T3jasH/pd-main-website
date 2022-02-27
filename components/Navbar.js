@@ -28,8 +28,8 @@ const Navbar = (props, navRef) => {
             <Link href="/#about-us" aria-label="About Us">
                 About Us
             </Link>
-            <span
-                id={"company"}
+            <div
+                id={"company-btn"}
                 className={style["nav-item"]}
                 aria-label="Company"
                 ref={company}
@@ -38,15 +38,23 @@ const Navbar = (props, navRef) => {
             >
                 Company
                 <div className={style.dropdown}>
-                    <Link href="/company/about" aria-label="About the company">
+                    <Link
+                        href="/company/about"
+                        id="company-about-btn"
+                        aria-label="About the company"
+                    >
                         About
                     </Link>
-                    <Link href="/company/careers" aria-label="Careers">
+                    <Link
+                        href="/company/careers"
+                        id="company-careers-btn"
+                        aria-label="Careers"
+                    >
                         Careers
                     </Link>
                 </div>
-            </span>
-            <span
+            </div>
+            <div
                 id={"industries-btn"}
                 className={style["nav-item"]}
                 aria-label="Industries"
@@ -65,11 +73,15 @@ const Navbar = (props, navRef) => {
                     <Link href="/industries/insurance" aria-label="Insurance">
                         Insurance
                     </Link>
+                    <Link href="/industries/healthcare" aria-label="Healthcare">
+                        Healthcare
+                    </Link>
                 </div>
-            </span>
-            <span
+            </div>
+            <div
                 id={"services"}
                 aria-label="Services"
+                className={style["nav-item"]}
                 ref={services}
                 onMouseEnter={() => openDropDown(services)}
                 onMouseLeave={() => closeDropDown(services)}
@@ -91,12 +103,33 @@ const Navbar = (props, navRef) => {
                     >
                         360 Degrees Monitoring
                     </Link>
+                    <Link
+                        href="/services/identity-access-management"
+                        aria-label="Identity and Access Management"
+                    >
+                        Identity &#38; Access Management
+                    </Link>
+                    <Link href="/services/automation" aria-label="Automation">
+                        Automation
+                    </Link>
+                    <Link
+                        href="/services/devops-tools-support"
+                        aria-label="Devops Tools And Support"
+                    >
+                        Devops Tools &#38; Support
+                    </Link>
+                    <Link
+                        href="/services/infrastructure"
+                        aria-label="Infrastructure"
+                    >
+                        Infrastructure
+                    </Link>
                 </div>
-            </span>
-            <Link id={"products"} href="/products" aria-label="Products">
+            </div>
+            <Link id={"products-btn"} href="/products" aria-label="Products">
                 Products
             </Link>
-            <span
+            <div
                 id={"resources"}
                 className={style["nav-item"]}
                 aria-label="Resources"
@@ -122,7 +155,7 @@ const Navbar = (props, navRef) => {
                         Openshift Captains
                     </Link>
                 </div>
-            </span>
+            </div>
             <Link href="/events" aria-label="Events" id="events-btn">
                 Events
             </Link>

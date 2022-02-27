@@ -82,7 +82,12 @@ export default function Cloud() {
         <React.Fragment>
             <Head>
                 <title>360 Degrees Monitoring</title>
-                <meta name="description" content="" />
+                <meta
+                    name="description"
+                    content="Our wide ranging experience in cloud computing
+                            technology enables us to craft all-inclusive cloud
+                            solutions bespoke to you business demand."
+                />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />

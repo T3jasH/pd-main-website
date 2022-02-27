@@ -11,7 +11,7 @@ import styles from "../../styles/industries.module.scss"
 export default function Telecom() {
     const navRef = useRef(null)
     useNavTheme(
-        "#industries",
+        "#industries-btn",
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none",
         navRef
     )
