@@ -74,34 +74,42 @@ export default function Events() {
                         value: "upcoming",
                         label: "Upcoming Events",
                     }}
-                    onChange={(e) => setCurrent(e)}
+                    onChange={(e) => {
+                        setCurrent(e)
+                    }}
                 />
                 <div className={styles.list}>
-                    {currentSelected === "upcoming"
+                    {currentSelected.value === "upcoming"
                         ? upcomingEvents.map((ev, i) => (
-                              <div key={i} className={styles.item}>
+                              <div key={ev.title} className={styles.event}>
                                   <div className={styles.left}>
                                       <Image
                                           alt={ev.title}
                                           layout="responsive"
                                           objectFit="fill"
                                           src={ev.img}
+                                          className={styles["article-img"]}
                                       />
                                   </div>
-                                  <div className={styles.right}>{ev.title}</div>
+                                  <div className={styles.right}>
+                                      <h3>{ev.title}</h3>
+                                  </div>
                               </div>
                           ))
                         : pastEvents.map((ev, i) => (
-                              <div key={i}>
+                              <div key={ev.title} className={styles.event}>
                                   <div className={styles.left}>
                                       <Image
                                           alt={ev.title}
                                           layout="responsive"
                                           objectFit="fill"
                                           src={ev.img}
+                                          className={styles["article-img"]}
                                       />
                                   </div>
-                                  <div className={styles.right}>{ev.title}</div>{" "}
+                                  <div className={styles.right}>
+                                      <h3>{ev.title}</h3>{" "}
+                                  </div>
                               </div>
                           ))}
                 </div>

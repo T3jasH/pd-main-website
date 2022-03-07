@@ -4,6 +4,7 @@ import tiles from "../assets/tiles.png"
 import { useInView } from "react-intersection-observer"
 import { Fragment, useEffect } from "react"
 import style from "../styles/about.module.scss"
+import navStyles from "../styles/navbar.module.scss"
 
 const About = () => {
     const { ref, inView } = useInView({
@@ -18,6 +19,15 @@ const About = () => {
                     "style",
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
                 )
+            }
+            const btn = document.querySelector("#about-us-btn")
+            if (btn) {
+                btn.classList.add(navStyles.active)
+            }
+        } else {
+            const btn = document.querySelector("#about-us-btn")
+            if (btn) {
+                btn.classList.remove(navStyles.active)
             }
         }
     }, [inView])

@@ -1,7 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
-import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
 import pdCorp from "../../assets/prodevansCorporate.png"
 import pdOpen from "../../assets/prodevansOpenshift.png"
@@ -79,7 +78,6 @@ export default function Brochures() {
                     ))}
                 </div>
             </div>
-            <CommonFooter />
         </React.Fragment>
     )
 }

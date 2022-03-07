@@ -12,7 +12,7 @@ export default function Healthcare() {
     const navRef = useRef(null)
     useNavTheme(
         "#industries-btn",
-        "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none",
+        "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
     return (

@@ -14,7 +14,7 @@ export default function Infrastructure() {
         {
             title: "Red Hat and RDO OpenStack",
             description: [
-                "Deployed Red Hat and RDO OpenStack in Malaysia, Indonesia, Vietnam and India Telecom with deployments as complex as 32 computes, 10 CEPH storage with the deployments were orchestrated included features like SRIOV, PCI Pass-through, DPDK and NUMA. - Resolved several dependencies related to network, deployment scripts, VNF on-boarding.",
+                "Deployed Red Hat and RDO OpenStack in Malaysia, Indonesia, Vietnam and India Telecom with deployments as complex as 32 computes, 10 CEPH storage with the deployments were orchestrated included features like SRIOV, PCI Pass-through, DPDK and NUMA.",
             ],
         },
         {
@@ -26,10 +26,8 @@ export default function Infrastructure() {
         {
             title: "Red Hat Openshift",
             description: [
-                "- Deployed Red Hat OpenShift and Kubernetes in Thailand, Malaysia, Australian Banks, University in Singapore and India Banks and Telecoms with deployments as complex as 100 worker nodes.",
-                "- Delivered container Storage-as-a-Service using Gluster, Pure Storage and NetApp Trident on DC/DR Solutions.",
-                "- Deployments were orchestrated using Ansible so that the worker node scaling is done on OpenStack KVM/ Vmware automatically.",
-                "- Day2 Operation included 5 times upgrade from OpenShift 3.5 to 3.9 seamlessly, integration with Splunk, Dynatrace, Newrelic and ServiceNow.",
+                "Deployed Red Hat OpenShift and Kubernetes in Thailand, Malaysia, Australian Banks, University in Singapore and India Banks and Telecoms with deployments as complex as 100 worker nodes.",
+                "Deployments were orchestrated using Ansible.",
             ],
         },
     ]
@@ -97,7 +95,6 @@ export default function Infrastructure() {
                                 {card.description.map((d, i) => (
                                     <React.Fragment key={i}>
                                         <p>{d}</p>
-                                        <br />
                                     </React.Fragment>
                                 ))}
                             </div>

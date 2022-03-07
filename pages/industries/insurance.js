@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import Navbar from "../../components/Navbar"
 import arrow from "../../assets/arrowWhite.svg"
 import useNavTheme from "../../hooks/useNavTheme"
@@ -10,11 +10,40 @@ import styles from "../../styles/industries.module.scss"
 
 export default function Telecom() {
     const navRef = useRef(null)
+    const [activeBtn, setActive] = useState("digital")
     useNavTheme(
         "#industries-btn",
-        "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none",
+        "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
+    const list = [
+        {
+            btn: "digital",
+            name: "Digital Transformation",
+            description:
+                "Digital transformation is the process of using " +
+                "digital technologies to create new — or modify " +
+                "existing — business processes, culture, and customer " +
+                "experiences to meet changing business and market " +
+                "requirements. This reimagining of business in the " +
+                "digital age is digital transformation.",
+            img: insurance2,
+        },
+        {
+            btn: "ml",
+            name: "ML For Insurance",
+            description:
+                "Machine Learning is being used to turn data into assets, thereby laying the foundation for the next wave of digital transformation. Organizations are increasingly investing in machine learning to better serve their customers, and grow their business.",
+            img: insurance2,
+        },
+        {
+            btn: "storage",
+            name: "Storage & Security For Insurance",
+            description:
+                "Unlike your home, your storage unit isn't under your watchful eye at all times. Because of this, you want to store your belongings at a storage facility that has your best interests in mind and is willing to monitor the safety of your valuables.",
+            img: insurance2,
+        },
+    ]
     return (
         <React.Fragment>
             <Head>
@@ -65,28 +94,35 @@ export default function Telecom() {
                 >
                     <div className={styles.left}>
                         <h3>THINGS WE DO</h3>
-                        <p className={styles.blue}>Digital Transformation</p>
-                        <p>ML for Insurance</p>
-                        <p>Storage And Security For Insurance</p>
+                        {list.map((item, i) => (
+                            <button
+                                key={i}
+                                className={`${
+                                    activeBtn === item.btn ? styles.blue : ""
+                                }`}
+                                onClick={() => setActive(item.btn)}
+                            >
+                                {item.name}
+                            </button>
+                        ))}
                     </div>
                     <div className={styles.right}>
-                        <h3>Digital Transformation</h3>
-                        <div className={styles["tele-img"]}>
-                            <Image
-                                alt="graphic"
-                                layout="responsive"
-                                objectFit="fill"
-                                src={insurance2}
-                            />
-                        </div>
-                        <p>
-                            Digital transformation is the process of using
-                            digital technologies to create new — or modify
-                            existing — business processes, culture, and customer
-                            experiences to meet changing business and market
-                            requirements. This reimagining of business in the
-                            digital age is digital transformation.
-                        </p>
+                        {[list.find((item) => item.btn === activeBtn)].map(
+                            (item, i) => (
+                                <React.Fragment key={i}>
+                                    <h3>{item.name}</h3>
+                                    <div className={styles["tele-img"]}>
+                                        <Image
+                                            alt={item.name}
+                                            layout="responsive"
+                                            objectFit="fill"
+                                            src={item.img}
+                                        />
+                                    </div>
+                                    <p>{item.description}</p>
+                                </React.Fragment>
+                            )
+                        )}
                     </div>
                 </div>
             </div>

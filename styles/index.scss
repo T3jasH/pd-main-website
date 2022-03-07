@@ -4,7 +4,7 @@
     --black: #0a0a0a;
     --blue: #4a88da;
     font-size: 18.5px;
-    color: #fff;
+    color: #fbfbfb;
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
     background: linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%);
@@ -27,6 +27,12 @@ a {
 
 button {
     cursor: pointer;
+    border: none;
+    background: inherit;
+    color: inherit;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
 }
 
 h1 {

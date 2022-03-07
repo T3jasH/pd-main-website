@@ -5,30 +5,9 @@ import Image from "next/image"
 import NavPath from "../../components/NavPath"
 import styles from "../../styles/resources/media.module.scss"
 import useNavTheme from "../../hooks/useNavTheme"
+import { articles } from "../../data"
 
 export default function Media() {
-    const articles = [
-        {
-            title: "Interview with Deepak Mishra | Founder and CEO Prodevans Technologies",
-            src: "",
-            secTitle: "Most popular stories magazine",
-        },
-        {
-            title: "How machine learning is contributing to evolution of online education space",
-            src: "",
-            secTitle: "Published on India Today Magazine",
-        },
-        {
-            title: "Prodevans technologies launches new internship platform called LEAP to provide opportunities to youn IT graduates",
-            src: "",
-            secTitle: "Business News This Week Magazine",
-        },
-        {
-            title: "Automation may take our jobs - But AI will create them",
-            src: "",
-            secTitle: "Startup City Magazine",
-        },
-    ]
     const navRef = useRef(null)
     useNavTheme("#resources", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
 

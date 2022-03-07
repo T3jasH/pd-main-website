@@ -1,10 +1,54 @@
 @import "../mixins/drodpdown.scss";
+@import "../mixins/flex.scss";
 .company-careers {
     position: relative;
     background-color: #fbfbfb;
     color: #020202;
     padding: 2em;
     z-index: 1;
+    .add-job {
+        @include flex-column(flex-start, flex-start, 1em);
+        margin-bottom: 2em;
+        position: relative;
+        input[type="text"] {
+            border-radius: 0.25em;
+            border: 0.5px solid #060606;
+            padding: 0.5em 1em;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            background-color: inherit;
+            outline: none;
+            width: 25rem;
+        }
+        button {
+            color: #fbfbfb;
+            padding: 0.5em 1em;
+            background-color: #4987d8;
+            width: 10rem;
+            &:focus {
+                border: 1px solid black;
+            }
+        }
+        .dropdown {
+            @include my-dropdown(#060606, #060606);
+            width: 27rem;
+        }
+        textarea {
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: inherit;
+            resize: none;
+            width: 35rem;
+            height: 5rem;
+            border: 0.5px solid #060606;
+            padding: 0.5em 1em;
+            &:focus {
+                border-bottom: 1px solid #454545;
+                outline: none;
+            }
+        }
+    }
     .slogan {
         padding: 2em 0;
         text-align: center;
@@ -162,15 +206,13 @@
                     font-size: 1rem;
                     border: none;
                     background-color: inherit;
+                    resize: none;
+                    width: 70%;
+                    height: 3rem;
                     &:focus {
                         outline: none;
                         border-bottom: 1px solid #454545;
                     }
-                }
-                textarea {
-                    resize: none;
-                    width: 70%;
-                    height: 3rem;
                 }
             }
         }
