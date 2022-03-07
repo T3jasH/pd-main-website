@@ -11,7 +11,6 @@ import Vision from "../components/Vision"
 import Reviews from "../components/Reviews"
 import Clients from "../components/Clients"
 import Contact from "../components/Contact"
-import CommonFooter from "../components/CommonFooter"
 import style from "../styles/home.module.scss"
 
 export default function Home() {
@@ -84,7 +83,6 @@ export default function Home() {
                 <Clients />
                 <Contact />
             </main>
-            <CommonFooter />
         </div>
     )
 }

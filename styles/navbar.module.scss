@@ -36,7 +36,7 @@
         .dropdown {
             font-size: 0.9rem;
             position: absolute;
-            top: 2em;
+            top: 2.5em;
             left: -35%;
             height: 0;
             width: 170%;
@@ -59,10 +59,6 @@
             a {
                 padding: 0.35em 0.6em;
             }
-            & > .active {
-                font-weight: 600;
-                color: var(--focusTextColor);
-            }
         }
     }
     a,
@@ -70,11 +66,14 @@
         color: inherit;
         padding: 0.5em 0.75em;
         text-align: center;
-        font-weight: 400;
+        font-weight: inherit;
     }
     & > a:focus,
-    .nav-item:focus,
-    & > .active {
+    .nav-item:focus {
+        font-weight: 600;
+        color: var(--focusTextColor);
+    }
+    .active {
         font-weight: 600;
         color: var(--focusTextColor);
     }

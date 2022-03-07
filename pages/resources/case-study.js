@@ -1,7 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
-import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
 import goal from "../../assets/goal.svg"
 import objective from "../../assets/objective.svg"
@@ -102,7 +101,6 @@ export default function CaseStudy() {
                     </div>
                 </div>
             </div>
-            <CommonFooter />
         </React.Fragment>
     )
 }

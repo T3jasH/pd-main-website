@@ -1,6 +1,7 @@
-import { Fragment, useEffect } from "react"
+import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import style from "../styles/contact.module.scss"
+import navStyles from "../styles/navbar.module.scss"
 
 export default function Contact() {
     const { ref, inView } = useInView({
@@ -13,8 +14,12 @@ export default function Contact() {
             if (nav) {
                 nav.setAttribute(
                     "style",
-                    "--bgColor: #2e2e2e; --textColor: #fbfbf; --borderColor: #4a88da; --focusTextColor: #fbfbfb;"
+                    "--bgColor: #2e2e2e; --textColor: #fbfbf;"
                 )
+            }
+            const btn = document.querySelector("#contact-us-btn")
+            if (btn) {
+                btn.classList.add(navStyles.active)
             }
         } else {
             if (nav) {
@@ -22,6 +27,10 @@ export default function Contact() {
                     "style",
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a; --focusTextColor: #1b1b1b;"
                 )
+            }
+            const btn = document.querySelector("#contact-us-btn")
+            if (btn) {
+                btn.classList.remove(navStyles.active)
             }
         }
     }, [inView])

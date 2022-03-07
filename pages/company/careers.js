@@ -1,7 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
 import React, { useEffect, useRef, useState } from "react"
-import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
 import useNavTheme from "../../hooks/useNavTheme"
 import pd from "../../assets/pdLogoBlue.svg"
@@ -119,7 +118,6 @@ export default function Careers({ jobs }) {
                     <div>
                         <Select
                             className={styles.dropdown}
-                            classNamePrefix={"lol"}
                             isDisabled={false}
                             isClearable={true}
                             isSearchable={true}
@@ -175,14 +173,6 @@ export default function Careers({ jobs }) {
                             .filter((job) =>
                                 keyword.length
                                     ? job.title.split(" ").findIndex((word) => {
-                                          console.log(
-                                              "TITLE " +
-                                                  word +
-                                                  " " +
-                                                  keyword +
-                                                  " " +
-                                                  word.includes(keyword)
-                                          )
                                           return word
                                               .toLowerCase()
                                               .includes(keyword)
@@ -190,14 +180,6 @@ export default function Careers({ jobs }) {
                                       job.description
                                           .split(" ")
                                           .findIndex((word) => {
-                                              console.log(
-                                                  "DESCR " +
-                                                      word +
-                                                      " " +
-                                                      keyword +
-                                                      " " +
-                                                      word.includes(keyword)
-                                              )
                                               return word
                                                   .toLowerCase()
                                                   .includes(keyword)
@@ -253,7 +235,6 @@ export default function Careers({ jobs }) {
                     )}
                 </div>
             </div>
-            <CommonFooter />
         </React.Fragment>
     )
 }

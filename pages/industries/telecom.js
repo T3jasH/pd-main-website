@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import Navbar from "../../components/Navbar"
 import useNavTheme from "../../hooks/useNavTheme"
 import telecom from "../../assets/telecom.png"
@@ -10,9 +10,40 @@ import styles from "../../styles/industries.module.scss"
 
 export default function Telecom() {
     const navRef = useRef(null)
+    const [activeBtn, setActive] = useState("ai")
+    const list = [
+        {
+            btn: "ai",
+            name: "AI And Data Intelligence",
+            description:
+                "We tailor solutions that enable telecom providers to visualize data metrics to address provisioning, usage, call drop record capture, rating, and billing. We help them evaluate their entire network with interactive reports in real-time.",
+            img: telecom2,
+        },
+        {
+            btn: "digital",
+            name: "Digital Innovation",
+            description:
+                "By using the latest advances in technology, we bring digital transformation throughout the industry to enable telecom service providers with commercial solutions that help their products and services reach to appropriate audiences.",
+            img: telecom2,
+        },
+        {
+            btn: "biz",
+            name: "Business Services",
+            description:
+                "With our business solutions, network experts and technicians can leverage helpful information from telecom towers remotely and train new field workers on the go, enabling them to reduce network service turnaround times.",
+            img: telecom2,
+        },
+        {
+            btn: "tech",
+            name: "Technical Services",
+            description:
+                "Prodevans Technologies help field technicians to get a visual guide while they are performing repairs and maintenance. We offer solutions that enable the service providers with real-time insights into issues caused in equipment.",
+            img: telecom2,
+        },
+    ]
     useNavTheme(
         "#industries-btn",
-        "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none",
+        "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
     return (
@@ -44,7 +75,7 @@ export default function Telecom() {
                                 src={arrow}
                             />
                         </div>
-                        <h1>Education</h1>
+                        <h1>Telecom</h1>
                     </div>
                     <h2>
                         Bringing the next wave of digital transformation to
@@ -64,27 +95,38 @@ export default function Telecom() {
                 >
                     <div className={styles.left}>
                         <h3>THINGS WE DO</h3>
-                        <p className={styles.blue}>AI And Data Intelligence</p>
-                        <p>Digital Innovation</p>
-                        <p>Business Services</p>
-                        <p>Technology Services</p>
+                        {list.map((item, i) => (
+                            <button
+                                key={i}
+                                className={`${
+                                    activeBtn === item.btn ? styles.blue : ""
+                                }`}
+                                onClick={() => setActive(item.btn)}
+                            >
+                                {item.name}
+                            </button>
+                        ))}
                     </div>
                     <div className={styles.right}>
-                        <h3>AI And Data Intelligence</h3>
+                        <h3>
+                            {list.find((item) => item.btn === activeBtn).name}
+                        </h3>
                         <div className={styles["tele-img"]}>
                             <Image
                                 alt="graphic"
                                 layout="responsive"
                                 objectFit="fill"
-                                src={telecom2}
+                                src={
+                                    list.find((item) => item.btn === activeBtn)
+                                        .img
+                                }
                             />
                         </div>
                         <p>
-                            We tailor solutions that enable telecom providers to
-                            visualize data metrics to address provisioning,
-                            usage, call drop record capture, rating, and
-                            billing. We help them evaluate their entire network
-                            with interactive reports in real-time.
+                            {
+                                list.find((item) => item.btn === activeBtn)
+                                    .description
+                            }
                         </p>
                     </div>
                 </div>

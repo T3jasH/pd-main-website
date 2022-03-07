@@ -148,22 +148,6 @@ export default function Cloud() {
                         ))}
                     </div>
                 </div>
-                <div className={styles["monitoring-container-1"]}>
-                    <h3>Why Use Prodevans Monitoring Tool?</h3>
-                    <div
-                        className={`${styles.inner} ${styles["monitoring-inner"]}`}
-                    >
-                        {monitoringTool.map((item) => (
-                            <div
-                                className={`${styles.item} ${styles["monitoring-item"]}`}
-                                key={item.title}
-                            >
-                                <h3>{item.title}</h3>
-                                <p>{item.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
         </React.Fragment>
     )

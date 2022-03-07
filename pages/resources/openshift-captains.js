@@ -1,7 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
 import React, { useEffect, useRef } from "react"
-import CommonFooter from "../../components/CommonFooter"
 import Navbar from "../../components/Navbar"
 import useNavTheme from "../../hooks/useNavTheme"
 import openshift from "../../assets/openshift.png"
@@ -38,7 +37,7 @@ export default function OpenShift() {
     return (
         <React.Fragment>
             <Head>
-                <title>Prodevans Brochures</title>
+                <title>Openshift Captains</title>
                 <meta
                     name="description"
                     content="Published articles by Prodevans"
@@ -173,7 +172,6 @@ export default function OpenShift() {
                     />
                 </div>
             </div>
-            <CommonFooter />
         </React.Fragment>
     )
 }

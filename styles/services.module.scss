@@ -129,6 +129,7 @@
         h3 {
             font-size: 1.5rem;
             color: #000;
+            margin-bottom: 0.75em;
         }
         .inner {
             display: flex;
@@ -280,18 +281,17 @@
             display: flex;
             justify-content: center;
             gap: 1em;
+
             .container-item {
                 border: 1px solid #828282;
                 border-radius: 0.4rem;
-                padding: 1em;
-                display: flex;
-                flex-direction: column;
+                padding: 2em;
+                @include flex-column(center, center, 1em);
                 text-align: center;
-                justify-content: center;
-                align-items: center;
 
                 h3 {
                     color: #fbfbfb;
+                    margin: 0;
                 }
             }
         }
@@ -355,8 +355,8 @@
                 .coloured {
                     color: #4987d8;
                 }
-                p {
-                    font-weight: "Montserrat", sans-serif;
+                button {
+                    font-family: "Montserrat", sans-serif;
                     font-weight: 400;
                 }
             }
@@ -392,9 +392,6 @@
                 width: 30%;
                 h3 {
                     color: #000;
-                }
-                p {
-                    margin: auto 0;
                 }
             }
         }

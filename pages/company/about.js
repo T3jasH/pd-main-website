@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import Navbar from "../../components/Navbar"
-import CommonFooter from "../../components/CommonFooter"
 import Image from "next/image"
 import Head from "next/head"
 import squares from "../../assets/squares.png"
 import deepak from "../../assets/deepakMishra.png"
 import arvind from "../../assets/arvindKumarSinha.png"
 import dilip from "../../assets/dilipHublikar.png"
-import gagan from "../../assets/gaganPattanayak.jpg"
+import gagan from "../../assets/gaganPattanayak.png"
 import santha from "../../assets/santhaKumar.png"
 import sushma from "../../assets/sushmaShriram.png"
 import twt from "../../assets/twitter.svg"
@@ -151,9 +150,9 @@ export default function About() {
                         <p>
                             Prodevans will help transform IT Organizations with
                             On-demand, Scalable, Reliable Infra based on the
-                            state-of-the-art cloud & container technologies. We
-                            have an excellent track record in implementing
-                            Solutions across India & ASEAN. As one of the
+                            state-of-the-art cloud &#38; container technologies.
+                            We have an excellent track record in implementing
+                            Solutions across India &#38; ASEAN. As one of the
                             pioneers in implementing Red Hat Cloud Solutions
                             across the region, we bring a technology know how
                             that is second to none.
@@ -218,7 +217,7 @@ export default function About() {
                     to its fullest potential, and to maximise it&#39;s
                     effectiveness in order to stay on top of everything.
                 </p>
-                <Link href={"/#contact-us"}>Start free trial</Link>
+                <Link href={"/#contact-us"}>Contact Us</Link>
                 <div className={`${styles.squares} ${styles["top-right"]}`}>
                     <Image
                         alt="squares graphic"
@@ -236,7 +235,6 @@ export default function About() {
                     />
                 </div>
             </div>
-            <CommonFooter />
         </React.Fragment>
     )
 }

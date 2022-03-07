@@ -25,9 +25,13 @@ const Navbar = (props, navRef) => {
             <Link href="/" aria-label="Home">
                 Home
             </Link>
-            <Link href="/#about-us" aria-label="About Us">
-                About Us
-            </Link>
+            <div
+                className={style["nav-item"]}
+                aria-label="About Us"
+                id="about-us-btn"
+            >
+                <Link href="/#about-us">About Us</Link>
+            </div>
             <div
                 id={"company-btn"}
                 className={style["nav-item"]}
@@ -126,9 +130,13 @@ const Navbar = (props, navRef) => {
                     </Link>
                 </div>
             </div>
-            <Link id={"products-btn"} href="/products" aria-label="Products">
-                Products
-            </Link>
+            <div
+                id={"products-btn"}
+                className={style["nav-item"]}
+                aria-label="Products"
+            >
+                <Link href="/products">Products</Link>
+            </div>
             <div
                 id={"resources"}
                 className={style["nav-item"]}
@@ -156,16 +164,20 @@ const Navbar = (props, navRef) => {
                     </Link>
                 </div>
             </div>
-            <Link href="/events" aria-label="Events" id="events-btn">
-                Events
-            </Link>
-            <Link
-                href="/#contact"
-                aria-label="Contact Us"
-                className={style.contact}
+            <div
+                className={style["nav-item"]}
+                aria-label="Events"
+                id="events-btn"
             >
-                Contact
-            </Link>
+                <Link href="/events">Events</Link>
+            </div>
+            <div
+                id="contact-us-btn"
+                aria-label="Contact Us"
+                className={style["nav-item"]}
+            >
+                <Link href="/#contact">Contact</Link>
+            </div>
             <div className={style.loading}>
                 <div className={style["blue-dash"]} />
             </div>

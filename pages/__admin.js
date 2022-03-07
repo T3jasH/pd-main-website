@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar"
 import pd from "../assets/pdLogoBlue.svg"
 import getTime from "../clientUtils/getTime"
 import styles from "../styles/company/careers.module.scss"
+import Select from "react-select"
 
 export async function getServerSideProps(ctx) {
     const cookie = ctx.req.headers.cookie || "auth-token="
@@ -48,6 +49,18 @@ export async function getServerSideProps(ctx) {
 }
 
 export default function Admin({ isAuth, jobs }) {
+    const jobTypes = [
+        { value: "Full Time", label: "Full Time" },
+        { value: "Part Time(consultant)", label: "Part Time(consultant)" },
+        { value: "Intern", label: "Intern" },
+    ]
+    const jobLocations = [
+        { value: "Bangalore", label: "Bangalore" },
+        { value: "Hyderabad", label: "Hyderabad" },
+        { value: "Delhi", label: "Delhi" },
+        { value: "Mumbai", label: "Mumbai" },
+        { value: "Remote", label: "Remote" },
+    ]
     const [jobList, setJobList] = useState(jobs)
     const [newJob, setNewJob] = useState({
         company: "",
@@ -131,93 +144,81 @@ export default function Admin({ isAuth, jobs }) {
             <div className={styles["company-careers"]}>
                 {isAuth ? (
                     <>
-                        <div className={styles["jobs-list"]}>
+                        <div className={styles["add-job"]}>
                             <p className={styles["error-message"]}>
                                 {errorMessage}
                             </p>
-                            <div className={styles.job}>
-                                <div className={styles.right}>
-                                    <div>
-                                        <div>
-                                            <input
-                                                type={"text"}
-                                                value={newJob.title}
-                                                placeholder="job title"
-                                                onChange={(e) =>
-                                                    setNewJob({
-                                                        ...newJob,
-                                                        title: e.target.value,
-                                                    })
-                                                }
-                                            />
-                                            <input
-                                                type={"text"}
-                                                value={newJob.company}
-                                                placeholder="company"
-                                                onChange={(e) =>
-                                                    setNewJob({
-                                                        ...newJob,
-                                                        company: e.target.value,
-                                                    })
-                                                }
-                                            />
-                                        </div>
-                                        <button onClick={() => addJob()}>
-                                            Add Job
-                                        </button>
-                                    </div>
-                                    <div>
-                                        <input
-                                            type={"text"}
-                                            value={newJob.type}
-                                            onChange={(e) =>
-                                                setNewJob({
-                                                    ...newJob,
-                                                    type: e.target.value,
-                                                })
-                                            }
-                                            placeholder="job type"
-                                        />
-                                        <input
-                                            type={"text"}
-                                            value={newJob.location}
-                                            onChange={(e) =>
-                                                setNewJob({
-                                                    ...newJob,
-                                                    location: e.target.value,
-                                                })
-                                            }
-                                            placeholder="job location"
-                                        />
-                                    </div>
-                                    <div>
-                                        <textarea
-                                            type={"text"}
-                                            value={newJob.description}
-                                            placeholder="job description"
-                                            onChange={(e) =>
-                                                setNewJob({
-                                                    ...newJob,
-                                                    description: e.target.value,
-                                                })
-                                            }
-                                        />
-                                    </div>
-                                    <div>
-                                        <input
-                                            type={"text"}
-                                            value={newJob.link}
-                                            placeholder="application link"
-                                            onChange={(e) =>
-                                                setNewJob({
-                                                    ...newJob,
-                                                    link: e.target.value,
-                                                })
-                                            }
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                            <input
+                                type={"text"}
+                                value={newJob.title}
+                                placeholder="job title"
+                                onChange={(e) =>
+                                    setNewJob({
+                                        ...newJob,
+                                        title: e.target.value,
+                                    })
+                                }
+                            />
+                            <input
+                                type={"text"}
+                                value={newJob.company}
+                                placeholder="company"
+                                onChange={(e) =>
+                                    setNewJob({
+                                        ...newJob,
+                                        company: e.target.value,
+                                    })
+                                }
+                            />
+                            <Select
+                                className={styles.dropdown}
+                                isDisabled={false}
+                                isClearable={false}
+                                isSearchable={true}
+                                options={jobTypes}
+                                placeholder={"Select job type"}
+                                aria-label={"Select job type"}
+                                onChange={(e) =>
+                                    setNewJob({ ...newJob, type: e.value })
+                                }
+                            />
+                            <Select
+                                className={styles.dropdown}
+                                isDisabled={false}
+                                isClearable={false}
+                                isSearchable={true}
+                                options={jobLocations}
+                                placeholder={"Select job location"}
+                                aria-label={"Select job location"}
+                                onChange={(e) =>
+                                    setNewJob({ ...newJob, location: e.value })
+                                }
+                            />
+                            <textarea
+                                type={"text"}
+                                value={newJob.description}
+                                placeholder="job description"
+                                onChange={(e) =>
+                                    setNewJob({
+                                        ...newJob,
+                                        description: e.target.value,
+                                    })
+                                }
+                            />
+                            <input
+                                type={"text"}
+                                value={newJob.link}
+                                placeholder="application link"
+                                onChange={(e) =>
+                                    setNewJob({
+                                        ...newJob,
+                                        link: e.target.value,
+                                    })
+                                }
+                            />
+                            <button onClick={() => addJob()}>Add Job</button>
+                        </div>
+                        <div className={styles["jobs-list"]}>
                             {jobList.map((job) => (
                                 <div key={job._id} className={styles.job}>
                                     <div className={styles.left}>

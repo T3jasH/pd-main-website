@@ -1,14 +1,18 @@
+@import "./mixins/flex.scss";
+
 .industries {
-    position: absolute;
+    position: relative;
     width: 100%;
     top: 0;
     left: 0;
     background-color: #fbfbfb;
+    z-index: 1;
     .industries-img {
         position: relative;
         height: 75vh;
         width: 100%;
         text-align: center;
+        z-index: 1;
         .nav-info {
             position: relative;
             top: 4em;
@@ -34,17 +38,12 @@
         }
     }
     .edu-container {
-        display: flex;
+        @include flex-row(center, flex-start, 1.5rem);
         padding: 3em 2em 0 2em;
         color: #010101;
-        align-items: flex-start;
-        gap: 1.5rem;
+
         .left {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 1.5em;
+            @include flex-column(center, flex-start, 1.5em);
             h3 {
                 font-size: 1.8rem;
                 font-family: "Montserrat", sans-serif;
@@ -52,9 +51,7 @@
                 font-weight: 600;
             }
             ul {
-                display: flex;
-                flex-direction: column;
-                gap: 0.75em;
+                @include flex-column(flex-start, flex-start, 0.75em);
             }
         }
         .right {
@@ -63,37 +60,31 @@
         }
     }
     .tele-container {
-        gap: 4rem;
         padding: 0;
         align-items: stretch;
         .left {
-            padding: 3em 2em;
-            flex: 1;
+            flex: 0.7;
             background-color: #f7f6f6;
-            align-items: flex-start;
-            justify-content: flex-start;
+            align-items: center;
+            justify-content: center;
             h3 {
                 font-weight: 500;
                 margin-bottom: 2rem;
             }
-            p {
+            button {
                 font-size: 1.5rem;
-                font-weight: 500;
-                line-height: 2rem;
+                font-weight: 300;
+                letter-spacing: 0.135em;
             }
             .blue {
                 color: #4987d8;
             }
         }
         .right {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            @include flex-column(center, center, 2rem);
             transform: none;
-            gap: 2rem;
             flex: 1;
-            padding: 3em 0;
+            padding: 3em 2.5em 3em 0;
             .tele-img {
                 width: 27rem;
                 height: 17rem;
@@ -110,12 +101,8 @@
         }
     }
     .healthcare-container {
-        display: flex;
-        flex-direction: column;
+        @include flex-column(center, center, 1em);
         text-align: center;
-        justify-content: center;
-        align-items: center;
-        gap: 1em;
         color: #010101;
         padding: 2em;
         h2 {
