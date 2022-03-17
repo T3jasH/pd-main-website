@@ -6,10 +6,12 @@ import Navbar from "../../components/Navbar"
 import NavPath from "../../components/NavPath"
 import modernization from "../../assets/modernization.png"
 import styles from "../../styles/services.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Modernization() {
     const navRef = useRef(null)
     useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
+    useActiveLink("services", "a:nth-child(2)")
     const cards = [
         {
             title: "Accelerated Application Delivery",

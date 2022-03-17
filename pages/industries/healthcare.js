@@ -7,6 +7,7 @@ import useNavTheme from "../../hooks/useNavTheme"
 import healthcare from "../../assets/healthcare.png"
 import healthcare2 from "../../assets/healthcare2.png"
 import styles from "../../styles/industries.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Healthcare() {
     const navRef = useRef(null)
@@ -15,6 +16,7 @@ export default function Healthcare() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
+    useActiveLink("industries-btn", "a:nth-child(4)")
     return (
         <React.Fragment>
             <Head>
@@ -49,7 +51,7 @@ export default function Healthcare() {
                     </div>
                     <h2>Making Healthcare easy and Convenient</h2>
                     <p>
-                        The healthcare industry shoulder the responsibility of
+                        The healthcare industry shoulders the responsibility of
                         maintaining data of different forms and aspects with
                         high availability. Involvement of Prodevans services in
                         healthcare not only reduces the burden of data

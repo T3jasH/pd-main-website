@@ -7,6 +7,7 @@ import useNavTheme from "../../hooks/useNavTheme"
 import automation from "../../assets/automation.png"
 import automation2 from "../../assets/automation2.png"
 import styles from "../../styles/services.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Automation() {
     const automationPoints = [
@@ -24,6 +25,7 @@ export default function Automation() {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
+    useActiveLink("services", "a:nth-child(5)")
     return (
         <React.Fragment>
             <Head>

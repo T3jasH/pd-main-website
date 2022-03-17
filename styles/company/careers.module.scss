@@ -23,9 +23,10 @@
         }
         button {
             color: #fbfbfb;
-            padding: 0.5em 1em;
+            padding: 0.75em 1em;
             background-color: #4987d8;
             width: 10rem;
+            border-radius: 0.25em;
             &:focus {
                 border: 1px solid black;
             }
@@ -161,6 +162,8 @@
                         color: #fbfbfb;
                         padding: 0.5em 1em;
                         background-color: #4987d8;
+                        border-radius: 0.15em;
+
                         &:focus {
                             border: 1px solid black;
                         }
@@ -185,6 +188,7 @@
                             color: #fbfbfb;
                             padding: 0.5em 1em;
                             background-color: #4987d8;
+                            border-radius: 0.15em;
                             &:focus {
                                 border: 1px solid black;
                             }

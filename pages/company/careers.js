@@ -8,6 +8,7 @@ import Select from "react-select"
 import getTime from "../../clientUtils/getTime"
 import styles from "../../styles/company/careers.module.scss"
 import NavPath from "../../components/NavPath"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export async function getStaticProps(context) {
     try {
@@ -50,6 +51,7 @@ export default function Careers({ jobs }) {
         navRef,
         "company-careers-btn"
     )
+    useActiveLink("company-btn", "a:nth-child(2)")
 
     useEffect(() => {
         const updatedCompanies = []

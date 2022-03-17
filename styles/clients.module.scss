@@ -16,18 +16,11 @@
         position: relative;
         overflow-x: hidden;
         margin-top: 1em;
-        section {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 4em;
-            justify-content: space-evenly;
-            width: max-content;
-            height: max-content;
-            padding: 0.75em 0;
-            .client {
-                width: 7.5em;
-                height: 4em;
-            }
+        transform: translateX(-5%);
+        .client {
+            width: 7.5em;
+            height: 4em;
+            margin: 1em 0;
         }
     }
     .purple-bg {

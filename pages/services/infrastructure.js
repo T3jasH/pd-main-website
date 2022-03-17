@@ -2,6 +2,7 @@ import Head from "next/head"
 import Image from "next/image"
 import React, { useRef } from "react"
 import useNavTheme from "../../hooks/useNavTheme"
+import useActiveLink from "../../hooks/useActiveLink"
 import Navbar from "../../components/Navbar"
 import NavPath from "../../components/NavPath"
 import infrastructure from "../../assets/infrastructure.png"
@@ -10,6 +11,7 @@ import styles from "../../styles/services.module.scss"
 export default function Infrastructure() {
     const navRef = useRef(null)
     useNavTheme("#services", "--bgColor: #fbfbfb; --textColor: #000;", navRef)
+    useActiveLink("services", "a:nth-child(7)")
     const cards = [
         {
             title: "Red Hat and RDO OpenStack",

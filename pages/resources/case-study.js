@@ -5,6 +5,7 @@ import Navbar from "../../components/Navbar"
 import goal from "../../assets/goal.svg"
 import objective from "../../assets/objective.svg"
 import useNavTheme from "../../hooks/useNavTheme"
+import useActiveLink from "../../hooks/useActiveLink"
 import NavPath from "../../components/NavPath"
 import styles from "../../styles/resources/case-study.module.scss"
 
@@ -15,6 +16,7 @@ export default function CaseStudy() {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
+    useActiveLink("resources", "a:nth-child(1)")
     return (
         <React.Fragment>
             <Head>

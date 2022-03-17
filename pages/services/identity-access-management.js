@@ -11,10 +11,12 @@ import consentManagement from "../../assets/consentManagement.png"
 import b2b from "../../assets/b2b.png"
 import multifactorAuth from "../../assets/multifactorAuth.jpg"
 import styles from "../../styles/services.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Management() {
     const navRef = useRef(null)
     useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
+    useActiveLink("services", "a:nth-child(4)")
     const list = [
         {
             name: "Prodevans Digital Identity",

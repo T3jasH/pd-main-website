@@ -64,9 +64,12 @@
     a,
     .nav-item {
         color: inherit;
-        padding: 0.5em 0.75em;
+        padding: 0.5em 0.25em;
         text-align: center;
         font-weight: inherit;
+    }
+    .dropdown-open > a {
+        font-weight: 400;
     }
     & > a:focus,
     .nav-item:focus {
@@ -75,6 +78,9 @@
     }
     .active {
         font-weight: 600;
+        color: var(--focusTextColor);
+    }
+    .active-link {
         color: var(--focusTextColor);
     }
 }

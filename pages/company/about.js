@@ -19,6 +19,7 @@ import styles from "../../styles/company/about.module.scss"
 import navstyles from "../../styles/navbar.module.scss"
 import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function About() {
     const navRef = useRef(null)
@@ -92,6 +93,7 @@ export default function About() {
         "--bgColor: #1b1b1b; --textColor: #fff;",
         navRef
     )
+    useActiveLink("company-btn", "a:nth-child(1)")
     useEffect(() => {
         const nav = document.querySelector(`.${navstyles.nav}`)
         if (inView) {

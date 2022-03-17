@@ -22,9 +22,9 @@ const Navbar = (props, navRef) => {
             <div className={style.logo}>
                 <Image alt="PD Logo" src={logo} />
             </div>
-            <Link href="/" aria-label="Home">
-                Home
-            </Link>
+            <div id="home-btn" aria-label="Home" className={style["nav-item"]}>
+                <Link href="/">Home</Link>
+            </div>
             <div
                 className={style["nav-item"]}
                 aria-label="About Us"
@@ -147,7 +147,11 @@ const Navbar = (props, navRef) => {
             >
                 Resources
                 <div className={style.dropdown}>
-                    <Link href="/resources/case-study" aria-label="Case study">
+                    <Link
+                        href="/resources/case-study"
+                        aria-label="Case study"
+                        id="case-study-link"
+                    >
                         Case Study
                     </Link>
                     <Link href="/resources/media" aria-label="Media">

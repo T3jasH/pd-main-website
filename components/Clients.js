@@ -17,144 +17,118 @@ import flipkart from "../assets/flipkart.png"
 import redhat from "../assets/redhat.svg"
 import clientsGraphic from "../assets/clientsGraphic.png"
 import style from "../styles/clients.module.scss"
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css"
+import { useState } from "react"
 
-export default function Clients() {
+export const getInitialProps = ({ req }) => {
+    let userAgent
+    let deviceType
+    if (req) {
+        userAgent = req.headers["user-agent"]
+    } else {
+        userAgent = navigator.userAgent
+    }
+    const md = new MobileDetect(userAgent)
+    if (md.tablet()) {
+        deviceType = "tablet"
+    } else if (md.mobile()) {
+        deviceType = "mobile"
+    } else {
+        deviceType = "desktop"
+    }
+    return { deviceType }
+}
+
+export default function Clients(props) {
+    const clients1 = [
+        { name: "Nvidia", src: nvidia },
+        { name: "Hitachi", src: hitachi },
+        { name: "Redhat", src: redhat },
+        { name: "Flipkart", src: flipkart },
+        { name: "Danske Bank", src: danskeBank },
+        { name: "Exide Life Insurance", src: exide },
+        { name: "Lifestyle", src: lifestyle },
+        { name: "Alchemy", src: alchemy },
+    ]
+    const clients2 = [
+        { name: "Alphaserve", src: alphaserve },
+        { name: "Zee", src: zee },
+        { name: "Manipal Global", src: manipalGlobal },
+        { name: "Mphasis", src: mphasis },
+        { name: "Pristine", src: pristine },
+        { name: "BackOffice", src: backoffice },
+        { name: "Marvel", src: marvel },
+        { name: "Crayon", src: crayon },
+    ]
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1,
+        },
+    }
+    const [isMoving, setMoving] = useState(false)
     return (
         <div id={style.clients}>
             <h3>Our Clients</h3>
             <div className={style["clients-list"]}>
-                <section>
-                    <div className={style.client}>
-                        <Image
-                            alt="Nvidia"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={nvidia}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Hitachi"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={hitachi}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Redhat"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={redhat}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Flipkart"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={flipkart}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Danske Bank"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={danskeBank}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Exide Life Insurance"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={exide}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Lifestyle"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={lifestyle}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Alchemy"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={alchemy}
-                        />
-                    </div>
-                </section>
-                <section>
-                    <div className={style.client}>
-                        <Image
-                            alt="Zee"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={zee}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Alphaserve"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={alphaserve}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Manipal Global"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={manipalGlobal}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Mphasis"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={mphasis}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Pristine"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={pristine}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Marvel"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={marvel}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="BackOffice"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={backoffice}
-                        />
-                    </div>
-                    <div className={style.client}>
-                        <Image
-                            alt="Crayon"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={crayon}
-                        />
-                    </div>
-                </section>
+                <Carousel
+                    responsive={responsive}
+                    deviceType={props.deviceType}
+                    infinite={true}
+                    autoPlay={true}
+                    removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+                    autoPlaySpeed={5000}
+                    centerMode={true}
+                    transitionDuration={1500}
+                >
+                    {clients1.map((client) => (
+                        <div className={style.client} key={client.name}>
+                            <div className={style.client}>
+                                <Image
+                                    alt={client.name}
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={client.src}
+                                />
+                            </div>
+                        </div>
+                    ))}
+                </Carousel>
+                <Carousel
+                    responsive={responsive}
+                    deviceType={props.deviceType}
+                    infinite={true}
+                    autoPlay={true}
+                    removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+                    autoPlaySpeed={5000}
+                    centerMode={true}
+                    transitionDuration={1500}
+                >
+                    {clients2.map((client) => (
+                        <div className={style.client} key={client.name}>
+                            <div className={style.client}>
+                                <Image
+                                    alt={client.name}
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={client.src}
+                                />
+                            </div>
+                        </div>
+                    ))}
+                </Carousel>
             </div>
             <div className={style["purple-bg"]}>
                 <div className={style["clients-graphic"]}>

@@ -7,6 +7,7 @@ import telecom from "../../assets/telecom.png"
 import telecom2 from "../../assets/telecom2.png"
 import arrow from "../../assets/arrowWhite.svg"
 import styles from "../../styles/industries.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Telecom() {
     const navRef = useRef(null)
@@ -46,6 +47,7 @@ export default function Telecom() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
+    useActiveLink("industries-btn", "a:nth-child(2)")
     return (
         <React.Fragment>
             <Head>

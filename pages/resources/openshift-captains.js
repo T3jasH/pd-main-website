@@ -1,15 +1,18 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Navbar from "../../components/Navbar"
 import useNavTheme from "../../hooks/useNavTheme"
 import openshift from "../../assets/openshift.png"
+import why from "../../assets/whyOpenshift.jpeg"
+import how from "../../assets/howOpenshift.png"
 import openshiftFtBg from "../../assets/openshiftFooterBg.png"
 import openshift2 from "../../assets/openshift2.png"
 import Link from "next/link"
 import { useInView } from "react-intersection-observer"
 import NavPath from "../../components/NavPath"
 import styles from "../../styles/resources/openshift-captains.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function OpenShift() {
     const navRef = useRef(null)
@@ -18,6 +21,7 @@ export default function OpenShift() {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
+    useActiveLink("resources", "a:nth-child(4)")
     const { ref: footerRef, inView } = useInView({
         rootMargin: "-25% 0%",
     })
@@ -34,6 +38,35 @@ export default function OpenShift() {
             )
         }
     }, [inView])
+    const list = [
+        {
+            name: "WHAT",
+            title: "What do they do?",
+            description:
+                "They will actively promote the program. They will be arranging, coordinating forums where OpenShift will be discussed. They will contribute and encourage contributions from participants. They will provide guidance & mentorship when needed.",
+            btn: "what",
+            img: openshift,
+        },
+        {
+            name: "WHY",
+            btn: "why",
+            //img: why,
+            img: openshift,
+            title: "Why organizations need them?",
+            description:
+                "OpenShift provides organizations with all the functionality you need to optimize containerization usage with your existing IT resources. Organizations can take advantage of the Exclusive and Highly Customized training that will align with their transformation and business goals",
+        },
+        {
+            name: "HOW",
+            btn: "how",
+            //img: how,
+            img: openshift,
+            title: "How do organizations benefit?",
+            description:
+                "Organizations get to engage with container experts. You are provided with container adoption strategy and a roadmap. Organizations get to have an in house competency in Openshift Container Platform.",
+        },
+    ]
+    const [activeBtn, setActive] = useState(list[0].btn)
     return (
         <React.Fragment>
             <Head>
@@ -62,30 +95,37 @@ export default function OpenShift() {
                 </div>
                 <div className={styles.description}>
                     <div className={styles.left}>
-                        <h2 className={styles.coloured}>What</h2>
-                        <h2>Why</h2>
-                        <h2>How</h2>
+                        {list.map((item, i) => (
+                            <button
+                                key={i}
+                                className={`${
+                                    activeBtn === item.btn
+                                        ? styles.coloured
+                                        : ""
+                                }`}
+                                onClick={() => setActive(item.btn)}
+                            >
+                                {item.name}
+                            </button>
+                        ))}
                     </div>
                     <div className={styles.right}>
-                        <h2>What do they do?</h2>
-                        <div className={styles["right-img"]}>
-                            <Image
-                                alt={"Graphic"}
-                                layout="responsive"
-                                objectFit="fill"
-                                src={openshift}
-                            />
-                        </div>
-                        <p>
-                            They will actively promote the program. They will be
-                            arranging, coordinating forums where OpenShift will
-                            be discussed. They will contribute and encourage
-                            contributions from participants. They will provide
-                            guidance & mentorship when needed. They will share
-                            calendars, upcoming events, announcements, features
-                            - everything you would expect a strong proponent to
-                            do.
-                        </p>
+                        {[list.find((item) => item.btn === activeBtn)].map(
+                            (item, i) => (
+                                <React.Fragment key={i}>
+                                    <h2>{item.title}</h2>
+                                    <div className={styles["right-img"]}>
+                                        <Image
+                                            alt={item.name}
+                                            layout="responsive"
+                                            objectFit="fill"
+                                            src={item.img}
+                                        />
+                                    </div>
+                                    <p>{item.description}</p>
+                                </React.Fragment>
+                            )
+                        )}
                     </div>
                 </div>
                 <div className={styles.description}>
@@ -153,12 +193,12 @@ export default function OpenShift() {
             <div className={styles["openshift-footer"]} ref={footerRef}>
                 <h2>What does Openshift look for when selecting captains?</h2>
                 <p>
-                    First & foremost, they should be passionate about technology
-                    and should have a willingness to learn. They should be
-                    working on OpenShift in some capacity. They should strive to
-                    keep themselves up to date on the latest offerings of
-                    OpenShift. One specific activity that all are required to do
-                    is Open iVentura Project - iVentura uses OpenDataHub is a
+                    First &#38; foremost, they should be passionate about
+                    technology and should have a willingness to learn. They
+                    should be working on OpenShift in some capacity. They should
+                    strive to keep themselves up to date on the latest offerings
+                    of OpenShift. One specific activity that all are required to
+                    do is Open iVentura Project - iVentura uses OpenDataHub is a
                     framework for building AI/ML functions with OpenShift. By
                     the way iVentura has plenty of use cases.
                 </p>

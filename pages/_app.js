@@ -22,17 +22,15 @@ function MyApp({ Component, pageProps }) {
 
 export default MyApp
 
-// our client scroll
-// reviews image oval - done
-// digital trans image
-// dropdown top space - done
-// start free change to contact us - done
-// careers page stuff
-// intern, full time, part time (consultant) - done
-// bangalore, hyd, delhi, mumbai, remote - done
-// telecom - done
-// blue button thing (change content based on what is active) - done
-// our cloud portfolio space
-// app modernization card padding
-// remove 3rd section 360 deg - done
-// data.js for articles - done
+// 2nd meeting
+
+// bigger review image - done
+// gmail icon
+// linkedin icon
+// admin side input width increase, rounded button, clickable link, bigger font size, improve form, remove company
+// login page bottom padding
+// insurance -> storage and security too long
+// iventura.ai pdcloudex.com - done
+// openshift captain what why how
+// events description
+//

@@ -6,11 +6,12 @@ import NavPath from "../../components/NavPath"
 import styles from "../../styles/resources/media.module.scss"
 import useNavTheme from "../../hooks/useNavTheme"
 import { articles } from "../../data"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Media() {
     const navRef = useRef(null)
     useNavTheme("#resources", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
-
+    useActiveLink("resources", "a:nth-child(2)")
     return (
         <React.Fragment>
             <Head>

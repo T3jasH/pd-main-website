@@ -12,6 +12,7 @@ import Reviews from "../components/Reviews"
 import Clients from "../components/Clients"
 import Contact from "../components/Contact"
 import style from "../styles/home.module.scss"
+import navStyles from "../styles/navbar.module.scss"
 
 export default function Home() {
     const { ref, inView } = useInView({
@@ -27,6 +28,15 @@ export default function Home() {
                     "style",
                     "--bgColor: #1b1b1b; --textColor: #fff;"
                 )
+            }
+            const btn = document.querySelector("#home-btn")
+            if (btn) {
+                btn.classList.add(navStyles.active)
+            }
+        } else {
+            const btn = document.querySelector("#home-btn")
+            if (btn) {
+                btn.classList.remove(navStyles.active)
             }
         }
     }, [inView])

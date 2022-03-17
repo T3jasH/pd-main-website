@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react"
 import Navbar from "../../components/Navbar"
 import arrow from "../../assets/arrowWhite.svg"
 import useNavTheme from "../../hooks/useNavTheme"
+import useActiveLink from "../../hooks/useActiveLink"
 import insurance from "../../assets/insurance.png"
 import insurance2 from "../../assets/insurance2.png"
 import styles from "../../styles/industries.module.scss"
@@ -16,6 +17,7 @@ export default function Telecom() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
+    useActiveLink("industries-btn", "a:nth-child(3)")
     const list = [
         {
             btn: "digital",
