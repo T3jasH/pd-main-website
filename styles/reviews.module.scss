@@ -3,11 +3,22 @@
     width: calc(100% - 8em);
     position: relative;
     background: linear-gradient(116.18deg, #447ab6 0%, #9933a3 99.08%);
+    @media screen and (max-width: 1000px) {
+        padding: 4em 2em 2em 2em;
+        width: calc(100% - 4em);
+    }
+    @media screen and (max-width: 750px) {
+        padding: 2em 0 2em 1em;
+        width: 100%;
+    }
     h2 {
         font-weight: 400;
         font-size: 2em;
         max-width: 60%;
         position: relative;
+        @media screen and (max-width: 800px) {
+            max-width: 80%;
+        }
         .underline {
             position: relative;
         }
@@ -28,11 +39,35 @@
         padding: 4em;
         width: calc(100% - 8em);
         height: 18em;
+        @media screen and (max-width: 1250px) {
+            padding: 2em;
+        }
+        @media screen and (max-width: 1250px) {
+            padding: 1em;
+            gap: 5em;
+        }
+        @media screen and (max-width: 650px) {
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 28em;
+        }
+        @media screen and (max-width: 400px) {
+            height: 32em;
+        }
+        @media screen and (max-width: 340px) {
+            height: 40em;
+        }
+        @media screen and (max-width: 250px) {
+            height: 50em;
+        }
         .text {
             width: 70%;
             font-weight: 300;
             line-height: 1.5em;
             font-size: 1.2rem;
+            @media screen and(max-width: 50px) {
+                width: 100%;
+            }
         }
         .reviewer {
             display: flex;
@@ -48,28 +83,41 @@
                 box-shadow: 0.25em 0.25em 0.15em 0.15em rgba(0, 0, 0, 0.1),
                     -0.25em -0.25em 0.15em 0.15em rgba(0, 0, 0, 0.1);
                 border-radius: 50%;
+                @media screen and (max-width: 750px) {
+                    height: 5em;
+                    width: 5em;
+                }
                 img {
                     border-radius: 50%;
                 }
             }
             p {
                 font-weight: 500;
+                text-align: center;
             }
         }
     }
     .controls {
         width: 20%;
-        position: relative;
+        position: absolute;
+        bottom: 1em;
         left: 50%;
         transform: translateX(-50%);
         display: flex;
         justify-content: space-between;
+        @media screen and (max-width: 650px) {
+            width: 30%;
+            left: 49%;
+        }
         .arrow {
             position: relative;
             height: 2em;
             width: 45%;
             img {
                 cursor: pointer;
+            }
+            @media screen and (max-width: 850px) {
+                height: 1.5em;
             }
         }
     }
@@ -82,21 +130,6 @@
             .text {
                 width: 90%;
                 line-height: 1.25em;
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 1150px) {
-    #reviews {
-        h2 {
-            max-width: 80%;
-        }
-        .review {
-            height: 24rem;
-            padding: 3em 4em;
-            .text {
-                width: 100%;
             }
         }
     }

@@ -11,7 +11,6 @@ export default function useScroll() {
         }
         const element = document.querySelector(hash)
         if (element) {
-            console.log("scroll")
             element.scrollIntoView()
         }
     }, [])

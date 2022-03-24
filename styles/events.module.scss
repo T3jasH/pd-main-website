@@ -12,15 +12,16 @@
         border: 1px solid #fbfbfb;
         border-radius: 0.5em;
         .event {
-            @include flex-row(center, flex-start, 1em);
+            @include flex-row(flex-start, flex-start, 1em);
+            position: relative;
             padding-bottom: 1em;
             .left {
-                width: 20rem;
-                height: 15em;
+                width: 36%;
             }
             .right {
                 @include flex-column(flex-start, flex-start, 1em);
                 padding: 1em;
+                width: 64%;
                 h3 {
                     color: #4b76b6;
                     font-size: 1.5rem;
@@ -29,7 +30,6 @@
                 p {
                     font-weight: 400;
                     font-size: 1.25rem;
-                    line-height: 2rem;
                 }
             }
         }

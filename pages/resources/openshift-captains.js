@@ -50,8 +50,7 @@ export default function OpenShift() {
         {
             name: "WHY",
             btn: "why",
-            //img: why,
-            img: openshift,
+            img: why,
             title: "Why organizations need them?",
             description:
                 "OpenShift provides organizations with all the functionality you need to optimize containerization usage with your existing IT resources. Organizations can take advantage of the Exclusive and Highly Customized training that will align with their transformation and business goals",
@@ -59,8 +58,7 @@ export default function OpenShift() {
         {
             name: "HOW",
             btn: "how",
-            //img: how,
-            img: openshift,
+            img: how,
             title: "How do organizations benefit?",
             description:
                 "Organizations get to engage with container experts. You are provided with container adoption strategy and a roadmap. Organizations get to have an in house competency in Openshift Container Platform.",

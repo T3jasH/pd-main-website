@@ -8,9 +8,18 @@
         #1b1b1b 75.01%
     );
     display: flex;
-    color: #c6c6c6;
+    @media screen and (max-width: 600px) {
+        padding: 4em 0 2em 2em;
+    }
+    @media screen and (max-width: 450px) {
+        flex-direction: column;
+        gap: 2em;
+    }
     .left {
         width: 40%;
+        @media screen and (max-width: 450px) {
+            width: 100%;
+        }
         h2 {
             font-weight: 600;
             font-family: "Montserrat", sans-serif;
@@ -29,6 +38,10 @@
         width: calc(60% - 3em);
         padding: 0 1.5em;
         position: relative;
+        @media screen and (max-width: 450px) {
+            width: calc(100% - 3em);
+            padding: 0;
+        }
         form {
             width: 100%;
             position: relative;
