@@ -74,9 +74,6 @@ const Navbar = (props, navRef) => {
                     <Link href="/industries/telecom" aria-label="Telecom">
                         Telecom
                     </Link>
-                    <Link href="/industries/insurance" aria-label="Insurance">
-                        Insurance
-                    </Link>
                     <Link href="/industries/healthcare" aria-label="Healthcare">
                         Healthcare
                     </Link>

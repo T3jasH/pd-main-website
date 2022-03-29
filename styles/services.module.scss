@@ -206,6 +206,7 @@
     }
     .ansible-automation {
         @include flex-row(center, center, 1em);
+        margin-top: 2em;
         padding-bottom: 2em;
         .left {
             flex: 0.75;

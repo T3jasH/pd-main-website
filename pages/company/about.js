@@ -140,7 +140,16 @@ export default function About() {
                                 src={squares}
                             />
                         </div>
-                        <div className={styles.gray}></div>
+                        <iframe
+                            className={styles.video}
+                            width="560"
+                            height="315"
+                            src="https://www.youtube-nocookie.com/embed/c3pOa1qXW3A"
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                        ></iframe>
                     </div>
                     <div className={styles.right}>
                         <p>

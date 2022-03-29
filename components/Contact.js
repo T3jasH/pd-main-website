@@ -17,9 +17,12 @@ export default function Contact() {
                     "--bgColor: #2e2e2e; --textColor: #fbfbf;"
                 )
             }
-            const btn = document.querySelector("#contact-us-btn")
+            const btn = document.querySelector("#contact-us-btn > a")
             if (btn) {
-                btn.classList.add(navStyles.active)
+                btn.setAttribute(
+                    "style",
+                    "color: var(--focusTextColor); font-weight: 600;"
+                )
             }
         } else {
             if (nav) {
@@ -28,11 +31,15 @@ export default function Contact() {
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a; --focusTextColor: #1b1b1b;"
                 )
             }
-            const btn = document.querySelector("#contact-us-btn")
+            const btn = document.querySelector("#contact-us-btn > a")
             if (btn) {
-                btn.classList.remove(navStyles.active)
+                btn.setAttribute(
+                    "style",
+                    "color: var(--textColor); font-weight: 300;"
+                )
             }
         }
+        console.log("ran")
     }, [inView])
     const submit = (e) => {
         e.preventDefault()

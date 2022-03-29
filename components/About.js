@@ -20,14 +20,20 @@ const About = () => {
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
                 )
             }
-            const btn = document.querySelector("#about-us-btn")
+            const btn = document.querySelector("#about-us-btn > a")
             if (btn) {
-                btn.classList.add(navStyles.active)
+                btn.setAttribute(
+                    "style",
+                    "color: var(--focusTextColor); font-weight: 600;"
+                )
             }
         } else {
-            const btn = document.querySelector("#about-us-btn")
+            const btn = document.querySelector("#about-us-btn > a")
             if (btn) {
-                btn.classList.remove(navStyles.active)
+                btn.setAttribute(
+                    "style",
+                    "color: var(--textColor); font-weight: 300;"
+                )
             }
         }
     }, [inView])
