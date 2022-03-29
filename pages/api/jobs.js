@@ -17,19 +17,16 @@ const isEmpty = (item) => {
 }
 
 const createJob = async (req, res) => {
-    const { title, description, location, type, company, link } = JSON.parse(
-        req.body
-    )
+    const { title, description, location, type, link } = JSON.parse(req.body)
     if (
         isEmpty(title) ||
         isEmpty(description) ||
         isEmpty(location) ||
         isEmpty(type) ||
-        isEmpty(company) ||
         isEmpty(link)
     ) {
         return res.status(422).json({
-            data: "Title, description, location, company and type, are all required fields",
+            data: "Title, description, location, and type, are all required fields",
             success: false,
         })
     }
@@ -39,7 +36,6 @@ const createJob = async (req, res) => {
             description,
             location,
             type,
-            company,
             link,
         })
         await job.save()
@@ -72,9 +68,7 @@ const deleteJob = async (req, res) => {
 }
 
 const updateJob = async (req, res) => {
-    const { title, description, location, type, company, link } = JSON.parse(
-        req.body
-    )
+    const { title, description, location, type, link } = JSON.parse(req.body)
     const { id } = req.query
     if (id.length !== 24) {
         return res.status(422).json({
@@ -92,7 +86,6 @@ const updateJob = async (req, res) => {
         // If entity is not empty, apply update. Otherwise just use previous value
         const updatedJob = await Job.findByIdAndUpdate(id, {
             title,
-            company,
             description,
             location,
             type,

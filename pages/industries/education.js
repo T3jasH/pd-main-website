@@ -7,6 +7,7 @@ import education from "../../assets/education.png"
 import education2 from "../../assets/education2.png"
 import arrow from "../../assets/arrowWhite.svg"
 import styles from "../../styles/industries.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Education() {
     const navRef = useRef(null)
@@ -16,6 +17,7 @@ export default function Education() {
         navRef,
         null
     )
+    useActiveLink("industries-btn", "a:nth-child(1)")
     return (
         <React.Fragment>
             <Head>

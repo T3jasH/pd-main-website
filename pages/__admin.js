@@ -148,52 +148,59 @@ export default function Admin({ isAuth, jobs }) {
                             <p className={styles["error-message"]}>
                                 {errorMessage}
                             </p>
-                            <input
-                                type={"text"}
-                                value={newJob.title}
-                                placeholder="job title"
-                                onChange={(e) =>
-                                    setNewJob({
-                                        ...newJob,
-                                        title: e.target.value,
-                                    })
-                                }
-                            />
-                            <input
-                                type={"text"}
-                                value={newJob.company}
-                                placeholder="company"
-                                onChange={(e) =>
-                                    setNewJob({
-                                        ...newJob,
-                                        company: e.target.value,
-                                    })
-                                }
-                            />
-                            <Select
-                                className={styles.dropdown}
-                                isDisabled={false}
-                                isClearable={false}
-                                isSearchable={true}
-                                options={jobTypes}
-                                placeholder={"Select job type"}
-                                aria-label={"Select job type"}
-                                onChange={(e) =>
-                                    setNewJob({ ...newJob, type: e.value })
-                                }
-                            />
-                            <Select
-                                className={styles.dropdown}
-                                isDisabled={false}
-                                isClearable={false}
-                                isSearchable={true}
-                                options={jobLocations}
-                                placeholder={"Select job location"}
-                                aria-label={"Select job location"}
-                                onChange={(e) =>
-                                    setNewJob({ ...newJob, location: e.value })
-                                }
-                            />
+                            <div className={styles.row}>
+                                <input
+                                    type={"text"}
+                                    value={newJob.title}
+                                    placeholder="job title"
+                                    onChange={(e) =>
+                                        setNewJob({
+                                            ...newJob,
+                                            title: e.target.value,
+                                        })
+                                    }
+                                />
+                                <Select
+                                    className={styles.dropdown}
+                                    isDisabled={false}
+                                    isClearable={false}
+                                    isSearchable={true}
+                                    options={jobTypes}
+                                    placeholder={"Select job type"}
+                                    aria-label={"Select job type"}
+                                    onChange={(e) =>
+                                        setNewJob({ ...newJob, type: e.value })
+                                    }
+                                />
+                            </div>
+                            <div className={styles.row}>
+                                <Select
+                                    className={styles.dropdown}
+                                    isDisabled={false}
+                                    isClearable={false}
+                                    isSearchable={true}
+                                    options={jobLocations}
+                                    placeholder={"Select job location"}
+                                    aria-label={"Select job location"}
+                                    onChange={(e) =>
+                                        setNewJob({
+                                            ...newJob,
+                                            location: e.value,
+                                        })
+                                    }
+                                />
+                                <input
+                                    type={"text"}
+                                    value={newJob.link}
+                                    placeholder="application link"
+                                    onChange={(e) =>
+                                        setNewJob({
+                                            ...newJob,
+                                            link: e.target.value,
+                                        })
+                                    }
+                                />
+                            </div>
                             <textarea
                                 type={"text"}
                                 value={newJob.description}
@@ -202,17 +209,6 @@ export default function Admin({ isAuth, jobs }) {
                                     setNewJob({
                                         ...newJob,
                                         description: e.target.value,
-                                    })
-                                }
-                            />
-                            <input
-                                type={"text"}
-                                value={newJob.link}
-                                placeholder="application link"
-                                onChange={(e) =>
-                                    setNewJob({
-                                        ...newJob,
-                                        link: e.target.value,
                                     })
                                 }
                             />
@@ -251,32 +247,6 @@ export default function Admin({ isAuth, jobs }) {
                                                                             title: e
                                                                                 .target
                                                                                 .value,
-                                                                        }
-                                                                    }
-                                                                    return prevJob
-                                                                }
-                                                            )
-                                                        )
-                                                    }
-                                                />
-                                                <input
-                                                    type={"text"}
-                                                    value={job.company}
-                                                    placeholder="company"
-                                                    onChange={(e) =>
-                                                        setJobList((prevJobs) =>
-                                                            prevJobs.map(
-                                                                (prevJob) => {
-                                                                    if (
-                                                                        prevJob._id ===
-                                                                        job._id
-                                                                    ) {
-                                                                        return {
-                                                                            ...prevJob,
-                                                                            company:
-                                                                                e
-                                                                                    .target
-                                                                                    .value,
                                                                         }
                                                                     }
                                                                     return prevJob

@@ -4,6 +4,7 @@ import React, { useRef } from "react"
 import Navbar from "../../components/Navbar"
 import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
+import useActiveLink from "../../hooks/useActiveLink"
 import cloud from "../../assets/cloud.png"
 import cloudImplementation from "../../assets/cloudImplementation.svg"
 import cloudManaged from "../../assets/cloudManaged.svg"
@@ -18,6 +19,7 @@ export default function Cloud() {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
+    useActiveLink("services", "a:nth-child(1)")
     const serviceFeatures = [
         {
             img: cloudAdvisory,

@@ -6,6 +6,7 @@ import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
 import cloud from "../../assets/cloud.png"
 import styles from "../../styles/services.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Cloud() {
     const navRef = useRef(null)
@@ -14,6 +15,7 @@ export default function Cloud() {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
+    useActiveLink("services", "a:nth-child(3)")
     const whatWeDo = [
         {
             title: "Server Monitoring",

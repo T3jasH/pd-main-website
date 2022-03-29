@@ -12,6 +12,7 @@
             font-family: "Montserrat", sans-serif;
             margin-top: auto;
             margin-bottom: 0.25em;
+            text-align: center;
         }
     }
     .cards-table {
@@ -36,6 +37,9 @@
             gap: 1em;
             width: 40%;
             height: 16em;
+            @media (max-width: 580px) {
+                width: 75%;
+            }
             .graphic {
                 height: 4.5em;
                 width: 8em;

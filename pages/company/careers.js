@@ -8,6 +8,7 @@ import Select from "react-select"
 import getTime from "../../clientUtils/getTime"
 import styles from "../../styles/company/careers.module.scss"
 import NavPath from "../../components/NavPath"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export async function getStaticProps(context) {
     try {
@@ -36,11 +37,9 @@ export default function Careers({ jobs }) {
     const navRef = useRef(null)
     const [locations, setLocations] = useState([])
     const [jobTypes, setJobTypes] = useState([])
-    const [companies, setCompanies] = useState([])
 
     const [selectedLocation, setSelectedLocation] = useState(null)
     const [selectedJobType, setSelectedJobType] = useState(null)
-    const [selectedCompany, setSelectedCompany] = useState(null)
 
     const [keyword, setKeyword] = useState("")
 
@@ -50,22 +49,12 @@ export default function Careers({ jobs }) {
         navRef,
         "company-careers-btn"
     )
+    useActiveLink("company-btn", "a:nth-child(2)")
 
     useEffect(() => {
-        const updatedCompanies = []
         const updatedJobTypes = []
         const updatedLocations = []
         jobs.forEach((job) => {
-            if (
-                updatedCompanies.findIndex(
-                    (company) => job.company === company.value
-                ) === -1
-            ) {
-                updatedCompanies.push({
-                    value: job.company,
-                    label: job.company,
-                })
-            }
             if (
                 updatedJobTypes.findIndex(
                     (jobType) => job.type === jobType.value
@@ -84,7 +73,6 @@ export default function Careers({ jobs }) {
                 })
             }
         })
-        setCompanies(updatedCompanies)
         setLocations(updatedLocations)
         setJobTypes(updatedJobTypes)
     }, [jobs])
@@ -107,8 +95,8 @@ export default function Careers({ jobs }) {
                 <form className={styles["jobs-filter"]}>
                     <div>
                         <input
-                            type="text"
-                            placeholder="Keyword"
+                            type="text" 
+                            placeholder="Search by keyword"
                             aria-label="Keyword"
                             onChange={(e) =>
                                 setKeyword(e.target.value.trim().toLowerCase())
@@ -138,16 +126,6 @@ export default function Careers({ jobs }) {
                             aria-label={"Select job type"}
                             onChange={(e) => setSelectedJobType(e)}
                         />
-                        <Select
-                            className={styles.dropdown}
-                            isDisabled={false}
-                            isClearable={true}
-                            isSearchable={true}
-                            options={companies}
-                            placeholder={"Select company"}
-                            aria-label={"Select company"}
-                            onChange={(e) => setSelectedCompany(e)}
-                        />
                     </div>
                 </form>
                 <div className={styles["jobs-list"]}>
@@ -163,11 +141,6 @@ export default function Careers({ jobs }) {
                             .filter((job) =>
                                 selectedJobType
                                     ? job.type === selectedJobType.value
-                                    : true
-                            )
-                            .filter((job) =>
-                                selectedCompany
-                                    ? job.company === selectedCompany.value
                                     : true
                             )
                             .filter((job) =>
@@ -205,7 +178,6 @@ export default function Careers({ jobs }) {
                                         <div>
                                             <div>
                                                 <h3>{job.title}</h3>
-                                                <p>{job.company}</p>
                                             </div>
                                             <a
                                                 target={"_blank"}

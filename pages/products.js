@@ -22,6 +22,7 @@ export default function Products() {
                 "Pre Configured private cloud platform on OpenStack for Compute, Network & Storage",
             hoverImg: productHover,
             hovering: false,
+            href: "https://pdcloudex.com/",
         },
         {
             title: "IVentura",
@@ -30,6 +31,7 @@ export default function Products() {
                 "One-Stop-Shop for Data Scientists to Code, Collaborate, Deploy & Share Machine Learning Models",
             hoverImg: productHover,
             hovering: false,
+            href: "https://www.iventura.ai/",
         },
     ])
     return (
@@ -43,7 +45,10 @@ export default function Products() {
             <div className={styles.products}>
                 {products.map((product) => (
                     <div className={styles.product} key={product.title}>
-                        <div
+                        <a
+                            href={product.href}
+                            target={"_blank"}
+                            rel="noreferrer"
                             className={styles["product-img"]}
                             onMouseEnter={() =>
                                 setProducts((prev) =>
@@ -77,7 +82,7 @@ export default function Products() {
                                 }
                             />
                             <p>{product.hoverText}</p>
-                        </div>
+                        </a>
                         <h2
                             style={{
                                 color: product.hovering ? "#4987d8" : "#fbfbfb",

@@ -11,6 +11,7 @@ import iVentura from "../../assets/iVenturaProfile.png"
 import useNavTheme from "../../hooks/useNavTheme"
 import NavPath from "../../components/NavPath"
 import styles from "../../styles/resources/brochures.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Brochures() {
     const brochures = [
@@ -45,6 +46,7 @@ export default function Brochures() {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
+    useActiveLink("resources", "a:nth-child(3)")
     return (
         <React.Fragment>
             <Head>

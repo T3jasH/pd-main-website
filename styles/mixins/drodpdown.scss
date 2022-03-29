@@ -27,4 +27,10 @@
         border: 0.5px solid $border-color;
         color: $font-color;
     }
+    @media screen and (max-width: 750px) {
+        width: 35%;
+    }
+    @media screen and (max-width: 500px) {
+        width: 65%;
+    }
 }

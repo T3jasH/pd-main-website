@@ -5,6 +5,9 @@
     justify-content: center;
     align-items: center;
     gap: 3em;
+    @media screen and (max-width: 550px) {
+        flex-direction: column;
+    }
     .product {
         display: flex;
         flex-direction: column;
@@ -24,6 +27,18 @@
             position: relative;
             cursor: pointer;
             animation: fadein 0.5s ease-in;
+            @media screen and (max-width: 1250px) {
+                width: 28rem;
+                height: 20rem;
+            }
+            @media screen and (max-width: 880px) {
+                width: 20rem;
+                height: 14rem;
+            }
+            @media screen and (max-width: 300px) {
+                width: 14rem;
+                height: 10rem;
+            }
             p {
                 display: none;
                 position: absolute;

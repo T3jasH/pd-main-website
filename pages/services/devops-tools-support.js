@@ -6,6 +6,7 @@ import Navbar from "../../components/Navbar"
 import NavPath from "../../components/NavPath"
 import devops from "../../assets/devops.png"
 import styles from "../../styles/services.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Devops() {
     const cards = [
@@ -20,6 +21,7 @@ export default function Devops() {
                 "Apart from automating your processes, we help you to manage the health of your continuous delivery pipeline. We take care of release management, continuous deployment, replica environment, new server setup, change management and performance optimization on an ongoing basis.",
         },
     ]
+    useActiveLink("services", "a:nth-child(6)")
     const navRef = useRef(null)
     useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
     return (

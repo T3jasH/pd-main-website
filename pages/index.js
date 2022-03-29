@@ -12,6 +12,8 @@ import Reviews from "../components/Reviews"
 import Clients from "../components/Clients"
 import Contact from "../components/Contact"
 import style from "../styles/home.module.scss"
+import navStyles from "../styles/navbar.module.scss"
+import Whatsapp from "../components/Whatsapp"
 
 export default function Home() {
     const { ref, inView } = useInView({
@@ -28,6 +30,15 @@ export default function Home() {
                     "--bgColor: #1b1b1b; --textColor: #fff;"
                 )
             }
+            const btn = document.querySelector("#home-btn")
+            if (btn) {
+                btn.classList.add(navStyles.active)
+            }
+        } else {
+            const btn = document.querySelector("#home-btn")
+            if (btn) {
+                btn.classList.remove(navStyles.active)
+            }
         }
     }, [inView])
     return (
@@ -41,6 +52,7 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
+            <Whatsapp />
             <main className={style.main}>
                 <div id={style.home} ref={ref}>
                     <div className={style.left}>

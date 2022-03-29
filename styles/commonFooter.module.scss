@@ -6,6 +6,15 @@
     align-items: flex-start;
     flex-wrap: wrap;
     padding: 2.5em 2em;
+    gap: 0.75em;
+    @media screen and (max-width: 450px) {
+        padding: 2.5em 1em;
+        width: calc(100% - 2em);
+    }
+    @media screen and (max-width: 280px) {
+        padding: 2.5em 0.25em;
+        width: calc(100% - 0.5em);
+    }
     .list {
         display: flex;
         flex-direction: column;

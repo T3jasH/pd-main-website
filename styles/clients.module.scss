@@ -1,12 +1,13 @@
 #clients {
     position: relative;
-    background-color: #e5e5e5;
+    background-color: #fff;
     color: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 3em 0 4.5em 0;
+
     h3 {
         font-weight: 700;
         font-family: "Montserrat", sans-serif;
@@ -16,18 +17,11 @@
         position: relative;
         overflow-x: hidden;
         margin-top: 1em;
-        section {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 4em;
-            justify-content: space-evenly;
-            width: max-content;
-            height: max-content;
-            padding: 0.75em 0;
-            .client {
-                width: 7.5em;
-                height: 4em;
-            }
+        transform: translateX(-5%);
+        .client {
+            width: 7.5em;
+            height: 4em;
+            margin: 1em 0;
         }
     }
     .purple-bg {
@@ -37,6 +31,27 @@
         padding-top: 1.5em;
         background-color: #5969b2;
         position: relative;
+        @media screen and (max-width: 1200px) {
+            height: 17.5em;
+        }
+        @media screen and (max-width: 1000px) {
+            height: 15em;
+        }
+        @media screen and (max-width: 750px) {
+            height: 13.5em;
+        }
+        @media screen and (max-width: 640px) {
+            height: 10.5em;
+        }
+        @media screen and (max-width: 450px) {
+            height: 8.5em;
+        }
+        @media screen and (max-width: 350px) {
+            height: 6.5em;
+        }
+        @media screen and (max-width: 260px) {
+            height: 4.5em;
+        }
         .clients-graphic {
             height: 22em;
             width: 80%;

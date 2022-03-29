@@ -5,8 +5,12 @@ import Navbar from "../../components/Navbar"
 import useNavTheme from "../../hooks/useNavTheme"
 import telecom from "../../assets/telecom.png"
 import telecom2 from "../../assets/telecom2.png"
+import digitalInnovation from "../../assets/digitalInnovation.png"
+import businessServices from "../../assets/businessServices.png"
+import techServices from "../../assets/technologyServices.png"
 import arrow from "../../assets/arrowWhite.svg"
 import styles from "../../styles/industries.module.scss"
+import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Telecom() {
     const navRef = useRef(null)
@@ -24,21 +28,21 @@ export default function Telecom() {
             name: "Digital Innovation",
             description:
                 "By using the latest advances in technology, we bring digital transformation throughout the industry to enable telecom service providers with commercial solutions that help their products and services reach to appropriate audiences.",
-            img: telecom2,
+            img: digitalInnovation,
         },
         {
             btn: "biz",
             name: "Business Services",
             description:
                 "With our business solutions, network experts and technicians can leverage helpful information from telecom towers remotely and train new field workers on the go, enabling them to reduce network service turnaround times.",
-            img: telecom2,
+            img: businessServices,
         },
         {
             btn: "tech",
             name: "Technical Services",
             description:
                 "Prodevans Technologies help field technicians to get a visual guide while they are performing repairs and maintenance. We offer solutions that enable the service providers with real-time insights into issues caused in equipment.",
-            img: telecom2,
+            img: techServices,
         },
     ]
     useNavTheme(
@@ -46,6 +50,7 @@ export default function Telecom() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
+    useActiveLink("industries-btn", "a:nth-child(2)")
     return (
         <React.Fragment>
             <Head>

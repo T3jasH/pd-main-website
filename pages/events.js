@@ -4,11 +4,9 @@ import Navbar from "../components/Navbar"
 import Select from "react-select"
 import styles from "../styles/events.module.scss"
 import useNavTheme from "../hooks/useNavTheme"
-import redhatForum from "../assets/redhatForum.jpeg"
-import redhatForumUpcoming from "../assets/redhatForum.png"
-import openSourceIndia from "../assets/openSourceIndia.jpg"
 import { useState } from "react"
 import Image from "next/image"
+import { pastEvents, upcomingEvents } from "../data"
 
 export default function Events() {
     const navRef = useRef(null)
@@ -44,11 +42,6 @@ export default function Events() {
         value: "upcoming",
         label: "Upcoming Events",
     })
-    const pastEvents = [
-        { title: "Open Source India", img: redhatForum },
-        { title: "Redhat Forum-2018", img: openSourceIndia },
-    ]
-    const upcomingEvents = [{ title: "Redhat Forum", img: redhatForumUpcoming }]
     return (
         <React.Fragment>
             <Head>
@@ -62,7 +55,7 @@ export default function Events() {
             <Navbar ref={navRef} />
             <div className={styles.events}>
                 <Select
-                    // className={styles.dropdown}
+                    className={styles.dropdown}
                     styles={customStyles}
                     placeholder={"Events"}
                     isSearchable={false}
@@ -82,7 +75,7 @@ export default function Events() {
                     {currentSelected.value === "upcoming"
                         ? upcomingEvents.map((ev, i) => (
                               <div key={ev.title} className={styles.event}>
-                                  <div className={styles.left}>
+                                  <a href={ev.link} className={styles.left}>
                                       <Image
                                           alt={ev.title}
                                           layout="responsive"
@@ -90,15 +83,18 @@ export default function Events() {
                                           src={ev.img}
                                           className={styles["article-img"]}
                                       />
-                                  </div>
+                                  </a>
                                   <div className={styles.right}>
-                                      <h3>{ev.title}</h3>
+                                      <a href={ev.link}>
+                                          <h3>{ev.title}</h3>
+                                      </a>
+                                      <p>{ev.description}</p>
                                   </div>
                               </div>
                           ))
                         : pastEvents.map((ev, i) => (
                               <div key={ev.title} className={styles.event}>
-                                  <div className={styles.left}>
+                                  <a href={ev.link} className={styles.left}>
                                       <Image
                                           alt={ev.title}
                                           layout="responsive"
@@ -106,9 +102,12 @@ export default function Events() {
                                           src={ev.img}
                                           className={styles["article-img"]}
                                       />
-                                  </div>
+                                  </a>
                                   <div className={styles.right}>
-                                      <h3>{ev.title}</h3>{" "}
+                                      <a href={ev.link}>
+                                          <h3>{ev.title}</h3>{" "}
+                                      </a>
+                                      <p>{ev.description}</p>
                                   </div>
                               </div>
                           ))}
