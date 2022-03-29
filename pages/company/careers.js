@@ -95,8 +95,8 @@ export default function Careers({ jobs }) {
                 <form className={styles["jobs-filter"]}>
                     <div>
                         <input
-                            type="text"
-                            placeholder="Keyword"
+                            type="text" 
+                            placeholder="Search by keyword"
                             aria-label="Keyword"
                             onChange={(e) =>
                                 setKeyword(e.target.value.trim().toLowerCase())

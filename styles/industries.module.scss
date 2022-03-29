@@ -13,6 +13,9 @@
         width: 100%;
         text-align: center;
         z-index: 1;
+        @media screen and (max-width: 650px) {
+            height: 36rem;
+        }
         .nav-info {
             position: relative;
             top: 4em;
@@ -24,26 +27,44 @@
             position: relative;
             max-width: 65%;
             margin: 0 auto;
+            @media screen and (max-width: 350px) {
+                max-width: 80%;
+            }
         }
         & > h2 {
             top: 10rem;
             font-family: "Montserrat", sans-serif;
             font-weight: 500;
             font-size: 2.2rem;
+            @media screen and (max-width: 400px) {
+                top: 7rem;
+            }
+            @media screen and (max-width: 250px) {
+                top: 5rem;
+            }
         }
         & > p {
             top: 12rem;
             font-weight: 400;
             font-size: 1rem;
+            @media screen and (max-width: 400px) {
+                top: 9rem;
+            }
+            @media screen and (max-width: 250px) {
+                top: 7rem;
+            }
         }
     }
     .edu-container {
-        @include flex-row(center, flex-start, 1.5rem);
+        @include flex-row(center, center, 1.5rem);
         padding: 3em 2em 0 2em;
         color: #010101;
-
+        @media screen and (max-width: 550px) {
+            flex-direction: column;
+        }
         .left {
             @include flex-column(center, flex-start, 1.5em);
+            flex: 4;
             h3 {
                 font-size: 1.8rem;
                 font-family: "Montserrat", sans-serif;
@@ -55,18 +76,38 @@
             }
         }
         .right {
-            width: 30%;
             transform: translateY(-2rem);
+            flex: 1;
+            @media screen and (max-width: 1300px) {
+                flex: 1.5;
+            }
+            @media screen and (max-width: 950px) {
+                flex: 2;
+            }
+            @media screen and (max-width: 670px) {
+                flex: 3;
+            }
+            @media screen and (max-width: 550px) {
+                width: 50%;
+            }
+            @media screen and (max-width: 450px) {
+                width: 75%;
+            }
         }
     }
     .tele-container {
         padding: 0;
         align-items: stretch;
+        @media screen and (max-width: 550px) {
+            align-items: center;
+            margin-top: 2em;
+        }
         .left {
             flex: 0.7;
             background-color: #f7f6f6;
             align-items: center;
             justify-content: center;
+            padding: 2em;
             h3 {
                 font-weight: 500;
                 margin-bottom: 2rem;
@@ -85,10 +126,15 @@
             transform: none;
             flex: 1;
             padding: 3em 2.5em 3em 0;
+            position: relative;
             .tele-img {
-                width: 27rem;
-                height: 17rem;
-                flex: 4;
+                width: 40%;
+                @media screen and (max-width: 980px) {
+                    width: 60%;
+                }
+                @media screen and (max-width: 700px) {
+                    width: 80%;
+                }
             }
             h3 {
                 font-weight: 500;
@@ -101,20 +147,35 @@
         }
     }
     .healthcare-container {
-        @include flex-column(center, center, 1em);
-        text-align: center;
+        @include flex-row(center, center, 3em);
         color: #010101;
         padding: 2em;
-        h2 {
-            font-family: "Montserrat", sans-serif;
-            font-weight: 400;
-            font-size: 1.75rem;
+        @media screen and (max-width: 550px) {
+            flex-direction: column;
+        }
+        .left {
+            @include flex-column(flex-start, flex-start, 1em);
+            flex: 4;
+            h2 {
+                font-family: "Montserrat", sans-serif;
+                font-weight: 400;
+                font-size: 1.75rem;
+            }
         }
         .healthcare-img {
-            margin-top: 1.5rem;
-            position: relative;
-            width: 21.5rem;
-            height: 15rem;
+            flex: 1.75;
+            @media screen and (max-width: 1050px) {
+                flex: 2.25;
+            }
+            @media screen and (max-width: 760px) {
+                flex: 3;
+            }
+            @media screen and (max-width: 550px) {
+                width: 50%;
+            }
+            @media screen and (max-width: 450px) {
+                width: 75%;
+            }
         }
     }
 }

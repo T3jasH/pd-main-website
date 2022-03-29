@@ -119,6 +119,16 @@
             input[type="text"]:focus {
                 border: 0.5px solid #4987d8;
             }
+            @media screen and (max-width: 750px) {
+                gap: 5em;
+            }
+            @media screen and (max-width: 500px) {
+                gap: 1.5em;
+                flex-direction: column;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            max-height: 14rem;
         }
     }
     .jobs-list {
@@ -155,6 +165,20 @@
                 .job-img {
                     width: 7.5rem;
                     height: 7.5rem;
+                    @media screen and (max-width: 550px) {
+                        width: 5rem;
+                        height: 5rem;
+                    }
+                    @media screen and (max-width: 350px) {
+                        width: 3.5rem;
+                        height: 3.5rem;
+                    }
+                }
+                @media screen and (max-width: 500px) {
+                    flex: 0.2;
+                }
+                @media screen and (max-width: 350px) {
+                    flex: 0.15;
                 }
             }
             .right {
@@ -202,6 +226,11 @@
                     }
                     &:nth-child(2) {
                         justify-content: space-around;
+                        @media screen and (max-width: 350px) {
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+                            gap: 1.5em;
+                        }
                         p {
                             color: #4987d8;
                         }
@@ -226,5 +255,12 @@
                 }
             }
         }
+        @media screen and (max-width: 550px) {
+            width: 90%;
+            padding: 1em;
+        }
+    }
+    @media screen and (max-width: 500px) {
+        padding: 2em 1em;
     }
 }

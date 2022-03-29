@@ -40,7 +40,7 @@ export default function Telecom() {
         },
         {
             btn: "storage",
-            name: "Storage & Security For Insurance",
+            name: "Storage Security For Insurance",
             description:
                 "Unlike your home, your storage unit isn't under your watchful eye at all times. Because of this, you want to store your belongings at a storage facility that has your best interests in mind and is willing to monitor the safety of your valuables.",
             img: insurance2,

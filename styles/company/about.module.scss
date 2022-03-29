@@ -120,20 +120,18 @@
                 }
                 .socials {
                     display: flex;
+                    align-items: center;
                     gap: 1em;
                     @media screen and (max-width: 500px) {
                         gap: 5em;
                     }
-                    div {
+                    .icon {
                         border-radius: 0.55rem;
                         width: 2rem;
                         height: 2rem;
-                        &:nth-child(3) {
-                            background-color: #03a9f4;
-                            border-radius: 0.75rem;
-                            width: 1.7rem;
+                        &:first-child {
+                            width: 1.8rem;
                             height: 1.8rem;
-                            padding: 0.1rem 0.15rem;
                         }
                     }
                 }

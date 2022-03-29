@@ -91,7 +91,7 @@ export default function Contact() {
                         <textarea aria-label="Message" placeholder="Message" />
                     </div>
                     <div className={style["form-row"]}>
-                        <input type="submit" value="Send" />
+                        <input type="submit" value="Submit" />
                     </div>
                 </form>
             </div>

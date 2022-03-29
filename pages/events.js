@@ -55,7 +55,7 @@ export default function Events() {
             <Navbar ref={navRef} />
             <div className={styles.events}>
                 <Select
-                    // className={styles.dropdown}
+                    className={styles.dropdown}
                     styles={customStyles}
                     placeholder={"Events"}
                     isSearchable={false}

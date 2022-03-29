@@ -80,6 +80,12 @@ const Navbar = (props, navRef) => {
                     <Link href="/industries/healthcare" aria-label="Healthcare">
                         Healthcare
                     </Link>
+                    <Link
+                        href="/industries/financial-banking"
+                        aria-label="Financial Banking"
+                    >
+                        Financial and Banking
+                    </Link>
                 </div>
             </div>
             <div
