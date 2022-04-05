@@ -35,7 +35,7 @@ export default MyApp
 // events description - done
 //
 
-// DEsktop meeting
+// Desktop meeting
 
 // navbar issue
 // remove whatsapp icon - done

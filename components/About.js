@@ -4,13 +4,15 @@ import tiles from "../assets/tiles.png"
 import { useInView } from "react-intersection-observer"
 import { Fragment, useEffect } from "react"
 import style from "../styles/about.module.scss"
-import navStyles from "../styles/navbar.module.scss"
+import { useMediaQuery } from "react-responsive"
 
 const About = () => {
     const { ref, inView } = useInView({
         rootMargin: "-45% 0%",
     })
-
+    const isPhone = useMediaQuery({
+        query: "(max-device-width: 650px)",
+    })
     useEffect(() => {
         const nav = document.querySelector("nav")
         if (inView) {
@@ -55,19 +57,21 @@ const About = () => {
                             streamline and automate IT delivery. We specialize
                             in the entire spectrum of Cloud Solutions from IaaS,
                             PaaS to SaaS. We strive to offer solutions that are
-                            time-driven & efficient with a stringent focus on
-                            ROI Prodevans helps you deliver great customer
+                            time-driven &#38; efficient with a stringent focus
+                            on ROI Prodevans helps you deliver great customer
                             experience by deploying the right Cloud-based tools
                             and resources.
                         </p>
-                        <div className={style.tiles}>
-                            <Image
-                                alt="tiles graphic"
-                                layout="fill"
-                                objectFit="contain"
-                                src={tiles}
-                            />
-                        </div>
+                        {isPhone ? null : (
+                            <div className={style.tiles}>
+                                <Image
+                                    alt="tiles graphic"
+                                    layout="fill"
+                                    objectFit="contain"
+                                    src={tiles}
+                                />
+                            </div>
+                        )}
                     </div>
                     <div className={style.right}>
                         <div className={style.rightImage}>

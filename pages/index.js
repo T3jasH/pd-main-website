@@ -12,7 +12,7 @@ import Reviews from "../components/Reviews"
 import Clients from "../components/Clients"
 import Contact from "../components/Contact"
 import style from "../styles/home.module.scss"
-import navStyles from "../styles/navbar.module.scss"
+import { useMediaQuery } from "react-responsive"
 // import Whatsapp from "../components/Whatsapp"
 
 export default function Home() {
@@ -20,6 +20,9 @@ export default function Home() {
         rootMargin: "-50% 0%",
     })
     const navRef = useRef(null)
+    const isPhone = useMediaQuery({
+        query: "(max-device-width: 600px)",
+    })
 
     useEffect(() => {
         const nav = document.querySelector("nav")
@@ -82,15 +85,22 @@ export default function Home() {
                                 <h2>25+</h2> <h3>Awards Won</h3>
                             </div>
                         </div>
-                        <Link href="#about-us">Know More</Link>
+                        {isPhone ? null : (
+                            <Link href="#about-us">Know More</Link>
+                        )}
                     </div>
-                    <div className={style.rightImage}>
-                        <Image
-                            alt=""
-                            src={rightImage}
-                            layout="fill"
-                            objectFit="contain"
-                        />
+                    <div className={style.right}>
+                        <div className={style.rightImage}>
+                            <Image
+                                alt=""
+                                src={rightImage}
+                                layout="fill"
+                                objectFit="contain"
+                            />
+                        </div>
+                        {isPhone ? (
+                            <Link href="#about-us">Know More</Link>
+                        ) : null}
                     </div>
                 </div>
                 <About />
