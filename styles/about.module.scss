@@ -59,6 +59,12 @@
             .rightImage {
                 width: 90%;
                 height: 80vh;
+                @media screen and (max-width: 1000px) {
+                    height: 60vh;
+                }
+                @media screen and (max-width: 750px) {
+                    height: 50vh;
+                }
             }
         }
         @media screen and (max-width: 650px) {

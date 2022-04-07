@@ -45,7 +45,7 @@ export default function Home() {
             if (btn) {
                 btn.setAttribute(
                     "style",
-                    "color: var(--textColor); font-weight: 300;"
+                    "color: var(--textColor); font-weight: 400;"
                 )
             }
         }

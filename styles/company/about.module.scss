@@ -9,24 +9,30 @@
     .squares-top-right {
         top: 2em;
         right: 2em;
+        @media screen and (max-width: 650px) {
+            top: inherit;
+            bottom: 1em;
+        }
     }
     main {
         display: flex;
         gap: 2em;
         padding: 2em 0;
         position: relative;
+
         .left {
             position: relative;
             left: -2em;
             background-color: #4a87d9;
             flex: 1;
-            height: 65vh;
-            @media screen and (max-width: 850px) {
-                height: 45vh;
-            }
+            height: 30rem;
             .squares-bottom-right {
                 bottom: -4em;
                 right: -6em;
+                @media screen and (max-width: 650px) {
+                    bottom: -4em;
+                    left: -3em;
+                }
             }
             .video {
                 border: 1em solid #c4c4c4;
@@ -36,6 +42,9 @@
                 top: 50%;
                 left: 50%;
                 transform: translateX(-50%) translateY(-50%);
+                @media screen and (max-width: 950px) {
+                    height: 22.5rem;
+                }
             }
             @media screen and (max-width: 1250px) {
                 flex: 1.25;
@@ -61,13 +70,15 @@
                 }
             }
         }
-        @media screen and (max-width: 600px) {
+        @media screen and (max-width: 650px) {
             flex-direction: column;
+            height: 60vh;
             .left {
                 flex: 1;
                 width: 100%;
-                height: 65vh;
                 left: 0;
+                height: 50%;
+                padding: 8em 0;
             }
             .right {
                 flex: 1;
@@ -92,7 +103,7 @@
         .profile {
             display: flex;
             flex-direction: row;
-            @media screen and (max-width: 500px) {
+            @media screen and (max-width: 600px) {
                 flex-direction: column;
                 gap: 1em;
                 .left {
@@ -115,7 +126,7 @@
                 justify-content: flex-start;
                 align-items: center;
                 gap: 1em;
-                @media screen and (max-width: 500px) {
+                @media screen and (max-width: 600px) {
                     flex: 1;
                 }
                 .profile-img {
@@ -140,15 +151,15 @@
                 flex-direction: column;
                 gap: 1.5em;
                 padding-right: 2.5em;
-                @media screen and (max-width: 500px) {
+                @media screen and (max-width: 600px) {
                     align-items: center;
-                    padding: 0 1.5em;
+                    padding: 0 2.5em;
                 }
                 .socials {
                     display: flex;
                     align-items: center;
                     gap: 1em;
-                    @media screen and (max-width: 500px) {
+                    @media screen and (max-width: 600px) {
                         gap: 5em;
                     }
                     .icon {
@@ -174,6 +185,9 @@
     align-items: center;
     gap: 2em;
     text-align: center;
+    @media screen and (max-width: 650px) {
+        gap: 3em;
+    }
     h2 {
         font-weight: 600;
         font-family: "Montserrat", sans-serif;
@@ -182,9 +196,19 @@
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        @media screen and (max-width: 1000px) {
+            font-size: 2rem;
+        }
+        @media screen and (max-width: 500px) {
+            margin-top: 2em;
+            width: 90%;
+        }
     }
     p {
         max-width: 75%;
+        @media screen and (max-width: 650px) {
+            max-width: 100%;
+        }
     }
     a {
         border: 1px solid #4987d8;
@@ -201,6 +225,14 @@
         position: absolute;
         width: 9.5rem;
         height: 7.5rem;
+        @media screen and (max-width: 1000px) {
+            height: 8rem;
+            width: 6.25rem;
+        }
+        @media screen and (max-width: 650px) {
+            height: 5rem;
+            width: 4.5rem;
+        }
     }
     .top-right {
         top: 2.5rem;

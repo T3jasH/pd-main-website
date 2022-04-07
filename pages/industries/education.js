@@ -49,13 +49,13 @@ export default function Education() {
                         </div>
                         <h1>Education</h1>
                     </div>
-                    <h2>PDCloudEX in Eductation</h2>
+                    <h2>PDCloudEX in Education</h2>
                     <p>
                         PDCloudEX is an Open Source Cloud Solution that is
                         especially crafted for Educational Institutions. It has
                         Pre Configured private cloud platform on OpenStack for
-                        Compute, Network & Storage. PDCloudEx comes with an
-                        Initial set up with one server that can scaled up or
+                        Compute, Network &#38; Storage. PDCloudEx comes with an
+                        Initial set up with one server that can be scaled up or
                         down on demand.
                     </p>
                 </div>

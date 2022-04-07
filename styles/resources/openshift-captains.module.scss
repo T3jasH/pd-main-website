@@ -31,6 +31,10 @@
             font-family: "Open Sans", sans-serif;
             font-size: 1.25rem;
         }
+        @media screen and (max-width: 500px) {
+            padding: 1em;
+            margin: 1em 0;
+        }
     }
     .description {
         margin: 2em;
@@ -39,14 +43,6 @@
         gap: 3em;
         align-items: flex-start;
         text-align: center;
-        &:nth-child(3) {
-            .left {
-                h2 {
-                    text-transform: uppercase;
-                    letter-spacing: 0.325rem;
-                }
-            }
-        }
         .left {
             border: 0.1rem solid black;
             border-radius: 0.5em;
@@ -64,6 +60,9 @@
             .coloured {
                 color: #4f72b5;
                 font-weight: 600;
+            }
+            @media screen and (max-width: 950px) {
+                flex: 0.4;
             }
         }
         .right {
@@ -84,6 +83,14 @@
             }
             p {
                 line-height: 1.5em;
+            }
+        }
+        &:nth-child(3) {
+            .left {
+                h2 {
+                    text-transform: uppercase;
+                    letter-spacing: 0.325rem;
+                }
             }
         }
         &:nth-child(4) {
@@ -116,11 +123,24 @@
             }
             .right {
                 flex: 1;
-                gap: 2em;
+                gap: 3em;
                 padding: 0;
             }
             h2 {
                 font-weight: 500;
+                @media screen and (max-width: 1150px) {
+                    font-size: 2.25rem;
+                }
+                @media screen and (max-width: 880px) {
+                    font-size: 2rem;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .left,
+                .right {
+                    width: 90%;
+                    gap: 2em;
+                }
             }
         }
         &:nth-child(6) {
@@ -151,6 +171,23 @@
                     width: 16.3rem;
                     height: 16.3rem;
                 }
+            }
+        }
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            align-items: center;
+            .left {
+                flex: 1;
+                width: 40%;
+            }
+            .right {
+                flex: 1;
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 450px) {
+            .left {
+                width: 60%;
             }
         }
     }

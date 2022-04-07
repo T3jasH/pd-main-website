@@ -20,46 +20,6 @@ import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
 import useActiveLink from "../../hooks/useActiveLink"
 
-/*
-rajpal@prodevans.com - organizer
-•	
-amardeep@prodevans.com
-•	
-Harshvardhan kumar Singh
-•	
-shaheen@prodevans.com
-•	
-
-•	
-vijay.agarwal@prodevans.com
-•	
-
-•	
-chandrahasa.vemu@prodevans.com
-•	
-
-•	
-eshan.trivedi@prodevans.com
-•	
-
-•	
-lithya@prodevans.com
-•	
-lithyanagini@gmail.com
-•	
-Nandish Kumar
-•	
-dipankar@prodevans.com
-•	
-sumit@prodevans.com
-•	
-sarma@prodevans.com
-•	
-santha.kumar@prodevans.com
-•	
-sabat.durga@prodevans.com
-*/
-
 export default function About() {
     const navRef = useRef(null)
     const { ref, inView } = useInView({
@@ -72,7 +32,7 @@ export default function About() {
             content:
                 "Technology Transformation Leader with more than 19 years experience in areas of Technology Infrastructure, Development, QA, & Support. Drove technology transformation programs across lines of business. Passionate about delivering value to businesses through Cloud Technologies. Transformed legacy applications for migration to Cloud Platforms and ongoing Management across industries (BFSI, Retail, Government) in India & APAC. Provided top of the line Consulting Services to prioritise applications, defining the path to Production and documenting business impact and ROI.",
             linkedin: "https://www.linkedin.com/in/deepak-mishra-ceo-prodevans",
-            gmail: "",
+            gmail: "mailto:dipankar@prodevans.com",
             src: deepak,
         },
         {
@@ -82,7 +42,7 @@ export default function About() {
                 "A chartered Engineer with achievement in Strategical Planning and implementation of Steel Industry related capital Projects in India and abroad and also International speaker on Steel buildings . Have completed Information System deployment (as Team leader of Engineering division) on IBM ES9000 mainframe computer , way back between 1989-1992. Represented India in Trade delegation to Ethiopia. Also a sports administrator (Bihar Basketball Association) and University level player - now contributing the expertise after retirement, to startup company Prodevans as COO.",
             linkedin:
                 "https://www.linkedin.com/in/arvind-kumar-sinha-685a3812b",
-            gmail: "https://mailto:arvind@prodevans.com",
+            gmail: "mailto:arvind@prodevans.com",
             src: arvind,
         },
         {
@@ -91,7 +51,7 @@ export default function About() {
             content:
                 "Santha leads our company in his vital role of managing finance and accounting; ensuring our company’s profitability; handling financial audits, payroll, budgets, taxation, payables, cash flow, financial corporate services, international subsidiaries, and the overall health of our financial statements, reporting where he keeps vigilant of our revenue and cost, and areas of financial opportunities to invest. He also leads our company in legal matters, including preparing and negotiating customer contracts and Master Service Agreements; managing internal compliance and audit certifications; advising on corporate governance and strategic initiatives; advising on matters of risk management; and facilitating the Executive Committee's work with Prodevans's Board.",
             linkedin: "https://www.linkedin.com/in/santha-kumar-62a26a1a1",
-            gmail: "https://mailto:santha.kumar@prodevans.com",
+            gmail: "mailto:santha.kumar@prodevans.com",
             src: santha,
         },
         {
@@ -100,7 +60,7 @@ export default function About() {
             content:
                 "Gagan helps us hone our planning to enable a multi-channel Go to Market sales strategy. He does this by managing our sales and revenue operations with a focus on front line sales (direct and indirect). He also oversees our sales support teams (Pre-sales, Design teams) with the goal of bringing revenue opportunities to closure. In addition to this, he is responsible for all commercial contracts.",
             linkedin: "https://www.linkedin.com/in/gagan-p",
-            gmail: "https://mailto:gagan@prodevans.com",
+            gmail: "mailto:gagan@prodevans.com",
             src: gagan,
         },
         {
@@ -109,7 +69,7 @@ export default function About() {
             content:
                 "Dilip is an Engineer & MBA with 14 years of rich experience in Sales, Alliance and Relationship Mgmt. Certified Software Asset Manager and optimization expert in s/w and cloud services offerings with proven track of helping global customers on ROI and lower TCO in their IT spends over years across OEM and Technologies. Specialist in creating and managing multi vendor eco system with 360 degree management of software and solution Lifecycle.",
             linkedin: "https://www.linkedin.com/in/dilip-hublikar-3a660719",
-            gmail: "https://mailto:dilip@prodevans.com",
+            gmail: "mailto:dilip@prodevans.com",
             src: dilip,
         },
         {
@@ -118,7 +78,7 @@ export default function About() {
             content:
                 "Sushma, a Post Graduate in Financial Management with 10 years of industry experience, takes care of day to day operations and fulfills talent acquisition. In addition to her current role as HR Manager, Sushma Shriram will be stepping into managing the Systems and Infrastructure team to enable faster time to resolution and implementing proactive measures to better administer our customers' environments.",
             linkedin: "https://www.linkedin.com/in/sushma-shriram-0b42421b3",
-            gmail: "https://mailto:sushma@prodevans.com",
+            gmail: "mailto:sushma@prodevans.com",
             src: sushma,
         },
     ]
