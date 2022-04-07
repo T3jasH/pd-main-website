@@ -35,7 +35,7 @@ export default function Cloud() {
         {
             title: "Virtualization Monitoring",
             description:
-                "Manage hosts, guests, workloads with automatic discovery pools, hosts, host CPUs. Monitor key parameters of host like CPU CoresMemory, VMs running, etc and VM key parameters like CPU, Memory and Disk Usage. Tracing of VMs across host servers. Supports VMware ESX/ESXi, Microsoft HyperV, Citrix XenServer and Linux KVM. Our monitoring tools are integrated with VMware's native API which includes vSphere,vCenter ,ESX & VM Serve.",
+                "Manage hosts, guests, workloads with automatic discovery pools, hosts, host CPUs. Monitor key parameters of host like CPU CoresMemory, VMs running, etc and VM key parameters like CPU, Memory and Disk Usage. Tracing of VMs across host servers. Supports VMware ESX/ESXi, Microsoft HyperV, Citrix XenServer and Linux KVM.",
         },
     ]
     const monitoringTool = [

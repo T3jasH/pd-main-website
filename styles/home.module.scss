@@ -47,26 +47,66 @@
                     font-size: 1.4em;
                 }
             }
-            a {
-                border: 1px solid #ebebeb;
-                border-radius: 0.25em;
-                padding: 0.5em 1em;
-                background-color: inherit;
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            .rightImage {
                 position: relative;
-                top: 2.5em;
-            }
-            a:active {
-                color: $black;
-                background-color: #fff;
-                border: 1px solid $black;
+                height: 37.5em;
+                width: 100%;
+                margin: 0 auto;
+                z-index: 2;
             }
         }
-        .rightImage {
+        a {
+            border: 1px solid #ebebeb;
+            border-radius: 0.25em;
+            padding: 0.5em 1em;
+            background-color: inherit;
             position: relative;
-            height: 37.5em;
-            width: 50%;
-            margin: 0 auto;
-            z-index: 2;
+            top: 2.5em;
+        }
+        a:active {
+            color: $black;
+            background-color: #fff;
+            border: 1px solid $black;
+        }
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            h1 {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 1.35rem;
+            }
+            .stats {
+                h2 {
+                    font-size: 2rem;
+                }
+                h3 {
+                    font-size: 1.2rem;
+                }
+            }
+            .left {
+                width: calc(100% - 5em);
+            }
+            .right {
+                width: 100%;
+                .rightImage {
+                    width: 50%;
+                }
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .right {
+                .rightImage {
+                    width: 75%;
+                }
+            }
         }
     }
 }

@@ -22,8 +22,8 @@ export default function Vision() {
                 <div className={style["vision-card"]}>
                     <h2>Mission</h2>
                     <p>
-                        To design and implemented solution that are
-                        faster,easier and more reliable than ever before
+                        To design and implement solutions that are faster,
+                        easier and more reliable than ever before
                     </p>
                 </div>
                 <div className={style["vision-card"]}>

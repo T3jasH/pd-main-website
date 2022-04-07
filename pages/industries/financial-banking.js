@@ -16,7 +16,7 @@ export default function Healthcare() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
-    useActiveLink("industries-btn", "a:nth-child(5)")
+    useActiveLink("industries-btn", "a:nth-child(4)")
     return (
         <React.Fragment>
             <Head>
@@ -49,7 +49,7 @@ export default function Healthcare() {
                         Prodevans&apos; Machine Learning Platform, iVentura™
                     </h2>
                     <p>
-                        the Data Detective, is an ecosystem where developers and
+                        The Data Detective, is an ecosystem where developers and
                         data scientists can easily access and consume AI and ML
                         technologies One-Stop Shop for Data Scientists to Code,
                         Collaborate, Deploy &#38; Share Machine Learning Models

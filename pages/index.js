@@ -12,14 +12,17 @@ import Reviews from "../components/Reviews"
 import Clients from "../components/Clients"
 import Contact from "../components/Contact"
 import style from "../styles/home.module.scss"
-import navStyles from "../styles/navbar.module.scss"
-import Whatsapp from "../components/Whatsapp"
+import { useMediaQuery } from "react-responsive"
+// import Whatsapp from "../components/Whatsapp"
 
 export default function Home() {
     const { ref, inView } = useInView({
         rootMargin: "-50% 0%",
     })
     const navRef = useRef(null)
+    const isPhone = useMediaQuery({
+        query: "(max-device-width: 600px)",
+    })
 
     useEffect(() => {
         const nav = document.querySelector("nav")
@@ -30,14 +33,20 @@ export default function Home() {
                     "--bgColor: #1b1b1b; --textColor: #fff;"
                 )
             }
-            const btn = document.querySelector("#home-btn")
+            const btn = document.querySelector("#home-btn > a")
             if (btn) {
-                btn.classList.add(navStyles.active)
+                btn.setAttribute(
+                    "style",
+                    "color: var(--focusTextColor); font-weight: 600;"
+                )
             }
         } else {
-            const btn = document.querySelector("#home-btn")
+            const btn = document.querySelector("#home-btn > a")
             if (btn) {
-                btn.classList.remove(navStyles.active)
+                btn.setAttribute(
+                    "style",
+                    "color: var(--textColor); font-weight: 400;"
+                )
             }
         }
     }, [inView])
@@ -52,7 +61,6 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            <Whatsapp />
             <main className={style.main}>
                 <div id={style.home} ref={ref}>
                     <div className={style.left}>
@@ -77,15 +85,22 @@ export default function Home() {
                                 <h2>25+</h2> <h3>Awards Won</h3>
                             </div>
                         </div>
-                        <Link href="#about-us">Know More</Link>
+                        {isPhone ? null : (
+                            <Link href="#about-us">Know More</Link>
+                        )}
                     </div>
-                    <div className={style.rightImage}>
-                        <Image
-                            alt=""
-                            src={rightImage}
-                            layout="fill"
-                            objectFit="contain"
-                        />
+                    <div className={style.right}>
+                        <div className={style.rightImage}>
+                            <Image
+                                alt=""
+                                src={rightImage}
+                                layout="fill"
+                                objectFit="contain"
+                            />
+                        </div>
+                        {isPhone ? (
+                            <Link href="#about-us">Know More</Link>
+                        ) : null}
                     </div>
                 </div>
                 <About />

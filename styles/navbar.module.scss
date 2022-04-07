@@ -27,7 +27,10 @@
         left: 1em;
         top: 0em;
         width: 8em;
-        height: 3em;
+        height: 2.5em;
+        margin: 0.5em 0;
+        border-radius: 0.5em;
+        background: #1b1b1b;
     }
     .nav-item {
         cursor: pointer;
@@ -64,10 +67,13 @@
     }
     a,
     .nav-item {
-        color: inherit;
+        color: var(--textColor);
         padding: 0.5em 0.25em;
         text-align: center;
         font-weight: inherit;
+        .dropdown-open > a {
+            color: #1b1b1b;
+        }
     }
     .dropdown-open > a {
         font-weight: 400;
@@ -81,8 +87,12 @@
         font-weight: 600;
         color: var(--focusTextColor);
     }
-    .active-link {
-        color: var(--focusTextColor);
+    .nav-item {
+        .dropdown-open {
+            .active-link {
+                color: var(--focusTextColor);
+            }
+        }
     }
 }
 

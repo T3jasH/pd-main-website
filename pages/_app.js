@@ -34,3 +34,16 @@ export default MyApp
 // openshift captain what why how - done
 // events description - done
 //
+
+// Desktop meeting
+
+// navbar issue
+// remove whatsapp icon - done
+// education padding bottom - done
+// remove insurance from navbar - done
+// identity access management images size issue
+// automation ansible title margin top increase - done
+// published articles add images
+// openshift image issue
+// careers page icon / alignment
+// remove demo, change bangalore/ - done

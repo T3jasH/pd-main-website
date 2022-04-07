@@ -55,6 +55,17 @@
                 flex: 1;
             }
         }
+        @media screen and (max-width: 550px) {
+            flex-direction: column;
+            align-items: center;
+            .text {
+                flex: 1;
+            }
+            .cloud-img {
+                flex: 1;
+                width: 65%;
+            }
+        }
     }
     h3 {
         color: #4987d8;
@@ -206,6 +217,7 @@
     }
     .ansible-automation {
         @include flex-row(center, center, 1em);
+        margin-top: 2em;
         padding-bottom: 2em;
         .left {
             flex: 0.75;
@@ -232,7 +244,6 @@
     color: #fbfbfb;
     background: linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%);
     .container {
-        align-items: flex-start;
         .text {
             flex: 0.7;
         }
@@ -285,6 +296,19 @@
         .access-management-img {
             flex: 0.28;
         }
+        @media screen and (max-width: 550px) {
+            flex-direction: column;
+            align-items: center;
+            .text,
+            .modernization-img,
+            .access-management-img {
+                flex: 1;
+            }
+            .modernization-img,
+            .access-management-img {
+                width: 65%;
+            }
+        }
     }
     .transformation-services {
         padding-bottom: 3em;
@@ -300,17 +324,21 @@
             display: flex;
             justify-content: center;
             gap: 1em;
-
             .container-item {
                 border: 1px solid #828282;
                 border-radius: 0.4rem;
                 padding: 2em;
                 @include flex-column(center, center, 1em);
                 text-align: center;
-
                 h3 {
                     color: #fbfbfb;
                     margin: 0;
+                }
+            }
+            @media screen and (max-width: 550px) {
+                flex-direction: column;
+                .container-item {
+                    width: calc(100% - 4em);
                 }
             }
         }
@@ -348,8 +376,21 @@
             gap: 1em;
             height: 10em;
             flex-wrap: wrap;
+            @media screen and (max-width: 1400px) {
+                height: 11em;
+            }
+            @media screen and (max-width: 650px) {
+                height: 12em;
+            }
+            @media screen and (max-width: 450px) {
+                height: auto;
+                align-items: flex-start;
+                padding-left: 2em;
+                p {
+                    width: 100%;
+                }
+            }
             p {
-                word-break: break-all;
                 word-wrap: break-word;
             }
         }
@@ -411,6 +452,14 @@
                 width: 30%;
                 h3 {
                     color: #000;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .container-item {
+                    width: calc(100% - 4em);
                 }
             }
         }
