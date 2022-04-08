@@ -11,13 +11,13 @@
     @media screen and (max-width: 600px) {
         padding: 4em 0 2em 2em;
     }
-    @media screen and (max-width: 450px) {
+    @media screen and (max-width: 550px) {
         flex-direction: column;
         gap: 2em;
     }
     .left {
         width: 40%;
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 550px) {
             width: 100%;
         }
         h2 {
@@ -38,7 +38,7 @@
         width: calc(60% - 3em);
         padding: 0 1.5em;
         position: relative;
-        @media screen and (max-width: 450px) {
+        @media screen and (max-width: 550px) {
             width: calc(100% - 3em);
             padding: 0;
         }
@@ -70,8 +70,9 @@
                 textarea {
                     padding: 1em;
                     font-family: inherit;
-                    width: 100%;
+                    width: calc(100% - 2em);
                     height: 5em;
+                    resize: none;
                 }
                 input[type="submit"] {
                     outline: none;
@@ -92,6 +93,17 @@
                 input[type="submit"]:focus {
                     border: none;
                     outline: 2px solid #447ab6;
+                }
+                @media screen and (max-width: 550px) {
+                    flex-direction: column;
+                    gap: 2em;
+                    input[type="text"] {
+                        width: calc(100% - 2em);
+                    }
+                    input[type="submit"] {
+                        width: 60%;
+                        margin: 0 auto;
+                    }
                 }
             }
         }
