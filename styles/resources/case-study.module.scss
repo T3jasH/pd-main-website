@@ -3,9 +3,15 @@
     padding: 2em;
     color: #020202;
     background-color: #fbfbfb;
+    @media screen and (max-width: 600px) {
+        padding: 2em 1em;
+    }
     .container {
         position: relative;
         padding: 2em 3em;
+        @media screen and (max-width: 600px) {
+            padding: 2em 0;
+        }
         p {
             font-weight: 300;
             line-height: 1.5em;
@@ -51,6 +57,9 @@
                 justify-content: center;
                 gap: 1em;
             }
+            @media screen and (max-width: 600px) {
+                flex-direction: column-reverse;
+            }
         }
         .objective {
             margin-top: 2rem;
@@ -59,6 +68,9 @@
             gap: 2em;
             justify-content: center;
             align-items: center;
+            @media screen and (max-width: 600px) {
+                flex-direction: column;
+            }
             .left {
                 flex: 1;
                 display: flex;

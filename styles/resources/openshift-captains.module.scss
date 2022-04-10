@@ -8,6 +8,9 @@
     h3 {
         font-family: "Montserrat", sans-serif;
     }
+    @media screen and (max-width: 600px) {
+        padding: 2em 1em;
+    }
     .banner {
         margin: 2em;
         position: relative;
@@ -164,6 +167,9 @@
                     font-size: 1.25rem;
                     font-weight: 400;
                 }
+                @media screen and (max-width: 600px) {
+                    width: 100%;
+                }
             }
             .right {
                 flex: 0.35;
@@ -171,6 +177,9 @@
                     width: 16.3rem;
                     height: 16.3rem;
                 }
+            }
+            @media screen and (max-width: 600px) {
+                align-items: center;
             }
         }
         @media screen and (max-width: 600px) {
@@ -204,6 +213,9 @@
     color: #ececec;
     background: linear-gradient(103.93deg, #4a76b6 0.2%, #9934a3 89.5%);
     z-index: 2;
+    @media screen and (max-width: 600px) {
+        padding: 4em 0.75em 2em 0.75em;
+    }
     h2 {
         font-weight: 600;
     }
@@ -215,6 +227,9 @@
     p {
         min-width: 60%;
         max-width: 80%;
+        @media screen and (max-width: 600px) {
+            max-width: 100%;
+        }
     }
     h2,
     p,

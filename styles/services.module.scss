@@ -213,6 +213,13 @@
         }
         .list {
             padding-left: 1.5rem;
+            @media screen and (max-width: 550px) {
+                flex-direction: column;
+                align-items: flex-start;
+                p {
+                    width: 100%;
+                }
+            }
         }
     }
     .ansible-automation {
@@ -236,6 +243,9 @@
                 width: 24em;
                 height: 12em;
             }
+        }
+        @media screen and (max-width: 550px) {
+            flex-direction: column;
         }
     }
 }
@@ -429,6 +439,12 @@
             .access-management-img {
                 width: 10rem;
                 height: 9rem;
+            }
+        }
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            .right {
+                text-align: left;
             }
         }
     }
