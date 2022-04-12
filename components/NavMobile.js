@@ -1,19 +1,22 @@
-import Link from "next/link"
-import Image from "next/image"
+import React, { useEffect, useRef, useState } from "react"
+import style from "../styles/navMobile.module.scss"
 import logo from "../assets/prodevansLogo.svg"
-import React, { useRef } from "react"
-import style from "../styles/navbar.module.scss"
-import { useMediaQuery } from "react-responsive"
-import NavMobile from "./NavMobile"
+import Image from "next/image"
+import Link from "next/link"
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const Navbar = (props, navRef) => {
+const NavMobile = (props, navRef) => {
     const company = useRef(null)
     const resources = useRef(null)
     const industries = useRef(null)
     const services = useRef(null)
-    const isPhone = useMediaQuery({
-        query: "(max-device-width: 600px)",
-    })
+    const [isOpen, setOpen] = useState(undefined)
+
+    useEffect(() => {
+        if (props.toggleNav) props.toggleNav(isOpen)
+    }, [isOpen])
+
     const openDropDown = (ref) => {
         const dropDown = ref.current.querySelector(`.${style.dropdown}`)
         dropDown.classList.add(`${style["dropdown-open"]}`)
@@ -22,14 +25,23 @@ const Navbar = (props, navRef) => {
         const dropDown = ref.current.querySelector(`.${style.dropdown}`)
         dropDown.classList.remove(`${style["dropdown-open"]}`)
     }
-    if (isPhone) {
-        return <NavMobile ref={navRef} toggleNav={props.toggleNav} />
+
+    if (!isOpen) {
+        return (
+            <>
+                <button
+                    className={style["nav"]}
+                    onClick={() => setOpen(!isOpen)}
+                ></button>
+                <div className={style.logo}>
+                    <Image alt="PD Logo" src={logo} />
+                </div>
+            </>
+        )
     }
+
     return (
-        <nav ref={navRef} className={style.nav}>
-            <div className={style.logo}>
-                <Image alt="PD Logo" src={logo} />
-            </div>
+        <div className={style["nav-mobile-opened"]}>
             <div id="home-btn" aria-label="Home" className={style["nav-item"]}>
                 <Link href="/">Home</Link>
             </div>
@@ -193,11 +205,13 @@ const Navbar = (props, navRef) => {
             >
                 <Link href="/#contact">Contact</Link>
             </div>
-            <div className={style.loading}>
-                <div className={style["blue-dash"]} />
-            </div>
-        </nav>
+            <FontAwesomeIcon
+                icon={faTimesCircle}
+                className={style["nav-icon"]}
+                onClick={() => setOpen(!isOpen)}
+            />
+        </div>
     )
 }
 
-export default React.forwardRef(Navbar)
+export default React.forwardRef(NavMobile)

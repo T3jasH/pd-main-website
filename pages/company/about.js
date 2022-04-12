@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useInView } from "react-intersection-observer"
 import Navbar from "../../components/Navbar"
 import Image from "next/image"
@@ -25,6 +25,7 @@ export default function About() {
     const { ref, inView } = useInView({
         rootMargin: "-45% 0%",
     })
+    const [isOpen, setOpen] = useState(false)
     const profiles = [
         {
             name: "Deepak Mishra",
@@ -111,139 +112,149 @@ export default function About() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} />
-            <div className={styles["about-company"]}>
-                <NavPath
-                    theme="dark"
-                    main="Company"
-                    subPath="About The Company"
-                />
-                <div
-                    className={`${styles.squares} ${styles["squares-top-right"]}`}
-                >
-                    <Image
-                        alt="squares graphic"
-                        layout="responsive"
-                        objectFit="fill"
-                        src={squares}
+            <Navbar ref={navRef} toggleNav={(state) => setOpen(state)} />
+            {!isOpen ? (
+                <div className={styles["about-company"]}>
+                    <NavPath
+                        theme="dark"
+                        main="Company"
+                        subPath="About The Company"
                     />
-                </div>
-                <main>
-                    <div className={styles.left}>
-                        <div
-                            className={`${styles.squares} ${styles["squares-bottom-right"]}`}
-                        >
-                            <Image
-                                alt="squares graphic"
-                                layout="responsive"
-                                objectFit="fill"
-                                src={squares}
-                            />
-                        </div>
-                        <iframe
-                            className={styles.video}
-                            width="560"
-                            height="315"
-                            src="https://www.youtube-nocookie.com/embed/c3pOa1qXW3A"
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
+                    <div
+                        className={`${styles.squares} ${styles["squares-top-right"]}`}
+                    >
+                        <Image
+                            alt="squares graphic"
+                            layout="responsive"
+                            objectFit="fill"
+                            src={squares}
+                        />
                     </div>
-                    <div className={styles.right}>
-                        <p>
-                            Prodevans will help transform IT Organizations with
-                            On-demand, Scalable, Reliable Infra based on the
-                            state-of-the-art cloud &#38; container technologies.
-                            We have an excellent track record in implementing
-                            Solutions across India &#38; ASEAN. As one of the
-                            pioneers in implementing Red Hat Cloud Solutions
-                            across the region, we bring a technology know how
-                            that is second to none.
-                        </p>
-                    </div>
-                </main>
-            </div>
-            <div className={styles.management} ref={ref}>
-                <h2>Management Profiles</h2>
-                <div className={styles["profile-list"]}>
-                    {profiles.map((profile) => (
-                        <div key={profile.name} className={styles.profile}>
-                            <div className={styles.left}>
-                                <div className={styles["profile-img"]}>
-                                    <Image
-                                        alt={profile.name}
-                                        layout="responsive"
-                                        objectFit="fill"
-                                        src={profile.src}
-                                    />
-                                </div>
-                                <h3>{profile.name}</h3>
-                                <p>{profile.designation}</p>
+                    <main>
+                        <div className={styles.left}>
+                            <div
+                                className={`${styles.squares} ${styles["squares-bottom-right"]}`}
+                            >
+                                <Image
+                                    alt="squares graphic"
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={squares}
+                                />
                             </div>
-                            <div className={styles.right}>
-                                <p>{profile.content}</p>
-                                <div className={styles.socials}>
-                                    <a
-                                        href={profile.linkedin}
-                                        target={"_blank"}
-                                        rel={"noreferrer"}
-                                    >
-                                        <div className={styles.icon}>
-                                            <Image
-                                                alt={"LinkedIn"}
-                                                layout="responsive"
-                                                objectFit="fill"
-                                                src={linkedin}
-                                            />
-                                        </div>
-                                    </a>
-                                    <a
-                                        href={profile.gmail}
-                                        target={"_blank"}
-                                        rel={"noreferrer"}
-                                    >
-                                        <div className={styles.icon}>
-                                            <Image
-                                                alt={"Gmail"}
-                                                layout="responsive"
-                                                objectFit="fill"
-                                                src={gmail}
-                                            />
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
+                            <iframe
+                                className={styles.video}
+                                width="560"
+                                height="315"
+                                src="https://www.youtube-nocookie.com/embed/c3pOa1qXW3A"
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            ></iframe>
                         </div>
-                    ))}
+                        <div className={styles.right}>
+                            <p>
+                                Prodevans will help transform IT Organizations
+                                with On-demand, Scalable, Reliable Infra based
+                                on the state-of-the-art cloud &#38; container
+                                technologies. We have an excellent track record
+                                in implementing Solutions across India &#38;
+                                ASEAN. As one of the pioneers in implementing
+                                Red Hat Cloud Solutions across the region, we
+                                bring a technology know how that is second to
+                                none.
+                            </p>
+                        </div>
+                    </main>
                 </div>
-            </div>
-            <div className={styles["about-company-footer"]}>
-                <h2>Manage any project with Prodevans</h2>
-                <p>
-                    We combine the practice of managing and analysing projects
-                    to its fullest potential, and to maximise it&#39;s
-                    effectiveness in order to stay on top of everything.
-                </p>
-                <Link href={"/#contact-us"}>Contact Us</Link>
-                <div className={`${styles.squares} ${styles["top-right"]}`}>
-                    <Image
-                        alt="squares graphic"
-                        layout="responsive"
-                        objectFit="fill"
-                        src={blueSquares}
-                    />
+            ) : null}
+            {!isOpen ? (
+                <div className={styles.management} ref={ref}>
+                    <h2>Management Profiles</h2>
+                    <div className={styles["profile-list"]}>
+                        {profiles.map((profile) => (
+                            <div key={profile.name} className={styles.profile}>
+                                <div className={styles.left}>
+                                    <div className={styles["profile-img"]}>
+                                        <Image
+                                            alt={profile.name}
+                                            layout="responsive"
+                                            objectFit="fill"
+                                            src={profile.src}
+                                        />
+                                    </div>
+                                    <h3>{profile.name}</h3>
+                                    <p>{profile.designation}</p>
+                                </div>
+                                <div className={styles.right}>
+                                    <p>{profile.content}</p>
+                                    <div className={styles.socials}>
+                                        <a
+                                            href={profile.linkedin}
+                                            target={"_blank"}
+                                            rel={"noreferrer"}
+                                        >
+                                            <div className={styles.icon}>
+                                                <Image
+                                                    alt={"LinkedIn"}
+                                                    layout="responsive"
+                                                    objectFit="fill"
+                                                    src={linkedin}
+                                                />
+                                            </div>
+                                        </a>
+                                        <a
+                                            href={profile.gmail}
+                                            target={"_blank"}
+                                            rel={"noreferrer"}
+                                        >
+                                            <div className={styles.icon}>
+                                                <Image
+                                                    alt={"Gmail"}
+                                                    layout="responsive"
+                                                    objectFit="fill"
+                                                    src={gmail}
+                                                />
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div className={`${styles.squares} ${styles["bottom-left"]}`}>
-                    <Image
-                        alt="squares graphic"
-                        layout="responsive"
-                        objectFit="fill"
-                        src={blueSquares}
-                    />
+            ) : null}
+            {!isOpen ? (
+                <div className={styles["about-company-footer"]}>
+                    <h2>Manage any project with Prodevans</h2>
+                    <p>
+                        We combine the practice of managing and analysing
+                        projects to its fullest potential, and to maximise
+                        it&#39;s effectiveness in order to stay on top of
+                        everything.
+                    </p>
+                    <Link href={"/#contact-us"}>Contact Us</Link>
+                    <div className={`${styles.squares} ${styles["top-right"]}`}>
+                        <Image
+                            alt="squares graphic"
+                            layout="responsive"
+                            objectFit="fill"
+                            src={blueSquares}
+                        />
+                    </div>
+                    <div
+                        className={`${styles.squares} ${styles["bottom-left"]}`}
+                    >
+                        <Image
+                            alt="squares graphic"
+                            layout="responsive"
+                            objectFit="fill"
+                            src={blueSquares}
+                        />
+                    </div>
                 </div>
-            </div>
+            ) : null}
         </React.Fragment>
     )
 }

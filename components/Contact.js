@@ -1,20 +1,27 @@
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import style from "../styles/contact.module.scss"
+import styleMobile from "../styles/navMobile.module.scss"
 import navStyles from "../styles/navbar.module.scss"
 
 export default function Contact() {
     const { ref, inView } = useInView({
-        rootMargin: "-45% 0%",
+        rootMargin: "-25% 0%",
     })
 
     useEffect(() => {
         const nav = document.querySelector("nav")
+        const navMobile = document.querySelector(`.${styleMobile["nav"]}`)
         if (inView) {
             if (nav) {
                 nav.setAttribute(
                     "style",
                     "--bgColor: #2e2e2e; --textColor: #fbfbf;"
+                )
+            } else if (navMobile) {
+                navMobile.setAttribute(
+                    "style",
+                    "--bgColor: #f4f4f4; --textColor: #1a1a1a;"
                 )
             }
             const btn = document.querySelector("#contact-us-btn > a")
@@ -30,6 +37,11 @@ export default function Contact() {
                     "style",
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a; --focusTextColor: #1b1b1b;"
                 )
+            } else if (navMobile) {
+                navMobile.setAttribute(
+                    "style",
+                    "--bgColor: #1b1b1b; --textColor: #fff;"
+                )
             }
             const btn = document.querySelector("#contact-us-btn > a")
             if (btn) {
@@ -39,7 +51,6 @@ export default function Contact() {
                 )
             }
         }
-        console.log("ran")
     }, [inView])
     const submit = (e) => {
         e.preventDefault()

@@ -11,9 +11,11 @@
         padding: 2.5em 1em;
         width: calc(100% - 2em);
     }
-    @media screen and (max-width: 280px) {
-        padding: 2.5em 0.25em;
-        width: calc(100% - 0.5em);
+    @media screen and (max-width: 400px) {
+        padding: 2.5em 1em;
+        width: calc(100% - 2em);
+        gap: 0.45em;
+        justify-content: space-between;
     }
     .list {
         display: flex;
@@ -23,5 +25,8 @@
             font-weight: 500;
         }
         max-width: 20%;
+        & > p:last-child {
+            font-size: 0.9em;
+        }
     }
 }

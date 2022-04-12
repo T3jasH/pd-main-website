@@ -52,15 +52,20 @@
             flex-direction: column;
             justify-content: flex-start;
             height: 28em;
+            gap: 2.5em;
+        }
+        @media screen and (max-width: 475px) {
+            height: 30em;
+            padding: 1em 0;
         }
         @media screen and (max-width: 400px) {
             height: 32em;
         }
         @media screen and (max-width: 340px) {
-            height: 40em;
+            height: 44em;
         }
-        @media screen and (max-width: 250px) {
-            height: 50em;
+        @media screen and (max-width: 290px) {
+            height: 55em;
         }
         .text {
             width: 70%;
@@ -110,6 +115,10 @@
         @media screen and (max-width: 650px) {
             width: 30%;
             left: 49%;
+        }
+        @media screen and (max-width: 450px) {
+            width: 45%;
+            left: 45%;
         }
         .arrow {
             position: relative;

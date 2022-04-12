@@ -4,6 +4,7 @@ import tiles from "../assets/tiles.png"
 import { useInView } from "react-intersection-observer"
 import { Fragment, useEffect } from "react"
 import style from "../styles/about.module.scss"
+import styleMobile from "../styles/navMobile.module.scss"
 import { useMediaQuery } from "react-responsive"
 
 const About = () => {
@@ -14,12 +15,18 @@ const About = () => {
         query: "(max-device-width: 650px)",
     })
     useEffect(() => {
-        const nav = document.querySelector("nav")
+        const nav = document.querySelector(`.${style.nav}`)
+        const navMobile = document.querySelector(`.${styleMobile.nav}`)
         if (inView) {
             if (nav) {
                 nav.setAttribute(
                     "style",
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
+                )
+            } else if (navMobile) {
+                navMobile.setAttribute(
+                    "style",
+                    "--bgColor: #1b1b1b; --textColor: #fff;"
                 )
             }
             const btn = document.querySelector("#about-us-btn > a")
