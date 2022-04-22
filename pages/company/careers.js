@@ -9,6 +9,12 @@ import getTime from "../../clientUtils/getTime"
 import styles from "../../styles/company/careers.module.scss"
 import NavPath from "../../components/NavPath"
 import useActiveLink from "../../hooks/useActiveLink"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+    faClock,
+    faDesktop,
+    faMapMarker,
+} from "@fortawesome/free-solid-svg-icons"
 
 export async function getStaticProps(context) {
     try {
@@ -40,8 +46,8 @@ export default function Careers({ jobs }) {
 
     const [selectedLocation, setSelectedLocation] = useState(null)
     const [selectedJobType, setSelectedJobType] = useState(null)
-
     const [keyword, setKeyword] = useState("")
+    const [isOpen, setOpen] = useState(false)
 
     useNavTheme(
         "#company-btn",
@@ -86,127 +92,164 @@ export default function Careers({ jobs }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} />
-            <div className={styles["company-careers"]}>
-                <NavPath main={"Company"} subPath={"Careers"} theme="light" />
-                <div className={styles.slogan}>
-                    <h2>Build your future with Prodevans. Join us now!</h2>
-                </div>
-                <form className={styles["jobs-filter"]}>
-                    <div>
-                        <input
-                            type="text" 
-                            placeholder="Search by keyword"
-                            aria-label="Keyword"
-                            onChange={(e) =>
-                                setKeyword(e.target.value.trim().toLowerCase())
-                            }
-                        />
+            <Navbar ref={navRef} toggleNav={(state) => setOpen(state)} />
+            {!isOpen ? (
+                <div className={styles["company-careers"]}>
+                    <NavPath
+                        main={"Company"}
+                        subPath={"Careers"}
+                        theme="light"
+                    />
+                    <div className={styles.slogan}>
+                        <h2>Build your future with Prodevans. Join us now!</h2>
                     </div>
-                    <div>
-                        <Select
-                            className={styles.dropdown}
-                            isDisabled={false}
-                            isClearable={true}
-                            isSearchable={true}
-                            options={locations}
-                            placeholder={"Select location"}
-                            aria-label={"Select location"}
-                            onChange={(e) => {
-                                setSelectedLocation(e)
-                            }}
-                        />
-                        <Select
-                            className={styles.dropdown}
-                            isDisabled={false}
-                            isClearable={true}
-                            isSearchable={true}
-                            options={jobTypes}
-                            placeholder={"Select job type"}
-                            aria-label={"Select job type"}
-                            onChange={(e) => setSelectedJobType(e)}
-                        />
-                    </div>
-                </form>
-                <div className={styles["jobs-list"]}>
-                    {jobs.length === 0 ? (
-                        <h3> No jobs found</h3>
-                    ) : (
-                        jobs
-                            .filter((job) =>
-                                selectedLocation
-                                    ? job.location === selectedLocation.value
-                                    : true
-                            )
-                            .filter((job) =>
-                                selectedJobType
-                                    ? job.type === selectedJobType.value
-                                    : true
-                            )
-                            .filter((job) =>
-                                keyword.length
-                                    ? job.title.split(" ").findIndex((word) => {
-                                          return word
-                                              .toLowerCase()
-                                              .includes(keyword)
-                                      }) !== -1 ||
-                                      job.description
-                                          .split(" ")
-                                          .findIndex((word) => {
-                                              return word
-                                                  .toLowerCase()
-                                                  .includes(keyword)
-                                          }) !== -1
-                                    : true
-                            )
-                            .map((job) => (
-                                <div key={job._id} className={styles.job}>
-                                    <div className={styles.left}>
-                                        {
-                                            // Might need other logos too here
-                                        }
-                                        <div className={styles["job-img"]}>
-                                            <Image
-                                                alt={"Prodevans"}
-                                                layout="responsive"
-                                                objectFit="fill"
-                                                src={pd}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className={styles.right}>
-                                        <div>
-                                            <div>
-                                                <h3>{job.title}</h3>
+                    <form className={styles["jobs-filter"]}>
+                        <div>
+                            <input
+                                type="text"
+                                placeholder="Search by keyword"
+                                aria-label="Keyword"
+                                onChange={(e) =>
+                                    setKeyword(
+                                        e.target.value.trim().toLowerCase()
+                                    )
+                                }
+                            />
+                        </div>
+                        <div>
+                            <Select
+                                className={styles.dropdown}
+                                isDisabled={false}
+                                isClearable={true}
+                                isSearchable={true}
+                                options={locations}
+                                placeholder={"Select location"}
+                                aria-label={"Select location"}
+                                onChange={(e) => {
+                                    setSelectedLocation(e)
+                                }}
+                            />
+                            <Select
+                                className={styles.dropdown}
+                                isDisabled={false}
+                                isClearable={true}
+                                isSearchable={true}
+                                options={jobTypes}
+                                placeholder={"Select job type"}
+                                aria-label={"Select job type"}
+                                onChange={(e) => setSelectedJobType(e)}
+                            />
+                        </div>
+                    </form>
+                    <div className={styles["jobs-list"]}>
+                        {jobs.length === 0 ? (
+                            <h3> No jobs found</h3>
+                        ) : (
+                            jobs
+                                .filter((job) =>
+                                    selectedLocation
+                                        ? job.location ===
+                                          selectedLocation.value
+                                        : true
+                                )
+                                .filter((job) =>
+                                    selectedJobType
+                                        ? job.type === selectedJobType.value
+                                        : true
+                                )
+                                .filter((job) =>
+                                    keyword.length
+                                        ? job.title
+                                              .split(" ")
+                                              .findIndex((word) => {
+                                                  return word
+                                                      .toLowerCase()
+                                                      .includes(keyword)
+                                              }) !== -1 ||
+                                          job.description
+                                              .split(" ")
+                                              .findIndex((word) => {
+                                                  return word
+                                                      .toLowerCase()
+                                                      .includes(keyword)
+                                              }) !== -1
+                                        : true
+                                )
+                                .map((job) => (
+                                    <div key={job._id} className={styles.job}>
+                                        <div className={styles.left}>
+                                            {
+                                                // Might need other logos too here
+                                            }
+                                            <div className={styles["job-img"]}>
+                                                <Image
+                                                    alt={"Prodevans"}
+                                                    layout="responsive"
+                                                    objectFit="fill"
+                                                    src={pd}
+                                                />
                                             </div>
-                                            <a
-                                                target={"_blank"}
-                                                href={job.link}
-                                                rel={"noreferrer"}
-                                            >
-                                                Apply
-                                            </a>
                                         </div>
-                                        <div>
-                                            <p>{job.type}</p>
-                                            <p>{job.location}</p>
-                                            <p>
-                                                {`Posted ${getTime(
-                                                    new Date(
-                                                        job.createdAt
-                                                    ).getTime()
-                                                )} ago`}
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p>{job.description}</p>
+                                        <div className={styles.right}>
+                                            <div>
+                                                <div>
+                                                    <h3>{job.title}</h3>
+                                                </div>
+                                                <a
+                                                    target={"_blank"}
+                                                    href={job.link}
+                                                    rel={"noreferrer"}
+                                                >
+                                                    Apply
+                                                </a>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    <FontAwesomeIcon
+                                                        icon={faDesktop}
+                                                        className={
+                                                            styles[
+                                                                "job-type-icon"
+                                                            ]
+                                                        }
+                                                    />
+                                                    {job.type}
+                                                </p>
+                                                <p>
+                                                    <FontAwesomeIcon
+                                                        icon={faMapMarker}
+                                                        className={
+                                                            styles[
+                                                                "location-icon"
+                                                            ]
+                                                        }
+                                                    />
+                                                    {job.location}
+                                                </p>
+                                                <p>
+                                                    <FontAwesomeIcon
+                                                        icon={faClock}
+                                                        className={
+                                                            styles["clock-icon"]
+                                                        }
+                                                    />
+                                                    {`Posted ${getTime(
+                                                        new Date(
+                                                            job.createdAt
+                                                        ).getTime()
+                                                    )} ago`}
+                                                </p>
+                                            </div>
+                                            <div>
+                                                <p>{job.description}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))
-                    )}
+                                ))
+                        )}
+                    </div>
                 </div>
-            </div>
+            ) : null}
         </React.Fragment>
     )
 }

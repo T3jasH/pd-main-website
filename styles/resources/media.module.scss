@@ -37,7 +37,6 @@
                 .article-img {
                     width: 20rem;
                     height: 15em;
-                    background-color: #c4c4c4;
                 }
             }
             .right {
@@ -46,7 +45,7 @@
                 flex-direction: column;
                 justify-content: flex-start;
                 gap: 1em;
-                h3 {
+                a {
                     color: #4b76b6;
                     font-size: 1.5rem;
                     font-weight: 600;

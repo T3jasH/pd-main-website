@@ -1,20 +1,22 @@
-import Link from "next/link"
-import Image from "next/image"
+import React, { useEffect, useRef, useState } from "react"
+import style from "../styles/navMobile.module.scss"
 import logo from "../assets/prodevansLogo.svg"
-import React, { useRef, useEffect, useState } from "react"
-import style from "../styles/navbar.module.scss"
-import { useMediaQuery } from "react-responsive"
-import NavMobile from "./NavMobile"
+import Image from "next/image"
+import Link from "next/link"
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-const Navbar = (props, navRef) => {
+const NavMobile = (props, navRef) => {
     const company = useRef(null)
     const resources = useRef(null)
     const industries = useRef(null)
     const services = useRef(null)
-    const isPhone = useMediaQuery({
-        query: "(max-device-width: 600px)",
-    })
-    const [isMobileNav, setMobileNav] = useState(false)
+    const [isOpen, setOpen] = useState(undefined)
+
+    useEffect(() => {
+        if (props.toggleNav) props.toggleNav(isOpen)
+    }, [isOpen])
+
     const openDropDown = (ref) => {
         const dropDown = ref.current.querySelector(`.${style.dropdown}`)
         dropDown.classList.add(`${style["dropdown-open"]}`)
@@ -24,28 +26,38 @@ const Navbar = (props, navRef) => {
         dropDown.classList.remove(`${style["dropdown-open"]}`)
     }
 
-    useEffect(() => {
-        setMobileNav(isPhone)
-    }, [isPhone])
-
-    if (isMobileNav) {
-        return <NavMobile ref={navRef} toggleNav={props.toggleNav} />
+    if (!isOpen) {
+        return (
+            <>
+                <button
+                    className={style["nav"]}
+                    onClick={() => setOpen(!isOpen)}
+                ></button>
+                <div className={style.logo}>
+                    <Image alt="PD Logo" src={logo} />
+                </div>
+            </>
+        )
     }
+
     return (
-        <nav ref={navRef} className={style.nav}>
-            <div className={style.logo}>
-                <Image alt="PD Logo" src={logo} />
-            </div>
+        <div className={style["nav-mobile-opened"]}>
+            <h3>Menu</h3>
             <div id="home-btn" aria-label="Home" className={style["nav-item"]}>
                 <Link href="/">Home</Link>
+            </div>
+            <div
+                className={style["nav-item"]}
+                aria-label="About Us"
+                id="about-us-btn"
+            >
+                <Link href="/#about-us">About Us</Link>
             </div>
             <div
                 id={"company-btn"}
                 className={style["nav-item"]}
                 aria-label="Company"
                 ref={company}
-                onMouseEnter={() => openDropDown(company)}
-                onMouseLeave={() => closeDropDown(company)}
             >
                 Company
                 <div className={style.dropdown}>
@@ -54,7 +66,7 @@ const Navbar = (props, navRef) => {
                         id="company-about-btn"
                         aria-label="About the company"
                     >
-                        About Us
+                        About
                     </Link>
                     <Link
                         href="/company/careers"
@@ -70,17 +82,9 @@ const Navbar = (props, navRef) => {
                 className={style["nav-item"]}
                 aria-label="Industries"
                 ref={industries}
-                onMouseEnter={() => openDropDown(industries)}
-                onMouseLeave={() => closeDropDown(industries)}
             >
                 Industries{" "}
                 <div className={style.dropdown}>
-                    <Link
-                        href="/industries/financial-banking"
-                        aria-label="Financial Banking"
-                    >
-                        Financial and Banking
-                    </Link>
                     <Link href="/industries/education" aria-label="Education">
                         Education
                     </Link>
@@ -90,6 +94,12 @@ const Navbar = (props, navRef) => {
                     <Link href="/industries/healthcare" aria-label="Healthcare">
                         Healthcare
                     </Link>
+                    <Link
+                        href="/industries/financial-banking"
+                        aria-label="Financial Banking"
+                    >
+                        Financial and Banking
+                    </Link>
                 </div>
             </div>
             <div
@@ -97,8 +107,6 @@ const Navbar = (props, navRef) => {
                 aria-label="Services"
                 className={style["nav-item"]}
                 ref={services}
-                onMouseEnter={() => openDropDown(services)}
-                onMouseLeave={() => closeDropDown(services)}
             >
                 Services
                 <div className={style.dropdown}>
@@ -130,7 +138,7 @@ const Navbar = (props, navRef) => {
                         href="/services/devops-tools-support"
                         aria-label="Devops Tools And Support"
                     >
-                        DevOps Tools &#38; Support
+                        Devops Tools &#38; Support
                     </Link>
                     <Link
                         href="/services/infrastructure"
@@ -152,8 +160,6 @@ const Navbar = (props, navRef) => {
                 className={style["nav-item"]}
                 aria-label="Resources"
                 ref={resources}
-                onMouseEnter={() => openDropDown(resources)}
-                onMouseLeave={() => closeDropDown(resources)}
             >
                 Resources
                 <div className={style.dropdown}>
@@ -192,11 +198,13 @@ const Navbar = (props, navRef) => {
             >
                 <Link href="/#contact">Contact</Link>
             </div>
-            <div className={style.loading}>
-                <div className={style["blue-dash"]} />
-            </div>
-        </nav>
+            <FontAwesomeIcon
+                icon={faTimesCircle}
+                className={style["nav-icon"]}
+                onClick={() => setOpen(!isOpen)}
+            />
+        </div>
     )
 }
 
-export default React.forwardRef(Navbar)
+export default React.forwardRef(NavMobile)

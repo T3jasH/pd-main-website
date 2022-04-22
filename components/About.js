@@ -4,6 +4,7 @@ import tiles from "../assets/tiles.png"
 import { useInView } from "react-intersection-observer"
 import { Fragment, useEffect } from "react"
 import style from "../styles/about.module.scss"
+import styleMobile from "../styles/navMobile.module.scss"
 import { useMediaQuery } from "react-responsive"
 
 const About = () => {
@@ -14,12 +15,18 @@ const About = () => {
         query: "(max-device-width: 650px)",
     })
     useEffect(() => {
-        const nav = document.querySelector("nav")
+        const nav = document.querySelector(`.${style.nav}`)
+        const navMobile = document.querySelector(`.${styleMobile.nav}`)
         if (inView) {
             if (nav) {
                 nav.setAttribute(
                     "style",
                     "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
+                )
+            } else if (navMobile) {
+                navMobile.setAttribute(
+                    "style",
+                    "--bgColor: #1b1b1b; --textColor: #fff;"
                 )
             }
             const btn = document.querySelector("#about-us-btn > a")
@@ -48,19 +55,19 @@ const About = () => {
                         <h2>
                             We are what your{" "}
                             <span className={style.underline}>brand</span> is
-                            missing.
+                            missing
                         </h2>
                         <p>
                             Prodevans is an ISO 9001 | 27001 | 20000 Accredited
-                            Certified,a leading technology solution provider
-                            specialising in end-to-end DevOps offerings that
-                            streamline and automate IT delivery. We specialize
-                            in the entire spectrum of Cloud Solutions from IaaS,
-                            PaaS to SaaS. We strive to offer solutions that are
-                            time-driven &#38; efficient with a stringent focus
-                            on ROI Prodevans helps you deliver great customer
-                            experience by deploying the right Cloud-based tools
-                            and resources.
+                            Certified Company,a leading technology solution
+                            provider specialising in end-to-end DevOps offerings
+                            that streamline and automate IT delivery. We
+                            specialize in the entire spectrum of Cloud Solutions
+                            from IaaS, PaaS to SaaS. We strive to offer
+                            solutions that are time-driven &#38; efficient with
+                            a stringent focus on ROI. Prodevans helps you
+                            deliver great customer experience by deploying the
+                            right Cloud-based tools and resources.
                         </p>
                         {isPhone ? null : (
                             <div className={style.tiles}>

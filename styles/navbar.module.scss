@@ -17,7 +17,7 @@
     top: 0;
     left: 0;
     width: calc(100% - 2em);
-    height: 3em;
+    height: 3.25em;
     transition: all 1s;
     box-shadow: var(--boxShadow);
     font-family: "Montserrat", sans-serif;
@@ -28,9 +28,10 @@
         top: 0em;
         width: 8em;
         height: 2.5em;
-        margin: 0.5em 0;
+        margin: 0.35em 0;
         border-radius: 0.5em;
         background: #1b1b1b;
+        padding: 0.25em;
     }
     .nav-item {
         cursor: pointer;

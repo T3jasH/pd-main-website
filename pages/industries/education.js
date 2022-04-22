@@ -17,7 +17,7 @@ export default function Education() {
         navRef,
         null
     )
-    useActiveLink("industries-btn", "a:nth-child(1)")
+    useActiveLink("industries-btn", "a:nth-child(2)")
     return (
         <React.Fragment>
             <Head>
