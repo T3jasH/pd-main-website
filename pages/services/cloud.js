@@ -96,7 +96,7 @@ export default function Cloud() {
                     </div>
                 </div>
                 <div className={styles["cloud-management"]}>
-                    <h3>Our Cloud Portfolio Management includes</h3>
+                    <h3>Our Cloud Management Portfolio includes</h3>
                     <div className={styles.container}>
                         <div className={styles["gradient-1"]}>
                             Delivering Self-Service IT

@@ -50,7 +50,7 @@ export default function Telecom() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
-    useActiveLink("industries-btn", "a:nth-child(2)")
+    useActiveLink("industries-btn", "a:nth-child(3)")
     return (
         <React.Fragment>
             <Head>

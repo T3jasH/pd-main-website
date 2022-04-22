@@ -38,10 +38,10 @@ export default function WhyPD() {
                             src={redhat}
                         />
                     </div>
-                    <h2>14 Year Experience with Red Hat</h2>
+                    <h2>18+ Years of Experience with Red Hat</h2>
                     <p>
-                        #1 Training Partner in the Country. High Expertise in
-                        Complete Red Hat Suite of Products
+                        #1 Training Partner in the Country with proven expertise
+                        in complete Red Hat Suite of products
                     </p>
                 </div>
                 <div className={style.card}>
@@ -55,8 +55,8 @@ export default function WhyPD() {
                     </div>
                     <h2>Hands On Field Experience</h2>
                     <p>
-                        Solid Track record on OpenShift Implementations Provided
-                        Solutions across India & ASEAN
+                        Solid Track record on OpenShift Implementations with
+                        solutions provided across India &#38; ASEAN region
                     </p>
                 </div>
                 <div className={style.card}>

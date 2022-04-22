@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import logo from "../assets/prodevansLogo.svg"
-import React, { useRef } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import style from "../styles/navbar.module.scss"
 import { useMediaQuery } from "react-responsive"
 import NavMobile from "./NavMobile"
@@ -14,6 +14,7 @@ const Navbar = (props, navRef) => {
     const isPhone = useMediaQuery({
         query: "(max-device-width: 600px)",
     })
+    const [isMobileNav, setMobileNav] = useState(false)
     const openDropDown = (ref) => {
         const dropDown = ref.current.querySelector(`.${style.dropdown}`)
         dropDown.classList.add(`${style["dropdown-open"]}`)
@@ -22,7 +23,12 @@ const Navbar = (props, navRef) => {
         const dropDown = ref.current.querySelector(`.${style.dropdown}`)
         dropDown.classList.remove(`${style["dropdown-open"]}`)
     }
-    if (isPhone) {
+
+    useEffect(() => {
+        setMobileNav(isPhone)
+    }, [isPhone])
+
+    if (isMobileNav) {
         return <NavMobile ref={navRef} toggleNav={props.toggleNav} />
     }
     return (
@@ -32,13 +38,6 @@ const Navbar = (props, navRef) => {
             </div>
             <div id="home-btn" aria-label="Home" className={style["nav-item"]}>
                 <Link href="/">Home</Link>
-            </div>
-            <div
-                className={style["nav-item"]}
-                aria-label="About Us"
-                id="about-us-btn"
-            >
-                <Link href="/#about-us">About Us</Link>
             </div>
             <div
                 id={"company-btn"}
@@ -55,7 +54,7 @@ const Navbar = (props, navRef) => {
                         id="company-about-btn"
                         aria-label="About the company"
                     >
-                        About
+                        About Us
                     </Link>
                     <Link
                         href="/company/careers"
@@ -76,6 +75,12 @@ const Navbar = (props, navRef) => {
             >
                 Industries{" "}
                 <div className={style.dropdown}>
+                    <Link
+                        href="/industries/financial-banking"
+                        aria-label="Financial Banking"
+                    >
+                        Financial and Banking
+                    </Link>
                     <Link href="/industries/education" aria-label="Education">
                         Education
                     </Link>
@@ -84,12 +89,6 @@ const Navbar = (props, navRef) => {
                     </Link>
                     <Link href="/industries/healthcare" aria-label="Healthcare">
                         Healthcare
-                    </Link>
-                    <Link
-                        href="/industries/financial-banking"
-                        aria-label="Financial Banking"
-                    >
-                        Financial and Banking
                     </Link>
                 </div>
             </div>
@@ -131,7 +130,7 @@ const Navbar = (props, navRef) => {
                         href="/services/devops-tools-support"
                         aria-label="Devops Tools And Support"
                     >
-                        Devops Tools &#38; Support
+                        DevOps Tools &#38; Support
                     </Link>
                     <Link
                         href="/services/infrastructure"

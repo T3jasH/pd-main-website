@@ -186,6 +186,22 @@
                 display: flex;
                 flex-direction: column;
                 gap: 2em;
+                .clock-icon {
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    margin-right: 0.75rem;
+                    transform: translateY(0.25em) translateX(-0.75rem);
+                }
+                .location-icon {
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    transform: translateY(0.25em) translateX(-0.75rem);
+                }
+                .job-type-icon {
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    transform: translateY(0.35em) translateX(-0.85rem);
+                }
                 div {
                     display: flex;
                     button {

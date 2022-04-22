@@ -31,13 +31,24 @@ export default function Media() {
                         <div key={article.title} className={styles.article}>
                             <div className={styles.left}>
                                 <div className={styles["article-img"]}>
-                                    {
-                                        //IMG
-                                    }
+                                    {article.src.length !== 0 ? (
+                                        <Image
+                                            alt={article.title}
+                                            layout="responsive"
+                                            objectFit="fill"
+                                            src={article.src}
+                                        />
+                                    ) : null}
                                 </div>
                             </div>
                             <div className={styles.right}>
-                                <h3>{article.title}</h3>
+                                <a
+                                    href={article.link}
+                                    target={"_blank"}
+                                    rel={"noreferrer"}
+                                >
+                                    {article.title}
+                                </a>
                                 <p>{article.secTitle}</p>
                             </div>
                         </div>

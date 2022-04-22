@@ -12,7 +12,7 @@ export default function Vision() {
                     objectFit="contain"
                     src={vision}
                 />
-                <h2>Delivering cutting-edge tech solutions for your team.</h2>
+                <h2>Delivering cutting-edge tech solutions for your team</h2>
             </div>
             <div className={style["vision-table"]}>
                 <div className={style["vision-card"]}>

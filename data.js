@@ -1,27 +1,34 @@
 import redhatForum from "./assets/redhatForum.jpeg"
 import redhatForumUpcoming from "./assets/redhatForum.png"
 import openSourceIndia from "./assets/openSourceIndia.jpg"
+import pdArticle2 from ".//assets/pdArticle2.webp"
+import pdArticle3 from ".//assets/pdArticle3.jpg"
+import pdArticle4 from ".//assets/pdArticle4.jpg"
 
 export const articles = [
     {
         title: "Interview with Deepak Mishra | Founder and CEO Prodevans Technologies",
-        src: "",
+        src: pdArticle4,
         secTitle: "Most popular stories magazine",
+        link: "https://mostpopularstories.com/prodevans-technologies/",
     },
     {
         title: "How machine learning is contributing to evolution of online education space",
-        src: "",
+        src: pdArticle2,
         secTitle: "Published on India Today Magazine",
+        link: "https://www.indiatoday.in/education-today/featurephilia/story/how-machine-learning-is-contributing-to-the-evolution-of-online-education-space-1757443-2021-01-09",
     },
     {
         title: "Prodevans technologies launches new internship platform called LEAP to provide opportunities to youn IT graduates",
-        src: "",
+        src: pdArticle3,
         secTitle: "Business News This Week Magazine",
+        link: "http://businessnewsthisweek.com/business/prodevans-technologies-launches-a-new-internship-platform-called-leap-to-provide-opportunities-to-young-it-graduates/",
     },
     {
         title: "Automation may take our jobs - But AI will create them",
-        src: "",
+        src: pdArticle4,
         secTitle: "Startup City Magazine",
+        link: "https://startup.siliconindia.com/viewpoint/cxoinsights/automation-may-take-our-jobs-but-ai-will-create-them-nwid-25898.html",
     },
 ]
 

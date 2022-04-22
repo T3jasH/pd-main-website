@@ -16,7 +16,7 @@ export default function Healthcare() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
-    useActiveLink("industries-btn", "a:nth-child(4)")
+    useActiveLink("industries-btn", "a:nth-child(1)")
     return (
         <React.Fragment>
             <Head>

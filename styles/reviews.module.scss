@@ -75,6 +75,17 @@
             @media screen and(max-width: 50px) {
                 width: 100%;
             }
+            &::before {
+                content: open-quote;
+            }
+            &::after {
+                content: close-quote;
+            }
+        }
+        .designation {
+            font-weight: 300;
+            font-size: 1.2rem;
+            width: 50%;
         }
         .reviewer {
             display: flex;

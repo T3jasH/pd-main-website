@@ -19,7 +19,7 @@ import { useMediaQuery } from "react-responsive"
 
 export default function Home() {
     const { ref, inView } = useInView({
-        rootMargin: "-50% 0%",
+        rootMargin: "-5% 0%",
     })
     const navRef = useRef(null)
     const isPhone = useMediaQuery({
@@ -78,7 +78,7 @@ export default function Home() {
                                 Tech like{" "}
                                 <span className={style.blue}>never</span> before
                             </h1>
-                            <h2>A cloud and Devops partner</h2>
+                            <h2>A Cloud and DevOps partner</h2>
                             <h2>Fullstack Devops and automation experts</h2>
                             <h2>
                                 Real world expertise in optimising applications

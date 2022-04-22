@@ -55,19 +55,19 @@ const About = () => {
                         <h2>
                             We are what your{" "}
                             <span className={style.underline}>brand</span> is
-                            missing.
+                            missing
                         </h2>
                         <p>
                             Prodevans is an ISO 9001 | 27001 | 20000 Accredited
-                            Certified,a leading technology solution provider
-                            specialising in end-to-end DevOps offerings that
-                            streamline and automate IT delivery. We specialize
-                            in the entire spectrum of Cloud Solutions from IaaS,
-                            PaaS to SaaS. We strive to offer solutions that are
-                            time-driven &#38; efficient with a stringent focus
-                            on ROI Prodevans helps you deliver great customer
-                            experience by deploying the right Cloud-based tools
-                            and resources.
+                            Certified Company,a leading technology solution
+                            provider specialising in end-to-end DevOps offerings
+                            that streamline and automate IT delivery. We
+                            specialize in the entire spectrum of Cloud Solutions
+                            from IaaS, PaaS to SaaS. We strive to offer
+                            solutions that are time-driven &#38; efficient with
+                            a stringent focus on ROI. Prodevans helps you
+                            deliver great customer experience by deploying the
+                            right Cloud-based tools and resources.
                         </p>
                         {isPhone ? null : (
                             <div className={style.tiles}>

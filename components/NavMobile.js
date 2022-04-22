@@ -42,6 +42,7 @@ const NavMobile = (props, navRef) => {
 
     return (
         <div className={style["nav-mobile-opened"]}>
+            <h3>Menu</h3>
             <div id="home-btn" aria-label="Home" className={style["nav-item"]}>
                 <Link href="/">Home</Link>
             </div>
@@ -57,8 +58,6 @@ const NavMobile = (props, navRef) => {
                 className={style["nav-item"]}
                 aria-label="Company"
                 ref={company}
-                onMouseEnter={() => openDropDown(company)}
-                onMouseLeave={() => closeDropDown(company)}
             >
                 Company
                 <div className={style.dropdown}>
@@ -83,8 +82,6 @@ const NavMobile = (props, navRef) => {
                 className={style["nav-item"]}
                 aria-label="Industries"
                 ref={industries}
-                onMouseEnter={() => openDropDown(industries)}
-                onMouseLeave={() => closeDropDown(industries)}
             >
                 Industries{" "}
                 <div className={style.dropdown}>
@@ -110,8 +107,6 @@ const NavMobile = (props, navRef) => {
                 aria-label="Services"
                 className={style["nav-item"]}
                 ref={services}
-                onMouseEnter={() => openDropDown(services)}
-                onMouseLeave={() => closeDropDown(services)}
             >
                 Services
                 <div className={style.dropdown}>
@@ -165,8 +160,6 @@ const NavMobile = (props, navRef) => {
                 className={style["nav-item"]}
                 aria-label="Resources"
                 ref={resources}
-                onMouseEnter={() => openDropDown(resources)}
-                onMouseLeave={() => closeDropDown(resources)}
             >
                 Resources
                 <div className={style.dropdown}>

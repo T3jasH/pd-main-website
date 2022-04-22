@@ -35,7 +35,7 @@ export default MyApp
 // events description - done
 //
 
-// Desktop meeting
+// 3rd meeting
 
 // navbar issue
 // remove whatsapp icon - done
@@ -47,3 +47,26 @@ export default MyApp
 // openshift image issue
 // careers page icon / alignment
 // remove demo, change bangalore/ - done
+
+// 4th meeting
+
+/* Logo bg incrase padding - done
+About us empty space, low res image
+why pd images fix
+Remove about us from navbar, make company > about us - done
+careers icons for time and stuff - done
+careers page image for icon - done ig
+education image center align - done
+financial and banking at top in dropdown - done
+cloud.services headings bigger - done
+our cloud management portfolio heading grammar - done
+identity access management images fixing (size and color of one image)
+highlights of automation points fix
+products - new images for iventura and pdCloudex
+resources -> media -> add links on titles, and images - done
+downloadable brochures
+Review openshift captain
+events dropdown width increase
+dedicated contact us page like on current website
+email id to which details should get sent in contact us form
+*/

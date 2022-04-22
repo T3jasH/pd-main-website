@@ -13,20 +13,27 @@ export default function Reviews() {
     const reviewImages = [review1, review2, review3, review4]
     const reviews = [
         {
-            text: "Having been with Red Hat for over a decade, and having met numerous  Academics and Enterprise users, I can say with certainty  that most of them are eager to go with Red Hat or open Source technologies to minimise their investment.. We have been waiting for product just like PDCloudEX.” “PDCloudEx is a game changer when it comes to minimising costs. What’s more, it gives the students exposure to  cutting edge technologies – the need of the hour. Amazing technology. Amazing People” APAC Head – Training & Certification at Star Certification",
+            text: " Having been with Red Hat for over a decade and having met numerous Academicians and Enterprise users, I can say with certainty that most of them are eager to go with Red Hat or Open Source technologies to minimise their investment. We have been waiting for product just like 'PDCloudEX', a game changer when it comes to minimising costs. What's more, it gives the students exposure to cutting-edge technologies which is indeed the need of the hour. Amazing technology. Amazing People ",
             name: "Abhijeet Roy",
+            designation:
+                "APAC Head - Training & Certification at Star Certification",
         },
         {
-            text: "Setting up the labs when there are frequent changes is cumbersome and time consuming. Delivering on ROI is almost impossible with the number of students fluctuating all the time. PDCloudEX gave us the flexibility without compromising on availability. Whether it is public or private cloud, the students now have a way of accessing the labs anywhere, anytime.  We scale up and down as needed. Thanks to PDCloudEX, we now manage our labs with minimal downtime, focussing our energies on  course offerings rather than worrying about Infrastructure” Manager, Global Learning Services, Red Hat INDIA  ",
+            text: " Setting up the labs when there are frequent changes is cumbersome and time consuming. Delivering on ROI is almost impossible with the number of students fluctuating all the time. PDCloudEX gave us the flexibility without compromising on availability. Whether it is public or private cloud, the students now have a way of accessing the labs anywhere, anytime.  We scale up and down as needed. Thanks to PDCloudEX, we now manage our labs with minimal downtime, focussing our energies on  course offerings rather than worrying about Infrastructure. ",
             name: "PV Aneesh",
+            designation: "Manager, Global Learning Services, Red Hat INDIA",
         },
         {
-            text: "Cloud in a Box (PDcloudEx) offers ready to use standard infrastructure for empowering and educating next generation software engineers with skills in Cloud application programming using Aneka and conducting advance research in powering emerging BigData and Internet Of Things (IoT) applications.- ” Redmond Barry Distinguished Professor and Director of Cloud Computing and Distributed Systems Laboratory at the University of Melbourne, Australia",
+            text: " Cloud in a Box (PDcloudEx) offers ready to use standard infrastructure for empowering and educating next generation software engineers with skills in Cloud application programming using Aneka and conducting advance research in powering emerging Big Data and Internet of Things (IoT) applications. ",
             name: "Dr Rajkumar Buyya",
+            designation:
+                "Redmond Barry Distinguished Professor and Director of Cloud Computing and Distributed Systems Laboratory at the University of Melbourne, Australia ",
         },
         {
-            text: "“Setting up and managing labs is a constant headache. After watching the demo of PDCloudEX, I am confident that it provides a way out of this mess. It is our one-stop-solution to manage all our Lab sessions and projects. Kudos to Prodevans Team for their innovation!”   Assistant Professor, Computer Science and Engineering, RIT Rajaramnagar, India",
+            text: " Setting up and managing labs is a constant headache. After watching the demo of PDCloudEX, I am confident that it provides a way out of this mess. It is our one-stop-solution to manage all our Lab sessions and projects. Kudos to Prodevans Team for their innovation! ",
             name: "Mr. S. R. Poojara",
+            designation:
+                "Assistant Professor, Computer Science and Engineering, RIT Rajaramnagar, India",
         },
     ]
     const [currentIndex, setCurrentIndex] = useState(0)
@@ -56,12 +63,22 @@ export default function Reviews() {
     return (
         <div id={style.reviews} ref={ref}>
             <h2>
-                Hear first hand from our{" "}
-                <span className="underline">customers</span>, what they thought
-                about our services.
+                Hear first-hand from our{" "}
+                <span className="underline">customers</span>, what they have to
+                say about our services
             </h2>
             <div className={style.review}>
-                <p className={style.text}>{reviews[currentIndex].text}</p>
+                <div>
+                    <p className={style.text}>{reviews[currentIndex].text}</p>
+                    {reviews[currentIndex].designation ? (
+                        <>
+                            <br />
+                            <p className={style.designation}>
+                                {reviews[currentIndex].designation}
+                            </p>
+                        </>
+                    ) : null}
+                </div>
                 <div className={style.reviewer}>
                     <div className={style.profile}>
                         <Image
