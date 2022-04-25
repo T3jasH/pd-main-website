@@ -17,7 +17,7 @@ import { useMediaQuery } from "react-responsive"
 
 // import Whatsapp from "../components/Whatsapp"
 
-export default function Home() {
+export default function Home({ toggleNav }) {
     const { ref, inView } = useInView({
         rootMargin: "-5% 0%",
     })
@@ -68,7 +68,13 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} toggleNav={(state) => setOpen(state)} />
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setOpen(state)
+                    toggleNav(state)
+                }}
+            />
 
             {!isOpen ? (
                 <main className={style.main}>

@@ -3,19 +3,26 @@ import Router from "next/router"
 import { useEffect, useState } from "react"
 import Loading from "../components/Loading"
 import CommonFooter from "../components/CommonFooter"
+import is from "sharp/lib/is"
 
 function MyApp({ Component, pageProps }) {
     const [isLoading, setLoading] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
     useEffect(() => {
-        Router.events.on("routeChangeStart", () => setLoading(true))
+        Router.events.on("routeChangeStart", () => {
+            setLoading(true)
+            setIsOpen(false)
+        })
         Router.events.on("routeChangeComplete", () => setLoading(false))
     }, [])
+    const toggleNav = (state) => setIsOpen(state)
+    pageProps.toggleNav = toggleNav
     return isLoading ? (
         <Loading />
     ) : (
         <>
             <Component {...pageProps} />
-            <CommonFooter />
+            {isOpen ? null : <CommonFooter />}
         </>
     )
 }
@@ -60,13 +67,13 @@ education image center align - done
 financial and banking at top in dropdown - done
 cloud.services headings bigger - done
 our cloud management portfolio heading grammar - done
-identity access management images fixing (size and color of one image)
-highlights of automation points fix
+identity access management images fixing (size and color of one image) - kinda done
+highlights of automation points fix 
 products - new images for iventura and pdCloudex
 resources -> media -> add links on titles, and images - done
-downloadable brochures
+downloadable brochures - done
 Review openshift captain
-events dropdown width increase
+events dropdown width increase - done
 dedicated contact us page like on current website
-email id to which details should get sent in contact us form
+email id to which details should get sent in contact us form - done
 */

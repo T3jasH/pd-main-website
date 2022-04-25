@@ -12,9 +12,10 @@ import arrow from "../../assets/arrowWhite.svg"
 import styles from "../../styles/industries.module.scss"
 import useActiveLink from "../../hooks/useActiveLink"
 
-export default function Telecom() {
+export default function Telecom({ toggleNav }) {
     const navRef = useRef(null)
     const [activeBtn, setActive] = useState("ai")
+    const [isOpen, setIsOpen] = useState(false)
     const list = [
         {
             btn: "ai",
@@ -50,7 +51,7 @@ export default function Telecom() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
-    useActiveLink("industries-btn", "a:nth-child(3)")
+    useActiveLink("industries-btn", "a:nth-child(3)", isOpen)
     return (
         <React.Fragment>
             <Head>
@@ -61,81 +62,95 @@ export default function Telecom() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} />
-            <div className={styles.industries}>
-                <div className={styles["industries-img"]}>
-                    <Image
-                        alt="Telecom"
-                        layout="fill"
-                        objectFit="fill"
-                        src={telecom}
-                    />
-                    <div className={`nav-info ${styles["nav-info"]}`}>
-                        <p>Industries</p>
-                        <div className={`arrow ${styles.arrow}`}>
-                            <Image
-                                alt="arrow"
-                                layout="responsive"
-                                objectFit="fill"
-                                src={arrow}
-                            />
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setIsOpen(state)
+                    toggleNav(state)
+                }}
+            />
+            {!isOpen ? (
+                <div className={styles.industries}>
+                    <div className={styles["industries-img"]}>
+                        <Image
+                            alt="Telecom"
+                            layout="fill"
+                            objectFit="fill"
+                            src={telecom}
+                        />
+                        <div className={`nav-info ${styles["nav-info"]}`}>
+                            <p>Industries</p>
+                            <div className={`arrow ${styles.arrow}`}>
+                                <Image
+                                    alt="arrow"
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={arrow}
+                                />
+                            </div>
+                            <h1>Telecom</h1>
                         </div>
-                        <h1>Telecom</h1>
-                    </div>
-                    <h2>
-                        Bringing the next wave of digital transformation to
-                        enhance communication.
-                    </h2>
-                    <p>
-                        The telecom industry needs to revolutionize as digital
-                        disruption is transforming the business paradigm. We
-                        offer solutions crafted to help the telecom providers to
-                        improve efficiency, provide better solutions to
-                        customers everywhere, and to adapt to the rapid changing
-                        technologies.
-                    </p>
-                </div>
-                <div
-                    className={`${styles["edu-container"]} ${styles["tele-container"]}`}
-                >
-                    <div className={styles.left}>
-                        <h3>THINGS WE DO</h3>
-                        {list.map((item, i) => (
-                            <button
-                                key={i}
-                                className={`${
-                                    activeBtn === item.btn ? styles.blue : ""
-                                }`}
-                                onClick={() => setActive(item.btn)}
-                            >
-                                {item.name}
-                            </button>
-                        ))}
-                    </div>
-                    <div className={styles.right}>
-                        <h3>
-                            {list.find((item) => item.btn === activeBtn).name}
-                        </h3>
-                        <div className={styles["tele-img"]}>
-                            <Image
-                                alt="graphic"
-                                layout="responsive"
-                                objectFit="fill"
-                                src={
-                                    list.find((item) => item.btn === activeBtn)
-                                        .img
-                                }
-                            />
-                        </div>
+                        <h2>
+                            Bringing the next wave of digital transformation to
+                            enhance communication.
+                        </h2>
                         <p>
-                            {
-                                list.find((item) => item.btn === activeBtn)
-                                    .description
-                            }
+                            The telecom industry needs to revolutionize as
+                            digital disruption is transforming the business
+                            paradigm. We offer solutions crafted to help the
+                            telecom providers to improve efficiency, provide
+                            better solutions to customers everywhere, and to
+                            adapt to the rapid changing technologies.
                         </p>
                     </div>
+                    <div
+                        className={`${styles["edu-container"]} ${styles["tele-container"]}`}
+                    >
+                        <div className={styles.left}>
+                            <h3>THINGS WE DO</h3>
+                            {list.map((item, i) => (
+                                <button
+                                    key={i}
+                                    className={`${
+                                        activeBtn === item.btn
+                                            ? styles.blue
+                                            : ""
+                                    }`}
+                                    onClick={() => setActive(item.btn)}
+                                >
+                                    {item.name}
+                                </button>
+                            ))}
+                        </div>
+                        <div className={styles.right}>
+                            <h3>
+                                {
+                                    list.find((item) => item.btn === activeBtn)
+                                        .name
+                                }
+                            </h3>
+                            <div className={styles["tele-img"]}>
+                                <Image
+                                    alt="graphic"
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={
+                                        list.find(
+                                            (item) => item.btn === activeBtn
+                                        ).img
+                                    }
+                                />
+                            </div>
+                            <p>
+                                {
+                                    list.find((item) => item.btn === activeBtn)
+                                        .description
+                                }
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            ) : null}
         </React.Fragment>
     )
 }

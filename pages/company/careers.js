@@ -39,7 +39,7 @@ export async function getStaticProps(context) {
     }
 }
 
-export default function Careers({ jobs }) {
+export default function Careers({ jobs, toggleNav }) {
     const navRef = useRef(null)
     const [locations, setLocations] = useState([])
     const [jobTypes, setJobTypes] = useState([])
@@ -55,7 +55,7 @@ export default function Careers({ jobs }) {
         navRef,
         "company-careers-btn"
     )
-    useActiveLink("company-btn", "a:nth-child(2)")
+    useActiveLink("company-btn", "a:nth-child(2)", isOpen)
 
     useEffect(() => {
         const updatedJobTypes = []
@@ -92,7 +92,13 @@ export default function Careers({ jobs }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} toggleNav={(state) => setOpen(state)} />
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setOpen(state)
+                    toggleNav(state)
+                }}
+            />
             {!isOpen ? (
                 <div className={styles["company-careers"]}>
                     <NavPath

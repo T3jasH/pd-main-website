@@ -21,7 +21,7 @@ import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
 import useActiveLink from "../../hooks/useActiveLink"
 
-export default function About() {
+export default function About({ toggleNav }) {
     const navRef = useRef(null)
     const { ref, inView } = useInView({
         rootMargin: "-50% 0%",
@@ -89,7 +89,7 @@ export default function About() {
         "--bgColor: #1b1b1b; --textColor: #fff;",
         navRef
     )
-    useActiveLink("company-btn", "a:nth-child(1)")
+    useActiveLink("company-btn", "a:nth-child(1)", isOpen)
     useEffect(() => {
         const nav = document.querySelector(`.${navstyles.nav}`)
         const navMobile = document.querySelector(`.${styleMobile["nav"]}`)
@@ -124,7 +124,13 @@ export default function About() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} toggleNav={(state) => setOpen(state)} />
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setOpen(state)
+                    toggleNav(state)
+                }}
+            />
             {!isOpen ? (
                 <div className={styles["about-company"]}>
                     <NavPath

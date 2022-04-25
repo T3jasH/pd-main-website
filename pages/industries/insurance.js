@@ -9,7 +9,7 @@ import insurance from "../../assets/insurance.png"
 import insurance2 from "../../assets/insurance2.png"
 import styles from "../../styles/industries.module.scss"
 
-export default function Telecom() {
+export default function Telecom({ toggleNav }) {
     const navRef = useRef(null)
     const [activeBtn, setActive] = useState("digital")
     useNavTheme(
@@ -17,7 +17,8 @@ export default function Telecom() {
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
-    useActiveLink("industries-btn", "a:nth-child(3)")
+    useActiveLink("industries-btn", "a:nth-child(3)", isOpen)
+    const [isOpen, setIsOpen] = useState(false)
     const list = [
         {
             btn: "digital",
@@ -58,7 +59,13 @@ export default function Telecom() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} />
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setIsOpen(state)
+                    toggleNav(state)
+                }}
+            />
             <div className={styles.industries}>
                 <div className={styles["industries-img"]}>
                     <Image

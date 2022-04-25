@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import style from "../styles/contact.module.scss"
 import styleMobile from "../styles/navMobile.module.scss"
-import navStyles from "../styles/navbar.module.scss"
+import emailjs from "emailjs-com"
 
 export default function Contact() {
     const { ref, inView } = useInView({
@@ -54,6 +54,15 @@ export default function Contact() {
     }, [inView])
     const submit = (e) => {
         e.preventDefault()
+        emailjs
+            .sendForm(
+                process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
+                process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
+                e.target,
+                process.env.NEXT_PUBLIC_EMAIL_USER_ID
+            )
+            .then((result) => console.log(result.text))
+            .catch((err) => console.log(err.text))
     }
 
     return (
@@ -72,41 +81,51 @@ export default function Contact() {
                     <div className={style["form-row"]}>
                         <input
                             type="text"
-                            placeholder="First Name"
-                            aria-label={"First Name"}
+                            placeholder="Name"
+                            aria-label={"Name"}
+                            name="sender"
                         />
-                        <input
-                            type="text"
-                            placeholder="Last Name"
-                            aria-label={"Last Name"}
-                        />
-                    </div>
-                    <div className={style["form-row"]}>
                         <input
                             type="text"
                             placeholder="Email"
                             aria-label={"Email"}
-                        />
-                        <input
-                            type="text"
-                            placeholder="Phone"
-                            aria-label={"Phone"}
+                            name="emailId"
                         />
                     </div>
                     <div className={style["form-row"]}>
                         <input
                             type="text"
+                            placeholder="Phone"
+                            aria-label={"Phone"}
+                            name="phoneNo"
+                        />
+                        <input
+                            type="text"
                             placeholder="Company"
                             aria-label={"Company"}
+                            name="company"
+                        />
+                    </div>
+                    <div className={style["form-row"]}>
+                        <input
+                            type="text"
+                            placeholder="Designation"
+                            aria-label={"Designation"}
+                            name="designation"
                         />
                         <input
                             type="text"
                             placeholder="Subject"
                             aria-label={"Subject"}
+                            name="subject"
                         />
                     </div>
                     <div className={style["form-row"]}>
-                        <textarea aria-label="Message" placeholder="Message" />
+                        <textarea
+                            aria-label="Message"
+                            placeholder="Message"
+                            name="message"
+                        />
                     </div>
                     <div className={style["form-row"]}>
                         <input type="submit" value="Submit" />
