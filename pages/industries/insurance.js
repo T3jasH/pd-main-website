@@ -12,13 +12,13 @@ import styles from "../../styles/industries.module.scss"
 export default function Telecom({ toggleNav }) {
     const navRef = useRef(null)
     const [activeBtn, setActive] = useState("digital")
+    const [isOpen, setIsOpen] = useState(false)
     useNavTheme(
         "#industries-btn",
         "--bgColor: transparent; --textColor: #f4f4f4; --boxShadow: none; position: absolute;",
         navRef
     )
     useActiveLink("industries-btn", "a:nth-child(3)", isOpen)
-    const [isOpen, setIsOpen] = useState(false)
     const list = [
         {
             btn: "digital",
@@ -66,75 +66,80 @@ export default function Telecom({ toggleNav }) {
                     toggleNav(state)
                 }}
             />
-            <div className={styles.industries}>
-                <div className={styles["industries-img"]}>
-                    <Image
-                        alt="Insurance"
-                        layout="fill"
-                        objectFit="fill"
-                        src={insurance}
-                    />
-                    <div className={`nav-info ${styles["nav-info"]}`}>
-                        <p>Industries</p>
-                        <div className={`arrow ${styles.arrow}`}>
-                            <Image
-                                alt="arrow"
-                                layout="responsive"
-                                objectFit="fill"
-                                src={arrow}
-                            />
+            {!isOpen ? (
+                <div className={styles.industries}>
+                    <div className={styles["industries-img"]}>
+                        <Image
+                            alt="Insurance"
+                            layout="fill"
+                            objectFit="fill"
+                            src={insurance}
+                        />
+                        <div className={`nav-info ${styles["nav-info"]}`}>
+                            <p>Industries</p>
+                            <div className={`arrow ${styles.arrow}`}>
+                                <Image
+                                    alt="arrow"
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={arrow}
+                                />
+                            </div>
+                            <h1>Insurance</h1>
                         </div>
-                        <h1>Insurance</h1>
+                        <h2>Rethinking And Innovating Insurance.</h2>
+                        <p>
+                            For insurance companies finding and building
+                            customer relationships and managing risks are key to
+                            creating a growing, profitable business. We with our
+                            extensive use of our ML techniques can bring out the
+                            best of the statistics and infrastructure for you.
+                            Our next generation architecture and software make
+                            sure that you have the best of the digital
+                            transformation from your traditional business
+                            processes.
+                        </p>
                     </div>
-                    <h2>Rethinking And Innovating Insurance.</h2>
-                    <p>
-                        For insurance companies finding and building customer
-                        relationships and managing risks are key to creating a
-                        growing, profitable business. We with our extensive use
-                        of our ML techniques can bring out the best of the
-                        statistics and infrastructure for you. Our next
-                        generation architecture and software make sure that you
-                        have the best of the digital transformation from your
-                        traditional business processes.
-                    </p>
+                    <div
+                        className={`${styles["edu-container"]} ${styles["tele-container"]}`}
+                    >
+                        <div className={styles.left}>
+                            <h3>THINGS WE DO</h3>
+                            {list.map((item, i) => (
+                                <button
+                                    key={i}
+                                    className={`${
+                                        activeBtn === item.btn
+                                            ? styles.blue
+                                            : ""
+                                    }`}
+                                    onClick={() => setActive(item.btn)}
+                                >
+                                    {item.name}
+                                </button>
+                            ))}
+                        </div>
+                        <div className={styles.right}>
+                            {[list.find((item) => item.btn === activeBtn)].map(
+                                (item, i) => (
+                                    <React.Fragment key={i}>
+                                        <h3>{item.name}</h3>
+                                        <div className={styles["tele-img"]}>
+                                            <Image
+                                                alt={item.name}
+                                                layout="responsive"
+                                                objectFit="fill"
+                                                src={item.img}
+                                            />
+                                        </div>
+                                        <p>{item.description}</p>
+                                    </React.Fragment>
+                                )
+                            )}
+                        </div>
+                    </div>
                 </div>
-                <div
-                    className={`${styles["edu-container"]} ${styles["tele-container"]}`}
-                >
-                    <div className={styles.left}>
-                        <h3>THINGS WE DO</h3>
-                        {list.map((item, i) => (
-                            <button
-                                key={i}
-                                className={`${
-                                    activeBtn === item.btn ? styles.blue : ""
-                                }`}
-                                onClick={() => setActive(item.btn)}
-                            >
-                                {item.name}
-                            </button>
-                        ))}
-                    </div>
-                    <div className={styles.right}>
-                        {[list.find((item) => item.btn === activeBtn)].map(
-                            (item, i) => (
-                                <React.Fragment key={i}>
-                                    <h3>{item.name}</h3>
-                                    <div className={styles["tele-img"]}>
-                                        <Image
-                                            alt={item.name}
-                                            layout="responsive"
-                                            objectFit="fill"
-                                            src={item.img}
-                                        />
-                                    </div>
-                                    <p>{item.description}</p>
-                                </React.Fragment>
-                            )
-                        )}
-                    </div>
-                </div>
-            </div>
+            ) : null}
         </React.Fragment>
     )
 }

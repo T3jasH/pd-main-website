@@ -70,9 +70,9 @@ export default function WhyPD() {
                     </div>
                     <h2>Bespoke Solutions</h2>
                     <p>
-                        Great track record in digital transformation with
-                        successful executions in Citibank, Singapore, ANZ &
-                        Exide Life
+                        Cutting edge solutions leveraging the latest tech
+                        implemented to serve complex requirements for various
+                        F500 clients.
                     </p>
                 </div>
                 <div className={style.card}>

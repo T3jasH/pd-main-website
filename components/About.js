@@ -1,23 +1,27 @@
 import Image from "next/image"
-import aboutRightImage from "../assets/aboutRightImage.png"
+import aboutRightImage from "../assets/aboutRightImage.svg"
 import tiles from "../assets/tiles.png"
+import tilesTopRight from "../assets/tilesTopRight.png"
 import { useInView } from "react-intersection-observer"
 import { Fragment, useEffect } from "react"
 import style from "../styles/about.module.scss"
+import navStyle from "../styles/navbar.module.scss"
 import styleMobile from "../styles/navMobile.module.scss"
 import { useMediaQuery } from "react-responsive"
 
 const About = () => {
     const { ref, inView } = useInView({
-        rootMargin: "-45% 0%",
+        rootMargin: "-10% 0%",
     })
     const isPhone = useMediaQuery({
         query: "(max-device-width: 650px)",
     })
     useEffect(() => {
-        const nav = document.querySelector(`.${style.nav}`)
+        const nav = document.querySelector(`.${navStyle.nav}`)
         const navMobile = document.querySelector(`.${styleMobile.nav}`)
+        console.log(inView)
         if (inView) {
+            console.log(`.${style.nav}`)
             if (nav) {
                 nav.setAttribute(
                     "style",
@@ -81,10 +85,18 @@ const About = () => {
                         )}
                     </div>
                     <div className={style.right}>
+                        <div className={style["tiles-top-right"]}>
+                            <Image
+                                alt="graphic"
+                                layout="responsive"
+                                objectFit="contain"
+                                src={tilesTopRight}
+                            />
+                        </div>
                         <div className={style.rightImage}>
                             <Image
                                 alt="graphic"
-                                layout="fill"
+                                layout="responsive"
                                 objectFit="contain"
                                 src={aboutRightImage}
                             />

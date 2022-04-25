@@ -55,15 +55,27 @@
         .right {
             position: relative;
             width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
             .rightImage {
-                width: 90%;
-                height: 80vh;
+                width: 75%;
+                height: 16rem;
+                transform: translateY(-1rem);
                 @media screen and (max-width: 1000px) {
                     height: 60vh;
                 }
                 @media screen and (max-width: 750px) {
                     height: 50vh;
                 }
+            }
+            .tiles-top-right {
+                position: absolute;
+                top: 0em;
+                right: 2em;
+                height: 10em;
+                width: 10em;
             }
         }
         @media screen and (max-width: 650px) {

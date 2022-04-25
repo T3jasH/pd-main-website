@@ -12,11 +12,11 @@ import useActiveLink from "../../hooks/useActiveLink"
 export default function Automation({ toggleNav }) {
     const automationPoints = [
         {
-            title: "idk",
+            title: "Automation using ML",
             text: "Combining Machine Learning and Rule Engine, an Automation that can predict, classify, heal and run. Customizable service that can be implemented on Customer AWS account for added security End-to-end life cycle control across all regions and any number of AWS accounts at any scale.",
         },
         {
-            title: "idk",
+            title: "Industry Standard Practices",
             text: "Reduced network operations by addressing holes and automating repetitive tasks. Cloud management through industry standard best practices in AWS infrastructure maintenance. Continuous safety and tracking through intelligent automated / semi-automated daemons. Compliance and governance through industry-specific standards and technology policies",
         },
     ]
@@ -89,14 +89,17 @@ export default function Automation({ toggleNav }) {
                             />
                         </div>
                     </div>
-                    <div className={styles["inner"]}>
+                    <div className={styles["automation-highlights"]}>
                         <h3>Highlights of the Automation Platform</h3>
-                        {automationPoints.map((item, ix) => (
-                            <div className={styles["item"]} key={ix}>
-                                <h3>{item.title}</h3>
-                                <p>{item.text}</p>
-                            </div>
-                        ))}
+
+                        <div className={styles["inner"]}>
+                            {automationPoints.map((item, ix) => (
+                                <div className={styles["item"]} key={ix}>
+                                    <h3>{item.title}</h3>
+                                    <p>{item.text}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                     <div className={styles["ansible-automation"]}>
                         <div className={styles.left}>

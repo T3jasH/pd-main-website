@@ -149,7 +149,7 @@
         }
     }
     .monitoring-container-1,
-    .cloud {
+    .automation-highlights {
         .inner {
             display: flex;
             justify-content: center;
@@ -203,6 +203,27 @@
         }
         .monitoring-inner {
             gap: 3em;
+        }
+    }
+    .automation-highlights {
+        .inner {
+            .item {
+                height: 12rem;
+                @media screen and (max-width: 1200px) {
+                    height: 14.5rem;
+                }
+                @media screen and (max-width: 850px) {
+                    height: 15.5rem;
+                }
+                @media screen and (max-width: 700px) {
+                    height: auto;
+                    width: 70%;
+                    padding: 1.5em;
+                }
+                @media screen and (max-width: 550px) {
+                    width: calc(95% - 3em);
+                }
+            }
         }
     }
     .automation-points {
