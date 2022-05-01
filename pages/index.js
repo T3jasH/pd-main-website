@@ -17,7 +17,7 @@ import { useMediaQuery } from "react-responsive"
 
 // import Whatsapp from "../components/Whatsapp"
 
-export default function Home() {
+export default function Home({ toggleNav }) {
     const { ref, inView } = useInView({
         rootMargin: "-5% 0%",
     })
@@ -26,6 +26,7 @@ export default function Home() {
         query: "(max-device-width: 600px)",
     })
     const [isOpen, setOpen] = useState(false)
+    const [theme, setTheme] = useState("dark")
     useEffect(() => {
         const nav = document.querySelector("nav")
         const navMobile = document.querySelector(`.${styleMobile["nav"]}`)
@@ -48,6 +49,7 @@ export default function Home() {
                     "color: var(--focusTextColor); font-weight: 600;"
                 )
             }
+            setTheme("dark")
         } else {
             const btn = document.querySelector("#home-btn > a")
             if (btn) {
@@ -58,6 +60,14 @@ export default function Home() {
             }
         }
     }, [inView])
+    useEffect(() => {
+        document
+            .querySelector(":root")
+            .style.setProperty(
+                "background",
+                "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+            )
+    }, [])
     return (
         <div>
             <Head>
@@ -68,7 +78,14 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} toggleNav={(state) => setOpen(state)} />
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setOpen(state)
+                    toggleNav(state)
+                }}
+                theme={theme}
+            />
 
             {!isOpen ? (
                 <main className={style.main}>
@@ -113,12 +130,12 @@ export default function Home() {
                             ) : null}
                         </div>
                     </div>
-                    <About />
-                    <WhyPD />
-                    <Vision />
-                    <Reviews />
-                    <Clients />
-                    <Contact />
+                    <About setTheme={(propTheme) => setTheme(propTheme)} />
+                    <WhyPD setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Vision setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Reviews setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Clients setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Contact setTheme={(propTheme) => setTheme(propTheme)} />
                 </main>
             ) : null}
         </div>

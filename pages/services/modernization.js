@@ -1,17 +1,24 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useRef } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import useNavTheme from "../../hooks/useNavTheme"
 import Navbar from "../../components/Navbar"
 import NavPath from "../../components/NavPath"
 import modernization from "../../assets/modernization.png"
 import styles from "../../styles/services.module.scss"
+import navMobileStyles from "../../styles/navMobile.module.scss"
 import useActiveLink from "../../hooks/useActiveLink"
 
-export default function Modernization() {
+export default function Modernization({ toggleNav }) {
     const navRef = useRef(null)
+    const [isOpen, setIsOpen] = useState(false)
     useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
-    useActiveLink("services", "a:nth-child(2)")
+    useActiveLink(
+        "services",
+        "a:nth-child(2)",
+        isOpen,
+        "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+    )
     const cards = [
         {
             title: "Accelerated Application Delivery",
@@ -39,6 +46,19 @@ export default function Modernization() {
         "Culture, Technology & Process change permeated Sustain Digital Leadership",
         "Scale Repeatable Process",
     ]
+    useEffect(() => {
+        if (navRef.current) {
+            const navMobile = document.querySelector(
+                `.${navMobileStyles["nav"]}`
+            )
+            if (navMobile) {
+                navMobile.setAttribute(
+                    "style",
+                    "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
+                )
+            }
+        }
+    }, [navRef.current])
     return (
         <React.Fragment>
             <Head>
@@ -51,74 +71,85 @@ export default function Modernization() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} />
-            <div className={styles.modernization}>
-                <NavPath
-                    main={"Services"}
-                    subPath={"Application Modernization"}
-                    theme={"dark"}
-                />
-                <div className={styles["modernization-container"]}>
-                    <div className={styles.text}>
-                        <h2>Make The Right Choice!</h2>
-                        <p>
-                            To reduce costs and improve the RoI, Organizations
-                            all over the world are adopting cloud technologies.
-                            They are also moving legacy applications onto
-                            containers.
-                        </p>{" "}
-                        <p>
-                            {" "}
-                            But how and where do organizations begin this
-                            journey into Container adoption? There is a severe
-                            shortage of skills in this area. Kubernetes and
-                            docker are still evolving. Many of the development
-                            teams do not have the skill base to use them
-                            effectively. There is a steep learning curve for
-                            organizations - to to cut through this landscape to
-                            take applications to production and thereafter, to
-                            maintain them successfully.
-                        </p>{" "}
-                        <p>
-                            {" "}
-                            We at Prodevans, not only bring the expertise -
-                            built on years of tinkering with Open Source
-                            technologies - but also the intent to make you
-                            equipped so that you can call this journey your own.{" "}
-                        </p>
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setIsOpen(state)
+                    toggleNav(state)
+                }}
+                theme={"dark"}
+            />
+            {!isOpen ? (
+                <div className={styles.modernization}>
+                    <NavPath
+                        main={"Services"}
+                        subPath={"Application Modernization"}
+                        theme={"dark"}
+                    />
+                    <div className={styles["modernization-container"]}>
+                        <div className={styles.text}>
+                            <h2>Make The Right Choice!</h2>
+                            <p>
+                                To reduce costs and improve the RoI,
+                                Organizations all over the world are adopting
+                                cloud technologies. They are also moving legacy
+                                applications onto containers.
+                            </p>{" "}
+                            <p>
+                                {" "}
+                                But how and where do organizations begin this
+                                journey into Container adoption? There is a
+                                severe shortage of skills in this area.
+                                Kubernetes and docker are still evolving. Many
+                                of the development teams do not have the skill
+                                base to use them effectively. There is a steep
+                                learning curve for organizations - to to cut
+                                through this landscape to take applications to
+                                production and thereafter, to maintain them
+                                successfully.
+                            </p>{" "}
+                            <p>
+                                {" "}
+                                We at Prodevans, not only bring the expertise -
+                                built on years of tinkering with Open Source
+                                technologies - but also the intent to make you
+                                equipped so that you can call this journey your
+                                own.{" "}
+                            </p>
+                        </div>
+                        <div className={styles["modernization-img"]}>
+                            <Image
+                                alt="Application Modernization"
+                                layout="responsive"
+                                objectFit="fill"
+                                src={modernization}
+                            />
+                        </div>
                     </div>
-                    <div className={styles["modernization-img"]}>
-                        <Image
-                            alt="Application Modernization"
-                            layout="responsive"
-                            objectFit="fill"
-                            src={modernization}
-                        />
+                    <div className={styles["transformation-services"]}>
+                        <h3>Prodevans Application Transformation Services</h3>
+                        <div className={styles.container}>
+                            {cards.map((card) => (
+                                <div
+                                    className={styles["container-item"]}
+                                    key={card.title}
+                                >
+                                    <h3>{card.title}</h3>
+                                    <p>{card.description}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={styles["container-adoption"]}>
+                        <h3>Prodevans Container Adoption Program</h3>
+                        <div className={styles.list}>
+                            {containerAdoptionPoints.map((point, index) => (
+                                <p key={index}>{point}</p>
+                            ))}
+                        </div>
                     </div>
                 </div>
-                <div className={styles["transformation-services"]}>
-                    <h3>Prodevans Application Transformation Services</h3>
-                    <div className={styles.container}>
-                        {cards.map((card) => (
-                            <div
-                                className={styles["container-item"]}
-                                key={card.title}
-                            >
-                                <h3>{card.title}</h3>
-                                <p>{card.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className={styles["container-adoption"]}>
-                    <h3>Prodevans Container Adoption Program</h3>
-                    <div className={styles.list}>
-                        {containerAdoptionPoints.map((point, index) => (
-                            <p key={index}>{point}</p>
-                        ))}
-                    </div>
-                </div>
-            </div>
+            ) : null}
         </React.Fragment>
     )
 }

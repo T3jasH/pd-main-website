@@ -12,6 +12,7 @@ const authenticate = (req, res, next, token) => {
             })
         }
     } catch (err) {
+        console.log(err)
         res.status(401).json({
             success: false,
             msg: "Token expired",
@@ -22,7 +23,10 @@ const authenticate = (req, res, next, token) => {
 export default function isAuthenticated(req, res, next) {
     const bearer = req.headers["authorization"]
     if (!bearer) {
-        const token = req.headers.cookie.replace("auth-token=", "")
+        const cookies = req.headers.cookie
+            .split(" ")
+            .filter((word) => word.includes("auth-token="))
+        const token = cookies[0].replace("auth-token=", "")
         if (!token) {
             return res.status(401).json({
                 success: false,

@@ -6,14 +6,17 @@ import product from "../assets/product.png"
 import productHover from "../assets/productHover.png"
 import useNavTheme from "../hooks/useNavTheme"
 import styles from "../styles/products.module.scss"
+import useActiveLink from "../hooks/useActiveLink"
 
-export default function Products() {
+export default function Products({ toggleNav }) {
     const navRef = useRef(null)
+    const [isOpen, setIsOpen] = useState(false)
     useNavTheme(
         "#products-btn",
         "--bgColor: #1b1b1b; --textColor: #fff;",
         navRef
     )
+    useActiveLink("products-btn", null, isOpen)
     const [products, setProducts] = useState([
         {
             title: "PDCloudEX",
@@ -41,58 +44,74 @@ export default function Products() {
                 <meta name="description" content="" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} />
-            <div className={styles.products}>
-                {products.map((product) => (
-                    <div className={styles.product} key={product.title}>
-                        <a
-                            href={product.href}
-                            target={"_blank"}
-                            rel="noreferrer"
-                            className={styles["product-img"]}
-                            onMouseEnter={() =>
-                                setProducts((prev) =>
-                                    prev.map((prod) => {
-                                        if (prod.title === product.title) {
-                                            return { ...prod, hovering: true }
-                                        }
-                                        return prod
-                                    })
-                                )
-                            }
-                            onMouseLeave={() =>
-                                setProducts((prev) =>
-                                    prev.map((prod) => {
-                                        if (prod.title === product.title) {
-                                            return { ...prod, hovering: false }
-                                        }
-                                        return prod
-                                    })
-                                )
-                            }
-                        >
-                            <Image
-                                alt={product.title}
-                                layout="responsive"
-                                objectFit="fill"
-                                src={
-                                    product.hovering
-                                        ? product.hoverImg
-                                        : product.img
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setIsOpen(state)
+                    toggleNav(state)
+                }}
+            />
+            {!isOpen ? (
+                <div className={styles.products}>
+                    {products.map((product) => (
+                        <div className={styles.product} key={product.title}>
+                            <a
+                                href={product.href}
+                                target={"_blank"}
+                                rel="noreferrer"
+                                className={styles["product-img"]}
+                                onMouseEnter={() =>
+                                    setProducts((prev) =>
+                                        prev.map((prod) => {
+                                            if (prod.title === product.title) {
+                                                return {
+                                                    ...prod,
+                                                    hovering: true,
+                                                }
+                                            }
+                                            return prod
+                                        })
+                                    )
                                 }
-                            />
-                            <p>{product.hoverText}</p>
-                        </a>
-                        <h2
-                            style={{
-                                color: product.hovering ? "#4987d8" : "#fbfbfb",
-                            }}
-                        >
-                            {product.title}
-                        </h2>
-                    </div>
-                ))}
-            </div>
+                                onMouseLeave={() =>
+                                    setProducts((prev) =>
+                                        prev.map((prod) => {
+                                            if (prod.title === product.title) {
+                                                return {
+                                                    ...prod,
+                                                    hovering: false,
+                                                }
+                                            }
+                                            return prod
+                                        })
+                                    )
+                                }
+                            >
+                                <Image
+                                    alt={product.title}
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={
+                                        product.hovering
+                                            ? product.hoverImg
+                                            : product.img
+                                    }
+                                />
+                                <p>{product.hoverText}</p>
+                            </a>
+                            <h2
+                                style={{
+                                    color: product.hovering
+                                        ? "#4987d8"
+                                        : "#fbfbfb",
+                                }}
+                            >
+                                {product.title}
+                            </h2>
+                        </div>
+                    ))}
+                </div>
+            ) : null}
         </React.Fragment>
     )
 }

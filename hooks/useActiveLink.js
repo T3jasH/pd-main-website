@@ -1,14 +1,31 @@
 import { useEffect } from "react"
 import styles from "../styles/navbar.module.scss"
+import { useMediaQuery } from "react-responsive"
+import navMobileStyles from "../styles/navMobile.module.scss"
 
-export default function useActiveLink(id, query) {
+export default function useActiveLink(id, query, isOpen, bgColor = null) {
+    const isPhone = useMediaQuery({
+        query: "(max-device-width: 600px)",
+    })
     useEffect(() => {
         const element = document.getElementById(id)
         if (element) {
-            const link = element.querySelector(query)
-            if (link) {
-                link.classList.add(styles["active-link"])
+            if (query) {
+                const link = element.querySelector(query)
+                if (isPhone) {
+                    link.classList.add(navMobileStyles["active-sublink"])
+                } else {
+                    link.classList.add(styles["active-link"])
+                }
             }
+            element.classList.add(navMobileStyles["active"])
         }
-    })
+    }, [isOpen])
+    useEffect(() => {
+        if (isPhone && bgColor !== null) {
+            document
+                .querySelector(":root")
+                .style.setProperty("background", bgColor)
+        }
+    }, [isPhone])
 }

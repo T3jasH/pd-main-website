@@ -7,7 +7,6 @@ import isAuthenticated from "../../middlewares/isAuthenticated"
 
 const login = async (req, res) => {
     const { username, password } = JSON.parse(req.body)
-    console.log(username, password)
     if (
         username === process.env.PD_USERNAME &&
         password === process.env.PASSWORD

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import logo from "../assets/prodevansLogo.svg"
+import lightThemeLogo from "../assets/logoLightTheme.png"
 import React, { useRef, useEffect, useState } from "react"
 import style from "../styles/navbar.module.scss"
 import { useMediaQuery } from "react-responsive"
@@ -29,12 +30,25 @@ const Navbar = (props, navRef) => {
     }, [isPhone])
 
     if (isMobileNav) {
-        return <NavMobile ref={navRef} toggleNav={props.toggleNav} />
+        return (
+            <NavMobile
+                ref={navRef}
+                toggleNav={props.toggleNav}
+                theme={props.theme}
+            />
+        )
     }
     return (
         <nav ref={navRef} className={style.nav}>
-            <div className={style.logo}>
-                <Image alt="PD Logo" src={logo} />
+            <div
+                className={`${style.logo} ${
+                    props.theme === "light" ? style["logo-light"] : null
+                }`}
+            >
+                <Image
+                    alt="PD Logo"
+                    src={props.theme === "light" ? lightThemeLogo : logo}
+                />
             </div>
             <div id="home-btn" aria-label="Home" className={style["nav-item"]}>
                 <Link href="/">Home</Link>

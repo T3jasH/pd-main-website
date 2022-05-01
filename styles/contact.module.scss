@@ -1,3 +1,4 @@
+@import "./mixins/flex.scss";
 .contact {
     padding: 4em 0 2em 4.5em;
     position: relative;
@@ -8,6 +9,7 @@
         #1b1b1b 75.01%
     );
     display: flex;
+    flex-wrap: wrap;
     @media screen and (max-width: 600px) {
         padding: 4em 0 2em 2em;
     }
@@ -105,6 +107,62 @@
                         margin: 0 auto;
                     }
                 }
+            }
+        }
+    }
+    .locations {
+        @include flex-column(center, center, 2em);
+        position: relative;
+        margin-top: 1em;
+        width: 100%;
+        z-index: 0;
+        h2 {
+            font-weight: 600;
+            font-family: "Montserrat", sans-serif;
+            background: linear-gradient(#447ab6 100%, #2a4b70 100%);
+            width: max-content;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .map {
+            position: relative;
+            @include flex-row(center, center, 2em);
+            .left {
+                @include flex-column(center, center, 2em);
+                width: 50%;
+                .row {
+                    @include flex-row(flex-start, flex-start, 2em);
+                    .circle {
+                        z-index: 2;
+                        position: relative;
+                        width: 6em;
+                        height: 6em;
+                        border-radius: 50%;
+                        background-color: #efefef;
+                        color: #000;
+                        text-align: center;
+                        @include flex-row(center, center, 0);
+                    }
+                    .top-left {
+                        transform: translateX(-2em) translateY(-2em);
+                    }
+                    .top-right {
+                        transform: translateX(2em) translateY(-2em);
+                    }
+                    .bottom-left {
+                        transform: translateX(-2em) translateY(2em);
+                    }
+                    .bottom-right {
+                        transform: translateX(2em) translateY(2em);
+                    }
+                    .center {
+                        transform: translateY(-12.5em);
+                    }
+                }
+            }
+            .right {
+                width: calc(50% - 2em);
             }
         }
     }

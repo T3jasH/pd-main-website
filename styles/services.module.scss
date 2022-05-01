@@ -147,6 +147,9 @@
             color: #000;
             margin-bottom: 0.75em;
         }
+    }
+    .monitoring-container-1,
+    .automation-highlights {
         .inner {
             display: flex;
             justify-content: center;
@@ -200,6 +203,27 @@
         }
         .monitoring-inner {
             gap: 3em;
+        }
+    }
+    .automation-highlights {
+        .inner {
+            .item {
+                height: 12rem;
+                @media screen and (max-width: 1200px) {
+                    height: 14.5rem;
+                }
+                @media screen and (max-width: 850px) {
+                    height: 15.5rem;
+                }
+                @media screen and (max-width: 700px) {
+                    height: auto;
+                    width: 70%;
+                    padding: 1.5em;
+                }
+                @media screen and (max-width: 550px) {
+                    width: calc(95% - 3em);
+                }
+            }
         }
     }
     .automation-points {
@@ -305,7 +329,10 @@
         }
         .access-management-img {
             flex: 0.28;
+            max-width: 10rem;
+            max-height: 9rem;
         }
+
         @media screen and (max-width: 550px) {
             flex-direction: column;
             align-items: center;
@@ -439,6 +466,15 @@
             .access-management-img {
                 width: 10rem;
                 height: 9rem;
+                animation: fadeIn 1s ease-in;
+            }
+            .sso {
+                width: 8rem;
+                height: 7rem;
+            }
+            .digital {
+                width: 12rem;
+                height: 10.75rem;
             }
         }
         @media screen and (max-width: 600px) {
@@ -479,5 +515,14 @@
                 }
             }
         }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

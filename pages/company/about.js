@@ -10,6 +10,11 @@ import dilip from "../../assets/dilipHublikar.png"
 import gagan from "../../assets/gaganPattanayak.png"
 import santha from "../../assets/santhaKumar.png"
 import sushma from "../../assets/sushmaShriram.png"
+import raj from "../../assets/rajPalDhanjal.jpg"
+import sowmya from "../../assets/sowmyaHM.png"
+import nityananda from "../../assets/nityanandaPanda.jpg"
+import vijay from "../../assets/vijayAgarwal.jpg"
+import shaheen from "../../assets/shaheenMalim.png"
 import linkedin from "../../assets/linkedin.png"
 import gmail from "../../assets/gmail.png"
 import blueSquares from "../../assets/blueSquares.png"
@@ -20,13 +25,36 @@ import styleMobile from "../../styles/navMobile.module.scss"
 import NavPath from "../../components/NavPath"
 import useNavTheme from "../../hooks/useNavTheme"
 import useActiveLink from "../../hooks/useActiveLink"
+import Carousel from "react-multi-carousel"
+import "react-multi-carousel/lib/styles.css"
 
-export default function About() {
+export const getInitialProps = ({ req }) => {
+    let userAgent
+    let deviceType
+    if (req) {
+        userAgent = req.headers["user-agent"]
+    } else {
+        userAgent = navigator.userAgent
+    }
+    const md = new MobileDetect(userAgent)
+    if (md.tablet()) {
+        deviceType = "tablet"
+    } else if (md.mobile()) {
+        deviceType = "mobile"
+    } else {
+        deviceType = "desktop"
+    }
+    return { deviceType }
+}
+
+export default function About({ toggleNav, deviceType }) {
     const navRef = useRef(null)
     const { ref, inView } = useInView({
         rootMargin: "-50% 0%",
     })
     const [isOpen, setOpen] = useState(false)
+    const [theme, setTheme] = useState("light")
+    const [current, setCurrent] = useState("Deepak Mishra")
     const profiles = [
         {
             name: "Deepak Mishra",
@@ -46,6 +74,7 @@ export default function About() {
                 "https://www.linkedin.com/in/arvind-kumar-sinha-685a3812b",
             gmail: "mailto:arvind@prodevans.com",
             src: arvind,
+            smallImg: true,
         },
         {
             name: "S Santha Kumar",
@@ -83,13 +112,80 @@ export default function About() {
             gmail: "mailto:sushma@prodevans.com",
             src: sushma,
         },
+        {
+            name: "Raj Pal Dhanjal",
+            designation: "Head of Project Delivery and Professional Services",
+            content:
+                "RajPal Dhanjal, a senior IT Professional, certified Scrum Master and Prince 2 has more than 4 decades of experience in the IT Industry.  As part of the professional journey he has been into Product Management (Networking Components), Customer Support Operations, Service Delivery,  Program Management, Project Management, Customer Relationship, Principal Handling, BPO Operations.",
+            linkedin: "",
+            gmail: "https://www.linkedin.com/in/rajpaldhanjal",
+            src: raj,
+        },
+        {
+            name: "Sowmya H M",
+            designation: "Head Retail Training and Delivery",
+            content:
+                "Sowmya,  An effective leader with convincing communication, decision making and interpersonal skills in dealing with customers, external organizations and colleagues. A proactive and result oriented professional with over 11 years of experience in Education. Marketing, customer relationship management. She plays a major role in the Red Hat Retail business of prodevans .",
+            linkedin: "https://www.linkedin.com/in/sowmya-hm-01b579174",
+            gmail: "",
+            src: sowmya,
+        },
+        {
+            name: "Nityananda Panda",
+            designation: "Enterprise Sales Manager",
+            content:
+                "Nityananda is an IT Sales Professional with 18 plus years experience with Proven Track Record of  Managing 6 Plus Training Centers and instrumental in delivering training to B2B and B2C on Red Hat Technologies , Presently Promoting Cloud Management, Migration, Managed Services, Staffing along with Professional Services to Corporate Clients.",
+            linkedin: "https://www.linkedin.com/in/nityanandapanda",
+            gmail: "",
+            src: nityananda,
+        },
+        {
+            name: "Vijay Agarwal",
+            designation: "Associate Director West Region Business Head",
+            content:
+                "Vijay Agarwal has joined ODC DC, Cloud Delivery as an Associate Director in Mumbai. He is a Technology Leader with hands-on experience in cloud computing, Kubernetes, and infrastructure automation. He combines technical expertise with a track record of inspiring teams to conceptualize and implement successful solutions.With a solid background in enterprise data protection architectures, operational excellence, vendor management, and lean techniques, He has a keen understanding of market trends and ensures all technical are aligned with corporate goals.He has 15 years of experience in Kubernetes, OpenShift, Storage, Cloud, SRM, Software Defined Storage, Disaster Recovery, and Business Continuity. He identifies, evaluates, and automates storage architectures centered on object, file, and cloud integrated backup and recovery pipelines.He is a former Sr Executive at YesBank, HDFC Bank, and ICICI Bank, which will help us drive BFSI (banking, financial services, and insurance) business at Prodevans Technologies.",
+            linkedin: "",
+            gmail: "",
+            src: vijay,
+        },
+        {
+            name: "Shaheen Malim",
+            designation: "HR and Business Administration",
+            content:
+                "Shaheen Malim, an industry veteran in the Software training industry and BFSI sectors brings core expertise in Centre Management, Operations Management, Customer Service and Marketing. She joins us from ManipalCigna Health Insurance and has various leading assignments with Hamersmit Equipment, ICICI Bank, Countrywide Financial Services, HSBC, Boston Software Technologies and Concourse Information Technology Pvt. Ltd. With a Masters Degree in HRM she will play a pivotal role in bringing the best practices to our Global Learning Solution business unit.",
+            linkedin: "",
+            gmail: "",
+            src: shaheen,
+        },
     ]
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1,
+        },
+    }
     useNavTheme(
         "#company-btn",
         "--bgColor: #1b1b1b; --textColor: #fff;",
         navRef
     )
-    useActiveLink("company-btn", "a:nth-child(1)")
+    useActiveLink(
+        "company-btn",
+        "a:nth-child(1)",
+        isOpen,
+        "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+    )
     useEffect(() => {
         const nav = document.querySelector(`.${navstyles.nav}`)
         const navMobile = document.querySelector(`.${styleMobile["nav"]}`)
@@ -105,15 +201,42 @@ export default function About() {
                     "--bgColor: #1b1b1b; --textColor: #fff;"
                 )
             }
+            setTheme("light")
         } else if (nav) {
             nav.setAttribute("style", "--bgColor: #1b1b1b; --textColor: #fff;")
+            setTheme("dark")
         } else if (navMobile) {
             navMobile.setAttribute(
                 "style",
                 "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
             )
+            setTheme("dark")
         }
     }, [inView])
+    const CustomRightArrow = ({ onClick, ...rest }) => {
+        const {
+            onMove,
+            carouselState: { currentSlide, deviceType },
+        } = rest
+        return (
+            <button
+                className={styles["right-arrow"]}
+                onClick={() => onClick()}
+            />
+        )
+    }
+    const CustomLeftArrow = ({ onClick, ...rest }) => {
+        const {
+            onMove,
+            carouselState: { currentSlide, deviceType },
+        } = rest
+        return (
+            <button
+                className={styles["left-arrow"]}
+                onClick={() => onClick()}
+            />
+        )
+    }
     return (
         <React.Fragment>
             <Head>
@@ -124,7 +247,14 @@ export default function About() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Navbar ref={navRef} toggleNav={(state) => setOpen(state)} />
+            <Navbar
+                ref={navRef}
+                toggleNav={(state) => {
+                    setOpen(state)
+                    toggleNav(state)
+                }}
+                theme={theme}
+            />
             {!isOpen ? (
                 <div className={styles["about-company"]}>
                     <NavPath
@@ -184,56 +314,96 @@ export default function About() {
             {!isOpen ? (
                 <div className={styles.management} ref={ref}>
                     <h2>Management Profiles</h2>
-                    <div className={styles["profile-list"]}>
+                    <Carousel
+                        responsive={responsive}
+                        deviceType={deviceType}
+                        removeArrowOnDeviceType={[]}
+                        centerMode={false}
+                        arrows
+                        draggable
+                        className={styles.profiles}
+                        customRightArrow={<CustomRightArrow />}
+                        customLeftArrow={<CustomLeftArrow />}
+                        infinite
+                        shouldResetAutoplay={false}
+                        additionalTransfrom={0}
+                        keyBoardControl
+                        minimumTouchDrag={80}
+                        renderButtonGroupOutside={true}
+                        swipeable
+                    >
                         {profiles.map((profile) => (
-                            <div key={profile.name} className={styles.profile}>
-                                <div className={styles.left}>
-                                    <div className={styles["profile-img"]}>
-                                        <Image
-                                            alt={profile.name}
-                                            layout="responsive"
-                                            objectFit="fill"
-                                            src={profile.src}
-                                        />
-                                    </div>
-                                    <h3>{profile.name}</h3>
-                                    <p>{profile.designation}</p>
+                            <div
+                                key={profile.name}
+                                className={styles["profile-container"]}
+                            >
+                                <div
+                                    onClick={() => {
+                                        setCurrent(profile.name)
+                                    }}
+                                    className={`${styles["profile-img"]} ${
+                                        profile.smallImg
+                                            ? styles["small-img"]
+                                            : null
+                                    } ${
+                                        current === profile.name
+                                            ? styles.colored
+                                            : null
+                                    }`}
+                                >
+                                    <Image
+                                        alt="squares graphic"
+                                        layout="responsive"
+                                        objectFit="fill"
+                                        src={profile.src}
+                                    />
                                 </div>
-                                <div className={styles.right}>
-                                    <p>{profile.content}</p>
-                                    <div className={styles.socials}>
-                                        <a
-                                            href={profile.linkedin}
-                                            target={"_blank"}
-                                            rel={"noreferrer"}
-                                        >
-                                            <div className={styles.icon}>
-                                                <Image
-                                                    alt={"LinkedIn"}
-                                                    layout="responsive"
-                                                    objectFit="fill"
-                                                    src={linkedin}
-                                                />
-                                            </div>
-                                        </a>
-                                        <a
-                                            href={profile.gmail}
-                                            target={"_blank"}
-                                            rel={"noreferrer"}
-                                        >
-                                            <div className={styles.icon}>
-                                                <Image
-                                                    alt={"Gmail"}
-                                                    layout="responsive"
-                                                    objectFit="fill"
-                                                    src={gmail}
-                                                />
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                <p className={styles.name}>{profile.name}</p>
+                                <p className={styles.designation}>
+                                    {profile.designation}
+                                </p>
                             </div>
                         ))}
+                    </Carousel>
+                    <div className={styles.content}>
+                        {
+                            profiles.find((profile) => profile.name === current)
+                                ?.content
+                        }
+                        <div className={styles.socials}>
+                            <a
+                                href={
+                                    profiles.find(
+                                        (profile) => profile.name === current
+                                    )?.gmail
+                                }
+                                target={"_blank"}
+                                rel={"noreferrer"}
+                            >
+                                <Image
+                                    alt="Gmail"
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={gmail}
+                                />
+                            </a>
+                            <a
+                                href={
+                                    profiles.find(
+                                        (profile) => profile.name === current
+                                    )?.linkedin
+                                }
+                                target={"_blank"}
+                                rel={"noreferrer"}
+                            >
+                                <Image
+                                    alt="LinkedIn"
+                                    layout="responsive"
+                                    objectFit="fill"
+                                    src={linkedin}
+                                />
+                            </a>
+                        </div>
                     </div>
                 </div>
             ) : null}

@@ -8,8 +8,11 @@ import styles from "../styles/company/careers.module.scss"
 import Select from "react-select"
 
 export async function getServerSideProps(ctx) {
-    const cookie = ctx.req.headers.cookie || "auth-token="
-    const token = cookie.replace("auth-token=", "")
+    const cookie =
+        ctx.req.headers.cookie
+            .split(" ")
+            .filter((word) => word.includes("auth-token=")) || "auth-token="
+    const token = cookie[0].replace("auth-token=", "")
     const url = "http://localhost:3000/api/auth"
     try {
         const authResponse = await fetch(url, {
@@ -51,7 +54,7 @@ export async function getServerSideProps(ctx) {
 export default function Admin({ isAuth, jobs }) {
     const jobTypes = [
         { value: "Full Time", label: "Full Time" },
-        { value: "Part Time(consultant)", label: "Part Time(consultant)" },
+        { value: "Part Time(consultant)", label: "Part Time (Consultant)" },
         { value: "Intern", label: "Intern" },
     ]
     const jobLocations = [
