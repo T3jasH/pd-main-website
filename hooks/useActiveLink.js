@@ -3,7 +3,7 @@ import styles from "../styles/navbar.module.scss"
 import { useMediaQuery } from "react-responsive"
 import navMobileStyles from "../styles/navMobile.module.scss"
 
-export default function useActiveLink(id, query, isOpen) {
+export default function useActiveLink(id, query, isOpen, bgColor = null) {
     const isPhone = useMediaQuery({
         query: "(max-device-width: 600px)",
     })
@@ -21,4 +21,11 @@ export default function useActiveLink(id, query, isOpen) {
             element.classList.add(navMobileStyles["active"])
         }
     }, [isOpen])
+    useEffect(() => {
+        if (isPhone && bgColor !== null) {
+            document
+                .querySelector(":root")
+                .style.setProperty("background", bgColor)
+        }
+    }, [isPhone])
 }

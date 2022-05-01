@@ -9,9 +9,9 @@ import navStyle from "../styles/navbar.module.scss"
 import styleMobile from "../styles/navMobile.module.scss"
 import { useMediaQuery } from "react-responsive"
 
-const About = () => {
+const About = ({ setTheme }) => {
     const { ref, inView } = useInView({
-        rootMargin: "-10% 0%",
+        rootMargin: "-20% 0%",
     })
     const isPhone = useMediaQuery({
         query: "(max-device-width: 650px)",
@@ -19,9 +19,8 @@ const About = () => {
     useEffect(() => {
         const nav = document.querySelector(`.${navStyle.nav}`)
         const navMobile = document.querySelector(`.${styleMobile.nav}`)
-        console.log(inView)
         if (inView) {
-            console.log(`.${style.nav}`)
+            setTheme("light")
             if (nav) {
                 nav.setAttribute(
                     "style",

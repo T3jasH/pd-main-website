@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import useNavTheme from "../../hooks/useNavTheme"
 import Navbar from "../../components/Navbar"
 import NavPath from "../../components/NavPath"
@@ -12,6 +12,8 @@ import b2b from "../../assets/b2b.png"
 import multifactorAuth from "../../assets/multifactorAuth.png"
 import styles from "../../styles/services.module.scss"
 import useActiveLink from "../../hooks/useActiveLink"
+// import { preLoad } from "../../clientUtils/preLoad"
+// import { wait } from "../../clientUtils/wait"
 
 export default function Management({ toggleNav }) {
     const navRef = useRef(null)
@@ -25,6 +27,7 @@ export default function Management({ toggleNav }) {
                 "Prodevans customer experience fuels better engagement and drives revenue and loyalty. It is, therefore, essential for your CIAM to deliver convenience, hyper-personalization, and security tightly coupled to revamp your digital customer experience. With Unotech's CIAM solution, allow your consumers to enjoy seamless yet highly secure experiences as they conveniently access your revenue-generating digital products and services. Ensure fully encrypted customer profile and consent-managed data aggregation for privacy-concerned and security-aware consumers to earn their trust and loyalty.",
             btn: "digital",
             img: accessManagement2,
+            className: "digital",
         },
         {
             name: "Single Sign-On",
@@ -32,6 +35,7 @@ export default function Management({ toggleNav }) {
             img: sso,
             description:
                 "Enable one-click consumer access to all your apps and enterprise assets in a highly secured environment - from any location and any device. Leverage secure single sign-on (SSO) to provide seamless access to your modern applications through OIDC, SAML and CAS enabled offerings, and your legacy applications through support for Custom API-based token exchange SSO.",
+            className: "sso",
         },
         {
             name: "Consent Management",
@@ -56,6 +60,16 @@ export default function Management({ toggleNav }) {
         },
     ]
     const [activeBtn, setActive] = useState("digital")
+    // useEffect(() => {
+    //     const load = async () => {
+    //         for (var i = 0; i < list.length; i++) {
+    //             setActive(list[i].btn)
+    //             await wait(100)
+    //         }
+    //         setActive("digital")
+    //     }
+    //     load()
+    // }, [])
     return (
         <React.Fragment>
             <Head>
@@ -136,15 +150,20 @@ export default function Management({ toggleNav }) {
                                     <React.Fragment key={i}>
                                         <p>{item.description}</p>
                                         <div
-                                            className={
+                                            className={`${
                                                 styles["access-management-img"]
-                                            }
+                                            } ${
+                                                item.className
+                                                    ? styles[item.className]
+                                                    : ""
+                                            }`}
                                         >
                                             <Image
                                                 alt={item.name}
                                                 layout="responsive"
                                                 objectFit="fill"
                                                 src={item.img}
+                                                priority={true}
                                             />
                                         </div>
                                     </React.Fragment>

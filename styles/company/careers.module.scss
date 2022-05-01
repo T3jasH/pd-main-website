@@ -186,21 +186,14 @@
                 display: flex;
                 flex-direction: column;
                 gap: 2em;
-                .clock-icon {
-                    width: 1.4rem;
-                    height: 1.4rem;
-                    margin-right: 0.75rem;
-                    transform: translateY(0.25em) translateX(-0.45rem);
-                }
-                .location-icon {
-                    width: 1.4rem;
-                    height: 1.4rem;
-                    transform: translateY(0.25em) translateX(-0.75rem);
-                }
+                .clock-icon,
+                .location-icon,
                 .job-type-icon {
                     width: 1.4rem;
                     height: 1.4rem;
-                    transform: translateY(0.35em) translateX(-0.85rem);
+                    position: absolute;
+                    left: -2em;
+                    top: -0.25em;
                 }
                 div {
                     display: flex;
@@ -241,14 +234,21 @@
                         }
                     }
                     &:nth-child(2) {
-                        justify-content: space-around;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+                        width: 90%;
+                        transform: translateX(2em);
+                        @media screen and (max-width: 650px) {
+                            gap: 1.5em;
+                        }
                         @media screen and (max-width: 350px) {
-                            flex-wrap: wrap;
                             justify-content: space-between;
                             gap: 1.5em;
                         }
                         p {
                             color: #4987d8;
+                            width: 15ch;
+                            position: relative;
                         }
                     }
                     &:nth-child(4) {

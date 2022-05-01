@@ -1,18 +1,24 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useRef, useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 import useNavTheme from "../../hooks/useNavTheme"
 import Navbar from "../../components/Navbar"
 import NavPath from "../../components/NavPath"
 import modernization from "../../assets/modernization.png"
 import styles from "../../styles/services.module.scss"
+import navMobileStyles from "../../styles/navMobile.module.scss"
 import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Modernization({ toggleNav }) {
     const navRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
     useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
-    useActiveLink("services", "a:nth-child(2)", isOpen)
+    useActiveLink(
+        "services",
+        "a:nth-child(2)",
+        isOpen,
+        "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+    )
     const cards = [
         {
             title: "Accelerated Application Delivery",
@@ -40,6 +46,19 @@ export default function Modernization({ toggleNav }) {
         "Culture, Technology & Process change permeated Sustain Digital Leadership",
         "Scale Repeatable Process",
     ]
+    useEffect(() => {
+        if (navRef.current) {
+            const navMobile = document.querySelector(
+                `.${navMobileStyles["nav"]}`
+            )
+            if (navMobile) {
+                navMobile.setAttribute(
+                    "style",
+                    "--bgColor: #f4f4f4; --textColor: #0a0a0a;"
+                )
+            }
+        }
+    }, [navRef.current])
     return (
         <React.Fragment>
             <Head>
@@ -58,6 +77,7 @@ export default function Modernization({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"dark"}
             />
             {!isOpen ? (
                 <div className={styles.modernization}>

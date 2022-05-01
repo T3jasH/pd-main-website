@@ -20,7 +20,7 @@ export default function Cloud({ toggleNav }) {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
-    useActiveLink("services", "a:nth-child(1)", isOpen)
+    useActiveLink("services", "a:nth-child(1)", isOpen, "#fbfbfb")
     const serviceFeatures = [
         {
             img: cloudAdvisory,
@@ -59,6 +59,7 @@ export default function Cloud({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"light"}
             />
             {!isOpen ? (
                 <div className={styles.cloud}>

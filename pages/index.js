@@ -26,6 +26,7 @@ export default function Home({ toggleNav }) {
         query: "(max-device-width: 600px)",
     })
     const [isOpen, setOpen] = useState(false)
+    const [theme, setTheme] = useState("dark")
     useEffect(() => {
         const nav = document.querySelector("nav")
         const navMobile = document.querySelector(`.${styleMobile["nav"]}`)
@@ -48,6 +49,7 @@ export default function Home({ toggleNav }) {
                     "color: var(--focusTextColor); font-weight: 600;"
                 )
             }
+            setTheme("dark")
         } else {
             const btn = document.querySelector("#home-btn > a")
             if (btn) {
@@ -58,6 +60,14 @@ export default function Home({ toggleNav }) {
             }
         }
     }, [inView])
+    useEffect(() => {
+        document
+            .querySelector(":root")
+            .style.setProperty(
+                "background",
+                "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+            )
+    }, [])
     return (
         <div>
             <Head>
@@ -74,6 +84,7 @@ export default function Home({ toggleNav }) {
                     setOpen(state)
                     toggleNav(state)
                 }}
+                theme={theme}
             />
 
             {!isOpen ? (
@@ -119,12 +130,12 @@ export default function Home({ toggleNav }) {
                             ) : null}
                         </div>
                     </div>
-                    <About />
-                    <WhyPD />
-                    <Vision />
-                    <Reviews />
-                    <Clients />
-                    <Contact />
+                    <About setTheme={(propTheme) => setTheme(propTheme)} />
+                    <WhyPD setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Vision setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Reviews setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Clients setTheme={(propTheme) => setTheme(propTheme)} />
+                    <Contact setTheme={(propTheme) => setTheme(propTheme)} />
                 </main>
             ) : null}
         </div>

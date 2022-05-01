@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import style from "../styles/navMobile.module.scss"
 import logo from "../assets/prodevansLogo.svg"
+import logoLightTheme from "../assets/logoLightTheme.png"
 import Image from "next/image"
 import Link from "next/link"
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
@@ -59,9 +60,20 @@ const NavMobile = (props, navRef) => {
                     <button
                         className={style["nav"]}
                         onClick={() => setOpen(!isOpen)}
+                        ref={navRef}
                     ></button>
-                    <div className={style.logo}>
-                        <Image alt="PD Logo" src={logo} />
+                    <div
+                        className={`${style.logo} ${
+                            props.theme === "light" ? style["logo-light"] : null
+                        }`}
+                    >
+                        <Image
+                            priority={true}
+                            alt="PD Logo"
+                            src={
+                                props.theme === "light" ? logoLightTheme : logo
+                            }
+                        />
                     </div>
                 </>
             ) : (

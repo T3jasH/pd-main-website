@@ -16,7 +16,7 @@ export default function Monitoring({ toggleNav }) {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
-    useActiveLink("services", "a:nth-child(3)", isOpen)
+    useActiveLink("services", "a:nth-child(3)", isOpen, "#fbfbfb")
     const whatWeDo = [
         {
             title: "Server Monitoring",
@@ -99,6 +99,7 @@ export default function Monitoring({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"light"}
             />
             {!isOpen ? (
                 <div className={styles.cloud}>

@@ -1,13 +1,14 @@
-import { useEffect } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import style from "../styles/contact.module.scss"
 import styleMobile from "../styles/navMobile.module.scss"
 import emailjs from "emailjs-com"
 
-export default function Contact() {
+export default function Contact({ setTheme }) {
     const { ref, inView } = useInView({
         rootMargin: "-25% 0%",
     })
+    const [message, setMessage] = useState({ content: "", className: "" })
 
     useEffect(() => {
         const nav = document.querySelector("nav")
@@ -31,6 +32,7 @@ export default function Contact() {
                     "color: var(--focusTextColor); font-weight: 600;"
                 )
             }
+            setTheme("dark")
         } else {
             if (nav) {
                 nav.setAttribute(
@@ -50,10 +52,20 @@ export default function Contact() {
                     "color: var(--textColor); font-weight: 400;"
                 )
             }
+            setTheme("light")
         }
     }, [inView])
+    const validate = (msg) => {
+        console.log(msg, masg.name, msg.designation, msg.email, msg.message)
+        throw new Error("Error")
+    }
     const submit = (e) => {
         e.preventDefault()
+        try {
+            validate(e.target)
+        } catch (err) {
+            setMessage({ content: err.message, className: "error" })
+        }
         emailjs
             .sendForm(
                 process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
@@ -61,8 +73,22 @@ export default function Contact() {
                 e.target,
                 process.env.NEXT_PUBLIC_EMAIL_USER_ID
             )
-            .then((result) => console.log(result.text))
-            .catch((err) => console.log(err.text))
+            .then((result) => {
+                setMessage({
+                    content: "Message sent successfully",
+                    className: "success",
+                })
+                setTimeout(() => {
+                    setMessage({ content: "", className: "" })
+                }, 3000)
+            })
+            .catch((err) => {
+                console.log(err.text)
+                setMessage({
+                    content: "Message could not be sent",
+                    className: "error",
+                })
+            })
     }
 
     return (
@@ -131,6 +157,48 @@ export default function Contact() {
                         <input type="submit" value="Submit" />
                     </div>
                 </form>
+                <p className={style[`${message.className}`]}>
+                    {message.content}
+                </p>
+            </div>
+            <div className={style.locations}>
+                <h2>Find us at</h2>
+                <div className={style.map}>
+                    <div className={style.left}>
+                        <div className={style.row}>
+                            <div
+                                className={`${style.circle} ${style["top-left"]}`}
+                            >
+                                Bengaluru, India
+                            </div>
+                            <div
+                                className={`${style.circle} ${style["top-right"]}`}
+                            >
+                                Bengaluru, India
+                            </div>
+                        </div>
+                        <div className={style.row}>
+                            <div
+                                className={`${style.circle} ${style["bottom-left"]}`}
+                            >
+                                Hyderabad, India
+                            </div>
+                            <div
+                                className={`${style.circle} ${style["bottom-right"]}`}
+                            >
+                                Bukit Merah, Singapore
+                            </div>
+                        </div>
+                        <div className={style.row}>
+                            <div
+                                className={`${style.circle} ${style["center"]}`}
+                            >
+                                Okemos, USA
+                            </div>
+                        </div>
+                    </div>
+                    <div className={style.right}></div>
+                </div>
             </div>
         </div>
     )

@@ -1,12 +1,13 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import Navbar from "../../components/Navbar"
 import arrow from "../../assets/arrowWhite.svg"
 import useNavTheme from "../../hooks/useNavTheme"
 import healthcare from "../../assets/healthcare.png"
 import financial2 from "../../assets/financial2.png"
 import styles from "../../styles/industries.module.scss"
+import navMobileStyles from "../../styles/navMobile.module.scss"
 import useActiveLink from "../../hooks/useActiveLink"
 
 export default function Healthcare({ toggleNav }) {
@@ -18,6 +19,17 @@ export default function Healthcare({ toggleNav }) {
         navRef
     )
     useActiveLink("industries-btn", "a:nth-child(1)", isOpen)
+    useEffect(() => {
+        const navLogo = document.querySelector(`.${navMobileStyles.logo}`)
+        if (navLogo) {
+            navLogo.setAttribute("style", "right:2.5rem; left: initial;")
+        }
+        const navMobile = document.querySelector(`.${navMobileStyles.nav}`)
+        if (navMobile) {
+            navMobile.setAttribute("style", "position: absolute;")
+        }
+    }, [])
+
     return (
         <React.Fragment>
             <Head>

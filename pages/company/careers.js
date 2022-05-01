@@ -48,6 +48,7 @@ export default function Careers({ jobs, toggleNav }) {
     const [selectedJobType, setSelectedJobType] = useState(null)
     const [keyword, setKeyword] = useState("")
     const [isOpen, setOpen] = useState(false)
+    const theme = "light"
 
     useNavTheme(
         "#company-btn",
@@ -55,7 +56,7 @@ export default function Careers({ jobs, toggleNav }) {
         navRef,
         "company-careers-btn"
     )
-    useActiveLink("company-btn", "a:nth-child(2)", isOpen)
+    useActiveLink("company-btn", "a:nth-child(2)", isOpen, "#fbfbfb")
 
     useEffect(() => {
         const updatedJobTypes = []
@@ -98,6 +99,7 @@ export default function Careers({ jobs, toggleNav }) {
                     setOpen(state)
                     toggleNav(state)
                 }}
+                theme={theme}
             />
             {!isOpen ? (
                 <div className={styles["company-careers"]}>

@@ -39,6 +39,12 @@
     height: 4em;
     top: 1rem;
     left: calc(4rem + 1.5rem + 3rem);
+    z-index: 4;
+}
+
+.logo-light {
+    width: 10em;
+    height: 3.75em;
 }
 
 .nav-mobile-opened {
