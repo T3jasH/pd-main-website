@@ -19,16 +19,10 @@ export default function Healthcare({ toggleNav }) {
         navRef
     )
     useActiveLink("industries-btn", "a:nth-child(1)", isOpen)
-    useEffect(() => {
-        const navLogo = document.querySelector(`.${navMobileStyles.logo}`)
-        if (navLogo) {
-            navLogo.setAttribute("style", "right:2.5rem; left: initial;")
-        }
-        const navMobile = document.querySelector(`.${navMobileStyles.nav}`)
-        if (navMobile) {
-            navMobile.setAttribute("style", "position: absolute;")
-        }
-    }, [])
+    const navMobileStyle = {
+        navLogo: "right:2.5rem; left: initial;",
+        nav: "position: absolute;",
+    }
 
     return (
         <React.Fragment>
@@ -43,6 +37,7 @@ export default function Healthcare({ toggleNav }) {
                     toggleNav(state)
                     setIsOpen(state)
                 }}
+                navMobileStyle={navMobileStyle}
             />
             {!isOpen ? (
                 <div className={styles.industries}>

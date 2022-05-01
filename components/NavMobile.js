@@ -25,6 +25,16 @@ const NavMobile = (props, navRef) => {
         }
     }, [isOpen])
 
+    useEffect(() => {
+        if (props.style && !isOpen) {
+            navRef.current?.setAttribute("style", props.style.nav)
+            const logo = document.querySelector(`.${style.logo}`)
+            if (logo) {
+                logo.setAttribute("style", props.style.navLogo)
+            }
+        }
+    }, [props.style, isOpen])
+
     const toggleDropdown = (id) => {
         let dropdown = null
         let parentDiv = document.getElementById(currentDropdown)
