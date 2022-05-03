@@ -12,6 +12,7 @@ import b2b from "../../assets/b2b.png"
 import multifactorAuth from "../../assets/multifactorAuth.png"
 import styles from "../../styles/services.module.scss"
 import useActiveLink from "../../hooks/useActiveLink"
+import navMobileStyles from "../../styles/navMobile.module.scss"
 // import { preLoad } from "../../clientUtils/preLoad"
 // import { wait } from "../../clientUtils/wait"
 
@@ -19,7 +20,12 @@ export default function Management({ toggleNav }) {
     const navRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
     useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
-    useActiveLink("services", "a:nth-child(4)", isOpen)
+    useActiveLink(
+        "services",
+        "a:nth-child(4)",
+        isOpen,
+        "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+    )
     const list = [
         {
             name: "Prodevans Digital Identity",
@@ -60,16 +66,6 @@ export default function Management({ toggleNav }) {
         },
     ]
     const [activeBtn, setActive] = useState("digital")
-    // useEffect(() => {
-    //     const load = async () => {
-    //         for (var i = 0; i < list.length; i++) {
-    //             setActive(list[i].btn)
-    //             await wait(100)
-    //         }
-    //         setActive("digital")
-    //     }
-    //     load()
-    // }, [])
     return (
         <React.Fragment>
             <Head>
@@ -83,6 +79,7 @@ export default function Management({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme="dark"
             />
             {!isOpen ? (
                 <div className={styles.modernization}>

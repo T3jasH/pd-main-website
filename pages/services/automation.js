@@ -27,7 +27,7 @@ export default function Automation({ toggleNav }) {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
-    useActiveLink("services", "a:nth-child(5)", isOpen)
+    useActiveLink("services", "a:nth-child(5)", isOpen, "#fbfbfb")
     return (
         <React.Fragment>
             <Head>
