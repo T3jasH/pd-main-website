@@ -19,6 +19,10 @@ export default function Education({ toggleNav }) {
         null
     )
     useActiveLink("industries-btn", "a:nth-child(2)", isOpen)
+    const navMobileStyle = {
+        navLogo: "right:2.5rem; left: initial;",
+        nav: "position: absolute;",
+    }
     return (
         <React.Fragment>
             <Head>
@@ -31,6 +35,7 @@ export default function Education({ toggleNav }) {
             </Head>
             <Navbar
                 ref={navRef}
+                navMobileStyle={navMobileStyle}
                 toggleNav={(state) => {
                     setIsOpen(state)
                     toggleNav(state)

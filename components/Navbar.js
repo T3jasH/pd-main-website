@@ -35,6 +35,7 @@ const Navbar = (props, navRef) => {
                 ref={navRef}
                 toggleNav={props.toggleNav}
                 theme={props.theme}
+                style={props.navMobileStyle}
             />
         )
     }

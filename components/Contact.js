@@ -9,7 +9,34 @@ export default function Contact({ setTheme }) {
         rootMargin: "-25% 0%",
     })
     const [message, setMessage] = useState({ content: "", className: "" })
-
+    const locationsData = [
+        {
+            id: "blr",
+            address:
+                "Building # 403, 4th Floor, Saket Callipolis\n Sarjapur Main Rd, Rainbow Drive,\n Doddakannelli\n Bengaluru - 560035\n Phone: +91 8095933365",
+        },
+        {
+            id: "blrCorp",
+            address:
+                "Building # 389, Second Floor, 8th Main, 7th Cross,\n MICO Layout, BTM 2nd stage,\n Bengaluru - 560076\n Phone: +91 8095933365",
+        },
+        {
+            id: "hyd",
+            address:
+                "Office # 422, Manjeera Majestic,\n JNTU Road, Hyderabad - 500072\n Phone: +91 40 66773365",
+        },
+        {
+            id: "bkmr",
+            address:
+                "167 Jalan Bukit Merah #05-12\n Connections One Singapore, 150167",
+        },
+        {
+            id: "okm",
+            address:
+                "5164, Madison Avenue, C02, Okemos,\n Michigan - 48864\n Phone: +1 (513) 394-1287",
+        },
+    ]
+    const [currentSelected, setSelected] = useState("blr")
     useEffect(() => {
         const nav = document.querySelector("nav")
         const navMobile = document.querySelector(`.${styleMobile["nav"]}`)
@@ -167,37 +194,78 @@ export default function Contact({ setTheme }) {
                     <div className={style.left}>
                         <div className={style.row}>
                             <div
-                                className={`${style.circle} ${style["top-left"]}`}
+                                className={`${style.circle} ${
+                                    style["top-left"]
+                                } ${
+                                    currentSelected === "blr"
+                                        ? style.selected
+                                        : null
+                                }`}
+                                onClick={() => setSelected("blr")}
                             >
                                 Bengaluru, India
                             </div>
                             <div
-                                className={`${style.circle} ${style["top-right"]}`}
+                                className={`${style.circle} ${
+                                    style["top-right"]
+                                } ${
+                                    currentSelected === "blrCorp"
+                                        ? style.selected
+                                        : null
+                                }`}
+                                onClick={() => setSelected("blrCorp")}
                             >
-                                Bengaluru, India
+                                Bengaluru, India (Corporate)
                             </div>
                         </div>
                         <div className={style.row}>
                             <div
-                                className={`${style.circle} ${style["bottom-left"]}`}
+                                className={`${style.circle} ${
+                                    style["bottom-left"]
+                                } ${
+                                    currentSelected === "hyd"
+                                        ? style.selected
+                                        : null
+                                }`}
+                                onClick={() => setSelected("hyd")}
                             >
                                 Hyderabad, India
                             </div>
                             <div
-                                className={`${style.circle} ${style["bottom-right"]}`}
+                                className={`${style.circle} ${
+                                    style["bottom-right"]
+                                } ${
+                                    currentSelected === "bkmr"
+                                        ? style.selected
+                                        : null
+                                }`}
+                                onClick={() => setSelected("bkmr")}
                             >
                                 Bukit Merah, Singapore
                             </div>
                         </div>
                         <div className={style.row}>
                             <div
-                                className={`${style.circle} ${style["center"]}`}
+                                className={`${style.circle} ${
+                                    style["center"]
+                                } ${
+                                    currentSelected === "okm"
+                                        ? style.selected
+                                        : null
+                                }`}
+                                onClick={() => setSelected("okm")}
                             >
                                 Okemos, USA
                             </div>
                         </div>
                     </div>
-                    <div className={style.right}></div>
+                    <div className={style.right}>
+                        {
+                            locationsData.find(
+                                ({ id }) => id === currentSelected
+                            )?.address
+                        }
+                    </div>
                 </div>
             </div>
         </div>

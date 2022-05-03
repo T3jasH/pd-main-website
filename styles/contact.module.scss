@@ -127,6 +127,7 @@
         }
         .map {
             position: relative;
+            width: 100%;
             @include flex-row(center, center, 2em);
             .left {
                 @include flex-column(center, center, 2em);
@@ -136,13 +137,18 @@
                     .circle {
                         z-index: 2;
                         position: relative;
-                        width: 6em;
-                        height: 6em;
+                        width: 7em;
+                        height: 7em;
                         border-radius: 50%;
                         background-color: #efefef;
                         color: #000;
                         text-align: center;
                         @include flex-row(center, center, 0);
+                        cursor: pointer;
+                    }
+                    .selected {
+                        background-color: #4987d8;
+                        color: #efefef;
                     }
                     .top-left {
                         transform: translateX(-2em) translateY(-2em);
@@ -157,12 +163,18 @@
                         transform: translateX(2em) translateY(2em);
                     }
                     .center {
-                        transform: translateY(-12.5em);
+                        transform: translateY(-13.5em);
                     }
                 }
             }
             .right {
+                @include flex-row(center, center, 0);
                 width: calc(50% - 2em);
+                white-space: pre-line;
+                color: #4987d8;
+                font-size: 1.5rem;
+                font-weight: 500;
+                transform: translateY(-2em);
             }
         }
     }

@@ -19,6 +19,10 @@ export default function Telecom({ toggleNav }) {
         navRef
     )
     useActiveLink("industries-btn", "a:nth-child(3)", isOpen)
+    const navMobileStyle = {
+        navLogo: "right:2.5rem; left: initial;",
+        nav: "position: absolute;",
+    }
     const list = [
         {
             btn: "digital",
@@ -61,6 +65,7 @@ export default function Telecom({ toggleNav }) {
             </Head>
             <Navbar
                 ref={navRef}
+                navMobileStyle={navMobileStyle}
                 toggleNav={(state) => {
                     setIsOpen(state)
                     toggleNav(state)
