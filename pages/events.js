@@ -7,6 +7,7 @@ import useNavTheme from "../hooks/useNavTheme"
 import { useState } from "react"
 import Image from "next/image"
 import { pastEvents, upcomingEvents } from "../data"
+import useActiveLink from "../hooks/useActiveLink"
 
 export default function Events() {
     const navRef = useRef(null)
@@ -60,7 +61,7 @@ export default function Events() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar ref={navRef} />
-            {!isOpenc ? (
+            {!isOpen ? (
                 <div className={styles.events}>
                     <Select
                         className={styles.dropdown}
