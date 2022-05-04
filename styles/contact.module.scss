@@ -110,72 +110,75 @@
             }
         }
     }
-    .locations {
-        @include flex-column(center, center, 2em);
+}
+
+.locations {
+    @include flex-column(center, center, 2em);
+    position: relative;
+    width: 100%;
+    z-index: 0;
+    background-color: #fbfbfb;
+    padding: 2em 0 1em 0;
+    h2 {
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(#447ab6 100%, #2a4b70 100%);
+        width: max-content;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .map {
         position: relative;
-        margin-top: 1em;
         width: 100%;
-        z-index: 0;
-        h2 {
-            font-weight: 600;
-            font-family: "Montserrat", sans-serif;
-            background: linear-gradient(#447ab6 100%, #2a4b70 100%);
-            width: max-content;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .map {
-            position: relative;
-            width: 100%;
-            @include flex-row(center, center, 2em);
-            .left {
-                @include flex-column(center, center, 2em);
-                width: 50%;
-                .row {
-                    @include flex-row(flex-start, flex-start, 2em);
-                    .circle {
-                        z-index: 2;
-                        position: relative;
-                        width: 7em;
-                        height: 7em;
-                        border-radius: 50%;
-                        background-color: #efefef;
-                        color: #000;
-                        text-align: center;
-                        @include flex-row(center, center, 0);
-                        cursor: pointer;
-                    }
-                    .selected {
-                        background-color: #4987d8;
-                        color: #efefef;
-                    }
-                    .top-left {
-                        transform: translateX(-2em) translateY(-2em);
-                    }
-                    .top-right {
-                        transform: translateX(2em) translateY(-2em);
-                    }
-                    .bottom-left {
-                        transform: translateX(-2em) translateY(2em);
-                    }
-                    .bottom-right {
-                        transform: translateX(2em) translateY(2em);
-                    }
-                    .center {
-                        transform: translateY(-13.5em);
-                    }
+        @include flex-row(center, center, 2em);
+        padding-top: 1em;
+        .left {
+            @include flex-column(center, center, 2em);
+            width: 50%;
+            .row {
+                @include flex-row(flex-start, flex-start, 2em);
+                .circle {
+                    z-index: 2;
+                    position: relative;
+                    width: 7em;
+                    height: 7em;
+                    border-radius: 50%;
+                    background-color: #272727;
+                    color: #efefef;
+                    text-align: center;
+                    @include flex-row(center, center, 0);
+                    cursor: pointer;
+                }
+                .selected {
+                    background-color: #4987d8;
+                    color: #efefef;
+                }
+                .top-left {
+                    transform: translateX(-2em) translateY(-2em);
+                }
+                .top-right {
+                    transform: translateX(2em) translateY(-2em);
+                }
+                .bottom-left {
+                    transform: translateX(-2em) translateY(2em);
+                }
+                .bottom-right {
+                    transform: translateX(2em) translateY(2em);
+                }
+                .center {
+                    transform: translateY(-13.5em);
                 }
             }
-            .right {
-                @include flex-row(center, center, 0);
-                width: calc(50% - 2em);
-                white-space: pre-line;
-                color: #4987d8;
-                font-size: 1.5rem;
-                font-weight: 500;
-                transform: translateY(-2em);
-            }
+        }
+        .right {
+            @include flex-row(center, center, 0);
+            width: calc(50% - 2em);
+            white-space: pre-line;
+            color: #4987d8;
+            font-size: 1.5rem;
+            font-weight: 500;
+            transform: translateY(-2em);
         }
     }
 }
