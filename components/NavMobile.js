@@ -71,6 +71,11 @@ const NavMobile = (props, navRef) => {
                         className={style["nav"]}
                         onClick={() => setOpen(!isOpen)}
                         ref={navRef}
+                        style={
+                            props.theme === "light"
+                                ? { backgroundColor: "#1b1b1b" }
+                                : { backgroundColor: "#f4f4f4" }
+                        }
                     ></button>
                     <div
                         className={`${style.logo} ${

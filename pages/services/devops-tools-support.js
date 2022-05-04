@@ -22,7 +22,12 @@ export default function Devops({ toggleNav }) {
         },
     ]
     const [isOpen, setIsOpen] = useState(false)
-    useActiveLink("services", "a:nth-child(6)", isOpen)
+    useActiveLink(
+        "services",
+        "a:nth-child(6)",
+        isOpen,
+        "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+    )
     const navRef = useRef(null)
     useNavTheme("#services", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
     return (

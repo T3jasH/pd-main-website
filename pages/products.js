@@ -16,7 +16,12 @@ export default function Products({ toggleNav }) {
         "--bgColor: #1b1b1b; --textColor: #fff;",
         navRef
     )
-    useActiveLink("products-btn", null, isOpen)
+    useActiveLink(
+        "products-btn",
+        null,
+        isOpen,
+        "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+    )
     const [products, setProducts] = useState([
         {
             title: "PDCloudEX",
@@ -50,6 +55,7 @@ export default function Products({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"dark"}
             />
             {!isOpen ? (
                 <div className={styles.products}>
