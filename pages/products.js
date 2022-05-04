@@ -3,6 +3,7 @@ import Image from "next/image"
 import React, { useRef, useState } from "react"
 import Navbar from "../components/Navbar"
 import product from "../assets/product.png"
+import iVentura from "../assets/iVentura.png"
 import productHover from "../assets/productHover.png"
 import useNavTheme from "../hooks/useNavTheme"
 import styles from "../styles/products.module.scss"
@@ -34,7 +35,7 @@ export default function Products({ toggleNav }) {
         },
         {
             title: "IVentura",
-            img: product,
+            img: iVentura,
             hoverText:
                 "One-Stop-Shop for Data Scientists to Code, Collaborate, Deploy & Share Machine Learning Models",
             hoverImg: productHover,
@@ -65,7 +66,11 @@ export default function Products({ toggleNav }) {
                                 href={product.href}
                                 target={"_blank"}
                                 rel="noreferrer"
-                                className={styles["product-img"]}
+                                className={`${styles["product-img"]} ${
+                                    product.hovering
+                                        ? styles["active-product"]
+                                        : ""
+                                }`}
                                 onMouseEnter={() =>
                                     setProducts((prev) =>
                                         prev.map((prod) => {
@@ -97,11 +102,7 @@ export default function Products({ toggleNav }) {
                                     alt={product.title}
                                     layout="responsive"
                                     objectFit="fill"
-                                    src={
-                                        product.hovering
-                                            ? product.hoverImg
-                                            : product.img
-                                    }
+                                    src={product.img}
                                 />
                                 <p>{product.hoverText}</p>
                             </a>

@@ -35,6 +35,11 @@ export default function Contact({ setTheme }) {
             address:
                 "5164, Madison Avenue, C02, Okemos,\n Michigan - 48864\n Phone: +1 (513) 394-1287",
         },
+        {
+            id: "bom",
+            address:
+                "308- B Wing, 3rd Floor, Town Centre 2,\n Opposite Times Square, Andheri - Kurla Rd,\n Marol, Andheri East, Mumbai,\n Maharashtra 400059",
+        },
     ]
     const [currentSelected, setSelected] = useState("blr")
     useEffect(() => {
@@ -197,8 +202,6 @@ export default function Contact({ setTheme }) {
                         <div className={style.row}>
                             <div
                                 className={`${style.circle} ${
-                                    style["top-left"]
-                                } ${
                                     currentSelected === "blr"
                                         ? style.selected
                                         : null
@@ -209,8 +212,6 @@ export default function Contact({ setTheme }) {
                             </div>
                             <div
                                 className={`${style.circle} ${
-                                    style["top-right"]
-                                } ${
                                     currentSelected === "blrCorp"
                                         ? style.selected
                                         : null
@@ -222,9 +223,7 @@ export default function Contact({ setTheme }) {
                         </div>
                         <div className={style.row}>
                             <div
-                                className={`${style.circle} ${
-                                    style["bottom-left"]
-                                } ${
+                                className={`${style.circle}  ${
                                     currentSelected === "hyd"
                                         ? style.selected
                                         : null
@@ -235,8 +234,6 @@ export default function Contact({ setTheme }) {
                             </div>
                             <div
                                 className={`${style.circle} ${
-                                    style["bottom-right"]
-                                } ${
                                     currentSelected === "bkmr"
                                         ? style.selected
                                         : null
@@ -249,8 +246,6 @@ export default function Contact({ setTheme }) {
                         <div className={style.row}>
                             <div
                                 className={`${style.circle} ${
-                                    style["center"]
-                                } ${
                                     currentSelected === "okm"
                                         ? style.selected
                                         : null
@@ -258,6 +253,16 @@ export default function Contact({ setTheme }) {
                                 onClick={() => setSelected("okm")}
                             >
                                 Okemos, USA
+                            </div>
+                            <div
+                                className={`${style.circle} ${
+                                    currentSelected === "bom"
+                                        ? style.selected
+                                        : null
+                                }`}
+                                onClick={() => setSelected("bom")}
+                            >
+                                Mumbai, India
                             </div>
                         </div>
                     </div>
