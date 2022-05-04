@@ -13,9 +13,9 @@ import sushma from "../../assets/sushmaShriram.png"
 import raj from "../../assets/rajPalDhanjal.jpg"
 import sowmya from "../../assets/sowmyaHM.png"
 import nityananda from "../../assets/nityananda.png"
-import vijay from "../../assets/vijayAgarwal.jpg"
+import vijay from "../../assets/vijayAgarwal.png"
 import shaheen from "../../assets/shaheenMalim.png"
-import sumit from "../../assets/sumitCharan.jpg"
+import sumit from "../../assets/sumit.png"
 import sarma from "../../assets/sarma.png"
 import vemu from "../../assets/chandrahasaVemu.png"
 import linkedin from "../../assets/linkedin.png"
@@ -77,8 +77,6 @@ export default function About({ toggleNav, deviceType }) {
                 "https://www.linkedin.com/in/arvind-kumar-sinha-685a3812b",
             gmail: "mailto:arvind@prodevans.com",
             src: arvind,
-            smallImg: true,
-            classname: "large",
         },
         {
             name: "S Santha Kumar",
@@ -169,7 +167,6 @@ export default function About({ toggleNav, deviceType }) {
             linkedin: "",
             gmail: "",
             src: sumit,
-            smallImg: true,
         },
         {
             name: "Sarma Pannala",
@@ -179,7 +176,6 @@ export default function About({ toggleNav, deviceType }) {
             linkedin: "",
             gmail: "",
             src: sarma,
-            smallImg: true,
         },
         {
             name: "Chandrahasa Vemu",
