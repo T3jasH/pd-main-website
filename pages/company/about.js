@@ -5,16 +5,19 @@ import Image from "next/image"
 import Head from "next/head"
 import squares from "../../assets/squares.png"
 import deepak from "../../assets/deepakMishra.png"
-import arvind from "../../assets/arvindKumarSinha.png"
+import arvind from "../../assets/arvind.png"
 import dilip from "../../assets/dilipHublikar.png"
 import gagan from "../../assets/gaganPattanayak.png"
 import santha from "../../assets/santhaKumar.png"
 import sushma from "../../assets/sushmaShriram.png"
 import raj from "../../assets/rajPalDhanjal.jpg"
 import sowmya from "../../assets/sowmyaHM.png"
-import nityananda from "../../assets/nityanandaPanda.jpg"
+import nityananda from "../../assets/nityananda.png"
 import vijay from "../../assets/vijayAgarwal.jpg"
 import shaheen from "../../assets/shaheenMalim.png"
+import sumit from "../../assets/sumitCharan.jpg"
+import sarma from "../../assets/sarma.png"
+import vemu from "../../assets/chandrahasaVemu.png"
 import linkedin from "../../assets/linkedin.png"
 import gmail from "../../assets/gmail.png"
 import blueSquares from "../../assets/blueSquares.png"
@@ -75,6 +78,7 @@ export default function About({ toggleNav, deviceType }) {
             gmail: "mailto:arvind@prodevans.com",
             src: arvind,
             smallImg: true,
+            classname: "large",
         },
         {
             name: "S Santha Kumar",
@@ -156,6 +160,35 @@ export default function About({ toggleNav, deviceType }) {
             linkedin: "",
             gmail: "",
             src: shaheen,
+        },
+        {
+            name: "Sumit Charan",
+            designation: "Chief Growth Officer and Head for Process",
+            content:
+                "Sumit serves as Chief Growth Officer and Head of Process in Prodevans technologies. He is a passionate leader with more than 15 years of professional experience in business development, project management, people management, and operation. He joined the Prodevans in 2021 and focused on expanding the company by deriving a sustainable growth strategy. Prior to that, he was associated with the semiconductor industry and had a stint overseas experience (US, Europe).\n Sumit holds a Bachelor of Engineering degree from MCE Hassan and a Business Management degree from IIM Indore. He has also accomplished a leadership program from SDA Bocconi School of Management, Italy",
+            linkedin: "",
+            gmail: "",
+            src: sumit,
+            smallImg: true,
+        },
+        {
+            name: "Sarma Pannala",
+            designation: "Head Project Management",
+            content:
+                "Sarma Pannala has 20 Years of professional  IT experience, worked  in major Industry giants. In the professional Saga, worked in Support, System Arch, Product Owner, Service Delivery, Project Management and Training. Played a Pivotal role in making tasks and the mission a success. Cross functional work, good rapo with the teams working and understanding the dependency and resolving the conflicts.\nSarma has good experience in working for North American  and European clients.",
+            linkedin: "",
+            gmail: "",
+            src: sarma,
+            smallImg: true,
+        },
+        {
+            name: "Chandrahasa Vemu",
+            designation: "Director Prodevans SG",
+            content:
+                "Vemu Venkata Sri Sai Chandrahasa Pravana is a tech wizard with deep expertise in DevOps, Cloud and ML/Al. He is a cloud practitioner with proficiency in agile product development, solutions and client handling across multiple industries and verticals.\n With experience in interacting with stakeholders at all levels, he ensures the establishment of technical and architectural frameworks and methodologies.",
+            linkedin: "",
+            gmail: "",
+            src: vemu,
         },
     ]
     const responsive = {
@@ -348,6 +381,10 @@ export default function About({ toggleNav, deviceType }) {
                                     } ${
                                         current === profile.name
                                             ? styles.colored
+                                            : null
+                                    } ${
+                                        profile.classname
+                                            ? profile.classname
                                             : null
                                     }`}
                                 >

@@ -136,6 +136,10 @@
         .left {
             @include flex-column(center, center, 2em);
             width: 50%;
+            @media screen and (max-width: 550px) {
+                padding-left: 0.5em;
+                width: calc(60% - 0.5em);
+            }
             .row {
                 @include flex-row(flex-start, flex-start, 2em);
                 .circle {
@@ -149,6 +153,11 @@
                     text-align: center;
                     @include flex-row(center, center, 0);
                     cursor: pointer;
+                    @media screen and (max-width: 550px) {
+                        width: 6.5em;
+                        height: 6.5em;
+                        font-size: 0.9em;
+                    }
                 }
                 .selected {
                     background-color: #4987d8;
@@ -169,16 +178,41 @@
                 .center {
                     transform: translateY(-13.5em);
                 }
+                @media screen and (max-width: 550px) {
+                    .top-left {
+                        transform: translateX(-1em) translateY(-1em);
+                    }
+                    .top-right {
+                        transform: translateX(1em) translateY(-1em);
+                    }
+                    .bottom-left {
+                        transform: translateX(-1em) translateY(1em);
+                    }
+                    .bottom-right {
+                        transform: translateX(1em) translateY(1em);
+                    }
+                    .center {
+                        transform: translateY(-12.5em);
+                    }
+                }
             }
         }
         .right {
             @include flex-row(center, center, 0);
+            padding-right: 1em;
             width: calc(50% - 2em);
             white-space: pre-line;
             color: #4987d8;
             font-size: 1.5rem;
             font-weight: 500;
             transform: translateY(-2em);
+            @media screen and (max-width: 550px) {
+                width: calc(40% - 1em);
+                font-size: 1.2rem;
+            }
+        }
+        @media screen and (max-width: 650px) {
+            padding-top: 2em;
         }
     }
 }

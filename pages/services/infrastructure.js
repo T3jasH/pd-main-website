@@ -12,7 +12,7 @@ export default function Infrastructure({ toggleNav }) {
     const navRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
     useNavTheme("#services", "--bgColor: #fbfbfb; --textColor: #000;", navRef)
-    useActiveLink("services", "a:nth-child(7)", isOpen)
+    useActiveLink("services", "a:nth-child(7)", isOpen, "#fbfbfb")
     const cards = [
         {
             title: "Red Hat and RDO OpenStack",
@@ -53,6 +53,7 @@ export default function Infrastructure({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"light"}
             />
             {!isOpen ? (
                 <div

@@ -44,6 +44,7 @@ export default function Automation({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"light"}
             />
             {!isOpen ? (
                 <div className={styles.cloud}>

@@ -12,7 +12,12 @@ export default function Media({ toggleNav }) {
     const navRef = useRef(null)
     const [isOpen, setIsOpen] = useState(false)
     useNavTheme("#resources", "--bgColor: #1b1b1b; --textColor: #fff;", navRef)
-    useActiveLink("resources", "a:nth-child(2)", isOpen)
+    useActiveLink(
+        "resources",
+        "a:nth-child(2)",
+        isOpen,
+        "linear-gradient(135.03deg, #1b1b1b 75.01%, #1b1b1b 75.01%)"
+    )
     return (
         <React.Fragment>
             <Head>
@@ -29,6 +34,7 @@ export default function Media({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"dark"}
             />
             {!isOpen ? (
                 <div className={styles.media}>

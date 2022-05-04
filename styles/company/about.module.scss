@@ -115,6 +115,9 @@
         width: calc(90% - 4rem);
         padding: 2rem;
         transform: translateX(5%);
+        @media screen and (max-width: 400px) {
+            transform: translateX(-1%);
+        }
         li > div {
             display: flex;
             justify-content: center;
@@ -141,6 +144,10 @@
                 width: 8.5rem;
                 height: 8.5rem;
                 margin-bottom: 1.5rem;
+            }
+            .large {
+                width: 14rem;
+                height: 14rem;
             }
             .colored {
                 border: 0.25em solid #4a87d9;

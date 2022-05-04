@@ -59,7 +59,7 @@ export default function Brochures({ toggleNav }) {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
-    useActiveLink("resources", "a:nth-child(3)", isOpen)
+    useActiveLink("resources", "a:nth-child(3)", isOpen, "#fbfbfb")
     return (
         <React.Fragment>
             <Head>
@@ -76,6 +76,7 @@ export default function Brochures({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"light"}
             />
             {!isOpen ? (
                 <div className={styles.brochures}>

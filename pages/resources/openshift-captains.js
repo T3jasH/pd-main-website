@@ -22,7 +22,7 @@ export default function OpenShift({ toggleNav }) {
         "--bgColor: #f4f4f4; --textColor: #0a0a0a;",
         navRef
     )
-    useActiveLink("resources", "a:nth-child(4)", isOpen)
+    useActiveLink("resources", "a:nth-child(4)", isOpen, "#fbfbfb")
     const { ref: footerRef, inView } = useInView({
         rootMargin: "-25% 0%",
     })
@@ -84,6 +84,7 @@ export default function OpenShift({ toggleNav }) {
                     setIsOpen(state)
                     toggleNav(state)
                 }}
+                theme={"light"}
             />
             {!isOpen ? (
                 <div className={styles.openshift}>
