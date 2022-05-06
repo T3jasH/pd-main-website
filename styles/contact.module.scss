@@ -108,6 +108,12 @@
                     }
                 }
             }
+            .error {
+                color: #fff;
+            }
+            .success {
+                color: #51ed21;
+            }
         }
     }
 }
@@ -118,7 +124,7 @@
     width: 100%;
     z-index: 0;
     background-color: #fbfbfb;
-    padding: 2em 0 1em 0;
+    padding: 2em 0 2em 0;
     h2 {
         font-weight: 600;
         font-family: "Montserrat", sans-serif;
@@ -133,15 +139,31 @@
         width: 100%;
         @include flex-row(center, center, 2em);
         padding-top: 1em;
+        @media screen and (max-width: 350px) {
+            flex-direction: column;
+            gap: 3em;
+        }
         .left {
             @include flex-column(center, center, 2em);
             width: 50%;
-            @media screen and (max-width: 550px) {
+            @media screen and (max-width: 650px) {
+                gap: 0.75em;
+            }
+            @media screen and (max-width: 500px) {
+                gap: 0.35em;
+            }
+            @media screen and (max-width: 570px) {
                 padding-left: 0.5em;
                 width: calc(60% - 0.5em);
             }
             .row {
                 @include flex-row(flex-start, flex-start, 2em);
+                @media screen and (max-width: 650px) {
+                    gap: 0.75em;
+                }
+                @media screen and (max-width: 500px) {
+                    gap: 0.35em;
+                }
                 .circle {
                     z-index: 2;
                     position: relative;
@@ -153,11 +175,12 @@
                     text-align: center;
                     @include flex-row(center, center, 0);
                     cursor: pointer;
-                    // @media screen and (max-width: 550px) {
-                    //     width: 6.5em;
-                    //     height: 6.5em;
-                    //     font-size: 0.9em;
-                    // }
+                    @media screen and (max-width: 500px) {
+                        width: 6.2em;
+                        height: 6.2em;
+                        padding: 0.2em;
+                        font-size: 0.75em;
+                    }
                 }
                 .selected {
                     background-color: #4987d8;
@@ -205,9 +228,13 @@
             color: #4987d8;
             font-size: 1.5rem;
             font-weight: 500;
-            @media screen and (max-width: 550px) {
+            @media screen and (max-width: 570px) {
                 width: calc(40% - 1em);
                 font-size: 1.2rem;
+            }
+            @media screen and (max-width: 350px) {
+                padding: 0;
+                width: 80%;
             }
         }
         @media screen and (max-width: 650px) {

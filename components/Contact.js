@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useMemo } from "react"
 import { useInView } from "react-intersection-observer"
 import style from "../styles/contact.module.scss"
 import styleMobile from "../styles/navMobile.module.scss"
@@ -11,37 +11,55 @@ export default function Contact({ setTheme }) {
     const [message, setMessage] = useState({ content: "", className: "" })
     const locationsData = [
         {
-            id: "blr",
-            address:
-                "Building # 403, 4th Floor, Saket Callipolis\n Sarjapur Main Rd, Rainbow Drive,\n Doddakannelli\n Bengaluru - 560035\n Phone: +91 8095933365",
-        },
-        {
+            name: "Bengaluru, India (Corporate)",
             id: "blrCorp",
             address:
                 "Building # 389, Second Floor, 8th Main, 7th Cross,\n MICO Layout, BTM 2nd stage,\n Bengaluru - 560076\n Phone: +91 8095933365",
         },
         {
+            name: "Bengaluru, India",
+            id: "blr",
+            address:
+                "Building # 403, 4th Floor, Saket Callipolis\n Sarjapur Main Rd, Rainbow Drive,\n Doddakannelli\n Bengaluru - 560035\n Phone: +91 8095933365",
+        },
+        {
+            name: "Hyderabad, India",
             id: "hyd",
             address:
                 "Office # 422, Manjeera Majestic,\n JNTU Road, Hyderabad - 500072\n Phone: +91 40 66773365",
         },
         {
+            name: "Bukit Merah, Singapore",
             id: "bkmr",
             address:
                 "167 Jalan Bukit Merah #05-12\n Connections One Singapore, 150167",
         },
         {
+            name: "Okemos, USA",
             id: "okm",
             address:
                 "5164, Madison Avenue, C02, Okemos,\n Michigan - 48864\n Phone: +1 (513) 394-1287",
         },
         {
+            name: "Mumbai, India",
             id: "bom",
             address:
                 "308- B Wing, 3rd Floor, Town Centre 2,\n Opposite Times Square, Andheri - Kurla Rd,\n Marol, Andheri East, Mumbai,\n Maharashtra 400059",
         },
     ]
-    const [currentSelected, setSelected] = useState("blr")
+    const pyramid = useMemo(() => {
+        const locations = []
+        let k = 0
+        for (let i = 0; i < 3; i++) {
+            const subArray = []
+            for (let j = 0; j <= i; j++) {
+                subArray.push(locationsData[k++])
+            }
+            locations.push(subArray)
+        }
+        return locations
+    }, [])
+    const [currentSelected, setSelected] = useState("blrCorp")
     useEffect(() => {
         const nav = document.querySelector("nav")
         const navMobile = document.querySelector(`.${styleMobile["nav"]}`)
@@ -88,8 +106,28 @@ export default function Contact({ setTheme }) {
         }
     }, [inView])
     const validate = (msg) => {
-        console.log(msg, masg.name, msg.designation, msg.email, msg.message)
-        throw new Error("Error")
+        const sender = msg.sender.value
+        const designation = msg.designation.value
+        const emailId = msg.emailId.value
+        const message = msg.message.value
+        const phoneNo = msg.message.value
+        const company = msg.company.value
+        if (
+            [sender, designation, emailId, message, phoneNo, company].some(
+                (value) => value.length === 0
+            )
+        ) {
+            throw new Error("Please fill all fields!")
+        }
+        if (
+            !emailId
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                )
+        ) {
+            throw new Error("Please enter a valid email ID")
+        }
     }
     const submit = (e) => {
         e.preventDefault()
@@ -97,7 +135,9 @@ export default function Contact({ setTheme }) {
             validate(e.target)
         } catch (err) {
             setMessage({ content: err.message, className: "error" })
+            return
         }
+        setMessage({ content: "", className: "" })
         emailjs
             .sendForm(
                 process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
@@ -107,12 +147,12 @@ export default function Contact({ setTheme }) {
             )
             .then((result) => {
                 setMessage({
-                    content: "Message sent successfully",
+                    content: "Message sent successfully!",
                     className: "success",
                 })
                 setTimeout(() => {
                     setMessage({ content: "", className: "" })
-                }, 3000)
+                }, 5000)
             })
             .catch((err) => {
                 console.log(err.text)
@@ -125,6 +165,41 @@ export default function Contact({ setTheme }) {
 
     return (
         <>
+            <div className={style.locations}>
+                <h2>Find us at</h2>
+                <div className={style.map}>
+                    <div className={style.left}>
+                        {pyramid.map((subArray, i) => {
+                            return (
+                                <div className={style.row} key={i}>
+                                    {subArray.map((location) => (
+                                        <div
+                                            key={location.id}
+                                            className={`${style.circle} ${
+                                                currentSelected === location.id
+                                                    ? style.selected
+                                                    : ""
+                                            }`}
+                                            onClick={() =>
+                                                setSelected(location.id)
+                                            }
+                                        >
+                                            <p>{location.name}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <div className={style.right}>
+                        {
+                            locationsData.find(
+                                ({ id }) => id === currentSelected
+                            )?.address
+                        }
+                    </div>
+                </div>
+            </div>
             <div id={"contact"} className={style.contact} ref={ref}>
                 <div className={style.left}>
                     <h2>Get in touch.</h2>
@@ -186,93 +261,13 @@ export default function Contact({ setTheme }) {
                                 name="message"
                             />
                         </div>
+                        <p className={style[`${message.className}`]}>
+                            {message.content}
+                        </p>
                         <div className={style["form-row"]}>
                             <input type="submit" value="Submit" />
                         </div>
                     </form>
-                    <p className={style[`${message.className}`]}>
-                        {message.content}
-                    </p>
-                </div>
-            </div>
-            <div className={style.locations}>
-                <h2>Find us at</h2>
-                <div className={style.map}>
-                    <div className={style.left}>
-                        <div className={style.row}>
-                            <div
-                                className={`${style.circle} ${
-                                    currentSelected === "blr"
-                                        ? style.selected
-                                        : null
-                                }`}
-                                onClick={() => setSelected("blr")}
-                            >
-                                Bengaluru, India
-                            </div>
-                            <div
-                                className={`${style.circle} ${
-                                    currentSelected === "blrCorp"
-                                        ? style.selected
-                                        : null
-                                }`}
-                                onClick={() => setSelected("blrCorp")}
-                            >
-                                Bengaluru, India (Corporate)
-                            </div>
-                        </div>
-                        <div className={style.row}>
-                            <div
-                                className={`${style.circle}  ${
-                                    currentSelected === "hyd"
-                                        ? style.selected
-                                        : null
-                                }`}
-                                onClick={() => setSelected("hyd")}
-                            >
-                                Hyderabad, India
-                            </div>
-                            <div
-                                className={`${style.circle} ${
-                                    currentSelected === "bkmr"
-                                        ? style.selected
-                                        : null
-                                }`}
-                                onClick={() => setSelected("bkmr")}
-                            >
-                                Bukit Merah, Singapore
-                            </div>
-                        </div>
-                        <div className={style.row}>
-                            <div
-                                className={`${style.circle} ${
-                                    currentSelected === "okm"
-                                        ? style.selected
-                                        : null
-                                }`}
-                                onClick={() => setSelected("okm")}
-                            >
-                                Okemos, USA
-                            </div>
-                            <div
-                                className={`${style.circle} ${
-                                    currentSelected === "bom"
-                                        ? style.selected
-                                        : null
-                                }`}
-                                onClick={() => setSelected("bom")}
-                            >
-                                Mumbai, India
-                            </div>
-                        </div>
-                    </div>
-                    <div className={style.right}>
-                        {
-                            locationsData.find(
-                                ({ id }) => id === currentSelected
-                            )?.address
-                        }
-                    </div>
                 </div>
             </div>
         </>
