@@ -14,16 +14,13 @@ export default function CommonFooter() {
     return (
         <footer className={style["common-footer"]}>
             <div className={style.list}>
-                <p>Bengaluru&apos;s Office Address</p>
+                <p>India HQ Address</p>
                 <span>
-                    <p>Building # 403 , 4th Floor, Saket</p>
-                    <p>
-                        Callipolis Sarjapur Main Rd, Rainbow Drive,
-                        Doddakannelli Bengaluru - 560035
-                    </p>
+                    <p>Building # 389, Second Floor, 8th Main, 7th Cross,</p>
+                    <p>MICO Layout, BTM 2nd stage, Bengaluru - 560076</p>
                 </span>
                 <p>Phone: +91 8095933365</p>
-                <p>Email: ask@Prodevans.com</p>
+                <p>Email: ask@prodevans.com</p>
             </div>
             <div className={style.list}>
                 <p>Our Services</p>

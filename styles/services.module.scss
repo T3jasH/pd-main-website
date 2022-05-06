@@ -108,6 +108,10 @@
     }
     .service-features {
         padding: 2em;
+        @media screen and (max-width: 420px) {
+            padding: 2em 0;
+        }
+
         h3 {
             margin-top: 0em;
         }
@@ -129,6 +133,10 @@
                 height: 16rem;
                 box-shadow: 16px 13px 13px -10px rgba(0, 0, 0, 0.1);
                 border-radius: 1.1rem;
+                @media screen and (max-width: 420px) {
+                    width: 90%;
+                    height: 18rem;
+                }
                 .graphic {
                     width: 4.5rem;
                     height: 4.75rem;

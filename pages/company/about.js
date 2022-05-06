@@ -30,6 +30,7 @@ import useNavTheme from "../../hooks/useNavTheme"
 import useActiveLink from "../../hooks/useActiveLink"
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
+import { useMediaQuery } from "react-responsive"
 
 export const getInitialProps = ({ req }) => {
     let userAgent
@@ -55,9 +56,13 @@ export default function About({ toggleNav, deviceType }) {
     const { ref, inView } = useInView({
         rootMargin: "-50% 0%",
     })
+    const isPhone = useMediaQuery({
+        query: "(max-device-width: 470px)",
+    })
     const [isOpen, setOpen] = useState(false)
     const [theme, setTheme] = useState("light")
     const [current, setCurrent] = useState("Deepak Mishra")
+    const [hovered, setHovered] = useState(null)
     const profiles = [
         {
             name: "Deepak Mishra",
@@ -199,7 +204,7 @@ export default function About({ toggleNav, deviceType }) {
             slidesToSlide: 2,
         },
         mobile: {
-            breakpoint: { max: 464, min: 0 },
+            breakpoint: { max: 470, min: 0 },
             items: 1,
             slidesToSlide: 1,
         },
@@ -242,6 +247,24 @@ export default function About({ toggleNav, deviceType }) {
             setTheme("dark")
         }
     }, [inView])
+    const moveRight = () => {
+        if (!isPhone) {
+            return
+        }
+        setCurrent((prev) => {
+            const idx = profiles.findIndex((prof) => prof.name === prev)
+            return profiles[(idx + 1) % profiles.length].name
+        })
+    }
+    const moveLeft = () => {
+        if (!isPhone) {
+            return
+        }
+        setCurrent((prev) => {
+            const idx = profiles.findIndex((prof) => prof.name === prev)
+            return profiles[(idx - 1 + profiles.length) % profiles.length].name
+        })
+    }
     const CustomRightArrow = ({ onClick, ...rest }) => {
         const {
             onMove,
@@ -250,7 +273,10 @@ export default function About({ toggleNav, deviceType }) {
         return (
             <button
                 className={styles["right-arrow"]}
-                onClick={() => onClick()}
+                onClick={() => {
+                    onClick()
+                    moveRight()
+                }}
             />
         )
     }
@@ -262,7 +288,10 @@ export default function About({ toggleNav, deviceType }) {
         return (
             <button
                 className={styles["left-arrow"]}
-                onClick={() => onClick()}
+                onClick={() => {
+                    onClick()
+                    moveLeft()
+                }}
             />
         )
     }
@@ -367,6 +396,12 @@ export default function About({ toggleNav, deviceType }) {
                                 className={styles["profile-container"]}
                             >
                                 <div
+                                    onMouseEnter={(e) => {
+                                        setHovered(profile.name)
+                                    }}
+                                    onMouseLeave={(e) => {
+                                        setHovered(null)
+                                    }}
                                     onClick={() => {
                                         setCurrent(profile.name)
                                     }}
@@ -382,7 +417,13 @@ export default function About({ toggleNav, deviceType }) {
                                         profile.classname
                                             ? profile.classname
                                             : null
-                                    }`}
+                                    }
+                                    ${
+                                        hovered === profile.name
+                                            ? styles.hovered
+                                            : null
+                                    }
+                                    `}
                                 >
                                     <Image
                                         alt="squares graphic"

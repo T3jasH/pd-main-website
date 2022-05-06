@@ -1,6 +1,6 @@
 import Head from "next/head"
 import Image from "next/image"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useRef, useState } from "react"
 import Navbar from "../../components/Navbar"
 import arrow from "../../assets/arrowWhite.svg"
 import useNavTheme from "../../hooks/useNavTheme"
